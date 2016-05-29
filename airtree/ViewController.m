@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "MKNetworkKit.h"
-#import "MainController.h"
+#import "NavViewController.h"
 
 @interface ViewController ()
 
@@ -58,8 +58,8 @@
             
             BOOL boolValue = [success boolValue];
             if (boolValue) {
-                MainController *main = [self.storyboard instantiateViewControllerWithIdentifier:@"MainController"];
-                [self presentViewController:main animated:YES completion:nil];
+                NavViewController *nav = [self.storyboard instantiateViewControllerWithIdentifier:@"NavViewController"];
+                [self presentViewController:nav animated:YES completion:nil];
             } else {
                 UIAlertView *alert = [[UIAlertView alloc]
                                       initWithTitle:@"登录失败"

@@ -1,5 +1,5 @@
 //
-//  MainController.h
+//  NavViewController.h
 //  airtree
 //
 //  Created by Bin Shen on 5/29/16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainController : UITableViewController
-
-@property (nonatomic, strong) NSMutableArray *devices;
+@interface NavViewController : UINavigationController
 
 @end
