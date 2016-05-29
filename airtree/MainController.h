@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainController : UITableViewController
+@interface MainController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) NSMutableArray *devices;
+
+@property (weak, nonatomic) IBOutlet UITableView *TableView;
+@property (weak, nonatomic) IBOutlet UIButton *BtnHistory;
+@property (weak, nonatomic) IBOutlet UIButton *BtnDevice;
 
 @end

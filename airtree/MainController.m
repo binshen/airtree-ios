@@ -27,6 +27,15 @@
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:20/255.0 green:155/255.0 blue:213/255.0 alpha:1.0]];
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor,nil]];
     
+    [_BtnDevice setUserInteractionEnabled:YES];
+    [_BtnDevice addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickDeviceButton:)]];
+    
+    [_BtnHistory setUserInteractionEnabled:YES];
+    [_BtnHistory addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickHistoryButton:)]];
+    
+    _TableView.delegate = self;
+    _TableView.dataSource = self;
+    [self.view addSubview:_TableView];
     
     NSMutableArray *deviceList = [[NSMutableArray alloc] initWithCapacity:20];
     Device *device = [[Device alloc] init];
@@ -60,6 +69,22 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)clickDeviceButton:(UITapGestureRecognizer *)gestureRecognizer
+{
+//    TestViewController *main = [self.storyboard instantiateViewControllerWithIdentifier:@"TestViewController"];
+//    [self presentViewController:main animated:YES completion:nil];
+    
+    NSLog(@"clickDeviceButton");
+}
+
+-(void)clickHistoryButton:(UITapGestureRecognizer *)gestureRecognizer
+{
+//    TestViewController *main = [self.storyboard instantiateViewControllerWithIdentifier:@"TestViewController"];
+//    [self presentViewController:main animated:YES completion:nil];
+    
+    NSLog(@"clickHistoryButton");
 }
 
 #pragma mark - Table view data source
