@@ -40,6 +40,9 @@
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y5x-Qe-cjM">
                                 <rect key="frame" x="166" y="335" width="269" height="30"/>
                                 <state key="normal" title="登 录"/>
+                                <connections>
+                                    <action selector="clickLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u4T-lU-l3V"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -57,10 +60,43 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Gcr-ra-RZy" secondAttribute="trailing" constant="6" id="xl9-JC-WNi"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="BtnLogin" destination="Y5x-Qe-cjM" id="RfX-i4-oqO"/>
+                        <outlet property="TxtPassword" destination="Gcr-ra-RZy" id="0Lg-pB-Xix"/>
+                        <outlet property="TxtUsername" destination="Fdv-AS-0kf" id="dfZ-il-QnA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="394" y="388"/>
+        </scene>
+        <!--Main Controller-->
+        <scene sceneID="rRZ-Y6-XkF">
+            <objects>
+                <viewController storyboardIdentifier="MainController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RXo-47-FYl" customClass="MainController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Tue-on-c45"/>
+                        <viewControllerLayoutGuide type="bottom" id="Tda-j1-GPa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LVC-vU-UdS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cH6-Sh-53I">
+                                <rect key="frame" x="0.0" y="551" width="600" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem systemItem="favorites" id="6aK-kq-oJG"/>
+                                    <tabBarItem systemItem="more" id="ZbX-qh-1F0"/>
+                                </items>
+                            </tabBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5g3-rp-yJm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1088" y="388"/>
         </scene>
     </scenes>
     <resources>
