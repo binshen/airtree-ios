@@ -96,7 +96,7 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DeviceCell" textLabel="qBa-1s-exX" detailTextLabel="zoG-xQ-CYd" imageView="tKh-7D-dyf" style="IBUITableViewCellStyleSubtitle" id="tRU-O5-nMU">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tRU-O5-nMU" id="mNl-fY-I1z">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
@@ -180,6 +180,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="BtnDevice" destination="Ho0-kD-B95" id="6OU-5D-NAY"/>
+                        <outlet property="BtnHistory" destination="x8d-nm-NGD" id="5US-Do-yor"/>
+                        <outlet property="TableView" destination="6xP-Mh-e5Q" id="UYp-zy-DnD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vwg-Fh-jm1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

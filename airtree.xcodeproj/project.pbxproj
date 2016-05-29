@@ -43,6 +43,9 @@
 		FD9A8ECB1CFB1F1E00D31032 /* ic_person.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9A8EC91CFB1F1E00D31032 /* ic_person.png */; };
 		FD9A8ECC1CFB1F1E00D31032 /* ic_shop.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9A8ECA1CFB1F1E00D31032 /* ic_shop.png */; };
 		FD9A8ECF1CFB223E00D31032 /* ShopController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8ECE1CFB223E00D31032 /* ShopController.m */; };
+		FD9A8ED21CFB34CE00D31032 /* PersonController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8ED11CFB34CE00D31032 /* PersonController.m */; };
+		FD9A8ED51CFB3C1000D31032 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8ED41CFB3C1000D31032 /* Person.m */; };
+		FD9A8ED71CFB460700D31032 /* ic_history.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9A8ED61CFB460700D31032 /* ic_history.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +126,11 @@
 		FD9A8ECA1CFB1F1E00D31032 /* ic_shop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_shop.png; sourceTree = "<group>"; };
 		FD9A8ECD1CFB223E00D31032 /* ShopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopController.h; sourceTree = "<group>"; };
 		FD9A8ECE1CFB223E00D31032 /* ShopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopController.m; sourceTree = "<group>"; };
+		FD9A8ED01CFB34CE00D31032 /* PersonController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonController.h; sourceTree = "<group>"; };
+		FD9A8ED11CFB34CE00D31032 /* PersonController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonController.m; sourceTree = "<group>"; };
+		FD9A8ED31CFB3C1000D31032 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		FD9A8ED41CFB3C1000D31032 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		FD9A8ED61CFB460700D31032 /* ic_history.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_history.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +198,8 @@
 				FD9A8EBE1CFB193B00D31032 /* MainController.m */,
 				FD9A8ECD1CFB223E00D31032 /* ShopController.h */,
 				FD9A8ECE1CFB223E00D31032 /* ShopController.m */,
+				FD9A8ED01CFB34CE00D31032 /* PersonController.h */,
+				FD9A8ED11CFB34CE00D31032 /* PersonController.m */,
 			);
 			path = airtree;
 			sourceTree = "<group>";
@@ -223,6 +233,7 @@
 		FD91C23C1CFA7BD900E00A71 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				FD9A8ED61CFB460700D31032 /* ic_history.png */,
 				FD9A8EC91CFB1F1E00D31032 /* ic_person.png */,
 				FD9A8ECA1CFB1F1E00D31032 /* ic_shop.png */,
 				FD9A8EC71CFB1D0900D31032 /* ic_device.png */,
@@ -292,6 +303,8 @@
 			children = (
 				FD9A8EC41CFB1A2A00D31032 /* Device.h */,
 				FD9A8EC51CFB1A2A00D31032 /* Device.m */,
+				FD9A8ED31CFB3C1000D31032 /* Person.h */,
+				FD9A8ED41CFB3C1000D31032 /* Person.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -414,6 +427,7 @@
 				FD91C2161CFA79F900E00A71 /* Assets.xcassets in Resources */,
 				FD91C2461CFA7D6900E00A71 /* start_640x1136.png in Resources */,
 				FD9A8E2D1CFA872100D31032 /* ic_launcher_120x120.png in Resources */,
+				FD9A8ED71CFB460700D31032 /* ic_history.png in Resources */,
 				FD9A8E2A1CFA872100D31032 /* ic_launcher_58x58.png in Resources */,
 				FD91C2141CFA79F900E00A71 /* Main.storyboard in Resources */,
 				FD9A8ECB1CFB1F1E00D31032 /* ic_person.png in Resources */,
@@ -442,7 +456,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD9A8ED21CFB34CE00D31032 /* PersonController.m in Sources */,
 				FD91C2111CFA79F900E00A71 /* ViewController.m in Sources */,
+				FD9A8ED51CFB3C1000D31032 /* Person.m in Sources */,
 				FD9A8E591CFAAF0900D31032 /* MKNetworkHost.m in Sources */,
 				FD9A8EBC1CFB138300D31032 /* NavViewController.m in Sources */,
 				FD91C20E1CFA79F900E00A71 /* AppDelegate.m in Sources */,
