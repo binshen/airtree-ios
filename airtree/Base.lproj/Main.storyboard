@@ -185,6 +185,10 @@
                             <rect key="frame" x="0.0" y="142" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="退出当前账号"/>
+                            <connections>
+                                <action selector="clickLogout:" destination="pBU-G1-lgL" eventType="touchUpInside" id="IQ6-eU-mEy"/>
+                                <segue destination="BYZ-38-t0r" kind="presentation" id="tSK-jg-waM"/>
+                            </connections>
                         </button>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PersonCell" textLabel="3OT-qR-cXq" detailTextLabel="gc3-li-JKI" rowHeight="50" style="IBUITableViewCellStyleValue1" id="Xyo-Za-0xB">
@@ -221,7 +225,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="diX-EG-9ok" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1232.5" y="775.5"/>
+            <point key="canvasLocation" x="307.5" y="1223.5"/>
         </scene>
         <!--Nav View Controller-->
         <scene sceneID="Yqw-ti-xsQ">
