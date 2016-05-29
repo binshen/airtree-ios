@@ -46,6 +46,7 @@
 		FD9A8ED21CFB34CE00D31032 /* PersonController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8ED11CFB34CE00D31032 /* PersonController.m */; };
 		FD9A8ED51CFB3C1000D31032 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8ED41CFB3C1000D31032 /* Person.m */; };
 		FD9A8ED71CFB460700D31032 /* ic_history.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9A8ED61CFB460700D31032 /* ic_history.png */; };
+		FD9A8EDA1CFB4EB000D31032 /* DeviceManageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8ED91CFB4EB000D31032 /* DeviceManageController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,8 @@
 		FD9A8ED31CFB3C1000D31032 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		FD9A8ED41CFB3C1000D31032 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		FD9A8ED61CFB460700D31032 /* ic_history.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_history.png; sourceTree = "<group>"; };
+		FD9A8ED81CFB4EB000D31032 /* DeviceManageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceManageController.h; sourceTree = "<group>"; };
+		FD9A8ED91CFB4EB000D31032 /* DeviceManageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceManageController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +203,8 @@
 				FD9A8ECE1CFB223E00D31032 /* ShopController.m */,
 				FD9A8ED01CFB34CE00D31032 /* PersonController.h */,
 				FD9A8ED11CFB34CE00D31032 /* PersonController.m */,
+				FD9A8ED81CFB4EB000D31032 /* DeviceManageController.h */,
+				FD9A8ED91CFB4EB000D31032 /* DeviceManageController.m */,
 			);
 			path = airtree;
 			sourceTree = "<group>";
@@ -458,6 +463,7 @@
 			files = (
 				FD9A8ED21CFB34CE00D31032 /* PersonController.m in Sources */,
 				FD91C2111CFA79F900E00A71 /* ViewController.m in Sources */,
+				FD9A8EDA1CFB4EB000D31032 /* DeviceManageController.m in Sources */,
 				FD9A8ED51CFB3C1000D31032 /* Person.m in Sources */,
 				FD9A8E591CFAAF0900D31032 /* MKNetworkHost.m in Sources */,
 				FD9A8EBC1CFB138300D31032 /* NavViewController.m in Sources */,
