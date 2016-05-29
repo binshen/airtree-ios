@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -10,17 +11,59 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="VUE-Ap-siS"/>
+                        <viewControllerLayoutGuide type="bottom" id="AKI-zG-XJd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="LZg-bl-WMj">
+                                <rect key="frame" x="125" y="60" width="350" height="64"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="空气树" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSt-1R-MLr">
+                                <rect key="frame" x="125" y="150" width="350" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入用户名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fdv-AS-0kf">
+                                <rect key="frame" x="27" y="222" width="547" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gcr-ra-RZy">
+                                <rect key="frame" x="27" y="278" width="547" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y5x-Qe-cjM">
+                                <rect key="frame" x="166" y="335" width="269" height="30"/>
+                                <state key="normal" title="登 录"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Fdv-AS-0kf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="7" id="0tf-oX-zXJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Fdv-AS-0kf" secondAttribute="trailing" constant="6" id="6qF-x9-VgK"/>
+                            <constraint firstItem="hSt-1R-MLr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="105" id="9Sz-Dr-pDk"/>
+                            <constraint firstItem="LZg-bl-WMj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="105" id="B38-rx-FEM"/>
+                            <constraint firstItem="Y5x-Qe-cjM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="146" id="Bd5-c6-h8g"/>
+                            <constraint firstItem="LZg-bl-WMj" firstAttribute="top" secondItem="VUE-Ap-siS" secondAttribute="bottom" constant="40" id="CXF-Du-fgW"/>
+                            <constraint firstItem="Gcr-ra-RZy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="7" id="DMb-GE-3NW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hSt-1R-MLr" secondAttribute="trailing" constant="105" id="Hln-U2-cta"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Y5x-Qe-cjM" secondAttribute="trailing" constant="145" id="bdv-0A-18f"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LZg-bl-WMj" secondAttribute="trailing" constant="105" id="iOh-QY-FRf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Gcr-ra-RZy" secondAttribute="trailing" constant="6" id="xl9-JC-WNi"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="394" y="388"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo.png" width="200" height="78"/>
+    </resources>
 </document>

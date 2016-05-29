@@ -19,6 +19,12 @@
 		FD91C2431CFA7BD900E00A71 /* start_640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = FD91C23F1CFA7BD900E00A71 /* start_640x960.png */; };
 		FD91C2441CFA7BD900E00A71 /* start_750x1334.png in Resources */ = {isa = PBXBuildFile; fileRef = FD91C2401CFA7BD900E00A71 /* start_750x1334.png */; };
 		FD91C2461CFA7D6900E00A71 /* start_640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = FD91C2451CFA7D6900E00A71 /* start_640x1136.png */; };
+		FD9A8E2A1CFA872100D31032 /* ic_launcher_58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9A8E251CFA872100D31032 /* ic_launcher_58x58.png */; };
+		FD9A8E2B1CFA872100D31032 /* ic_launcher_80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9A8E261CFA872100D31032 /* ic_launcher_80x80.png */; };
+		FD9A8E2C1CFA872100D31032 /* ic_launcher_87x87.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9A8E271CFA872100D31032 /* ic_launcher_87x87.png */; };
+		FD9A8E2D1CFA872100D31032 /* ic_launcher_120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9A8E281CFA872100D31032 /* ic_launcher_120x120.png */; };
+		FD9A8E2E1CFA872100D31032 /* ic_launcher_180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9A8E291CFA872100D31032 /* ic_launcher_180x180.png */; };
+		FD9A8E301CFA895E00D31032 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9A8E2F1CFA895E00D31032 /* logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +65,12 @@
 		FD91C23F1CFA7BD900E00A71 /* start_640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start_640x960.png; sourceTree = "<group>"; };
 		FD91C2401CFA7BD900E00A71 /* start_750x1334.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start_750x1334.png; sourceTree = "<group>"; };
 		FD91C2451CFA7D6900E00A71 /* start_640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start_640x1136.png; sourceTree = "<group>"; };
+		FD9A8E251CFA872100D31032 /* ic_launcher_58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher_58x58.png; sourceTree = "<group>"; };
+		FD9A8E261CFA872100D31032 /* ic_launcher_80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher_80x80.png; sourceTree = "<group>"; };
+		FD9A8E271CFA872100D31032 /* ic_launcher_87x87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher_87x87.png; sourceTree = "<group>"; };
+		FD9A8E281CFA872100D31032 /* ic_launcher_120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher_120x120.png; sourceTree = "<group>"; };
+		FD9A8E291CFA872100D31032 /* ic_launcher_180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher_180x180.png; sourceTree = "<group>"; };
+		FD9A8E2F1CFA895E00D31032 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +163,12 @@
 		FD91C23C1CFA7BD900E00A71 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				FD9A8E2F1CFA895E00D31032 /* logo.png */,
+				FD9A8E251CFA872100D31032 /* ic_launcher_58x58.png */,
+				FD9A8E261CFA872100D31032 /* ic_launcher_80x80.png */,
+				FD9A8E271CFA872100D31032 /* ic_launcher_87x87.png */,
+				FD9A8E281CFA872100D31032 /* ic_launcher_120x120.png */,
+				FD9A8E291CFA872100D31032 /* ic_launcher_180x180.png */,
 				FD91C23D1CFA7BD900E00A71 /* start_1242x2208.png */,
 				FD91C2401CFA7BD900E00A71 /* start_750x1334.png */,
 				FD91C2451CFA7D6900E00A71 /* start_640x1136.png */,
@@ -266,12 +284,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD9A8E301CFA895E00D31032 /* logo.png in Resources */,
+				FD9A8E2E1CFA872100D31032 /* ic_launcher_180x180.png in Resources */,
+				FD9A8E2C1CFA872100D31032 /* ic_launcher_87x87.png in Resources */,
 				FD91C2411CFA7BD900E00A71 /* start_1242x2208.png in Resources */,
+				FD9A8E2B1CFA872100D31032 /* ic_launcher_80x80.png in Resources */,
 				FD91C2431CFA7BD900E00A71 /* start_640x960.png in Resources */,
 				FD91C2441CFA7BD900E00A71 /* start_750x1334.png in Resources */,
 				FD91C2421CFA7BD900E00A71 /* start_320x480.png in Resources */,
 				FD91C2161CFA79F900E00A71 /* Assets.xcassets in Resources */,
 				FD91C2461CFA7D6900E00A71 /* start_640x1136.png in Resources */,
+				FD9A8E2D1CFA872100D31032 /* ic_launcher_120x120.png in Resources */,
+				FD9A8E2A1CFA872100D31032 /* ic_launcher_58x58.png in Resources */,
 				FD91C2141CFA79F900E00A71 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -517,6 +541,7 @@
 				FD91C2351CFA79F900E00A71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FD91C2361CFA79F900E00A71 /* Build configuration list for PBXNativeTarget "airtreeTests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +550,7 @@
 				FD91C2381CFA79F900E00A71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FD91C2391CFA79F900E00A71 /* Build configuration list for PBXNativeTarget "airtreeUITests" */ = {
 			isa = XCConfigurationList;
@@ -533,6 +559,7 @@
 				FD91C23B1CFA79F900E00A71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
