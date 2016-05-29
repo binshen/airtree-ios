@@ -1,20 +1,19 @@
 //
-//  MainController.m
+//  DeviceManageController.m
 //  airtree
 //
-//  Created by Bin Shen on 5/29/16.
+//  Created by Bin Shen on 5/30/16.
 //  Copyright © 2016 Bin Shen. All rights reserved.
 //
 
-#import "MainController.h"
 #import "DeviceManageController.h"
 #import "Device.h"
 
-@interface MainController ()
+@interface DeviceManageController ()
 
 @end
 
-@implementation MainController
+@implementation DeviceManageController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,19 +23,6 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:20/255.0 green:155/255.0 blue:213/255.0 alpha:1.0]];
-    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor,nil]];
-    
-    [_BtnDevice setUserInteractionEnabled:YES];
-    [_BtnDevice addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickDeviceButton:)]];
-    
-    [_BtnHistory setUserInteractionEnabled:YES];
-    [_BtnHistory addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickHistoryButton:)]];
-    
-    _TableView.delegate = self;
-    _TableView.dataSource = self;
-    [self.view addSubview:_TableView];
     
     NSMutableArray *deviceList = [[NSMutableArray alloc] initWithCapacity:20];
     Device *device = [[Device alloc] init];
@@ -50,41 +36,19 @@
     device.ip = @"192.168.2.124";
     device.status = 3;
     [deviceList addObject:device];
-
+    
     device = [[Device alloc] init];
     device.mac = @"MAC1023C851";
     device.ip = @"192.168.2.125";
     device.status = 3;
     [deviceList addObject:device];
-
-    self.devices = deviceList;
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
     
-    self.devices = nil;
+    self.devices = deviceList;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(void)clickDeviceButton:(UITapGestureRecognizer *)gestureRecognizer
-{
-    DeviceManageController *deviceManage = [self.storyboard instantiateViewControllerWithIdentifier:@"DeviceManageController"];
-    //[self presentViewController:deviceManage animated:YES completion:nil];
-    [[self navigationController] pushViewController:deviceManage animated:YES];
-}
-
--(void)clickHistoryButton:(UITapGestureRecognizer *)gestureRecognizer
-{
-//    TestViewController *main = [self.storyboard instantiateViewControllerWithIdentifier:@"TestViewController"];
-//    [self presentViewController:main animated:YES completion:nil];
-    
-    NSLog(@"clickHistoryButton");
 }
 
 #pragma mark - Table view data source
@@ -101,7 +65,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"DeviceCell";
+    static NSString *CellIdentifier = @"DeviceMngCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
@@ -111,6 +75,11 @@
     Device *device = [self.devices objectAtIndex:row];
     cell.textLabel.text = [[[[device mac] stringByAppendingString:@" ("] stringByAppendingString:@"不在线"] stringByAppendingString:@")"];
     cell.detailTextLabel.text = [device ip];
+    
+//    UIImage *image = [UIImage imageNamed:@"ic_device"];
+//    cell.imageView.image = image;
+//    UIImage *highLighedImage = [UIImage imageNamed:@"ic_device"];
+//    cell.imageView.highlightedImage = highLighedImage;
     return cell;
 }
 
@@ -119,7 +88,6 @@
     UIAlertView * alter = [[UIAlertView alloc] initWithTitle:@"选中的行信息" message:rowString delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
     [alter show];
 }
-
 
 /*
 // Override to support conditional editing of the table view.

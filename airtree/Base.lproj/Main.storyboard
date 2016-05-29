@@ -140,6 +140,9 @@
                                             <constraint firstAttribute="width" constant="120" id="TdD-1E-VpK"/>
                                         </constraints>
                                         <state key="normal" title="设备管理" image="ic_device.png"/>
+                                        <connections>
+                                            <segue destination="a8p-BS-bSZ" kind="show" id="pLo-9U-5YI"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.095261928654598607" green="0.67802096002988654" blue="0.92264441287878785" alpha="1" colorSpace="calibratedRGB"/>
@@ -277,6 +280,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="diX-EG-9ok" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-316.5" y="1218.5"/>
+        </scene>
+        <!--Device Manage Controller-->
+        <scene sceneID="6J0-eJ-hwp">
+            <objects>
+                <tableViewController storyboardIdentifier="DeviceManageController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="a8p-BS-bSZ" customClass="DeviceManageController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qDi-X3-qUR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DeviceMngCell" textLabel="Pn2-TQ-IHX" detailTextLabel="ALl-sp-Usy" imageView="EvI-id-v86" style="IBUITableViewCellStyleSubtitle" id="DN5-J3-rgC">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DN5-J3-rgC" id="s4g-9b-Myu">
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pn2-TQ-IHX">
+                                            <rect key="frame" x="70" y="5" width="32" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ALl-sp-Usy">
+                                            <rect key="frame" x="70" y="25" width="41" height="14"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="ic_device.png" id="EvI-id-v86">
+                                            <rect key="frame" x="15" y="1" width="40" height="40"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="a8p-BS-bSZ" id="oJZ-Nd-t11"/>
+                            <outlet property="delegate" destination="a8p-BS-bSZ" id="pvL-SL-bcG"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="952-ws-TcB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="792.5" y="1218.5"/>
         </scene>
         <!--Nav View Controller-->
         <scene sceneID="Yqw-ti-xsQ">
