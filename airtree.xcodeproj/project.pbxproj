@@ -40,6 +40,9 @@
 		FD9A8EBF1CFB193B00D31032 /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8EBE1CFB193B00D31032 /* MainController.m */; };
 		FD9A8EC61CFB1A2A00D31032 /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8EC51CFB1A2A00D31032 /* Device.m */; };
 		FD9A8EC81CFB1D0900D31032 /* ic_device.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9A8EC71CFB1D0900D31032 /* ic_device.png */; };
+		FD9A8ECB1CFB1F1E00D31032 /* ic_person.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9A8EC91CFB1F1E00D31032 /* ic_person.png */; };
+		FD9A8ECC1CFB1F1E00D31032 /* ic_shop.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9A8ECA1CFB1F1E00D31032 /* ic_shop.png */; };
+		FD9A8ECF1CFB223E00D31032 /* ShopController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8ECE1CFB223E00D31032 /* ShopController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +119,10 @@
 		FD9A8EC41CFB1A2A00D31032 /* Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Device.h; sourceTree = "<group>"; };
 		FD9A8EC51CFB1A2A00D31032 /* Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Device.m; sourceTree = "<group>"; };
 		FD9A8EC71CFB1D0900D31032 /* ic_device.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_device.png; sourceTree = "<group>"; };
+		FD9A8EC91CFB1F1E00D31032 /* ic_person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_person.png; sourceTree = "<group>"; };
+		FD9A8ECA1CFB1F1E00D31032 /* ic_shop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_shop.png; sourceTree = "<group>"; };
+		FD9A8ECD1CFB223E00D31032 /* ShopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopController.h; sourceTree = "<group>"; };
+		FD9A8ECE1CFB223E00D31032 /* ShopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +188,8 @@
 				FD9A8EBB1CFB138300D31032 /* NavViewController.m */,
 				FD9A8EBD1CFB193B00D31032 /* MainController.h */,
 				FD9A8EBE1CFB193B00D31032 /* MainController.m */,
+				FD9A8ECD1CFB223E00D31032 /* ShopController.h */,
+				FD9A8ECE1CFB223E00D31032 /* ShopController.m */,
 			);
 			path = airtree;
 			sourceTree = "<group>";
@@ -214,6 +223,8 @@
 		FD91C23C1CFA7BD900E00A71 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				FD9A8EC91CFB1F1E00D31032 /* ic_person.png */,
+				FD9A8ECA1CFB1F1E00D31032 /* ic_shop.png */,
 				FD9A8EC71CFB1D0900D31032 /* ic_device.png */,
 				FD9A8E2F1CFA895E00D31032 /* logo.png */,
 				FD9A8E251CFA872100D31032 /* ic_launcher_58x58.png */,
@@ -394,6 +405,7 @@
 				FD9A8E301CFA895E00D31032 /* logo.png in Resources */,
 				FD9A8E2E1CFA872100D31032 /* ic_launcher_180x180.png in Resources */,
 				FD9A8E2C1CFA872100D31032 /* ic_launcher_87x87.png in Resources */,
+				FD9A8ECC1CFB1F1E00D31032 /* ic_shop.png in Resources */,
 				FD91C2411CFA7BD900E00A71 /* start_1242x2208.png in Resources */,
 				FD9A8E2B1CFA872100D31032 /* ic_launcher_80x80.png in Resources */,
 				FD91C2431CFA7BD900E00A71 /* start_640x960.png in Resources */,
@@ -404,6 +416,7 @@
 				FD9A8E2D1CFA872100D31032 /* ic_launcher_120x120.png in Resources */,
 				FD9A8E2A1CFA872100D31032 /* ic_launcher_58x58.png in Resources */,
 				FD91C2141CFA79F900E00A71 /* Main.storyboard in Resources */,
+				FD9A8ECB1CFB1F1E00D31032 /* ic_person.png in Resources */,
 				FD9A8EC81CFB1D0900D31032 /* ic_device.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,6 +447,7 @@
 				FD9A8EBC1CFB138300D31032 /* NavViewController.m in Sources */,
 				FD91C20E1CFA79F900E00A71 /* AppDelegate.m in Sources */,
 				FD9A8EBF1CFB193B00D31032 /* MainController.m in Sources */,
+				FD9A8ECF1CFB223E00D31032 /* ShopController.m in Sources */,
 				FD9A8E5B1CFAAF0900D31032 /* MKObject.m in Sources */,
 				FD91C20B1CFA79F900E00A71 /* main.m in Sources */,
 				FD9A8E521CFAAF0900D31032 /* NSDictionary+MKNKAdditions.m in Sources */,
