@@ -121,13 +121,54 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="房间" id="xsB-g3-3Py">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="ZYZ-J2-gVv"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="iNA-Kk-Ci2"/>
+                        <barButtonItem key="leftBarButtonItem" image="ic_person.png" id="ZYZ-J2-gVv">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="ic_shop.png" id="iNA-Kk-Ci2">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="vfc-Fw-YnB" kind="show" id="mxX-so-x4V"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E75-uY-pdu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="716.5" y="372.5"/>
+        </scene>
+        <!--Shop Controller-->
+        <scene sceneID="hq1-Io-44k">
+            <objects>
+                <viewController storyboardIdentifier="ShopController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vfc-Fw-YnB" customClass="ShopController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1gs-RT-nQk"/>
+                        <viewControllerLayoutGuide type="bottom" id="9k9-lY-9dr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sqR-PP-EyO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RmL-kn-Tpk">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.36078431372549019" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RmL-kn-Tpk" firstAttribute="leading" secondItem="sqR-PP-EyO" secondAttribute="leading" id="ATG-Pv-FeZ"/>
+                            <constraint firstItem="9k9-lY-9dr" firstAttribute="top" secondItem="RmL-kn-Tpk" secondAttribute="bottom" id="UGl-Xr-z91"/>
+                            <constraint firstAttribute="trailing" secondItem="RmL-kn-Tpk" secondAttribute="trailing" id="j2H-id-s5r"/>
+                            <constraint firstItem="RmL-kn-Tpk" firstAttribute="top" secondItem="sqR-PP-EyO" secondAttribute="top" id="oGE-cE-Hov"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="WebView" destination="RmL-kn-Tpk" id="v0b-8S-jxk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fKk-sD-7Do" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1232.5" y="14.5"/>
         </scene>
         <!--Nav View Controller-->
         <scene sceneID="Yqw-ti-xsQ">
@@ -153,6 +194,8 @@
     </scenes>
     <resources>
         <image name="ic_device.png" width="40" height="40"/>
+        <image name="ic_person.png" width="32" height="32"/>
+        <image name="ic_shop.png" width="32" height="32"/>
         <image name="logo.png" width="200" height="78"/>
     </resources>
 </document>
