@@ -33,38 +33,6 @@
     
     [_BtnHistory setUserInteractionEnabled:YES];
     [_BtnHistory addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickHistoryButton:)]];
-    
-    _TableView.delegate = self;
-    _TableView.dataSource = self;
-    [self.view addSubview:_TableView];
-    
-    NSMutableArray *deviceList = [[NSMutableArray alloc] initWithCapacity:20];
-    Device *device = [[Device alloc] init];
-    device.mac = @"MAC1023C852";
-    device.ip = @"192.168.2.123";
-    device.status = 4;
-    [deviceList addObject:device];
-    
-    device = [[Device alloc] init];
-    device.mac = @"MAC1023C853";
-    device.ip = @"192.168.2.124";
-    device.status = 3;
-    [deviceList addObject:device];
-
-    device = [[Device alloc] init];
-    device.mac = @"MAC1023C851";
-    device.ip = @"192.168.2.125";
-    device.status = 3;
-    [deviceList addObject:device];
-
-    self.devices = deviceList;
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    
-    self.devices = nil;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,38 +56,6 @@
 }
 
 #pragma mark - Table view data source
-
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//
-//    return _devices.count;
-//}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return _devices.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *CellIdentifier = @"DeviceCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
-    NSUInteger row = [indexPath row];
-    Device *device = [self.devices objectAtIndex:row];
-    cell.textLabel.text = [[[[device mac] stringByAppendingString:@" ("] stringByAppendingString:@"不在线"] stringByAppendingString:@")"];
-    cell.detailTextLabel.text = [device ip];
-    return cell;
-}
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *rowString = [[self.devices objectAtIndex:[indexPath row]] mac];
-    UIAlertView * alter = [[UIAlertView alloc] initWithTitle:@"选中的行信息" message:rowString delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-    [alter show];
-}
-
 
 /*
 // Override to support conditional editing of the table view.
