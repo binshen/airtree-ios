@@ -88,16 +88,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kj4-g5-oPh">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kj4-g5-oPh">
                                 <rect key="frame" x="0.0" y="595" width="375" height="72"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8d-nm-NGD">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8d-nm-NGD">
                                         <rect key="frame" x="31" y="16" width="131" height="42"/>
                                         <state key="normal" title="历史数据" image="ic_history.png">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="Pt2-rA-Np2" kind="show" id="1qJ-hE-YFw"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ho0-kD-B95">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ho0-kD-B95">
                                         <rect key="frame" x="223" y="14" width="120" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="TdD-1E-VpK"/>
@@ -123,6 +126,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="jNb-Ei-PLg" firstAttribute="top" secondItem="Kj4-g5-oPh" secondAttribute="bottom" id="NQH-hw-8X5"/>
+                            <constraint firstAttribute="trailing" secondItem="Kj4-g5-oPh" secondAttribute="trailing" id="XzQ-nF-R3o"/>
+                            <constraint firstItem="Kj4-g5-oPh" firstAttribute="leading" secondItem="bPD-ne-vxD" secondAttribute="leading" id="a92-Fo-fX9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="房间" id="MZX-NO-Pec">
@@ -149,7 +154,7 @@
             </objects>
             <point key="canvasLocation" x="767.5" y="372.5"/>
         </scene>
-        <!--Shop Controller-->
+        <!--在线商城-->
         <scene sceneID="hq1-Io-44k">
             <objects>
                 <viewController storyboardIdentifier="ShopController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vfc-Fw-YnB" customClass="ShopController" sceneMemberID="viewController">
@@ -174,6 +179,7 @@
                             <constraint firstItem="RmL-kn-Tpk" firstAttribute="top" secondItem="sqR-PP-EyO" secondAttribute="top" id="oGE-cE-Hov"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="在线商城" id="FcJ-Zs-ODw"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="WebView" destination="RmL-kn-Tpk" id="v0b-8S-jxk"/>
@@ -183,7 +189,7 @@
             </objects>
             <point key="canvasLocation" x="1254.5" y="372.5"/>
         </scene>
-        <!--Person Controller-->
+        <!--个人设置-->
         <scene sceneID="xeP-dL-Coq">
             <objects>
                 <tableViewController id="pBU-G1-lgL" customClass="PersonController" sceneMemberID="viewController">
@@ -231,13 +237,14 @@
                             <outlet property="delegate" destination="pBU-G1-lgL" id="ipL-F4-eEb"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="个人设置" id="ZWA-wS-ol0"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="diX-EG-9ok" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-316.5" y="1218.5"/>
+            <point key="canvasLocation" x="310.5" y="1216.5"/>
         </scene>
-        <!--Device Manage Controller-->
+        <!--设备管理-->
         <scene sceneID="6J0-eJ-hwp">
             <objects>
                 <tableViewController storyboardIdentifier="DeviceManageController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="a8p-BS-bSZ" customClass="DeviceManageController" sceneMemberID="viewController">
@@ -280,10 +287,13 @@
                             <outlet property="delegate" destination="a8p-BS-bSZ" id="pvL-SL-bcG"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="设备管理" id="jhV-0H-v4T">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Y4O-cm-hrS"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="952-ws-TcB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="792.5" y="1218.5"/>
+            <point key="canvasLocation" x="1204.5" y="1216.5"/>
         </scene>
         <!--Nav View Controller-->
         <scene sceneID="Yqw-ti-xsQ">
@@ -305,6 +315,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L07-ao-ECh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="261.5" y="372.5"/>
+        </scene>
+        <!--历史数据-->
+        <scene sceneID="jHm-a0-kzY">
+            <objects>
+                <viewController storyboardIdentifier="HistoryController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Pt2-rA-Np2" customClass="HistoryController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FT3-Z0-pcr"/>
+                        <viewControllerLayoutGuide type="bottom" id="qg0-LQ-wLT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="H7s-zA-HoK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2016-05-30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eb-7m-4s8">
+                                <rect key="frame" x="78" y="94" width="218" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="历史数据" id="o6X-XY-wlk"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zPj-Zc-kx4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="752.5" y="1216.5"/>
         </scene>
     </scenes>
     <resources>

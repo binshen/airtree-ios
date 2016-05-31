@@ -7,6 +7,7 @@
 //
 
 #import "MainController.h"
+#import "HistoryController.h"
 #import "DeviceManageController.h"
 #import "Device.h"
 
@@ -24,6 +25,10 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = item;
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:20/255.0 green:155/255.0 blue:213/255.0 alpha:1.0]];
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor,nil]];
@@ -49,10 +54,8 @@
 
 -(void)clickHistoryButton:(UITapGestureRecognizer *)gestureRecognizer
 {
-//    TestViewController *main = [self.storyboard instantiateViewControllerWithIdentifier:@"TestViewController"];
-//    [self presentViewController:main animated:YES completion:nil];
-    
-    NSLog(@"clickHistoryButton");
+    HistoryController *history = [self.storyboard instantiateViewControllerWithIdentifier:@"HistoryController"];
+    [[self navigationController] pushViewController:history animated:YES];
 }
 
 #pragma mark - Table view data source
