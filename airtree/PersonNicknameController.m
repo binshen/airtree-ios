@@ -24,6 +24,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)clickUpdate:(id)sender {
+    //[self.navigationController popToRootViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 /*
 #pragma mark - Navigation
 
