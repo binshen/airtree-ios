@@ -24,6 +24,10 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = item;
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
     NSMutableArray *deviceList = [[NSMutableArray alloc] initWithCapacity:20];
     Device *device = [[Device alloc] init];
     device.mac = @"MAC1023C852";
