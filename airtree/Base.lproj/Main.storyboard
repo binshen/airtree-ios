@@ -288,12 +288,90 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="设备管理" id="jhV-0H-v4T">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Y4O-cm-hrS"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Y4O-cm-hrS">
+                            <connections>
+                                <segue destination="ERZ-2C-D0u" kind="show" id="KPT-Zp-f5Q"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="952-ws-TcB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1204.5" y="1216.5"/>
+        </scene>
+        <!--添加设备-->
+        <scene sceneID="1EF-ly-OzT">
+            <objects>
+                <viewController id="ERZ-2C-D0u" customClass="DeviceAddController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rvR-1m-s20"/>
+                        <viewControllerLayoutGuide type="bottom" id="YcP-EX-f1T"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jrE-EV-VZg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入SSID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aKN-u1-UfS">
+                                <rect key="frame" x="20" y="143" width="335" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入WIFI密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UL2-ow-OdG">
+                                <rect key="frame" x="20" y="201" width="335" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="配置单个设备" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0w-pP-11j">
+                                <rect key="frame" x="20" y="253" width="124" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KXa-Rn-qFq">
+                                <rect key="frame" x="306" y="248" width="51" height="31"/>
+                                <connections>
+                                    <action selector="swPressed:" destination="ERZ-2C-D0u" eventType="valueChanged" id="lcS-lG-biN"/>
+                                </connections>
+                            </switch>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhX-0L-gfB">
+                                <rect key="frame" x="20" y="298" width="335" height="30"/>
+                                <color key="backgroundColor" red="0.095261928649999994" green="0.67802096000000001" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="确  定">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="butPressd:" destination="ERZ-2C-D0u" eventType="touchUpInside" id="c1I-MS-imw"/>
+                                </connections>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Kkd-7M-wal">
+                                <rect key="frame" x="20" y="350" width="335" height="2"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="摩瑞尔电器SmartLink智能配网" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfr-yo-b6Z">
+                                <rect key="frame" x="20" y="95" width="335" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="jfr-yo-b6Z" secondAttribute="leading" id="2ZM-fe-YEP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jfr-yo-b6Z" secondAttribute="trailing" id="7Co-zt-eLQ"/>
+                            <constraint firstItem="jfr-yo-b6Z" firstAttribute="top" secondItem="rvR-1m-s20" secondAttribute="bottom" constant="31" id="Wll-Lw-6Ox"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="添加设备" id="TTT-28-WI5"/>
+                    <connections>
+                        <outlet property="butConnect" destination="yhX-0L-gfB" id="yxk-xi-Thd"/>
+                        <outlet property="progress" destination="Kkd-7M-wal" id="HwN-or-4OT"/>
+                        <outlet property="switcher" destination="KXa-Rn-qFq" id="Wpj-lJ-mBT"/>
+                        <outlet property="txtPwd" destination="UL2-ow-OdG" id="5ng-Bh-VEW"/>
+                        <outlet property="txtSSID" destination="aKN-u1-UfS" id="BB2-Bd-hvA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Npl-pS-rTE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1671.5" y="1216.5"/>
         </scene>
         <!--Nav View Controller-->
         <scene sceneID="Yqw-ti-xsQ">
