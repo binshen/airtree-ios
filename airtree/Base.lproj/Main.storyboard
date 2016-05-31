@@ -328,16 +328,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2016-05-30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eb-7m-4s8">
-                                <rect key="frame" x="78" y="94" width="218" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gj-5P-bYE">
+                                <rect key="frame" x="66" y="102" width="242" height="30"/>
+                                <state key="normal" title="2016-05-30"/>
+                                <connections>
+                                    <action selector="clickDateButton:" destination="Pt2-rA-Np2" eventType="touchUpInside" id="YNp-gs-cGq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="历史数据" id="o6X-XY-wlk"/>
+                    <connections>
+                        <outlet property="DateSelect" destination="6gj-5P-bYE" id="6y1-It-fvg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zPj-Zc-kx4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

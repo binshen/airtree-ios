@@ -24,6 +24,24 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)clickDateButton:(id)sender {
+    UIDatePicker *datePicker = [[ UIDatePicker alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 200, self.view.frame.size.width, 216)];
+    datePicker.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    datePicker.datePickerMode = UIDatePickerModeDate;
+    [self.view addSubview:datePicker];
+    [datePicker addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged ];
+}
+
+-(void)dateChanged:(id)sender{
+    UIDatePicker  *datePicker = (UIDatePicker*)sender;
+    NSDate *selectedDate = datePicker.date;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"YYYY-MM-dd"];
+    NSString *dateString = [dateFormatter stringFromDate:selectedDate];
+    [_DateSelect setTitle:dateString forState:UIControlStateNormal];
+    [datePicker removeFromSuperview];
+}
+
 /*
 #pragma mark - Navigation
 

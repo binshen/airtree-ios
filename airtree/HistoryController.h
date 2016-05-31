@@ -10,6 +10,7 @@
 
 @interface HistoryController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIDatePicker *DatePicker;
+@property (strong, nonatomic) UIDatePicker *DatePicker;
+@property (weak, nonatomic) IBOutlet UIButton *DateSelect;
 
 @end
