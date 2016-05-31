@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD4F2FC31CFDC2FF00F16054 /* HistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4F2FC21CFDC2FF00F16054 /* HistoryController.m */; };
 		FD91C20B1CFA79F900E00A71 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD91C20A1CFA79F900E00A71 /* main.m */; };
 		FD91C20E1CFA79F900E00A71 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD91C20D1CFA79F900E00A71 /* AppDelegate.m */; };
 		FD91C2111CFA79F900E00A71 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD91C2101CFA79F900E00A71 /* ViewController.m */; };
@@ -67,6 +68,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FD4F2FC11CFDC2FF00F16054 /* HistoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryController.h; sourceTree = "<group>"; };
+		FD4F2FC21CFDC2FF00F16054 /* HistoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryController.m; sourceTree = "<group>"; };
 		FD91C2061CFA79F900E00A71 /* airtree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = airtree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD91C20A1CFA79F900E00A71 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FD91C20C1CFA79F900E00A71 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -205,6 +208,8 @@
 				FD9A8ED11CFB34CE00D31032 /* PersonController.m */,
 				FD9A8ED81CFB4EB000D31032 /* DeviceManageController.h */,
 				FD9A8ED91CFB4EB000D31032 /* DeviceManageController.m */,
+				FD4F2FC11CFDC2FF00F16054 /* HistoryController.h */,
+				FD4F2FC21CFDC2FF00F16054 /* HistoryController.m */,
 			);
 			path = airtree;
 			sourceTree = "<group>";
@@ -463,6 +468,7 @@
 			files = (
 				FD9A8ED21CFB34CE00D31032 /* PersonController.m in Sources */,
 				FD91C2111CFA79F900E00A71 /* ViewController.m in Sources */,
+				FD4F2FC31CFDC2FF00F16054 /* HistoryController.m in Sources */,
 				FD9A8EDA1CFB4EB000D31032 /* DeviceManageController.m in Sources */,
 				FD9A8ED51CFB3C1000D31032 /* Person.m in Sources */,
 				FD9A8E591CFAAF0900D31032 /* MKNetworkHost.m in Sources */,
