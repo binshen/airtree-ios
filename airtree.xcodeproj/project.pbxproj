@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		FD4F2FC31CFDC2FF00F16054 /* HistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4F2FC21CFDC2FF00F16054 /* HistoryController.m */; };
+		FD4F2FC61CFDDC4000F16054 /* DeviceAddController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4F2FC51CFDDC4000F16054 /* DeviceAddController.m */; };
+		FD4F2FC81CFDE09500F16054 /* libsmartlinklib_7x.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD4F2FC71CFDE09500F16054 /* libsmartlinklib_7x.a */; };
 		FD91C20B1CFA79F900E00A71 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD91C20A1CFA79F900E00A71 /* main.m */; };
 		FD91C20E1CFA79F900E00A71 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD91C20D1CFA79F900E00A71 /* AppDelegate.m */; };
 		FD91C2111CFA79F900E00A71 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD91C2101CFA79F900E00A71 /* ViewController.m */; };
@@ -70,6 +72,12 @@
 /* Begin PBXFileReference section */
 		FD4F2FC11CFDC2FF00F16054 /* HistoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryController.h; sourceTree = "<group>"; };
 		FD4F2FC21CFDC2FF00F16054 /* HistoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryController.m; sourceTree = "<group>"; };
+		FD4F2FC41CFDDC4000F16054 /* DeviceAddController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceAddController.h; sourceTree = "<group>"; };
+		FD4F2FC51CFDDC4000F16054 /* DeviceAddController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceAddController.m; sourceTree = "<group>"; };
+		FD4F2FC71CFDE09500F16054 /* libsmartlinklib_7x.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libsmartlinklib_7x.a; sourceTree = "<group>"; };
+		FD4F2FC91CFDE0AF00F16054 /* HFSmartLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFSmartLink.h; sourceTree = "<group>"; };
+		FD4F2FCA1CFDE0AF00F16054 /* HFSmartLinkDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFSmartLinkDeviceInfo.h; sourceTree = "<group>"; };
+		FD4F2FCB1CFDE0AF00F16054 /* smartlinklib_7x.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smartlinklib_7x.h; sourceTree = "<group>"; };
 		FD91C2061CFA79F900E00A71 /* airtree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = airtree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD91C20A1CFA79F900E00A71 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FD91C20C1CFA79F900E00A71 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -144,6 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD4F2FC81CFDE09500F16054 /* libsmartlinklib_7x.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +203,9 @@
 				FD91C2151CFA79F900E00A71 /* Assets.xcassets */,
 				FD91C21A1CFA79F900E00A71 /* Info.plist */,
 				FD91C2121CFA79F900E00A71 /* Main.storyboard */,
+				FD4F2FC91CFDE0AF00F16054 /* HFSmartLink.h */,
+				FD4F2FCA1CFDE0AF00F16054 /* HFSmartLinkDeviceInfo.h */,
+				FD4F2FCB1CFDE0AF00F16054 /* smartlinklib_7x.h */,
 				FD91C20C1CFA79F900E00A71 /* AppDelegate.h */,
 				FD91C20D1CFA79F900E00A71 /* AppDelegate.m */,
 				FD91C20F1CFA79F900E00A71 /* ViewController.h */,
@@ -210,6 +222,8 @@
 				FD9A8ED91CFB4EB000D31032 /* DeviceManageController.m */,
 				FD4F2FC11CFDC2FF00F16054 /* HistoryController.h */,
 				FD4F2FC21CFDC2FF00F16054 /* HistoryController.m */,
+				FD4F2FC41CFDDC4000F16054 /* DeviceAddController.h */,
+				FD4F2FC51CFDDC4000F16054 /* DeviceAddController.m */,
 			);
 			path = airtree;
 			sourceTree = "<group>";
@@ -265,6 +279,7 @@
 		FD9A8E311CFAAE3200D31032 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD4F2FC71CFDE09500F16054 /* libsmartlinklib_7x.a */,
 				FD9A8E351CFAAF0900D31032 /* MKNetworkKit */,
 			);
 			name = Frameworks;
@@ -488,6 +503,7 @@
 				FD9A8E551CFAAF0900D31032 /* NSString+MKNKAdditions.m in Sources */,
 				FD9A8E511CFAAF0900D31032 /* NSDate+RFC1123.m in Sources */,
 				FD9A8E581CFAAF0900D31032 /* MKCache.m in Sources */,
+				FD4F2FC61CFDDC4000F16054 /* DeviceAddController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,7 +636,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = airtree/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.moral.airtree;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -632,7 +653,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = airtree/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.moral.airtree;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
