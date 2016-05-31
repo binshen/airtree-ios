@@ -10,10 +10,13 @@
 		FD4F2FC31CFDC2FF00F16054 /* HistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4F2FC21CFDC2FF00F16054 /* HistoryController.m */; };
 		FD4F2FC61CFDDC4000F16054 /* DeviceAddController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4F2FC51CFDDC4000F16054 /* DeviceAddController.m */; };
 		FD4F2FC81CFDE09500F16054 /* libsmartlinklib_7x.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD4F2FC71CFDE09500F16054 /* libsmartlinklib_7x.a */; };
+		FD4F2FCE1CFDEC3500F16054 /* PersonNicknameController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4F2FCD1CFDEC3500F16054 /* PersonNicknameController.m */; };
+		FD4F2FD11CFDEC4900F16054 /* PersonPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4F2FD01CFDEC4900F16054 /* PersonPasswordController.m */; };
+		FD4F2FD41CFDEC5D00F16054 /* PersonFeedbackController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4F2FD31CFDEC5D00F16054 /* PersonFeedbackController.m */; };
+		FD4F2FD71CFDF3EC00F16054 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD4F2FD51CFDF3EC00F16054 /* Main.storyboard */; };
 		FD91C20B1CFA79F900E00A71 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD91C20A1CFA79F900E00A71 /* main.m */; };
 		FD91C20E1CFA79F900E00A71 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD91C20D1CFA79F900E00A71 /* AppDelegate.m */; };
 		FD91C2111CFA79F900E00A71 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD91C2101CFA79F900E00A71 /* ViewController.m */; };
-		FD91C2141CFA79F900E00A71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD91C2121CFA79F900E00A71 /* Main.storyboard */; };
 		FD91C2161CFA79F900E00A71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD91C2151CFA79F900E00A71 /* Assets.xcassets */; };
 		FD91C2241CFA79F900E00A71 /* airtreeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FD91C2231CFA79F900E00A71 /* airtreeTests.m */; };
 		FD91C22F1CFA79F900E00A71 /* airtreeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FD91C22E1CFA79F900E00A71 /* airtreeUITests.m */; };
@@ -78,13 +81,19 @@
 		FD4F2FC91CFDE0AF00F16054 /* HFSmartLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFSmartLink.h; sourceTree = "<group>"; };
 		FD4F2FCA1CFDE0AF00F16054 /* HFSmartLinkDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFSmartLinkDeviceInfo.h; sourceTree = "<group>"; };
 		FD4F2FCB1CFDE0AF00F16054 /* smartlinklib_7x.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smartlinklib_7x.h; sourceTree = "<group>"; };
+		FD4F2FCC1CFDEC3500F16054 /* PersonNicknameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonNicknameController.h; sourceTree = "<group>"; };
+		FD4F2FCD1CFDEC3500F16054 /* PersonNicknameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonNicknameController.m; sourceTree = "<group>"; };
+		FD4F2FCF1CFDEC4900F16054 /* PersonPasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonPasswordController.h; sourceTree = "<group>"; };
+		FD4F2FD01CFDEC4900F16054 /* PersonPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonPasswordController.m; sourceTree = "<group>"; };
+		FD4F2FD21CFDEC5D00F16054 /* PersonFeedbackController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonFeedbackController.h; sourceTree = "<group>"; };
+		FD4F2FD31CFDEC5D00F16054 /* PersonFeedbackController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonFeedbackController.m; sourceTree = "<group>"; };
+		FD4F2FD61CFDF3EC00F16054 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FD91C2061CFA79F900E00A71 /* airtree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = airtree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD91C20A1CFA79F900E00A71 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FD91C20C1CFA79F900E00A71 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FD91C20D1CFA79F900E00A71 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FD91C20F1CFA79F900E00A71 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		FD91C2101CFA79F900E00A71 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		FD91C2131CFA79F900E00A71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FD91C2151CFA79F900E00A71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD91C21A1CFA79F900E00A71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD91C21F1CFA79F900E00A71 /* airtreeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = airtreeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -201,8 +210,8 @@
 				FD91C23C1CFA7BD900E00A71 /* images */,
 				FD91C2091CFA79F900E00A71 /* Supporting Files */,
 				FD91C2151CFA79F900E00A71 /* Assets.xcassets */,
+				FD4F2FD51CFDF3EC00F16054 /* Main.storyboard */,
 				FD91C21A1CFA79F900E00A71 /* Info.plist */,
-				FD91C2121CFA79F900E00A71 /* Main.storyboard */,
 				FD4F2FC91CFDE0AF00F16054 /* HFSmartLink.h */,
 				FD4F2FCA1CFDE0AF00F16054 /* HFSmartLinkDeviceInfo.h */,
 				FD4F2FCB1CFDE0AF00F16054 /* smartlinklib_7x.h */,
@@ -224,6 +233,12 @@
 				FD4F2FC21CFDC2FF00F16054 /* HistoryController.m */,
 				FD4F2FC41CFDDC4000F16054 /* DeviceAddController.h */,
 				FD4F2FC51CFDDC4000F16054 /* DeviceAddController.m */,
+				FD4F2FCC1CFDEC3500F16054 /* PersonNicknameController.h */,
+				FD4F2FCD1CFDEC3500F16054 /* PersonNicknameController.m */,
+				FD4F2FCF1CFDEC4900F16054 /* PersonPasswordController.h */,
+				FD4F2FD01CFDEC4900F16054 /* PersonPasswordController.m */,
+				FD4F2FD21CFDEC5D00F16054 /* PersonFeedbackController.h */,
+				FD4F2FD31CFDEC5D00F16054 /* PersonFeedbackController.m */,
 			);
 			path = airtree;
 			sourceTree = "<group>";
@@ -446,6 +461,7 @@
 				FD9A8ECC1CFB1F1E00D31032 /* ic_shop.png in Resources */,
 				FD91C2411CFA7BD900E00A71 /* start_1242x2208.png in Resources */,
 				FD9A8E2B1CFA872100D31032 /* ic_launcher_80x80.png in Resources */,
+				FD4F2FD71CFDF3EC00F16054 /* Main.storyboard in Resources */,
 				FD91C2431CFA7BD900E00A71 /* start_640x960.png in Resources */,
 				FD91C2441CFA7BD900E00A71 /* start_750x1334.png in Resources */,
 				FD91C2421CFA7BD900E00A71 /* start_320x480.png in Resources */,
@@ -454,7 +470,6 @@
 				FD9A8E2D1CFA872100D31032 /* ic_launcher_120x120.png in Resources */,
 				FD9A8ED71CFB460700D31032 /* ic_history.png in Resources */,
 				FD9A8E2A1CFA872100D31032 /* ic_launcher_58x58.png in Resources */,
-				FD91C2141CFA79F900E00A71 /* Main.storyboard in Resources */,
 				FD9A8ECB1CFB1F1E00D31032 /* ic_person.png in Resources */,
 				FD9A8EC81CFB1D0900D31032 /* ic_device.png in Resources */,
 			);
@@ -485,8 +500,10 @@
 				FD91C2111CFA79F900E00A71 /* ViewController.m in Sources */,
 				FD4F2FC31CFDC2FF00F16054 /* HistoryController.m in Sources */,
 				FD9A8EDA1CFB4EB000D31032 /* DeviceManageController.m in Sources */,
+				FD4F2FD11CFDEC4900F16054 /* PersonPasswordController.m in Sources */,
 				FD9A8ED51CFB3C1000D31032 /* Person.m in Sources */,
 				FD9A8E591CFAAF0900D31032 /* MKNetworkHost.m in Sources */,
+				FD4F2FD41CFDEC5D00F16054 /* PersonFeedbackController.m in Sources */,
 				FD9A8EBC1CFB138300D31032 /* NavViewController.m in Sources */,
 				FD91C20E1CFA79F900E00A71 /* AppDelegate.m in Sources */,
 				FD9A8EBF1CFB193B00D31032 /* MainController.m in Sources */,
@@ -495,6 +512,7 @@
 				FD91C20B1CFA79F900E00A71 /* main.m in Sources */,
 				FD9A8E521CFAAF0900D31032 /* NSDictionary+MKNKAdditions.m in Sources */,
 				FD9A8E5A1CFAAF0900D31032 /* MKNetworkRequest.m in Sources */,
+				FD4F2FCE1CFDEC3500F16054 /* PersonNicknameController.m in Sources */,
 				FD9A8E561CFAAF0900D31032 /* UIAlertView+MKNKAdditions.m in Sources */,
 				FD9A8E541CFAAF0900D31032 /* NSMutableDictionary+MKNKAdditions.m in Sources */,
 				FD9A8E531CFAAF0900D31032 /* NSHTTPURLResponse+MKNKAdditions.m in Sources */,
@@ -539,10 +557,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		FD91C2121CFA79F900E00A71 /* Main.storyboard */ = {
+		FD4F2FD51CFDF3EC00F16054 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FD91C2131CFA79F900E00A71 /* Base */,
+				FD4F2FD61CFDF3EC00F16054 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
