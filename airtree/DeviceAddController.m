@@ -63,7 +63,7 @@
                     isconnecting  = false;
                     [self.butConnect setTitle:@"正在连接..." forState:UIControlStateNormal];
                 }];
-        [self.butConnect setTitle:@"connecting" forState:UIControlStateNormal];
+        [self.butConnect setTitle:@"正在连接..." forState:UIControlStateNormal];
     }else{
         [smtlk stopWithBlock:^(NSString *stopMsg, BOOL isOk) {
             if(isOk){
@@ -78,47 +78,42 @@
 }
 
 - (IBAction)swPressed:(id)sender {
-    if(self.switcher.on){
+    if(self.switcher.on) {
         smtlk.isConfigOneDevice = true;
-    }else{
+    } else {
         smtlk.isConfigOneDevice = false;
     }
 }
 
--(void)showAlertWithMsg:(NSString *)msg
-                  title:(NSString*)title{
-    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:title message:msg delegate:nil cancelButtonTitle:@"cancel" otherButtonTitles:@"ok", nil];
+-(void)showAlertWithMsg:(NSString *)msg title:(NSString*)title {
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:title message:msg delegate:nil cancelButtonTitle:@"cancel" otherButtonTitles:@"ok", nil];
     [alert show];
 }
 
--(void)savePswd{
-    NSUserDefaults * def = [NSUserDefaults standardUserDefaults];
+-(void)savePswd {
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
     [def setObject:self.txtPwd.text forKey:self.txtSSID.text];
 }
--(NSString *)getspwdByssid:(NSString * )mssid{
-    NSUserDefaults * def = [NSUserDefaults standardUserDefaults];
+
+-(NSString *)getspwdByssid:(NSString * )mssid {
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
     return [def objectForKey:mssid];
 }
 
-- (void)showWifiSsid
-{
-    BOOL wifiOK= FALSE;
+- (void)showWifiSsid {
+    BOOL wifiOK = FALSE;
     NSDictionary *ifs;
     NSString *ssid;
     UIAlertView *alert;
-    if (!wifiOK)
-    {
+    if (!wifiOK) {
         ifs = [self fetchSSIDInfo];
         ssid = [ifs objectForKey:@"SSID"];
-        if (ssid!= nil)
-        {
+        if (ssid != nil) {
             wifiOK= TRUE;
             self.txtSSID.text = ssid;
-        }
-        else
-        {
-            alert= [[UIAlertView alloc] initWithTitle:@"" message:[NSString stringWithFormat:@"请连接Wi-Fi"] delegate:self cancelButtonTitle:@"关闭" otherButtonTitles:nil];
-            alert.delegate=self;
+        } else {
+            alert = [[UIAlertView alloc] initWithTitle:@"" message:[NSString stringWithFormat:@"请连接Wi-Fi"] delegate:self cancelButtonTitle:@"关闭" otherButtonTitles:nil];
+            alert.delegate = self;
             [alert show];
         }
     }
