@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="LZg-bl-WMj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="LZg-bl-WMj">
                                 <rect key="frame" x="121" y="60" width="133" height="64"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="空气树" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSt-1R-MLr">
@@ -233,17 +233,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KeK-Bb-34t">
+                        <view key="tableFooterView" contentMode="scaleToFill" id="Q4U-UD-DHh">
                             <rect key="frame" x="0.0" y="142" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.095261928649999994" green="0.67802096000000001" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <state key="normal" title="退出当前账号"/>
-                            <connections>
-                                <action selector="clickLogout:" destination="pBU-G1-lgL" eventType="touchUpInside" id="IQ6-eU-mEy"/>
-                                <segue destination="BYZ-38-t0r" kind="presentation" id="tSK-jg-waM"/>
-                            </connections>
-                        </button>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2b-J2-jzb">
+                                    <rect key="frame" x="17" y="7" width="341" height="30"/>
+                                    <color key="backgroundColor" red="0.095261928649999994" green="0.67802096000000001" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <state key="normal" title="退出当前账号"/>
+                                    <connections>
+                                        <segue destination="BYZ-38-t0r" kind="show" id="Vie-jp-YUX"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="L2b-J2-jzb" secondAttribute="trailing" constant="17" id="8Op-2v-wJ1"/>
+                                <constraint firstItem="L2b-J2-jzb" firstAttribute="leading" secondItem="Q4U-UD-DHh" secondAttribute="leading" constant="17" id="H8c-ip-8bT"/>
+                                <constraint firstItem="L2b-J2-jzb" firstAttribute="centerY" secondItem="Q4U-UD-DHh" secondAttribute="centerY" id="s1t-XA-88E"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PersonCell" textLabel="3OT-qR-cXq" detailTextLabel="gc3-li-JKI" rowHeight="50" style="IBUITableViewCellStyleValue1" id="Xyo-Za-0xB">
                                 <rect key="frame" x="0.0" y="92" width="375" height="50"/>
