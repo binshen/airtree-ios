@@ -214,6 +214,9 @@
                                 <color key="backgroundColor" red="0.095261928649999994" green="0.67802096000000001" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="修    改"/>
+                                <connections>
+                                    <action selector="clickUpdate:" destination="Pfc-p7-91D" eventType="touchUpInside" id="ds6-QE-BHY"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -234,24 +237,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="Q4U-UD-DHh">
-                            <rect key="frame" x="0.0" y="142" width="375" height="44"/>
+                            <rect key="frame" x="0.0" y="142" width="375" height="65"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2b-J2-jzb">
-                                    <rect key="frame" x="17" y="7" width="341" height="30"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fud-uH-2MU">
+                                    <rect key="frame" x="16" y="18" width="342" height="30"/>
                                     <color key="backgroundColor" red="0.095261928649999994" green="0.67802096000000001" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <state key="normal" title="退出当前账号"/>
                                     <connections>
-                                        <segue destination="BYZ-38-t0r" kind="show" id="Vie-jp-YUX"/>
+                                        <segue destination="BYZ-38-t0r" kind="show" id="rrx-3w-Sl8"/>
                                     </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="L2b-J2-jzb" secondAttribute="trailing" constant="17" id="8Op-2v-wJ1"/>
-                                <constraint firstItem="L2b-J2-jzb" firstAttribute="leading" secondItem="Q4U-UD-DHh" secondAttribute="leading" constant="17" id="H8c-ip-8bT"/>
-                                <constraint firstItem="L2b-J2-jzb" firstAttribute="centerY" secondItem="Q4U-UD-DHh" secondAttribute="centerY" id="s1t-XA-88E"/>
+                                <constraint firstItem="Fud-uH-2MU" firstAttribute="leading" secondItem="Q4U-UD-DHh" secondAttribute="leading" constant="16" id="OIE-xd-eqV"/>
+                                <constraint firstItem="Fud-uH-2MU" firstAttribute="top" secondItem="Q4U-UD-DHh" secondAttribute="top" constant="18" id="oKL-Ij-PD7"/>
+                                <constraint firstAttribute="trailing" secondItem="Fud-uH-2MU" secondAttribute="trailing" constant="17" id="u99-jV-RsF"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -379,6 +382,9 @@
                                 <color key="backgroundColor" red="0.095261928649999994" green="0.67802096000000001" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="修    改"/>
+                                <connections>
+                                    <action selector="clickUpdate:" destination="dfn-vf-RfZ" eventType="touchUpInside" id="Yju-Y8-GFY"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -402,16 +408,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ifU-J1-PPa">
-                                <rect key="frame" x="20" y="89" width="335" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="icF-TM-bBN">
+                                <rect key="frame" x="20" y="87" width="335" height="155"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXY-7p-Ysd">
+                                <rect key="frame" x="20" y="266" width="335" height="30"/>
+                                <color key="backgroundColor" red="0.095261928649999994" green="0.67802096000000001" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="提    交"/>
+                                <connections>
+                                    <action selector="clickSubmit:" destination="ogR-Fk-1iY" eventType="touchUpInside" id="kGb-l7-1UI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="用户反馈" id="x9z-0J-LYS"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="TextFeedback" destination="icF-TM-bBN" id="COb-D0-cgs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jE4-UO-e3K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
