@@ -20,7 +20,6 @@
     
     _TextFeedback.layer.borderWidth = 0.5f;
     _TextFeedback.layer.borderColor = [[UIColor grayColor] CGColor];
-
 }
 
 - (void)didReceiveMemoryWarning {

@@ -22,6 +22,9 @@
     
     [_TxtUsername setText:@"13999999999"];
     [_TxtPassword setText:@"888888"];
+    
+    //[self.navigationItem setHidesBackButton:TRUE animated:NO];
+    [self.navigationController setNavigationBarHidden:TRUE animated:NO];
 }
 
 - (void)didReceiveMemoryWarning {
