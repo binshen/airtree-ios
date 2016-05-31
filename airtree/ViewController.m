@@ -29,8 +29,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)clickLogin:(id)sender {
-    
+- (IBAction)clickLoginButton:(id)sender {
     NSString *path = [[NSString alloc] initWithFormat:@"/user/login"];
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
     [param setValue:_TxtUsername.text forKey:@"username"];

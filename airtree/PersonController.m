@@ -7,6 +7,9 @@
 //
 
 #import "PersonController.h"
+#import "PersonNicknameController.h"
+#import "PersonPasswordController.h"
+#import "PersonFeedbackController.h"
 #import "Person.h"
 
 @interface PersonController ()
@@ -23,6 +26,10 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = item;
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     
     NSMutableArray *itemList = [[NSMutableArray alloc] initWithCapacity:5];
     Person *person = [[Person alloc] init];
@@ -99,8 +106,24 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     int index = [[self.items objectAtIndex:[indexPath row]] index];
-    UIAlertView * alter = [[UIAlertView alloc] initWithTitle:@"选中的行信息" message:[NSString stringWithFormat:@"%d", index] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-    [alter show];
+    //UIAlertView * alter = [[UIAlertView alloc] initWithTitle:@"选中的行信息" message:[NSString stringWithFormat:@"%d", index] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    //[alter show];
+    
+    if(index == 1) {
+        PersonNicknameController *personNickname = [self.storyboard instantiateViewControllerWithIdentifier:@"PersonNicknameController"];
+        [[self navigationController] pushViewController:personNickname animated:YES];
+    } else if(index == 2) {
+        PersonPasswordController *personNickname = [self.storyboard instantiateViewControllerWithIdentifier:@"PersonPasswordController"];
+        [[self navigationController] pushViewController:personNickname animated:YES];
+    } else if(index == 4) {
+        
+    } else if(index == 5) {
+        PersonFeedbackController *personNickname = [self.storyboard instantiateViewControllerWithIdentifier:@"PersonFeedbackController"];
+        [[self navigationController] pushViewController:personNickname animated:YES];
+
+    } else {
+        
+    }
 }
 
 /*
