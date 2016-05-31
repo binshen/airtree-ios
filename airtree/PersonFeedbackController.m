@@ -17,6 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _TextFeedback.layer.borderWidth = 0.5f;
+    _TextFeedback.layer.borderColor = [[UIColor grayColor] CGColor];
+
 }
 
 - (void)didReceiveMemoryWarning {

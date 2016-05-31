@@ -10,4 +10,6 @@
 
 @interface PersonFeedbackController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextView *TextFeedback;
+
 @end
