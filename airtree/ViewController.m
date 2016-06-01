@@ -23,7 +23,16 @@
     [_TxtUsername setText:@"13999999999"];
     [_TxtPassword setText:@"888888"];
     
-    //[self.navigationItem setHidesBackButton:TRUE animated:NO];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:20/255.0 green:155/255.0 blue:213/255.0 alpha:1.0]];
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,nil]];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [self.navigationItem setHidesBackButton:TRUE animated:NO];
     [self.navigationController setNavigationBarHidden:TRUE animated:NO];
 }
 

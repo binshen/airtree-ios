@@ -1,31 +1,29 @@
 //
-//  DeviceDetailReviseController.m
+//  ForgetPwdController.m
 //  airtree
 //
 //  Created by Bin Shen on 6/1/16.
 //  Copyright © 2016 Bin Shen. All rights reserved.
 //
 
-#import "DeviceDetailReviseController.h"
+#import "ForgetPwdController.h"
 
-@interface DeviceDetailReviseController ()
+@interface ForgetPwdController ()
 
 @end
 
-@implementation DeviceDetailReviseController
+@implementation ForgetPwdController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self.navigationController setNavigationBarHidden:FALSE animated:NO];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)clickUpdate:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 /*
