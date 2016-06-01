@@ -14,6 +14,10 @@
 		FD4F2FD11CFDEC4900F16054 /* PersonPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4F2FD01CFDEC4900F16054 /* PersonPasswordController.m */; };
 		FD4F2FD41CFDEC5D00F16054 /* PersonFeedbackController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4F2FD31CFDEC5D00F16054 /* PersonFeedbackController.m */; };
 		FD4F2FD71CFDF3EC00F16054 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD4F2FD51CFDF3EC00F16054 /* Main.storyboard */; };
+		FD5A77B91CFE6D3700442E3F /* DeviceInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5A77B81CFE6D3700442E3F /* DeviceInfoController.m */; };
+		FD5A77BC1CFE74BA00442E3F /* DeviceDetailReviseController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5A77BB1CFE74BA00442E3F /* DeviceDetailReviseController.m */; };
+		FD5A77BF1CFE7EE900442E3F /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5A77BE1CFE7EE900442E3F /* RegisterController.m */; };
+		FD5A77C21CFE852400442E3F /* ForgetPwdController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5A77C11CFE852400442E3F /* ForgetPwdController.m */; };
 		FD91C20B1CFA79F900E00A71 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD91C20A1CFA79F900E00A71 /* main.m */; };
 		FD91C20E1CFA79F900E00A71 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD91C20D1CFA79F900E00A71 /* AppDelegate.m */; };
 		FD91C2111CFA79F900E00A71 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD91C2101CFA79F900E00A71 /* ViewController.m */; };
@@ -88,6 +92,14 @@
 		FD4F2FD21CFDEC5D00F16054 /* PersonFeedbackController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonFeedbackController.h; sourceTree = "<group>"; };
 		FD4F2FD31CFDEC5D00F16054 /* PersonFeedbackController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonFeedbackController.m; sourceTree = "<group>"; };
 		FD4F2FD61CFDF3EC00F16054 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FD5A77B71CFE6D3700442E3F /* DeviceInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfoController.h; sourceTree = "<group>"; };
+		FD5A77B81CFE6D3700442E3F /* DeviceInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfoController.m; sourceTree = "<group>"; };
+		FD5A77BA1CFE74BA00442E3F /* DeviceDetailReviseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceDetailReviseController.h; sourceTree = "<group>"; };
+		FD5A77BB1CFE74BA00442E3F /* DeviceDetailReviseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceDetailReviseController.m; sourceTree = "<group>"; };
+		FD5A77BD1CFE7EE900442E3F /* RegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterController.h; sourceTree = "<group>"; };
+		FD5A77BE1CFE7EE900442E3F /* RegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
+		FD5A77C01CFE852400442E3F /* ForgetPwdController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPwdController.h; sourceTree = "<group>"; };
+		FD5A77C11CFE852400442E3F /* ForgetPwdController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPwdController.m; sourceTree = "<group>"; };
 		FD91C2061CFA79F900E00A71 /* airtree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = airtree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD91C20A1CFA79F900E00A71 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FD91C20C1CFA79F900E00A71 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -239,6 +251,14 @@
 				FD4F2FD01CFDEC4900F16054 /* PersonPasswordController.m */,
 				FD4F2FD21CFDEC5D00F16054 /* PersonFeedbackController.h */,
 				FD4F2FD31CFDEC5D00F16054 /* PersonFeedbackController.m */,
+				FD5A77B71CFE6D3700442E3F /* DeviceInfoController.h */,
+				FD5A77B81CFE6D3700442E3F /* DeviceInfoController.m */,
+				FD5A77BA1CFE74BA00442E3F /* DeviceDetailReviseController.h */,
+				FD5A77BB1CFE74BA00442E3F /* DeviceDetailReviseController.m */,
+				FD5A77BD1CFE7EE900442E3F /* RegisterController.h */,
+				FD5A77BE1CFE7EE900442E3F /* RegisterController.m */,
+				FD5A77C01CFE852400442E3F /* ForgetPwdController.h */,
+				FD5A77C11CFE852400442E3F /* ForgetPwdController.m */,
 			);
 			path = airtree;
 			sourceTree = "<group>";
@@ -498,6 +518,7 @@
 			files = (
 				FD9A8ED21CFB34CE00D31032 /* PersonController.m in Sources */,
 				FD91C2111CFA79F900E00A71 /* ViewController.m in Sources */,
+				FD5A77BF1CFE7EE900442E3F /* RegisterController.m in Sources */,
 				FD4F2FC31CFDC2FF00F16054 /* HistoryController.m in Sources */,
 				FD9A8EDA1CFB4EB000D31032 /* DeviceManageController.m in Sources */,
 				FD4F2FD11CFDEC4900F16054 /* PersonPasswordController.m in Sources */,
@@ -518,8 +539,11 @@
 				FD9A8E531CFAAF0900D31032 /* NSHTTPURLResponse+MKNKAdditions.m in Sources */,
 				FD9A8E571CFAAF0900D31032 /* UIImageView+MKNKAdditions.m in Sources */,
 				FD9A8EC61CFB1A2A00D31032 /* Device.m in Sources */,
+				FD5A77BC1CFE74BA00442E3F /* DeviceDetailReviseController.m in Sources */,
 				FD9A8E551CFAAF0900D31032 /* NSString+MKNKAdditions.m in Sources */,
 				FD9A8E511CFAAF0900D31032 /* NSDate+RFC1123.m in Sources */,
+				FD5A77C21CFE852400442E3F /* ForgetPwdController.m in Sources */,
+				FD5A77B91CFE6D3700442E3F /* DeviceInfoController.m in Sources */,
 				FD9A8E581CFAAF0900D31032 /* MKCache.m in Sources */,
 				FD4F2FC61CFDDC4000F16054 /* DeviceAddController.m in Sources */,
 			);
