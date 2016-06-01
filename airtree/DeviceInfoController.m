@@ -22,6 +22,8 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    //self.items = [NSArray arrayWithObjects: 1, 2, 3, 4,nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,26 +33,55 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//#warning Incomplete implementation, return the number of sections
+//    return 0;
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return 6;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DeviceInfoCell" forIndexPath:indexPath];
+    cell.userInteractionEnabled = NO;
+    cell.accessoryType = UITableViewCellAccessoryNone;
     
-    // Configure the cell...
-    
+    NSInteger index = [indexPath row];
+    switch (index) {
+        case 0:
+            cell.textLabel.text = @"设备编码";
+            break;
+        case 1:
+            cell.textLabel.text = @"设备描述";
+            cell.userInteractionEnabled = YES;
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            break;
+        case 2:
+            cell.textLabel.text = @"MAC";
+            break;
+        case 3:
+            cell.textLabel.text = @"参数2";
+            break;
+        case 4:
+            cell.textLabel.text = @"参数3";
+            break;
+        case 5:
+            cell.textLabel.text = @"参数4";
+            break;
+        default:
+            break;
+    }
     return cell;
 }
-*/
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSInteger index = [indexPath row];
+    if (index == 1) {
+        NSLog(@"#####################");
+    }
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -10,6 +10,6 @@
 
 @interface DeviceInfoController : UITableViewController
 
-@property (nonatomic, strong) NSMutableArray *items;
+@property (nonatomic, strong) NSArray *items;
 
 @end
