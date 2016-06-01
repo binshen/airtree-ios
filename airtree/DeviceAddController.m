@@ -12,6 +12,9 @@
 #import "HFSmartLinkDeviceInfo.h"
 #import <SystemConfiguration/CaptiveNetwork.h>
 
+#import "AppDelegate.h"
+#import "Device.h"
+
 @interface DeviceAddController ()
 {
     HFSmartLink * smtlk;
@@ -56,7 +59,18 @@
                 processblock: ^(NSInteger pro) {
                     self.progress.progress = (float)(pro)/100.0;
                 } successBlock:^(HFSmartLinkDeviceInfo *dev) {
-                    [self  showAlertWithMsg:[NSString stringWithFormat:@"%@:%@",dev.mac,dev.ip] title:@"OK"];
+                    //[self  showAlertWithMsg:[NSString stringWithFormat:@"%@:%@",dev.mac,dev.ip] title:@"OK"];
+                    
+                    Device *device = [[Device alloc] init];
+                    device.mac = dev.mac;
+                    device.ip = dev.ip;
+                    device.status = 4;
+                    
+                    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+                    [appDelegate.globalDeviceList addObject:device];
+                    
+                    [self.navigationController popViewControllerAnimated:YES];
+                    
                 } failBlock:^(NSString *failmsg) {
                     [self  showAlertWithMsg:failmsg title:@"error"];
                 } endBlock:^(NSDictionary *deviceDic) {

@@ -98,6 +98,7 @@
     cell.detailTextLabel.text = [person detail];
     
     if (person.index == 3) {
+        cell.userInteractionEnabled = NO;
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
     return cell;

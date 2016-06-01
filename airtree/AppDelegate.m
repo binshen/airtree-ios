@@ -14,11 +14,14 @@
 
 @implementation AppDelegate
 
+@synthesize globalDeviceList;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
     [NSThread sleepForTimeInterval:2.0];
+    globalDeviceList = [[NSMutableArray alloc] initWithCapacity:20];
+    
     return YES;
 }
 
