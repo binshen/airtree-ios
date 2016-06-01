@@ -1,5 +1,5 @@
 //
-//  DeviceInfoController.h
+//  DeviceDetailReviseController.h
 //  airtree
 //
 //  Created by Bin Shen on 6/1/16.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DeviceInfoController : UITableViewController
+@interface DeviceDetailReviseController : UIViewController
 
 @end

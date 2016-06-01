@@ -439,7 +439,7 @@
             </objects>
             <point key="canvasLocation" x="1204.5" y="1979.5"/>
         </scene>
-        <!--Device Info Controller-->
+        <!--设备详细-->
         <scene sceneID="9OD-KH-Jy7">
             <objects>
                 <tableViewController id="6Va-wh-HaL" customClass="DeviceInfoController" sceneMemberID="viewController">
@@ -471,11 +471,45 @@
                             <outlet property="delegate" destination="6Va-wh-HaL" id="qI2-rM-oCm"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="设备详细" id="HdQ-C1-Txm"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="chJ-PS-1Hn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1685.5" y="1979.5"/>
+        </scene>
+        <!--设备名称-->
+        <scene sceneID="Cvh-ir-ujE">
+            <objects>
+                <viewController storyboardIdentifier="DeviceDetailReviseController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="r6E-ev-Hsu" customClass="DeviceDetailReviseController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vAh-QH-Uw5"/>
+                        <viewControllerLayoutGuide type="bottom" id="XTv-n1-SrR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TCy-md-Rg6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZeE-b2-bQr">
+                                <rect key="frame" x="20" y="105" width="335" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OpY-rb-bUb">
+                                <rect key="frame" x="20" y="167" width="335" height="30"/>
+                                <color key="backgroundColor" red="0.095261928649999994" green="0.67802096000000001" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="确    定"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="设备名称" id="XF5-h0-Fzz"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mPx-GC-x6a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2185.5" y="1979.5"/>
         </scene>
         <!--添加设备-->
         <scene sceneID="1EF-ly-OzT">

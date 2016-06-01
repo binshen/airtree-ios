@@ -7,6 +7,7 @@
 //
 
 #import "DeviceInfoController.h"
+#import "DeviceDetailReviseController.h"
 
 @interface DeviceInfoController ()
 
@@ -23,7 +24,8 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    //self.items = [NSArray arrayWithObjects: 1, 2, 3, 4,nil];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,7 +81,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSInteger index = [indexPath row];
     if (index == 1) {
-        NSLog(@"#####################");
+        DeviceDetailReviseController *deviceDetailRevise = [self.storyboard instantiateViewControllerWithIdentifier:@"DeviceDetailReviseController"];
+        [[self navigationController] pushViewController:deviceDetailRevise animated:YES];
     }
 }
 /*
