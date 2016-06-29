@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "MKNetworkKit.h"
 #import "NavViewController.h"
+#import "AppDelegate.h"
 
 @interface ViewController ()
 
@@ -72,6 +73,9 @@
             NSDictionary *user = [json objectForKey:@"user"];
             BOOL boolValue = [success boolValue];
             if (boolValue && ![user isEqual:[NSNull null]]) {
+                AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+                appDelegate.loginUser = user;
+                
                 NavViewController *nav = [self.storyboard instantiateViewControllerWithIdentifier:@"NavViewController"];
                 [self presentViewController:nav animated:YES completion:nil];
             } else {

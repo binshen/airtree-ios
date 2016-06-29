@@ -10,6 +10,7 @@
 #import "HistoryController.h"
 #import "DeviceManageController.h"
 #import "Device.h"
+#import "AppDelegate.h"
 
 @interface MainController ()
 
@@ -38,6 +39,10 @@
     
     [_BtnHistory setUserInteractionEnabled:YES];
     [_BtnHistory addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickHistoryButton:)]];
+    
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSDictionary  *loginUser = appDelegate.loginUser;
+    NSLog(@"%@", loginUser);
 }
 
 - (void)didReceiveMemoryWarning {

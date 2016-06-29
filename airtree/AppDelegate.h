@@ -14,5 +14,7 @@
 
 @property (nonatomic, retain) NSMutableArray *globalDeviceList;
 
+@property (nonatomic, retain) NSDictionary *loginUser;
+
 @end
 
