@@ -50,7 +50,9 @@
     MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
     MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"POST"];
     [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
-        //NSString *response = [completedRequest responseAsString];
+        NSString *response = [completedRequest responseAsString];
+        NSLog(@"Response: %@", response);
+        
         NSError *error = [completedRequest error];
         
         NSData *data = [completedRequest responseData];
@@ -66,9 +68,10 @@
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
             NSString *success = [json objectForKey:@"success"];
             NSLog(@"Success: %@", success);
-            
+
+            NSDictionary *user = [json objectForKey:@"user"];
             BOOL boolValue = [success boolValue];
-            if (boolValue) {
+            if (boolValue && ![user isEqual:[NSNull null]]) {
                 NavViewController *nav = [self.storyboard instantiateViewControllerWithIdentifier:@"NavViewController"];
                 [self presentViewController:nav animated:YES completion:nil];
             } else {

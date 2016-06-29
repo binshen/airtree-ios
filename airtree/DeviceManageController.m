@@ -28,29 +28,29 @@
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     
-    NSMutableArray *deviceList = [[NSMutableArray alloc] initWithCapacity:20];
-    Device *device = [[Device alloc] init];
-    device.mac = @"MAC1023C852";
-    device.ip = @"192.168.2.123";
-    device.status = 4;
-    [deviceList addObject:device];
+//    NSMutableArray *deviceList = [[NSMutableArray alloc] initWithCapacity:20];
+//    Device *device = [[Device alloc] init];
+//    device.mac = @"MAC1023C852";
+//    device.ip = @"192.168.2.123";
+//    device.status = 4;
+//    [deviceList addObject:device];
+//    
+//    device = [[Device alloc] init];
+//    device.mac = @"MAC1023C853";
+//    device.ip = @"192.168.2.124";
+//    device.status = 3;
+//    [deviceList addObject:device];
+//    
+//    device = [[Device alloc] init];
+//    device.mac = @"MAC1023C851";
+//    device.ip = @"192.168.2.125";
+//    device.status = 3;
+//    [deviceList addObject:device];
+//    
+//    self.devices = deviceList;
     
-    device = [[Device alloc] init];
-    device.mac = @"MAC1023C853";
-    device.ip = @"192.168.2.124";
-    device.status = 3;
-    [deviceList addObject:device];
-    
-    device = [[Device alloc] init];
-    device.mac = @"MAC1023C851";
-    device.ip = @"192.168.2.125";
-    device.status = 3;
-    [deviceList addObject:device];
-    
-    self.devices = deviceList;
-    
-//    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-//    self.devices = appDelegate.globalDeviceList;
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    self.devices = appDelegate.globalDeviceList;
 }
 
 - (void)didReceiveMemoryWarning {
