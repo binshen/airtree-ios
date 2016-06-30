@@ -57,6 +57,7 @@
 		FD9A8ED51CFB3C1000D31032 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8ED41CFB3C1000D31032 /* Person.m */; };
 		FD9A8ED71CFB460700D31032 /* ic_history.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9A8ED61CFB460700D31032 /* ic_history.png */; };
 		FD9A8EDA1CFB4EB000D31032 /* DeviceManageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8ED91CFB4EB000D31032 /* DeviceManageController.m */; };
+		FDACDD461D24B8ED00526DA9 /* DeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDACDD451D24B8ED00526DA9 /* DeviceViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,6 +167,8 @@
 		FD9A8ED61CFB460700D31032 /* ic_history.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_history.png; sourceTree = "<group>"; };
 		FD9A8ED81CFB4EB000D31032 /* DeviceManageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceManageController.h; sourceTree = "<group>"; };
 		FD9A8ED91CFB4EB000D31032 /* DeviceManageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceManageController.m; sourceTree = "<group>"; };
+		FDACDD441D24B8ED00526DA9 /* DeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceViewController.h; sourceTree = "<group>"; };
+		FDACDD451D24B8ED00526DA9 /* DeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +262,8 @@
 				FD5A77BE1CFE7EE900442E3F /* RegisterController.m */,
 				FD5A77C01CFE852400442E3F /* ForgetPwdController.h */,
 				FD5A77C11CFE852400442E3F /* ForgetPwdController.m */,
+				FDACDD441D24B8ED00526DA9 /* DeviceViewController.h */,
+				FDACDD451D24B8ED00526DA9 /* DeviceViewController.m */,
 			);
 			path = airtree;
 			sourceTree = "<group>";
@@ -544,6 +549,7 @@
 				FD9A8E511CFAAF0900D31032 /* NSDate+RFC1123.m in Sources */,
 				FD5A77C21CFE852400442E3F /* ForgetPwdController.m in Sources */,
 				FD5A77B91CFE6D3700442E3F /* DeviceInfoController.m in Sources */,
+				FDACDD461D24B8ED00526DA9 /* DeviceViewController.m in Sources */,
 				FD9A8E581CFAAF0900D31032 /* MKCache.m in Sources */,
 				FD4F2FC61CFDDC4000F16054 /* DeviceAddController.m in Sources */,
 			);
