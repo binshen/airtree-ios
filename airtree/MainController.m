@@ -73,6 +73,12 @@
     self.scrollView.autoresizingMask = YES;
     self.scrollView.delegate = self;
     
+    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doDoubleTap:)];
+    doubleTap.numberOfTapsRequired = 2;
+    doubleTap.numberOfTouchesRequired = 1;
+    [self.scrollView addGestureRecognizer:doubleTap];
+    
+    
     self.pageControl.numberOfPages = self.numberPages;
     self.pageControl.currentPage = 0;
     
@@ -145,6 +151,17 @@
     [self loadScrollViewWithPage:page - 1];
     [self loadScrollViewWithPage:page];
     [self loadScrollViewWithPage:page + 1];
+}
+
+//- (void)doDoubleTap:(UITapGestureRecognizer*)recognizer {
+//    NSLog(@"Double Click");
+//}
+
+- (void)doDoubleTap:(UITapGestureRecognizer *)sender {
+    NSLog(@"Double Click");
+    if (sender.state == UIGestureRecognizerStateRecognized) {
+        NSLog(@"Double Click123");
+    }
 }
 
 //////////////////////////////////////////////////////////////////////////////
