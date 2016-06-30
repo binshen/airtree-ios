@@ -8,11 +8,13 @@
 
 #import "MainController.h"
 #import "HistoryController.h"
+#import "DeviceViewController.h"
 #import "DeviceManageController.h"
 #import "Device.h"
 #import "AppDelegate.h"
 
 @interface MainController ()
+@property NSUInteger numberPages;
 
 @end
 
@@ -43,7 +45,110 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSDictionary  *loginUser = appDelegate.loginUser;
     NSLog(@"%@", loginUser);
+    
+    
+    // 初始化page control的内容
+    self.contentList = [NSArray arrayWithObjects:@"1",@"2",@"3",@"4", nil];
+    
+    
+    // 一共有多少页
+    self.numberPages = self.contentList.count;
+    
+    // 存储所有的controller
+    NSMutableArray *controllers = [[NSMutableArray alloc] init];
+    for (NSUInteger i = 0; i < self.numberPages; i++)
+    {
+        [controllers addObject:[NSNull null]];
+    }
+    self.viewControllers = controllers;
+    
+    // 一个页面的宽度就是scrollview的宽度
+    self.scrollView.pagingEnabled = YES;  // 自动滚动到subview的边界
+    
+    self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.scrollView.frame) * self.numberPages, CGRectGetHeight(self.scrollView.frame));
+    self.scrollView.showsHorizontalScrollIndicator = NO;
+    self.scrollView.showsVerticalScrollIndicator = NO;
+    self.scrollView.bounces = YES;
+    self.scrollView.scrollsToTop = NO;
+    self.scrollView.autoresizingMask = YES;
+    self.scrollView.delegate = self;
+    
+    self.pageControl.numberOfPages = self.numberPages;
+    self.pageControl.currentPage = 0;
+    
+    self.pageControl.hidesForSinglePage = YES;
+    self.pageControl.userInteractionEnabled =YES;
+//    [self.pageControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
+    
+    [self loadScrollViewWithPage:0];
+    [self loadScrollViewWithPage:1];
 }
+
+// 加载ScrollView中的不同SubViewController
+- (void)loadScrollViewWithPage:(NSUInteger)page
+{
+    if (page >= self.contentList.count)
+        return;
+    
+    DeviceViewController *controller = [self.viewControllers objectAtIndex:page];
+    if ((NSNull *)controller == [NSNull null])
+    {
+        controller = [self.storyboard instantiateViewControllerWithIdentifier:@"DeviceViewController"];
+        [self.viewControllers replaceObjectAtIndex:page withObject:controller];
+    }
+    
+    // add the controller's view to the scroll view
+    if (controller.view.superview == nil)
+    {
+        CGRect frame = self.scrollView.frame;
+        frame.origin.x = CGRectGetWidth(frame) * page;
+        frame.origin.y = 0;
+        controller.view.frame = frame;
+        [controller setLabel:[_contentList objectAtIndex:page]];
+        
+        [self.scrollView addSubview:controller.view];
+    }
+}
+
+-(void) viewDidAppear:(BOOL)animated
+{
+    self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.scrollView.frame) * self.numberPages, CGRectGetHeight(self.scrollView.frame));
+    [super viewDidAppear:animated];
+}
+
+//- (IBAction)changePage:(id)sender {
+//
+//    NSInteger page = self.pageControl.currentPage;
+//    NSLog(@"当前页面 = %lu", (unsigned long)page);
+//    
+//    // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
+//    [self loadScrollViewWithPage:page - 1];
+//    [self loadScrollViewWithPage:page];
+//    [self loadScrollViewWithPage:page + 1];
+//    
+//    // update the scroll view to the appropriate page
+//    CGRect bounds = self.scrollView.bounds;
+//    bounds.origin.x = CGRectGetWidth(bounds) * page;
+//    bounds.origin.y = 0;
+//    [self.scrollView scrollRectToVisible:bounds animated: YES];
+//}
+
+// 滑动结束的事件监听
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    // switch the indicator when more than 50% of the previous/next page is visible
+    CGFloat pageWidth = CGRectGetWidth(self.scrollView.frame);
+    NSUInteger page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    self.pageControl.currentPage = page;
+    NSLog(@"最后页面 = %lu", (unsigned long)page);
+    
+    [self loadScrollViewWithPage:page - 1];
+    [self loadScrollViewWithPage:page];
+    [self loadScrollViewWithPage:page + 1];
+}
+
+//////////////////////////////////////////////////////////////////////////////
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

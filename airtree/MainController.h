@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainController : UIViewController
+@interface MainController : UIViewController <UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *BtnHistory;
 @property (weak, nonatomic) IBOutlet UIButton *BtnDevice;
+
+@property (nonatomic, strong) NSArray *contentList;
+@property (nonatomic, strong) NSMutableArray *viewControllers;
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @end
