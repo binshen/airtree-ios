@@ -81,8 +81,14 @@
     NSString *type = device[@"type"];
     if ([type longLongValue] == 1)
     {
-        NSString *electric = device[@"data"][@"x13"];
-        [self.electric setImage:[UIImage imageNamed:[NSString stringWithFormat:@"ic_ele_%@.png", electric]]];
+        if ((NSNull *) data == [NSNull null] || ![data objectForKey:@"x13"])
+        {
+            [self.electric setImage:[UIImage imageNamed:@"ic_ele_1.png"]];
+        }
+        else
+        {
+            [self.electric setImage:[UIImage imageNamed:[NSString stringWithFormat:@"ic_ele_%@.png", data[@"x13"]]]];
+        }
     }
     else
     {

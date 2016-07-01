@@ -7,6 +7,8 @@
 //
 
 #import "PersonFeedbackController.h"
+#import "AppDelegate.h"
+#import "MKNetworkKit.h"
 
 @interface PersonFeedbackController ()
 
@@ -18,8 +20,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    _TextFeedback.layer.borderWidth = 0.5f;
-    _TextFeedback.layer.borderColor = [[UIColor grayColor] CGColor];
+    self.TextFeedback.layer.borderWidth = 0.5f;
+    self.TextFeedback.layer.borderColor = [[UIColor grayColor] CGColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,8 +30,27 @@
 }
 
 - (IBAction)clickSubmit:(id)sender {
-    //[self.navigationController popToRootViewControllerAnimated:YES];
-    [self.navigationController popViewControllerAnimated:YES];
+    if(self.TextFeedback.text.length == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提交失败" message:@"请输入反馈信息." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    } else {
+        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        NSDictionary  *loginUser = appDelegate.loginUser;
+        
+        NSString *path = [[NSString alloc] initWithFormat:[NSString stringWithFormat:@"/user/%@/feedback", loginUser[@"_id"]]];
+        NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+        [param setValue:self.TextFeedback.text forKey:@"feedback"];
+        MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
+        MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"POST"];
+        [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
+//            NSString *response = [completedRequest responseAsString];
+//            NSLog(@"Response: %@", response);
+            
+            //[self.navigationController popToRootViewControllerAnimated:YES];
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+        [host startRequest:request];
+    }
 }
 
 /*
