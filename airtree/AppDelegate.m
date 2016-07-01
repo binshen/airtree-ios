@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MKNetworkKit.h"
 #import "BackgroundRunner.h"
 
 @interface AppDelegate ()
@@ -63,8 +64,27 @@
     while (1) {
         [NSThread sleepForTimeInterval:10];
         _backgroundRunningTimeInterval++;
-        NSLog(@"%d",(int)_backgroundRunningTimeInterval);
+        NSLog(@"Heatbeat: %d",(int)_backgroundRunningTimeInterval);
+        [self runHeartbeatService];
     }
+}
+
+- (void) runHeartbeatService
+{
+    if (self.loginUser[@"_id"] == nil) {
+        NSLog(@"Heatbeat - loginUser is NULL");
+        return;
+    }
+    NSString *path = [[NSString alloc] initWithFormat:[NSString stringWithFormat:@"/user/%@/online", self.loginUser[@"_id"]]];
+    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+    MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
+    MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"POST"];
+    [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
+        NSString *response = [completedRequest responseAsString];
+        NSLog(@"Response: %@", response);
+        
+    }];
+    [host startRequest:request];
 }
 
 @end
