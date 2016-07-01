@@ -322,6 +322,9 @@
                                 <color key="pageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </pageControl>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="dju-Ez-J9l">
+                                <rect key="frame" x="177" y="333" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -350,6 +353,7 @@
                         <outlet property="BtnOnlineShop" destination="Ho0-kD-B95" id="dgu-9M-7Jh"/>
                         <outlet property="pageControl" destination="JWD-qz-RDh" id="jcW-lU-0uU"/>
                         <outlet property="scrollView" destination="y5k-5G-jjc" id="yxc-70-bpR"/>
+                        <outlet property="spinner" destination="dju-Ez-J9l" id="FRM-oG-89N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vwg-Fh-jm1" userLabel="First Responder" sceneMemberID="firstResponder"/>

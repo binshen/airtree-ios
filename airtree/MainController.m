@@ -115,7 +115,10 @@
             [self loadScrollViewWithPage: self.pageControl.currentPage ];
             [self loadScrollViewWithPage: self.pageControl.currentPage + 1];
         }
+        [self.spinner stopAnimating];
     }];
+    self.spinner.transform = CGAffineTransformMakeScale(1.5, 1.5);
+    [self.spinner startAnimating];
     [host startRequest:request];
 }
 
