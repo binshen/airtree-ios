@@ -62,7 +62,7 @@
     self.pageControl.hidesForSinglePage = YES;
     self.pageControl.userInteractionEnabled =YES;
     self.pageControl.currentPage = 0;
-    //    [self.pageControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
+//    [self.pageControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
     
     [self initHomePage];
     self.timer = [NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(autoRefreshData) userInfo:nil repeats:YES];
@@ -79,7 +79,7 @@
     MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
     MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"GET"];
     [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
-        NSString *response = [completedRequest responseAsString];
+        //NSString *response = [completedRequest responseAsString];
         //NSLog(@"Response: %@", response);
         
         NSError *error = [completedRequest error];
@@ -88,12 +88,11 @@
         if (data == nil) {
             
         } else {
+            self.pageControl.transform = CGAffineTransformMakeScale(1.2, 1.2);
             // 初始化page control的内容
             self.contentList = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-            
             // 一共有多少页
             self.numberPages = self.contentList.count;
-            
             // 存储所有的controller
             NSMutableArray *controllers = [[NSMutableArray alloc] init];
             for (NSUInteger i = 0; i < self.numberPages; i++)
@@ -105,7 +104,8 @@
             self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.scrollView.frame) * self.numberPages, CGRectGetHeight(self.scrollView.frame));
             
             self.pageControl.numberOfPages = self.numberPages;
-            
+            [self.pageControl setHidden:NO];
+             
             if(self.pageControl.currentPage > 0) {
                 [self loadScrollViewWithPage: self.pageControl.currentPage - 1];
             }
@@ -117,15 +117,13 @@
 }
 
 - (void) autoRefreshData {
-    //NSLog(@"requestData");
     [self initHomePage];
 }
 
 // 加载ScrollView中的不同SubViewController
 - (void)loadScrollViewWithPage:(NSUInteger)page
 {
-    if (page >= self.contentList.count)
-        return;
+    if (page >= self.contentList.count) return;
     
     DeviceViewController *controller = [self.viewControllers objectAtIndex:page];
     if ((NSNull *)controller == [NSNull null])
