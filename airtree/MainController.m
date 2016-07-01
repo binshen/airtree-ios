@@ -45,6 +45,25 @@
     [_BtnOnlineShop addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickOnlineShopButton:)]];
     
     
+    // 一个页面的宽度就是scrollview的宽度
+    self.scrollView.pagingEnabled = YES;  // 自动滚动到subview的边界
+    self.scrollView.showsHorizontalScrollIndicator = NO;
+    self.scrollView.showsVerticalScrollIndicator = NO;
+    self.scrollView.bounces = YES;
+    self.scrollView.scrollsToTop = NO;
+    self.scrollView.autoresizingMask = YES;
+    self.scrollView.delegate = self;
+    
+    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doDoubleTap:)];
+    doubleTap.numberOfTapsRequired = 2;
+    doubleTap.numberOfTouchesRequired = 1;
+    [self.scrollView addGestureRecognizer:doubleTap];
+    
+    self.pageControl.hidesForSinglePage = YES;
+    self.pageControl.userInteractionEnabled =YES;
+    self.pageControl.currentPage = 0;
+    //    [self.pageControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
+    
     [self initHomePage];
     self.timer = [NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(autoRefreshData) userInfo:nil repeats:YES];
     //[[UIApplication sharedApplication] setKeepAliveTimeout:600 handler:^{[self heartbeat];}];
@@ -83,32 +102,15 @@
             }
             self.viewControllers = controllers;
             
-            // 一个页面的宽度就是scrollview的宽度
-            self.scrollView.pagingEnabled = YES;  // 自动滚动到subview的边界
-            
             self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.scrollView.frame) * self.numberPages, CGRectGetHeight(self.scrollView.frame));
-            self.scrollView.showsHorizontalScrollIndicator = NO;
-            self.scrollView.showsVerticalScrollIndicator = NO;
-            self.scrollView.bounces = YES;
-            self.scrollView.scrollsToTop = NO;
-            self.scrollView.autoresizingMask = YES;
-            self.scrollView.delegate = self;
-            
-            UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doDoubleTap:)];
-            doubleTap.numberOfTapsRequired = 2;
-            doubleTap.numberOfTouchesRequired = 1;
-            [self.scrollView addGestureRecognizer:doubleTap];
-            
             
             self.pageControl.numberOfPages = self.numberPages;
-            self.pageControl.currentPage = 0;
             
-            self.pageControl.hidesForSinglePage = YES;
-            self.pageControl.userInteractionEnabled =YES;
-            //    [self.pageControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
-            
-            [self loadScrollViewWithPage:0];
-            [self loadScrollViewWithPage:1];
+            if(self.pageControl.currentPage > 0) {
+                [self loadScrollViewWithPage: self.pageControl.currentPage - 1];
+            }
+            [self loadScrollViewWithPage: self.pageControl.currentPage ];
+            [self loadScrollViewWithPage: self.pageControl.currentPage + 1];
         }
     }];
     [host startRequest:request];
