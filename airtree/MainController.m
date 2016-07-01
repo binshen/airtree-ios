@@ -12,9 +12,11 @@
 #import "DeviceManageController.h"
 #import "Device.h"
 #import "AppDelegate.h"
+#import "MKNetworkKit.h"
 
 @interface MainController ()
 @property NSUInteger numberPages;
+@property NSTimer *timer;
 
 @end
 
@@ -46,6 +48,9 @@
     NSDictionary  *loginUser = appDelegate.loginUser;
     NSLog(@"%@", loginUser);
     
+    
+    self.timer=[NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(autoRefreshData) userInfo:nil repeats:YES];
+    //[[UIApplication sharedApplication] setKeepAliveTimeout:600 handler:^{[self heartbeat];}];
     
     // 初始化page control的内容
     self.contentList = [NSArray arrayWithObjects:@"1",@"2",@"3",@"4", nil];
@@ -90,6 +95,14 @@
     [self loadScrollViewWithPage:1];
 }
 
+- (void) autoRefreshData {
+    NSLog(@"requestData");
+}
+
+//- (void) heartbeat {
+//    NSLog(@"heartbeat");
+//}
+
 // 加载ScrollView中的不同SubViewController
 - (void)loadScrollViewWithPage:(NSUInteger)page
 {
@@ -122,7 +135,7 @@
     [super viewDidAppear:animated];
 }
 
-//- (IBAction)changePage:(id)sender {
+//- (IBAction) changePage:(id)sender {
 //
 //    NSInteger page = self.pageControl.currentPage;
 //    NSLog(@"当前页面 = %lu", (unsigned long)page);
@@ -140,7 +153,7 @@
 //}
 
 // 滑动结束的事件监听
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+- (void) scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     // switch the indicator when more than 50% of the previous/next page is visible
     CGFloat pageWidth = CGRectGetWidth(self.scrollView.frame);
@@ -157,7 +170,7 @@
 //    NSLog(@"Double Click");
 //}
 
-- (void)doDoubleTap:(UITapGestureRecognizer *)sender {
+- (void) doDoubleTap:(UITapGestureRecognizer *)sender {
     NSLog(@"Double Click");
     if (sender.state == UIGestureRecognizerStateRecognized) {
         NSLog(@"Double Click123");
