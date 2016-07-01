@@ -108,6 +108,9 @@
              
             if(self.pageControl.currentPage > 0) {
                 [self loadScrollViewWithPage: self.pageControl.currentPage - 1];
+            } else {
+                NSDictionary *device = [self.contentList objectAtIndex:0];
+                self.navigationItem.title = device[@"name"];
             }
             [self loadScrollViewWithPage: self.pageControl.currentPage ];
             [self loadScrollViewWithPage: self.pageControl.currentPage + 1];
@@ -141,7 +144,6 @@
         controller.view.frame = frame;
         
         [controller initViews:[self.contentList objectAtIndex:page]];
-        
         [self.scrollView addSubview:controller.view];
     }
 }
@@ -177,6 +179,16 @@
     NSUInteger page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     self.pageControl.currentPage = page;
     NSLog(@"最后页面 = %lu", (unsigned long)page);
+    
+    NSDictionary *device = [self.contentList objectAtIndex:page];
+    if([device objectForKey:@"name"])
+    {
+        self.navigationItem.title = device[@"name"];
+    }
+    else
+    {
+        self.navigationItem.title = @"房间";
+    }
     
     [self loadScrollViewWithPage:page - 1];
     [self loadScrollViewWithPage:page];
