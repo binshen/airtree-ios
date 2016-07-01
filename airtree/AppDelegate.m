@@ -61,7 +61,7 @@
 - (void)runningInBackground
 {
     while (1) {
-        [NSThread sleepForTimeInterval:1];
+        [NSThread sleepForTimeInterval:10];
         _backgroundRunningTimeInterval++;
         NSLog(@"%d",(int)_backgroundRunningTimeInterval);
     }

@@ -44,13 +44,11 @@
     [_BtnHistory setUserInteractionEnabled:YES];
     [_BtnHistory addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickHistoryButton:)]];
     
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSDictionary  *loginUser = appDelegate.loginUser;
-    NSLog(@"%@", loginUser);
     
-    
+    [self initHomePage];
     self.timer=[NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(autoRefreshData) userInfo:nil repeats:YES];
     //[[UIApplication sharedApplication] setKeepAliveTimeout:600 handler:^{[self heartbeat];}];
+    
     
     // 初始化page control的内容
     self.contentList = [NSArray arrayWithObjects:@"1",@"2",@"3",@"4", nil];
@@ -93,6 +91,35 @@
     
     [self loadScrollViewWithPage:0];
     [self loadScrollViewWithPage:1];
+}
+
+
+- (void) initHomePage {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSDictionary  *loginUser = appDelegate.loginUser;
+    
+    NSString *path = [[NSString alloc] initWithFormat:[NSString stringWithFormat:@"/user/%@/get_device", loginUser[@"_id"]]];
+    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+    MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
+    MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"GET"];
+    [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
+        NSString *response = [completedRequest responseAsString];
+        NSLog(@"Response: %@", response);
+        
+        NSError *error = [completedRequest error];
+        
+        NSData *data = [completedRequest responseData];
+        if (data == nil) {
+            
+        } else {
+            NSArray *jsonList = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+            //NSString *success = [json objectForKey:@"success"];
+            for (id device in jsonList) {
+                NSLog(@"%@", device[@"_id"]);
+            }
+        }
+    }];
+    [host startRequest:request];
 }
 
 - (void) autoRefreshData {
