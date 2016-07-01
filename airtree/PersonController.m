@@ -11,6 +11,7 @@
 #import "PersonPasswordController.h"
 #import "PersonFeedbackController.h"
 #import "Person.h"
+#import "AppDelegate.h"
 
 @interface PersonController ()
 
@@ -30,11 +31,14 @@
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     
-    NSMutableArray *itemList = [[NSMutableArray alloc] initWithCapacity:5];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSDictionary  *loginUser = appDelegate.loginUser;
+    
+    NSMutableArray *itemList = [[NSMutableArray alloc] initWithCapacity:6];
     Person *person = [[Person alloc] init];
     person.index = 1;
     person.title = @"昵称";
-    person.detail = @"13999999999";
+    person.detail = loginUser[@"nickname"] == nil ? loginUser[@"username"] : loginUser[@"nickname"];
     [itemList addObject:person];
     
     person = [[Person alloc] init];
@@ -58,6 +62,12 @@
     person = [[Person alloc] init];
     person.index = 5;
     person.title = @"用户反馈";
+    person.detail = @"";
+    [itemList addObject:person];
+    
+    person = [[Person alloc] init];
+    person.index = 6;
+    person.title = @"123";
     person.detail = @"";
     [itemList addObject:person];
     

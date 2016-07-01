@@ -38,7 +38,7 @@
         [alert show];
     } else {
         AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        NSDictionary  *loginUser = appDelegate.loginUser;
+        NSMutableDictionary  *loginUser = appDelegate.loginUser;
         
         NSString *path = [[NSString alloc] initWithFormat:[NSString stringWithFormat:@"/user/%@/update_name", loginUser[@"_id"]]];
         NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
@@ -58,8 +58,8 @@
                 NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
                 NSString *success = [json objectForKey:@"success"];
                 NSLog(@"Success: %@", success);
-                BOOL boolValue = [success boolValue];
                 if([success boolValue]) {
+                    //[loginUser setValue:self.TextNickname.text forKey:@"nickname"];
                     //[self.navigationController popToRootViewControllerAnimated:YES];
                     [self.navigationController popViewControllerAnimated:YES];
                 } else {
