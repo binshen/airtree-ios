@@ -10,4 +10,6 @@
 
 @interface PersonNicknameController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *TextNickname;
+
 @end

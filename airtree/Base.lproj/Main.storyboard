@@ -426,6 +426,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="修改昵称" id="8rl-ab-MeN"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="TextNickname" destination="7ZX-9O-ep9" id="iQU-YE-dno"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eA1-wF-Nyw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
