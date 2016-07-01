@@ -29,7 +29,7 @@
 
 
 - (void) initViews:(NSDictionary *)device {
-    NSLog(@"%@", device);
+    //NSLog(@"%@", device);
     
     NSString *status = device[@"status"];
     if ([status longLongValue] == 1) {
