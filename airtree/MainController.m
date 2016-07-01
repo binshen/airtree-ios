@@ -7,7 +7,7 @@
 //
 
 #import "MainController.h"
-#import "HistoryController.h"
+#import "ShopController.h"
 #import "DeviceViewController.h"
 #import "DeviceManageController.h"
 #import "Device.h"
@@ -41,8 +41,8 @@
     [_BtnDevice setUserInteractionEnabled:YES];
     [_BtnDevice addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickDeviceButton:)]];
     
-    [_BtnHistory setUserInteractionEnabled:YES];
-    [_BtnHistory addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickHistoryButton:)]];
+    [_BtnOnlineShop setUserInteractionEnabled:YES];
+    [_BtnOnlineShop addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickOnlineShopButton:)]];
     
     
     [self initHomePage];
@@ -212,18 +212,18 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)clickDeviceButton:(UITapGestureRecognizer *)gestureRecognizer
-{
+- (IBAction)clickDeviceButton:(id)sender {
     DeviceManageController *deviceManage = [self.storyboard instantiateViewControllerWithIdentifier:@"DeviceManageController"];
     //[self presentViewController:deviceManage animated:YES completion:nil];
     [[self navigationController] pushViewController:deviceManage animated:YES];
 }
 
--(void)clickHistoryButton:(UITapGestureRecognizer *)gestureRecognizer
-{
-    HistoryController *history = [self.storyboard instantiateViewControllerWithIdentifier:@"HistoryController"];
-    [[self navigationController] pushViewController:history animated:YES];
+- (IBAction)clickOnlineShopButton:(id)sender {
+    ShopController *shop = [self.storyboard instantiateViewControllerWithIdentifier:@"ShopController"];
+    [[self navigationController] pushViewController:shop animated:YES];
+
 }
+
 
 #pragma mark - Table view data source
 

@@ -10,8 +10,8 @@
 
 @interface MainController : UIViewController <UIScrollViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIButton *BtnHistory;
 @property (weak, nonatomic) IBOutlet UIButton *BtnDevice;
+@property (weak, nonatomic) IBOutlet UIButton *BtnOnlineShop;
 
 @property (nonatomic, strong) NSArray *contentList;
 @property (nonatomic, strong) NSMutableArray *viewControllers;
