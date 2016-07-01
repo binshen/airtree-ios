@@ -59,6 +59,7 @@
 		FD9A8EDA1CFB4EB000D31032 /* DeviceManageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8ED91CFB4EB000D31032 /* DeviceManageController.m */; };
 		FDACDD461D24B8ED00526DA9 /* DeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDACDD451D24B8ED00526DA9 /* DeviceViewController.m */; };
 		FDDB570A1D260599006E0008 /* BackgroundRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDB57081D260599006E0008 /* BackgroundRunner.m */; };
+		FDDB570C1D2617C1006E0008 /* ic_shop_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = FDDB570B1D2617C1006E0008 /* ic_shop_blue.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,6 +173,7 @@
 		FDACDD451D24B8ED00526DA9 /* DeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceViewController.m; sourceTree = "<group>"; };
 		FDDB57081D260599006E0008 /* BackgroundRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundRunner.m; sourceTree = "<group>"; };
 		FDDB57091D260599006E0008 /* BackgroundRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundRunner.h; sourceTree = "<group>"; };
+		FDDB570B1D2617C1006E0008 /* ic_shop_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_shop_blue.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,6 +304,7 @@
 		FD91C23C1CFA7BD900E00A71 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				FDDB570B1D2617C1006E0008 /* ic_shop_blue.png */,
 				FD9A8ED61CFB460700D31032 /* ic_history.png */,
 				FD9A8EC91CFB1F1E00D31032 /* ic_person.png */,
 				FD9A8ECA1CFB1F1E00D31032 /* ic_shop.png */,
@@ -486,6 +489,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD9A8E301CFA895E00D31032 /* logo.png in Resources */,
+				FDDB570C1D2617C1006E0008 /* ic_shop_blue.png in Resources */,
 				FD9A8E2E1CFA872100D31032 /* ic_launcher_180x180.png in Resources */,
 				FD9A8E2C1CFA872100D31032 /* ic_launcher_87x87.png in Resources */,
 				FD9A8ECC1CFB1F1E00D31032 /* ic_shop.png in Resources */,

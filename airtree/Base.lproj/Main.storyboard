@@ -146,13 +146,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YcS-mp-BGi">
-                                <rect key="frame" x="66" y="114" width="243" height="21"/>
+                                <rect key="frame" x="66" y="68" width="243" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.1942453431" blue="0.3448046957" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.095261928649999994" green="0.67802096000000001" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -178,12 +178,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kj4-g5-oPh">
                                 <rect key="frame" x="0.0" y="595" width="375" height="72"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8d-nm-NGD">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8d-nm-NGD">
                                         <rect key="frame" x="31" y="16" width="131" height="42"/>
-                                        <state key="normal" title="历史数据" image="ic_history.png">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title=" 设备管理" image="ic_device.png">
+                                            <color key="titleColor" red="0.1296322382" green="0.4020855518" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
+                                            <action selector="clickDeviceButton:" destination="0jK-P3-5av" eventType="touchUpInside" id="ykb-TF-im2"/>
                                             <segue destination="Pt2-rA-Np2" kind="show" id="1qJ-hE-YFw"/>
                                         </connections>
                                     </button>
@@ -192,13 +193,17 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="TdD-1E-VpK"/>
                                         </constraints>
-                                        <state key="normal" title="设备管理" image="ic_device.png"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title=" 在线商城" image="ic_shop_blue.png">
+                                            <color key="titleColor" red="0.1296322382" green="0.4020855518" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
+                                            <action selector="clickOnlineShopButton:" destination="0jK-P3-5av" eventType="touchUpInside" id="C1i-m1-V6T"/>
                                             <segue destination="a8p-BS-bSZ" kind="show" id="pLo-9U-5YI"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.095261928654598607" green="0.67802096002988654" blue="0.92264441287878785" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Ho0-kD-B95" firstAttribute="bottom" secondItem="x8d-nm-NGD" secondAttribute="bottom" id="A7r-ns-Rsb"/>
                                     <constraint firstAttribute="height" constant="72" id="MlH-JL-Xn0"/>
@@ -214,8 +219,8 @@
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="JWD-qz-RDh">
                                 <rect key="frame" x="0.0" y="558" width="375" height="37"/>
-                                <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="currentPageIndicatorTintColor" red="0.095261928649999994" green="0.67802096000000001" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="pageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -241,8 +246,8 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="BtnDevice" destination="Ho0-kD-B95" id="6OU-5D-NAY"/>
-                        <outlet property="BtnHistory" destination="x8d-nm-NGD" id="5US-Do-yor"/>
+                        <outlet property="BtnDevice" destination="x8d-nm-NGD" id="jTE-id-zc9"/>
+                        <outlet property="BtnOnlineShop" destination="Ho0-kD-B95" id="dgu-9M-7Jh"/>
                         <outlet property="pageControl" destination="JWD-qz-RDh" id="jcW-lU-0uU"/>
                         <outlet property="scrollView" destination="y5k-5G-jjc" id="yxc-70-bpR"/>
                     </connections>
@@ -835,9 +840,9 @@
     </scenes>
     <resources>
         <image name="ic_device.png" width="40" height="40"/>
-        <image name="ic_history.png" width="41" height="42"/>
         <image name="ic_person.png" width="32" height="32"/>
         <image name="ic_shop.png" width="32" height="32"/>
+        <image name="ic_shop_blue.png" width="40" height="40"/>
         <image name="logo.png" width="200" height="78"/>
     </resources>
     <inferredMetricsTieBreakers>
