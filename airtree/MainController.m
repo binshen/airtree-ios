@@ -46,10 +46,10 @@
     
     
     [self initHomePage];
-    self.timer=[NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(autoRefreshData) userInfo:nil repeats:YES];
+    //self.timer=[NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(autoRefreshData) userInfo:nil repeats:YES];
     //[[UIApplication sharedApplication] setKeepAliveTimeout:600 handler:^{[self heartbeat];}];
     
-    
+/*
     // 初始化page control的内容
     self.contentList = [NSArray arrayWithObjects:@"1",@"2",@"3",@"4", nil];
     
@@ -91,6 +91,7 @@
     
     [self loadScrollViewWithPage:0];
     [self loadScrollViewWithPage:1];
+*/
 }
 
 
@@ -104,7 +105,7 @@
     MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"GET"];
     [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
         NSString *response = [completedRequest responseAsString];
-        NSLog(@"Response: %@", response);
+        //NSLog(@"Response: %@", response);
         
         NSError *error = [completedRequest error];
         
@@ -112,11 +113,46 @@
         if (data == nil) {
             
         } else {
-            NSArray *jsonList = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-            //NSString *success = [json objectForKey:@"success"];
-            for (id device in jsonList) {
-                NSLog(@"%@", device[@"_id"]);
+            // 初始化page control的内容
+            self.contentList = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+            
+            // 一共有多少页
+            self.numberPages = self.contentList.count;
+            
+            // 存储所有的controller
+            NSMutableArray *controllers = [[NSMutableArray alloc] init];
+            for (NSUInteger i = 0; i < self.numberPages; i++)
+            {
+                [controllers addObject:[NSNull null]];
             }
+            self.viewControllers = controllers;
+            
+            // 一个页面的宽度就是scrollview的宽度
+            self.scrollView.pagingEnabled = YES;  // 自动滚动到subview的边界
+            
+            self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.scrollView.frame) * self.numberPages, CGRectGetHeight(self.scrollView.frame));
+            self.scrollView.showsHorizontalScrollIndicator = NO;
+            self.scrollView.showsVerticalScrollIndicator = NO;
+            self.scrollView.bounces = YES;
+            self.scrollView.scrollsToTop = NO;
+            self.scrollView.autoresizingMask = YES;
+            self.scrollView.delegate = self;
+            
+            UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doDoubleTap:)];
+            doubleTap.numberOfTapsRequired = 2;
+            doubleTap.numberOfTouchesRequired = 1;
+            [self.scrollView addGestureRecognizer:doubleTap];
+            
+            
+            self.pageControl.numberOfPages = self.numberPages;
+            self.pageControl.currentPage = 0;
+            
+            self.pageControl.hidesForSinglePage = YES;
+            self.pageControl.userInteractionEnabled =YES;
+            //    [self.pageControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
+            
+            [self loadScrollViewWithPage:0];
+            [self loadScrollViewWithPage:1];
         }
     }];
     [host startRequest:request];
@@ -125,10 +161,6 @@
 - (void) autoRefreshData {
     NSLog(@"requestData");
 }
-
-//- (void) heartbeat {
-//    NSLog(@"heartbeat");
-//}
 
 // 加载ScrollView中的不同SubViewController
 - (void)loadScrollViewWithPage:(NSUInteger)page
@@ -150,7 +182,8 @@
         frame.origin.x = CGRectGetWidth(frame) * page;
         frame.origin.y = 0;
         controller.view.frame = frame;
-        [controller setLabel:[_contentList objectAtIndex:page]];
+        
+        [controller initViews:[self.contentList objectAtIndex:page]];
         
         [self.scrollView addSubview:controller.view];
     }
@@ -193,19 +226,13 @@
     [self loadScrollViewWithPage:page + 1];
 }
 
-//- (void)doDoubleTap:(UITapGestureRecognizer*)recognizer {
-//    NSLog(@"Double Click");
-//}
-
 - (void) doDoubleTap:(UITapGestureRecognizer *)sender {
-    NSLog(@"Double Click");
     if (sender.state == UIGestureRecognizerStateRecognized) {
-        NSLog(@"Double Click123");
+        NSLog(@"Double Click");
     }
 }
 
 //////////////////////////////////////////////////////////////////////////////
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -221,9 +248,7 @@
 - (IBAction)clickOnlineShopButton:(id)sender {
     ShopController *shop = [self.storyboard instantiateViewControllerWithIdentifier:@"ShopController"];
     [[self navigationController] pushViewController:shop animated:YES];
-
 }
-
 
 #pragma mark - Table view data source
 
