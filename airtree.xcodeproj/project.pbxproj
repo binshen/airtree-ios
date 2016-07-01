@@ -58,6 +58,7 @@
 		FD9A8ED71CFB460700D31032 /* ic_history.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9A8ED61CFB460700D31032 /* ic_history.png */; };
 		FD9A8EDA1CFB4EB000D31032 /* DeviceManageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8ED91CFB4EB000D31032 /* DeviceManageController.m */; };
 		FDACDD461D24B8ED00526DA9 /* DeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDACDD451D24B8ED00526DA9 /* DeviceViewController.m */; };
+		FDDB570A1D260599006E0008 /* BackgroundRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDB57081D260599006E0008 /* BackgroundRunner.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +170,8 @@
 		FD9A8ED91CFB4EB000D31032 /* DeviceManageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceManageController.m; sourceTree = "<group>"; };
 		FDACDD441D24B8ED00526DA9 /* DeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceViewController.h; sourceTree = "<group>"; };
 		FDACDD451D24B8ED00526DA9 /* DeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceViewController.m; sourceTree = "<group>"; };
+		FDDB57081D260599006E0008 /* BackgroundRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundRunner.m; sourceTree = "<group>"; };
+		FDDB57091D260599006E0008 /* BackgroundRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundRunner.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +224,8 @@
 		FD91C2081CFA79F900E00A71 /* airtree */ = {
 			isa = PBXGroup;
 			children = (
+				FDDB57081D260599006E0008 /* BackgroundRunner.m */,
+				FDDB57091D260599006E0008 /* BackgroundRunner.h */,
 				FD9A8EC31CFB1A1300D31032 /* models */,
 				FD91C23C1CFA7BD900E00A71 /* images */,
 				FD91C2091CFA79F900E00A71 /* Supporting Files */,
@@ -528,6 +533,7 @@
 				FD9A8EDA1CFB4EB000D31032 /* DeviceManageController.m in Sources */,
 				FD4F2FD11CFDEC4900F16054 /* PersonPasswordController.m in Sources */,
 				FD9A8ED51CFB3C1000D31032 /* Person.m in Sources */,
+				FDDB570A1D260599006E0008 /* BackgroundRunner.m in Sources */,
 				FD9A8E591CFAAF0900D31032 /* MKNetworkHost.m in Sources */,
 				FD4F2FD41CFDEC5D00F16054 /* PersonFeedbackController.m in Sources */,
 				FD9A8EBC1CFB138300D31032 /* NavViewController.m in Sources */,
