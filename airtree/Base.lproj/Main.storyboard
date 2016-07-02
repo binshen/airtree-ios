@@ -281,7 +281,7 @@
                                         </state>
                                         <connections>
                                             <action selector="clickDeviceButton:" destination="0jK-P3-5av" eventType="touchUpInside" id="ykb-TF-im2"/>
-                                            <segue destination="Pt2-rA-Np2" kind="show" id="1qJ-hE-YFw"/>
+                                            <segue destination="a8p-BS-bSZ" kind="show" id="AXY-pJ-Sif"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ho0-kD-B95">
@@ -295,7 +295,6 @@
                                         </state>
                                         <connections>
                                             <action selector="clickOnlineShopButton:" destination="0jK-P3-5av" eventType="touchUpInside" id="C1i-m1-V6T"/>
-                                            <segue destination="a8p-BS-bSZ" kind="show" id="pLo-9U-5YI"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="line_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZTz-Sg-bxV">
@@ -655,7 +654,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="952-ws-TcB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1204.5" y="1216.5"/>
+            <point key="canvasLocation" x="1210.5" y="1216.5"/>
         </scene>
         <!--修改密码-->
         <scene sceneID="2mJ-nE-61H">
@@ -941,13 +940,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="历史数据" id="o6X-XY-wlk"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="DateSelect" destination="6gj-5P-bYE" id="6y1-It-fvg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zPj-Zc-kx4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="752.5" y="1216.5"/>
+            <point key="canvasLocation" x="776.5" y="1216.5"/>
         </scene>
     </scenes>
     <resources>
