@@ -7,6 +7,8 @@
 //
 
 #import "PersonPasswordController.h"
+#import "AppDelegate.h"
+#import "MKNetworkKit.h"
 
 @interface PersonPasswordController ()
 
@@ -25,8 +27,56 @@
 }
 
 - (IBAction)clickUpdate:(id)sender {
-    //[self.navigationController popToRootViewControllerAnimated:YES];
-    [self.navigationController popViewControllerAnimated:YES];
+    NSString * oldPwd = self.PasswordOld.text;
+    NSString * newPwd = self.PasswordNew.text;
+    NSString * reNewPwd = self.PasswordReNew.text;
+    if(oldPwd.length == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提交失败" message:@"请输入原密码." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    } else if(newPwd.length == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提交失败" message:@"请输入新密码." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    } else if(reNewPwd.length == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提交失败" message:@"请输入确认密码." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    } else if(![newPwd isEqual:reNewPwd]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提交失败" message:@"两次输入的新密码不一致." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    } else {
+        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        NSDictionary  *loginUser = appDelegate.loginUser;
+        
+        NSString *path = [[NSString alloc] initWithFormat:[NSString stringWithFormat:@"/user/%@/change_psw", loginUser[@"_id"]]];
+        NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+        [param setValue:oldPwd forKey:@"password"];
+        [param setValue:newPwd forKey:@"new_password"];
+        MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
+        MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"POST"];
+        [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
+            // NSString *response = [completedRequest responseAsString];
+            // NSLog(@"Response: %@", response);
+            
+            NSError *error = [completedRequest error];
+            NSData *data = [completedRequest responseData];
+            if (data == nil) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提交失败" message:@"修改失败，请稍候再试." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+            } else {
+                NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+                NSString *success = [json objectForKey:@"success"];
+                NSLog(@"Success: %@", success);
+                if([success boolValue]) {
+                    //[self.navigationController popToRootViewControllerAnimated:YES];
+                    [self.navigationController popViewControllerAnimated:YES];
+                } else {
+                    
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提交失败" message:[json objectForKey:@"error"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [alert show];
+                }
+            }
+        }];
+        [host startRequest:request];
+    }
 }
 
 /*

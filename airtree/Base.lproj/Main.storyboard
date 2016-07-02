@@ -698,6 +698,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="修改密码" id="NJH-t3-jGR"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="PasswordNew" destination="oZh-Yi-aUU" id="8Yc-G7-s7U"/>
+                        <outlet property="PasswordOld" destination="pjF-vS-9wj" id="eh2-5J-lCk"/>
+                        <outlet property="PasswordReNew" destination="2Pm-BY-7jo" id="xBU-Q8-t90"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4am-Tu-pkY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
