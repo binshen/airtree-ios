@@ -7,6 +7,7 @@
 //
 
 #import "DeviceInfoController.h"
+#import "HistoryController.h"
 #import "DeviceDetailReviseController.h"
 #import "AppDelegate.h"
 #import "MKNetworkKit.h"
@@ -139,6 +140,9 @@
     if (index == 1) {
         DeviceDetailReviseController *deviceDetailRevise = [self.storyboard instantiateViewControllerWithIdentifier:@"DeviceDetailReviseController"];
         [[self navigationController] pushViewController:deviceDetailRevise animated:YES];
+    } else if(index == 4) {
+        HistoryController *history = [self.storyboard instantiateViewControllerWithIdentifier:@"HistoryController"];
+        [[self navigationController] pushViewController:history animated:YES];
     }
 }
 
