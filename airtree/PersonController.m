@@ -12,6 +12,7 @@
 #import "PersonFeedbackController.h"
 #import "Person.h"
 #import "AppDelegate.h"
+#import "MKNetworkKit.h"
 
 @interface PersonController ()
 
@@ -94,8 +95,22 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)clickLogout:(id)sender {
-    NSLog(@"Logout");
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier] isEqualToString:@"SegueToLogout"]) {
+        
+        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        NSDictionary  *loginUser = appDelegate.loginUser;
+        
+        NSString *path = [[NSString alloc] initWithFormat:[NSString stringWithFormat:@"/user/%@/offline", loginUser[@"_id"]]];
+        NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+        MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
+        MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"POST"];
+        [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
+            NSString *response = [completedRequest responseAsString];
+            NSLog(@"SegueToLogout: %@", response);
+        }];
+        [host startRequest:request];
+    }
 }
 
 #pragma mark - Table view data source

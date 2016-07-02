@@ -550,7 +550,7 @@
                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <state key="normal" title="退出当前账号"/>
                                     <connections>
-                                        <segue destination="BYZ-38-t0r" kind="show" id="rrx-3w-Sl8"/>
+                                        <segue destination="BYZ-38-t0r" kind="show" identifier="SegueToLogout" id="rrx-3w-Sl8"/>
                                     </connections>
                                 </button>
                             </subviews>
