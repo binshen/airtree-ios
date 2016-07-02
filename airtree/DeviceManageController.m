@@ -12,6 +12,8 @@
 
 @interface DeviceManageController ()
 
+@property NSTimer *timer;
+
 @end
 
 @implementation DeviceManageController
@@ -31,6 +33,15 @@
 
 -(void) viewWillAppear:(BOOL)animated {
     
+    [self autoRefreshData];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(autoRefreshData) userInfo:nil repeats:YES];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [self.timer invalidate];
+}
+
+- (void) autoRefreshData {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSDictionary  *loginUser = appDelegate.loginUser;
     
@@ -49,9 +60,8 @@
             
         } else {
             self.devices = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-            
-            [self.tableView reloadData];
         }
+        [self.tableView reloadData];
     }];
     [host startRequest:request];
 }
@@ -100,7 +110,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 80;
+    return 60;
 }
 
 /*

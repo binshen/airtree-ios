@@ -14,6 +14,7 @@
 #import "MKNetworkKit.h"
 
 @interface MainController ()
+
 @property NSUInteger numberPages;
 @property NSTimer *timer;
 
@@ -68,6 +69,9 @@
     //[[UIApplication sharedApplication] setKeepAliveTimeout:600 handler:^{[self heartbeat];}];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [self.timer invalidate];
+}
 
 - (void) initHomePage {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
