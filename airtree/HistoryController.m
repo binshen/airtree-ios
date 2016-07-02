@@ -39,6 +39,11 @@
     self.pickerView.hidden = YES;
     [self.pickerView removeFromSuperview];
     [self initView:self.selectedDate];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"YYYY-MM-dd"];
+    NSString *dateString = [dateFormatter stringFromDate:self.selectedDate];
+    [self.DateSelect setTitle:dateString forState:UIControlStateNormal];
 }
 
 -(void)cancelPressed {
