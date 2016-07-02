@@ -104,9 +104,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    NSString *rowString = [[self.devices objectAtIndex:[indexPath row]] mac];
-//    UIAlertView * alter = [[UIAlertView alloc] initWithTitle:@"选中的行信息" message:rowString delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-//    [alter show];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.selectedDevice = [[self.devices objectAtIndex:[indexPath row]] mutableCopy];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

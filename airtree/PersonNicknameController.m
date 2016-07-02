@@ -38,7 +38,7 @@
         [alert show];
     } else {
         AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        NSMutableDictionary  *loginUser = appDelegate.loginUser;
+        NSMutableDictionary *loginUser = appDelegate.loginUser;
         
         NSString *path = [[NSString alloc] initWithFormat:[NSString stringWithFormat:@"/user/%@/update_name", loginUser[@"_id"]]];
         NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
@@ -51,22 +51,17 @@
             
             NSError *error = [completedRequest error];
             NSData *data = [completedRequest responseData];
-            if (data == nil) {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:@"修改失败，请稍候再试." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                [alert show];
+            
+            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+            NSString *success = [json objectForKey:@"success"];
+            NSLog(@"Success: %@", success);
+            if([success boolValue]) {
+                [loginUser setObject:self.TextNickname.text forKey:@"nickname"];
+                //[self.navigationController popToRootViewControllerAnimated:YES];
+                [self.navigationController popViewControllerAnimated:YES];
             } else {
-                NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-                NSString *success = [json objectForKey:@"success"];
-                NSLog(@"Success: %@", success);
-                if([success boolValue]) {
-                    [loginUser setObject:self.TextNickname.text forKey:@"nickname"];
-                    //[self.navigationController popToRootViewControllerAnimated:YES];
-                    [self.navigationController popViewControllerAnimated:YES];
-                } else {
-                    
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:[json objectForKey:@"error"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                    [alert show];
-                }
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:[json objectForKey:@"error"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
             }
         }];
         [host startRequest:request];

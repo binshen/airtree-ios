@@ -19,6 +19,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSDictionary *device = appDelegate.selectedDevice;
+    if (device[@"name"] != nil) {
+        [self.TextDeviceName setText:device[@"name"]];
+    } else {
+        [self.TextDeviceName setText:device[@"mac"]];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,9 +41,10 @@
         [alert show];
     } else {
         AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        NSMutableDictionary  *loginUser = appDelegate.loginUser;
+        NSDictionary *loginUser = appDelegate.loginUser;
+        NSMutableDictionary *device = appDelegate.selectedDevice;
         
-        NSString *path = [[NSString alloc] initWithFormat:[NSString stringWithFormat:@"/user/%@/device/%@/update_name", loginUser[@"_id"], @"1"]];
+        NSString *path = [[NSString alloc] initWithFormat:[NSString stringWithFormat:@"/user/%@/device/%@/update_name", loginUser[@"_id"], device[@"_id"]]];
         NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
         [param setValue:self.TextDeviceName.text forKey:@"name"];
         MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
@@ -46,19 +55,16 @@
             
             NSError *error = [completedRequest error];
             NSData *data = [completedRequest responseData];
-            if (data == nil) {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:@"修改失败，请稍候再试." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                [alert show];
+    
+            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+            NSString *success = [json objectForKey:@"success"];
+            NSLog(@"Success: %@", success);
+            if([success boolValue]) {
+                [device setObject:self.TextDeviceName.text forKey:@"name"];
+                [self.navigationController popViewControllerAnimated:YES];
             } else {
-                NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-                NSString *success = [json objectForKey:@"success"];
-                NSLog(@"Success: %@", success);
-                if([success boolValue]) {
-                    [self.navigationController popViewControllerAnimated:YES];
-                } else {
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:[json objectForKey:@"error"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                    [alert show];
-                }
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:[json objectForKey:@"error"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
             }
         }];
         [host startRequest:request];
