@@ -21,6 +21,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *humidityValue;
 @property (weak, nonatomic) IBOutlet UILabel *formaldehydeValue;
 
+@property (weak, nonatomic) IBOutlet UIView *viewPm25;
+@property (weak, nonatomic) IBOutlet UIView *viewTemperature;
+@property (weak, nonatomic) IBOutlet UIView *viewHumidity;
+@property (weak, nonatomic) IBOutlet UIView *viewFormaldehyde;
+
 - (void) initViews: (NSDictionary *) device;
 
 @end

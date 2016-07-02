@@ -9,7 +9,7 @@
 #import "DeviceViewController.h"
 
 @interface DeviceViewController ()
-//#define ARC4RANDOM_MAX      0x100000000
+
 @end
 
 @implementation DeviceViewController
@@ -18,7 +18,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //[_lblTest setText: [NSString stringWithFormat:@"%f", floorf(((double)arc4random() / ARC4RANDOM_MAX) * 100.0f)]];
+    UITapGestureRecognizer *pm25Tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickPm25Tap:)];
+    [self.viewPm25 addGestureRecognizer:pm25Tap];
+
+    UITapGestureRecognizer *temperatureTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickTemperatureTap:)];
+    [self.viewTemperature addGestureRecognizer:temperatureTap];
+
+    UITapGestureRecognizer *humidityTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickHumidityTap:)];
+    [self.viewHumidity addGestureRecognizer:humidityTap];
+
+    UITapGestureRecognizer *formaldehydeTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickFormaldehydeTap:)];
+    [self.viewFormaldehyde addGestureRecognizer:formaldehydeTap];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,7 +36,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)clickPm25Tap:(UITapGestureRecognizer *) recognizer {
+    NSLog(@"1111");
+}
 
+- (void)clickTemperatureTap:(UITapGestureRecognizer *) recognizer {
+    NSLog(@"2222");
+}
+
+- (void)clickHumidityTap:(UITapGestureRecognizer *) recognizer {
+    NSLog(@"3333");
+}
+
+- (void)clickFormaldehydeTap:(UITapGestureRecognizer *) recognizer {
+    NSLog(@"4444");
+}
 
 - (void) initViews:(NSDictionary *)device {
     //NSLog(@"%@", device);
@@ -95,6 +119,8 @@
         [self.electric setImage:[UIImage imageNamed:@"ic_ele_5.png"]];
     }
 }
+
+
 
 /*
 #pragma mark - Navigation
