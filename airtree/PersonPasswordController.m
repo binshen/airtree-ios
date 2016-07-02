@@ -31,16 +31,16 @@
     NSString * newPwd = self.PasswordNew.text;
     NSString * reNewPwd = self.PasswordReNew.text;
     if(oldPwd.length == 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提交失败" message:@"请输入原密码." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:@"请输入原密码." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     } else if(newPwd.length == 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提交失败" message:@"请输入新密码." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:@"请输入新密码." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     } else if(reNewPwd.length == 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提交失败" message:@"请输入确认密码." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:@"请输入确认密码." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     } else if(![newPwd isEqual:reNewPwd]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提交失败" message:@"两次输入的新密码不一致." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:@"两次输入的新密码不一致." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     } else {
         AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
@@ -59,7 +59,7 @@
             NSError *error = [completedRequest error];
             NSData *data = [completedRequest responseData];
             if (data == nil) {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提交失败" message:@"修改失败，请稍候再试." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:@"修改失败，请稍候再试." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 [alert show];
             } else {
                 NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
@@ -70,7 +70,7 @@
                     [self.navigationController popViewControllerAnimated:YES];
                 } else {
                     
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提交失败" message:[json objectForKey:@"error"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:[json objectForKey:@"error"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                     [alert show];
                 }
             }

@@ -7,6 +7,8 @@
 //
 
 #import "DeviceDetailReviseController.h"
+#import "AppDelegate.h"
+#import "MKNetworkKit.h"
 
 @interface DeviceDetailReviseController ()
 
@@ -25,7 +27,43 @@
 }
 
 - (IBAction)clickUpdate:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    //[self.navigationController popViewControllerAnimated:YES];
+    if(self.TextDeviceName.text.length == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:@"请输入设备名称." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    } else {
+        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        NSMutableDictionary  *loginUser = appDelegate.loginUser;
+        
+        NSString *path = [[NSString alloc] initWithFormat:[NSString stringWithFormat:@"/user/%@/device/%@/update_name", loginUser[@"_id"], @"1"]];
+        NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+        [param setValue:self.TextDeviceName.text forKey:@"name"];
+        MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
+        MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"POST"];
+        [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
+            // NSString *response = [completedRequest responseAsString];
+            // NSLog(@"Response: %@", response);
+            
+            NSError *error = [completedRequest error];
+            NSData *data = [completedRequest responseData];
+            if (data == nil) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:@"修改失败，请稍候再试." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+            } else {
+                NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+                NSString *success = [json objectForKey:@"success"];
+                NSLog(@"Success: %@", success);
+                if([success boolValue]) {
+                    [self.navigationController popViewControllerAnimated:YES];
+                } else {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:[json objectForKey:@"error"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [alert show];
+                }
+            }
+        }];
+        [host startRequest:request];
+    }
+
 }
 
 /*

@@ -31,7 +31,7 @@
 
 - (IBAction)clickSubmit:(id)sender {
     if(self.TextFeedback.text.length == 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提交失败" message:@"请输入反馈信息." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:@"请输入反馈信息." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     } else {
         AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];

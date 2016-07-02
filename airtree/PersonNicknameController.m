@@ -34,7 +34,7 @@
 
 - (IBAction)clickUpdate:(id)sender {
     if(self.TextNickname.text.length == 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提交失败" message:@"请输入昵称." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:@"请输入昵称." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     } else {
         AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
@@ -52,7 +52,7 @@
             NSError *error = [completedRequest error];
             NSData *data = [completedRequest responseData];
             if (data == nil) {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提交失败" message:@"修改失败，请稍候再试." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:@"修改失败，请稍候再试." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 [alert show];
             } else {
                 NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
@@ -64,7 +64,7 @@
                     [self.navigationController popViewControllerAnimated:YES];
                 } else {
                     
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提交失败" message:[json objectForKey:@"error"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:[json objectForKey:@"error"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                     [alert show];
                 }
             }
