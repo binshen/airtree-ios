@@ -248,6 +248,9 @@
 		FD91C2081CFA79F900E00A71 /* airtree */ = {
 			isa = PBXGroup;
 			children = (
+				FD4F2FCB1CFDE0AF00F16054 /* smartlinklib_7x.h */,
+				FD4F2FC91CFDE0AF00F16054 /* HFSmartLink.h */,
+				FD4F2FCA1CFDE0AF00F16054 /* HFSmartLinkDeviceInfo.h */,
 				FD15DF771D27F32E00EF8100 /* DateTimePicker.h */,
 				FD15DF761D27F32E00EF8100 /* DateTimePicker.m */,
 				FDDB57091D260599006E0008 /* BackgroundRunner.h */,
@@ -258,9 +261,6 @@
 				FD91C2151CFA79F900E00A71 /* Assets.xcassets */,
 				FD4F2FD51CFDF3EC00F16054 /* Main.storyboard */,
 				FD91C21A1CFA79F900E00A71 /* Info.plist */,
-				FD4F2FC91CFDE0AF00F16054 /* HFSmartLink.h */,
-				FD4F2FCA1CFDE0AF00F16054 /* HFSmartLinkDeviceInfo.h */,
-				FD4F2FCB1CFDE0AF00F16054 /* smartlinklib_7x.h */,
 				FD91C20C1CFA79F900E00A71 /* AppDelegate.h */,
 				FD91C20D1CFA79F900E00A71 /* AppDelegate.m */,
 				FD91C20F1CFA79F900E00A71 /* ViewController.h */,
