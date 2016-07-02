@@ -58,7 +58,6 @@
 		FD9A8E5B1CFAAF0900D31032 /* MKObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8E4F1CFAAF0900D31032 /* MKObject.m */; };
 		FD9A8EBC1CFB138300D31032 /* NavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8EBB1CFB138300D31032 /* NavViewController.m */; };
 		FD9A8EBF1CFB193B00D31032 /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8EBE1CFB193B00D31032 /* MainController.m */; };
-		FD9A8EC61CFB1A2A00D31032 /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8EC51CFB1A2A00D31032 /* Device.m */; };
 		FD9A8EC81CFB1D0900D31032 /* ic_device.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9A8EC71CFB1D0900D31032 /* ic_device.png */; };
 		FD9A8ECB1CFB1F1E00D31032 /* ic_person.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9A8EC91CFB1F1E00D31032 /* ic_person.png */; };
 		FD9A8ECC1CFB1F1E00D31032 /* ic_shop.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9A8ECA1CFB1F1E00D31032 /* ic_shop.png */; };
@@ -175,8 +174,6 @@
 		FD9A8EBB1CFB138300D31032 /* NavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavViewController.m; sourceTree = "<group>"; };
 		FD9A8EBD1CFB193B00D31032 /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
 		FD9A8EBE1CFB193B00D31032 /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainController.m; sourceTree = "<group>"; };
-		FD9A8EC41CFB1A2A00D31032 /* Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Device.h; sourceTree = "<group>"; };
-		FD9A8EC51CFB1A2A00D31032 /* Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Device.m; sourceTree = "<group>"; };
 		FD9A8EC71CFB1D0900D31032 /* ic_device.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_device.png; sourceTree = "<group>"; };
 		FD9A8EC91CFB1F1E00D31032 /* ic_person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_person.png; sourceTree = "<group>"; };
 		FD9A8ECA1CFB1F1E00D31032 /* ic_shop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_shop.png; sourceTree = "<group>"; };
@@ -404,8 +401,6 @@
 		FD9A8EC31CFB1A1300D31032 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				FD9A8EC41CFB1A2A00D31032 /* Device.h */,
-				FD9A8EC51CFB1A2A00D31032 /* Device.m */,
 				FD9A8ED31CFB3C1000D31032 /* Person.h */,
 				FD9A8ED41CFB3C1000D31032 /* Person.m */,
 			);
@@ -593,7 +588,6 @@
 				FD9A8E541CFAAF0900D31032 /* NSMutableDictionary+MKNKAdditions.m in Sources */,
 				FD9A8E531CFAAF0900D31032 /* NSHTTPURLResponse+MKNKAdditions.m in Sources */,
 				FD9A8E571CFAAF0900D31032 /* UIImageView+MKNKAdditions.m in Sources */,
-				FD9A8EC61CFB1A2A00D31032 /* Device.m in Sources */,
 				FD5A77BC1CFE74BA00442E3F /* DeviceDetailReviseController.m in Sources */,
 				FD9A8E551CFAAF0900D31032 /* NSString+MKNKAdditions.m in Sources */,
 				FD9A8E511CFAAF0900D31032 /* NSDate+RFC1123.m in Sources */,
