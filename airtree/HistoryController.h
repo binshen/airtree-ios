@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DateTimePicker.h"
 
 @interface HistoryController : UIViewController
 
-@property (strong, nonatomic) UIDatePicker *DatePicker;
+@property (strong, nonatomic) DateTimePicker *pickerView;
+@property (nonatomic, retain) NSDate *selectedDate;
+
 @property (weak, nonatomic) IBOutlet UIButton *DateSelect;
 
 @property (weak, nonatomic) IBOutlet UILabel *mainValue;

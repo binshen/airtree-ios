@@ -12,6 +12,7 @@
 
 @interface HistoryController ()
 
+
 @end
 
 @implementation HistoryController
@@ -23,8 +24,26 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"YYYY-MM-dd"];
     NSString *dateString = [dateFormatter stringFromDate:[NSDate date]];
-    [_DateSelect setTitle:dateString forState:UIControlStateNormal];
+    [self.DateSelect setTitle:dateString forState:UIControlStateNormal];
     [self initView:[NSDate date]];
+}
+
+-(void)pickerChanged:(id)sender {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"YYYY-MM-dd";
+    NSLog(@"date: %@",[dateFormatter stringFromDate:[(UIDatePicker*)sender date]]);
+    self.selectedDate = self.pickerView.picker.date;
+}
+
+-(void)donePressed {
+    self.pickerView.hidden = YES;
+    [self.pickerView removeFromSuperview];
+    [self initView:self.selectedDate];
+}
+
+-(void)cancelPressed {
+    self.pickerView.hidden = YES;
+    [self.pickerView removeFromSuperview];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,23 +52,16 @@
 }
 
 - (IBAction)clickDateButton:(id)sender {
-    UIDatePicker *datePicker = [[ UIDatePicker alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 200, self.view.frame.size.width, 216)];
-    datePicker.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    datePicker.datePickerMode = UIDatePickerModeDate;
-    [self.view addSubview:datePicker];
-    [datePicker addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged ];
-}
-
-- (void)dateChanged:(id)sender {
-    UIDatePicker  *datePicker = (UIDatePicker*)sender;
-    NSDate *selectedDate = datePicker.date;
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"YYYY-MM-dd"];
-    NSString *dateString = [dateFormatter stringFromDate:selectedDate];
-    [_DateSelect setTitle:dateString forState:UIControlStateNormal];
-    [datePicker removeFromSuperview];
-    
-    [self initView:selectedDate];
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    CGFloat screenHeight = screenRect.size.height;
+    self.pickerView = [[DateTimePicker alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 240, screenWidth, screenHeight/2 + 35)];
+    [self.pickerView addTargetForDoneButton:self action:@selector(donePressed)];
+    [self.pickerView addTargetForCancelButton:self action:@selector(cancelPressed)];
+    [self.view addSubview:self.pickerView];
+    self.pickerView.hidden = NO;
+    [self.pickerView setMode:UIDatePickerModeDate];
+    [self.pickerView.picker addTarget:self action:@selector(pickerChanged:) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void) initView: (NSDate *) date {
@@ -86,11 +98,11 @@
                 [self.humidityValue setText:@"0"];
                 [self.formaldehydeValue setText:@"0"];
             } else {
-                [self.mainValue setText:[NSString stringWithFormat:@"%.f", round([json[@"x3"] floatValue])]];
-                [self.pm25Value setText:[NSString stringWithFormat:@"%.f", round([json[@"x1"] floatValue])]];
-                [self.temperatureValue setText:[NSString stringWithFormat:@"%.f", round([json[@"x11"] floatValue])]];
-                [self.humidityValue setText:[NSString stringWithFormat:@"%.f", round([json[@"x10"] floatValue])]];
-                [self.formaldehydeValue setText:[NSString stringWithFormat:@"%.f", round([json[@"x9"] floatValue])]];
+                [self.mainValue setText:json[@"x3"] == nil ? @"0" : [NSString stringWithFormat:@"%.f", round([json[@"x3"] floatValue])]];
+                [self.pm25Value setText:json[@"x1"] == nil ? @"0" : [NSString stringWithFormat:@"%.f", round([json[@"x1"] floatValue])]];
+                [self.temperatureValue setText:json[@"x11"] == nil ? @"0" : [NSString stringWithFormat:@"%.f", round([json[@"x11"] floatValue])]];
+                [self.humidityValue setText:json[@"x10"] == nil ? @"0" : [NSString stringWithFormat:@"%.f", round([json[@"x10"] floatValue])]];
+                [self.formaldehydeValue setText:json[@"x9"] == nil ? @"0" : [NSString stringWithFormat:@"%.f", round([json[@"x9"] floatValue])]];
             }
         }
     }];
