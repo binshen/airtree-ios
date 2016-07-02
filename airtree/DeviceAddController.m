@@ -11,6 +11,8 @@
 #import "HFSmartLink.h"
 #import "HFSmartLinkDeviceInfo.h"
 #import <SystemConfiguration/CaptiveNetwork.h>
+#import "AppDelegate.h"
+#import "MKNetworkKit.h"
 
 @interface DeviceAddController ()
 {
@@ -57,7 +59,41 @@
                     self.progress.progress = (float)(pro)/100.0;
                 } successBlock:^(HFSmartLinkDeviceInfo *dev) {
                     //[self  showAlertWithMsg:[NSString stringWithFormat:@"%@:%@",dev.mac,dev.ip] title:@"OK"];
-                    [self.navigationController popViewControllerAnimated:YES];
+                    
+                    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+                    NSDictionary *loginUser = appDelegate.loginUser;
+                    
+                    NSString *path = [[NSString alloc] initWithFormat:@"/user/add_device"];
+                    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+                    [param setValue:dev.mac forKey:@"mac"];
+                    [param setValue:loginUser[@"_id"] forKey:@"userID"];
+                    
+                    MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
+                    MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"POST"];
+                    [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
+                        NSString *response = [completedRequest responseAsString];
+                        NSLog(@"Response: %@", response);
+                        
+                        NSError *error = [completedRequest error];
+                        NSData *data = [completedRequest responseData];
+                        
+                        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+                        NSString *success = [json objectForKey:@"success"];
+                        NSLog(@"Success: %@", success);
+                        
+                        if ([success boolValue]) {
+                            [self.navigationController popViewControllerAnimated:YES];
+                        } else {
+                            UIAlertView *alert = [[UIAlertView alloc]
+                                                      initWithTitle:@"登录失败"
+                                                      message:@"输入的用户名或密码错误."
+                                                      delegate:self
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                            [alert show];
+                        }
+                    }];
+                    [host startRequest:request];
                 } failBlock:^(NSString *failmsg) {
                     [self  showAlertWithMsg:failmsg title:@"error"];
                 } endBlock:^(NSDictionary *deviceDic) {
