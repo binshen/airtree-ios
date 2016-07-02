@@ -56,21 +56,23 @@
             cell.textLabel.text = @"设备编码";
             break;
         case 1:
-            cell.textLabel.text = @"设备描述";
+            cell.textLabel.text = @"设备名称";
             cell.userInteractionEnabled = YES;
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             break;
         case 2:
-            cell.textLabel.text = @"MAC";
+            cell.textLabel.text = @"类型";
             break;
         case 3:
-            cell.textLabel.text = @"参数2";
+            cell.textLabel.text = @"MAC";
             break;
         case 4:
-            cell.textLabel.text = @"参数3";
+            cell.textLabel.text = @"历史数据";
+            cell.userInteractionEnabled = YES;
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             break;
         case 5:
-            cell.textLabel.text = @"参数4";
+            cell.textLabel.text = @"";
             break;
         default:
             break;

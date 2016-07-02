@@ -93,7 +93,7 @@
     
     NSUInteger row = [indexPath row];
     NSDictionary *device = [self.devices objectAtIndex:row];
-    cell.textLabel.text = device[@"mac"];
+    cell.textLabel.text = [device valueForKey:@"name"] == nil ? device[@"mac"] : device[@"name"];
     cell.detailTextLabel.text = [device[@"status"] integerValue] == 1 ? @"云端在线" : @"不在线";
     
 //    UIImage *image = [UIImage imageNamed:@"ic_device"];
