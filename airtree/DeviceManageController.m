@@ -8,7 +8,7 @@
 
 #import "DeviceManageController.h"
 #import "AppDelegate.h"
-#import "Device.h"
+#import "MKNetworkKit.h"
 
 @interface DeviceManageController ()
 
@@ -27,30 +27,33 @@
     
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-    
-//    NSMutableArray *deviceList = [[NSMutableArray alloc] initWithCapacity:20];
-//    Device *device = [[Device alloc] init];
-//    device.mac = @"MAC1023C852";
-//    device.ip = @"192.168.2.123";
-//    device.status = 4;
-//    [deviceList addObject:device];
-//    
-//    device = [[Device alloc] init];
-//    device.mac = @"MAC1023C853";
-//    device.ip = @"192.168.2.124";
-//    device.status = 3;
-//    [deviceList addObject:device];
-//    
-//    device = [[Device alloc] init];
-//    device.mac = @"MAC1023C851";
-//    device.ip = @"192.168.2.125";
-//    device.status = 3;
-//    [deviceList addObject:device];
-//    
-//    self.devices = deviceList;
+}
+
+-(void) viewWillAppear:(BOOL)animated {
     
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    self.devices = appDelegate.globalDeviceList;
+    NSDictionary  *loginUser = appDelegate.loginUser;
+    
+    NSString *path = [[NSString alloc] initWithFormat:[NSString stringWithFormat:@"/user/%@/get_device_info", loginUser[@"_id"]]];
+    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+    MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
+    MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"GET"];
+    [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
+        //NSString *response = [completedRequest responseAsString];
+        //NSLog(@"Response: %@", response);
+        
+        NSError *error = [completedRequest error];
+        NSData *data = [completedRequest responseData];
+        
+        if (data == nil) {
+            
+        } else {
+            self.devices = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+            
+            [self.tableView reloadData];
+        }
+    }];
+    [host startRequest:request];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,12 +65,12 @@
 
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 //
-//    return _devices.count;
+//    return self.devices.count;
 //}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return _devices.count;
+    return self.devices.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -79,9 +82,9 @@
     }
     
     NSUInteger row = [indexPath row];
-    Device *device = [self.devices objectAtIndex:row];
-    cell.textLabel.text = [[[[device mac] stringByAppendingString:@" ("] stringByAppendingString:@"不在线"] stringByAppendingString:@")"];
-    cell.detailTextLabel.text = [device ip];
+    NSDictionary *device = [self.devices objectAtIndex:row];
+    cell.textLabel.text = device[@"mac"];
+    cell.detailTextLabel.text = [device[@"status"] integerValue] == 1 ? @"云端在线" : @"不在线";
     
 //    UIImage *image = [UIImage imageNamed:@"ic_device"];
 //    cell.imageView.image = image;
@@ -94,6 +97,10 @@
 //    NSString *rowString = [[self.devices objectAtIndex:[indexPath row]] mac];
 //    UIAlertView * alter = [[UIAlertView alloc] initWithTitle:@"选中的行信息" message:rowString delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
 //    [alter show];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 80;
 }
 
 /*

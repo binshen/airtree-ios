@@ -10,7 +10,6 @@
 #import "ShopController.h"
 #import "DeviceViewController.h"
 #import "DeviceManageController.h"
-#import "Device.h"
 #import "AppDelegate.h"
 #import "MKNetworkKit.h"
 

@@ -16,13 +16,10 @@
 
 @implementation AppDelegate
 
-@synthesize globalDeviceList;
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
     [NSThread sleepForTimeInterval:2.0];
-    globalDeviceList = [[NSMutableArray alloc] initWithCapacity:20];
     
     _backgroundRunningTimeInterval = 0;
     [self performSelectorInBackground:@selector(runningInBackground) withObject:nil];
@@ -64,7 +61,7 @@
     while (1) {
         [NSThread sleepForTimeInterval:10];
         _backgroundRunningTimeInterval++;
-        NSLog(@"Heatbeat: %d",(int)_backgroundRunningTimeInterval);
+        NSLog(@"Heartbeat: %d",(int)_backgroundRunningTimeInterval);
         [self runHeartbeatService];
     }
 }
@@ -72,7 +69,7 @@
 - (void) runHeartbeatService
 {
     if (self.loginUser[@"_id"] == nil) {
-        NSLog(@"Heatbeat - loginUser is NULL");
+        NSLog(@"Heartbeat - loginUser is NULL");
         return;
     }
     NSString *path = [[NSString alloc] initWithFormat:[NSString stringWithFormat:@"/user/%@/online", self.loginUser[@"_id"]]];
@@ -82,7 +79,6 @@
     [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
         NSString *response = [completedRequest responseAsString];
         NSLog(@"Response: %@", response);
-        
     }];
     [host startRequest:request];
 }

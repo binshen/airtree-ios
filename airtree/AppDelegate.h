@@ -15,8 +15,6 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (nonatomic, retain) NSMutableArray *globalDeviceList;
-
 @property (nonatomic, retain) NSMutableDictionary *loginUser;
 
 @end
