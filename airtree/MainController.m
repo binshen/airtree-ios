@@ -62,8 +62,10 @@
     self.pageControl.hidesForSinglePage = YES;
     self.pageControl.userInteractionEnabled =YES;
     self.pageControl.currentPage = 0;
-//    [self.pageControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
-    
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
     [self initHomePage];
     self.timer = [NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(autoRefreshData) userInfo:nil repeats:YES];
     //[[UIApplication sharedApplication] setKeepAliveTimeout:600 handler:^{[self heartbeat];}];
@@ -159,23 +161,6 @@
     self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.scrollView.frame) * self.numberPages, CGRectGetHeight(self.scrollView.frame));
     [super viewDidAppear:animated];
 }
-
-//- (IBAction) changePage:(id)sender {
-//
-//    NSInteger page = self.pageControl.currentPage;
-//    NSLog(@"当前页面 = %lu", (unsigned long)page);
-//    
-//    // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
-//    [self loadScrollViewWithPage:page - 1];
-//    [self loadScrollViewWithPage:page];
-//    [self loadScrollViewWithPage:page + 1];
-//    
-//    // update the scroll view to the appropriate page
-//    CGRect bounds = self.scrollView.bounds;
-//    bounds.origin.x = CGRectGetWidth(bounds) * page;
-//    bounds.origin.y = 0;
-//    [self.scrollView scrollRectToVisible:bounds animated: YES];
-//}
 
 // 滑动结束的事件监听
 - (void) scrollViewDidEndDecelerating:(UIScrollView *)scrollView
