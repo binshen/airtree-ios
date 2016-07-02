@@ -98,11 +98,11 @@
                 [self.humidityValue setText:@"0"];
                 [self.formaldehydeValue setText:@"0"];
             } else {
-                [self.mainValue setText:json[@"x3"] == nil ? @"0" : [NSString stringWithFormat:@"%.f", round([json[@"x3"] floatValue])]];
-                [self.pm25Value setText:json[@"x1"] == nil ? @"0" : [NSString stringWithFormat:@"%.f", round([json[@"x1"] floatValue])]];
-                [self.temperatureValue setText:json[@"x11"] == nil ? @"0" : [NSString stringWithFormat:@"%.f", round([json[@"x11"] floatValue])]];
-                [self.humidityValue setText:json[@"x10"] == nil ? @"0" : [NSString stringWithFormat:@"%.f", round([json[@"x10"] floatValue])]];
-                [self.formaldehydeValue setText:json[@"x9"] == nil ? @"0" : [NSString stringWithFormat:@"%.f", round([json[@"x9"] floatValue])]];
+                [self.mainValue setText:json[@"x3"] == nil || (NSNull *)json[@"x3"] == [NSNull null] ? @"0" : [NSString stringWithFormat:@"%.f", round([json[@"x3"] floatValue])]];
+                [self.pm25Value setText:json[@"x1"] == nil || (NSNull *)json[@"x1"] == [NSNull null] ? @"0" : [NSString stringWithFormat:@"%.f", round([json[@"x1"] floatValue])]];
+                [self.temperatureValue setText:json[@"x11"] == nil || (NSNull *)json[@"x11"] == [NSNull null] ? @"0" : [NSString stringWithFormat:@"%.f", round([json[@"x11"] floatValue])]];
+                [self.humidityValue setText:json[@"x10"] == nil || (NSNull *)json[@"x10"] == [NSNull null] ? @"0" : [NSString stringWithFormat:@"%.f", round([json[@"x10"] floatValue])]];
+                [self.formaldehydeValue setText:json[@"x9"] == nil || (NSNull *)json[@"x9"] == [NSNull null] ? @"0" : [NSString stringWithFormat:@"%.f", round([json[@"x9"] floatValue])]];
             }
         }
     }];
