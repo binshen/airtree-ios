@@ -33,12 +33,14 @@
     
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSDictionary  *loginUser = appDelegate.loginUser;
+    NSString *nickname = loginUser[@"nickname"] == nil ? loginUser[@"username"] : loginUser[@"nickname"];
+    NSLog(@"Nickname: %@", nickname);
     
     NSMutableArray *itemList = [[NSMutableArray alloc] initWithCapacity:6];
     Person *person = [[Person alloc] init];
     person.index = 1;
     person.title = @"昵称";
-    person.detail = loginUser[@"nickname"] == nil ? loginUser[@"username"] : loginUser[@"nickname"];
+    person.detail = nickname;
     [itemList addObject:person];
     
     person = [[Person alloc] init];
@@ -67,11 +69,24 @@
     
     person = [[Person alloc] init];
     person.index = 6;
-    person.title = @"123";
+    person.title = @"";
     person.detail = @"";
     [itemList addObject:person];
     
     self.items = itemList;
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSDictionary  *loginUser = appDelegate.loginUser;
+    NSString *nickname = loginUser[@"nickname"] == nil ? loginUser[@"username"] : loginUser[@"nickname"];
+    NSLog(@"Nickname: %@", nickname);
+
+    cell.detailTextLabel.text = nickname;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -91,9 +106,8 @@
 //}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return self.items.count;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"PersonCell";
@@ -107,11 +121,18 @@
     cell.textLabel.text = [person title];
     cell.detailTextLabel.text = [person detail];
     
-    if (person.index == 3) {
+    if (row == 2 || row == 5) {
         cell.userInteractionEnabled = NO;
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if([indexPath row] == 5) {
+        return 0;
+    }
+    return 50;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -126,13 +147,12 @@
         PersonPasswordController *personNickname = [self.storyboard instantiateViewControllerWithIdentifier:@"PersonPasswordController"];
         [[self navigationController] pushViewController:personNickname animated:YES];
     } else if(index == 4) {
-        
+        //TODO
     } else if(index == 5) {
         PersonFeedbackController *personNickname = [self.storyboard instantiateViewControllerWithIdentifier:@"PersonFeedbackController"];
         [[self navigationController] pushViewController:personNickname animated:YES];
-
     } else {
-        
+        //TODO
     }
 }
 

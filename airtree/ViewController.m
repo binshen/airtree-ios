@@ -74,7 +74,7 @@
             BOOL boolValue = [success boolValue];
             if (boolValue && ![user isEqual:[NSNull null]]) {
                 AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-                appDelegate.loginUser = user;
+                appDelegate.loginUser = [user mutableCopy];
                 
                 NavViewController *nav = [self.storyboard instantiateViewControllerWithIdentifier:@"NavViewController"];
                 [self presentViewController:nav animated:YES completion:nil];

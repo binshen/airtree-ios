@@ -59,7 +59,7 @@
                 NSString *success = [json objectForKey:@"success"];
                 NSLog(@"Success: %@", success);
                 if([success boolValue]) {
-                    //[loginUser setValue:self.TextNickname.text forKey:@"nickname"];
+                    [loginUser setObject:self.TextNickname.text forKey:@"nickname"];
                     //[self.navigationController popToRootViewControllerAnimated:YES];
                     [self.navigationController popViewControllerAnimated:YES];
                 } else {
