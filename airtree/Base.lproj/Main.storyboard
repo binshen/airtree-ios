@@ -286,7 +286,8 @@
         <!--Monitor Controller-->
         <scene sceneID="PRh-Fd-Jnf">
             <objects>
-                <viewController storyboardIdentifier="MonitorViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LXY-dl-tvr" customClass="MonitorController" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yqV-Z9-REn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="MonitorController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LXY-dl-tvr" customClass="MonitorController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mUN-FG-jLp"/>
                         <viewControllerLayoutGuide type="bottom" id="oqN-Ky-Byg"/>
@@ -294,18 +295,22 @@
                     <view key="view" contentMode="scaleToFill" id="s0H-pK-Xzm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Gb-u4-XQB">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yqV-Z9-REn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1210.5" y="-361.5"/>
+            <point key="canvasLocation" x="1190.5" y="-361.5"/>
         </scene>
-        <!--Page Content View Controller-->
+        <!--Monitor Content Controller-->
         <scene sceneID="N9i-dN-FaF">
             <objects>
-                <viewController storyboardIdentifier="PageContentViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="A2l-oH-NQm" customClass="PageContentViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PageContentViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="A2l-oH-NQm" customClass="MonitorContentController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5ob-kb-API"/>
                         <viewControllerLayoutGuide type="bottom" id="0Gs-e0-5FR"/>
@@ -314,6 +319,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_pm.png" translatesAutoresizingMaskIntoConstraints="NO" id="b3y-ZY-0oq">
+                                <rect key="frame" x="51" y="175" width="272" height="272"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0000-00-00 00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szd-A1-zIC">
                                 <rect key="frame" x="95" y="61" width="186" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -353,9 +361,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_pm.png" translatesAutoresizingMaskIntoConstraints="NO" id="b3y-ZY-0oq">
-                                <rect key="frame" x="51" y="175" width="272" height="272"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -363,7 +368,7 @@
                     <connections>
                         <outlet property="ImgChart" destination="b3y-ZY-0oq" id="ghE-DP-D2m"/>
                         <outlet property="LabelBottom" destination="Dgd-Wd-zbz" id="TTu-5p-2Bv"/>
-                        <outlet property="LabelCreatedTime" destination="szd-A1-zIC" id="dhF-vJ-JOe"/>
+                        <outlet property="LabelCreatedTime" destination="szd-A1-zIC" id="OBQ-El-zII"/>
                         <outlet property="LabelMain" destination="unK-aR-dlc" id="dCP-LF-lpr"/>
                         <outlet property="LabelTop" destination="IsN-7V-MB1" id="REc-1c-6ar"/>
                     </connections>
