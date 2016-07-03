@@ -19,4 +19,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *LabelMain;
 @property (weak, nonatomic) IBOutlet UILabel *LabelBottom;
 
+- (void) initViews:(NSDictionary *) device;
+
 @end

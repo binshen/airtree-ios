@@ -62,6 +62,7 @@
     self.pageControl.hidesForSinglePage = YES;
     self.pageControl.userInteractionEnabled =YES;
     self.pageControl.currentPage = 0;
+    self.pageControl.transform = CGAffineTransformMakeScale(1.2, 1.2);
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -93,7 +94,6 @@
         if (data == nil) {
             
         } else {
-            self.pageControl.transform = CGAffineTransformMakeScale(1.2, 1.2);
             // 初始化page control的内容
             self.contentList = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
             // 一共有多少页

@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MonitorController : UIViewController
+@interface MonitorController : UIViewController <UIScrollViewDelegate>
+
+@property (nonatomic, strong) NSArray *contentList;
+@property (nonatomic, strong) NSMutableArray *viewControllers;
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @end
