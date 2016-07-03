@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "NavViewController.h"
 #import "AppDelegate.h"
 #import "MKNetworkKit.h"
 
@@ -76,7 +75,7 @@
                 AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
                 appDelegate.loginUser = [user mutableCopy];
                 
-                NavViewController *nav = [self.storyboard instantiateViewControllerWithIdentifier:@"NavViewController"];
+                UINavigationController *nav = [self.storyboard instantiateViewControllerWithIdentifier:@"NavMainViewController"];
                 [self presentViewController:nav animated:YES completion:nil];
             } else {
                 UIAlertView *alert = [[UIAlertView alloc]

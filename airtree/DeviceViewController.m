@@ -7,12 +7,15 @@
 //
 
 #import "DeviceViewController.h"
+#import "MonitorController.h"
 
 @interface DeviceViewController ()
 
 @end
 
 @implementation DeviceViewController
+
+@synthesize parentController;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,6 +41,14 @@
 
 - (void)clickPm25Tap:(UITapGestureRecognizer *) recognizer {
     NSLog(@"1111");
+//    UINavigationController *nav = [self.storyboard instantiateViewControllerWithIdentifier:@"NavMonitorViewController"];
+//    [self presentViewController:nav animated:YES completion:nil];
+    //[self.view.window.rootViewController presentViewController:nav animated:YES completion:nil];
+    
+    NSLog(@"------------------------");
+    NSLog(@"%@",self.parentController);
+    UINavigationController *monitor = [self.storyboard instantiateViewControllerWithIdentifier:@"MonitorViewController"];
+    [[self.parentController navigationController] pushViewController:monitor animated:YES];
 }
 
 - (void)clickTemperatureTap:(UITapGestureRecognizer *) recognizer {
@@ -52,8 +63,10 @@
     NSLog(@"4444");
 }
 
-- (void) initViews:(NSDictionary *)device {
+- (void) initViews:(NSDictionary *)device initController:(UIViewController *) controller {
     //NSLog(@"%@", device);
+    
+    self.parentController = controller;
     
     NSString *status = device[@"status"];
     if ([status longLongValue] == 1) {
@@ -120,7 +133,9 @@
     }
 }
 
-
+//- (void) setParentController: (UINavigationController *) controler {
+//    self.parentController = controler;
+//}
 
 /*
 #pragma mark - Navigation
