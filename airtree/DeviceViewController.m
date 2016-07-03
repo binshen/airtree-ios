@@ -40,26 +40,26 @@
 }
 
 - (void)clickPm25Tap:(UITapGestureRecognizer *) recognizer {
-    NSLog(@"1111");
-    UIViewController *monitor = [self.storyboard instantiateViewControllerWithIdentifier:@"MonitorController"];
+    MonitorController *monitor = [self.storyboard instantiateViewControllerWithIdentifier:@"MonitorController"];
+    monitor.pageIndex = 1;
     [[self.parentController navigationController] pushViewController:monitor animated:YES];
 }
 
 - (void)clickTemperatureTap:(UITapGestureRecognizer *) recognizer {
-    NSLog(@"2222");
-    UIViewController *monitor = [self.storyboard instantiateViewControllerWithIdentifier:@"MonitorController"];
+    MonitorController *monitor = [self.storyboard instantiateViewControllerWithIdentifier:@"MonitorController"];
+    monitor.pageIndex = 2;
     [[self.parentController navigationController] pushViewController:monitor animated:YES];
 }
 
 - (void)clickHumidityTap:(UITapGestureRecognizer *) recognizer {
-    NSLog(@"3333");
-    UIViewController *monitor = [self.storyboard instantiateViewControllerWithIdentifier:@"MonitorController"];
+    MonitorController *monitor = [self.storyboard instantiateViewControllerWithIdentifier:@"MonitorController"];
+    monitor.pageIndex = 3;
     [[self.parentController navigationController] pushViewController:monitor animated:YES];
 }
 
 - (void)clickFormaldehydeTap:(UITapGestureRecognizer *) recognizer {
-    NSLog(@"4444");
-    UIViewController *monitor = [self.storyboard instantiateViewControllerWithIdentifier:@"MonitorController"];
+    MonitorController *monitor = [self.storyboard instantiateViewControllerWithIdentifier:@"MonitorController"];
+    monitor.pageIndex = 4;
     [[self.parentController navigationController] pushViewController:monitor animated:YES];
 }
 

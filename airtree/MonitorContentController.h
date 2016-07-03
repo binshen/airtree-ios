@@ -10,15 +10,12 @@
 
 @interface MonitorContentController : UIViewController
 
-@property NSUInteger pageIndex;
-@property NSUInteger monitorType;
-
 @property (weak, nonatomic) IBOutlet UILabel *LabelCreatedTime;
 @property (weak, nonatomic) IBOutlet UIImageView *ImgChart;
 @property (weak, nonatomic) IBOutlet UILabel *LabelTop;
 @property (weak, nonatomic) IBOutlet UILabel *LabelMain;
 @property (weak, nonatomic) IBOutlet UILabel *LabelBottom;
 
-- (void) initViews:(NSDictionary *) device;
+- (void) initViews:(NSUInteger *) pageIndex;
 
 @end

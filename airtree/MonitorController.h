@@ -10,6 +10,8 @@
 
 @interface MonitorController : UIViewController <UIScrollViewDelegate>
 
+@property NSUInteger pageIndex;
+
 @property (nonatomic, strong) NSArray *contentList;
 @property (nonatomic, strong) NSMutableArray *viewControllers;
 

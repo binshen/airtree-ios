@@ -7,6 +7,7 @@
 //
 
 #import "MonitorContentController.h"
+#import "AppDelegate.h"
 
 @interface MonitorContentController ()
 
@@ -17,8 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    NSLog(@"111111111111111");
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,8 +25,19 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void) initViews:(NSDictionary *) device {
-    
+- (void) initViews:(NSUInteger *) pageIndex {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSDictionary *device = appDelegate.selectedDevice;
+    NSLog(@"%@", device);
+    if((int) pageIndex == 1) {
+        self.LabelMain.text = @"11";
+    } else if((int) pageIndex == 2) {
+        self.LabelMain.text = @"22";
+    } else if((int) pageIndex == 3) {
+        self.LabelMain.text = @"33";
+    } else {
+        self.LabelMain.text = @"44";
+    }
 }
 
 /*
