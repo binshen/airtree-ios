@@ -15,7 +15,6 @@
 		FD28F9011D281AF90064D94F /* good.gif in Resources */ = {isa = PBXBuildFile; fileRef = FD28F8FB1D281AF90064D94F /* good.gif */; };
 		FD28F9021D281AF90064D94F /* general.gif in Resources */ = {isa = PBXBuildFile; fileRef = FD28F8FC1D281AF90064D94F /* general.gif */; };
 		FD28F9031D281AFA0064D94F /* dontneed.gif in Resources */ = {isa = PBXBuildFile; fileRef = FD28F8FD1D281AF90064D94F /* dontneed.gif */; };
-		FD28F9061D281DDF0064D94F /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD28F9051D281DDF0064D94F /* PageContentViewController.m */; };
 		FD4F2FC31CFDC2FF00F16054 /* HistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4F2FC21CFDC2FF00F16054 /* HistoryController.m */; };
 		FD4F2FC61CFDDC4000F16054 /* DeviceAddController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4F2FC51CFDDC4000F16054 /* DeviceAddController.m */; };
 		FD4F2FC81CFDE09500F16054 /* libsmartlinklib_7x.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD4F2FC71CFDE09500F16054 /* libsmartlinklib_7x.a */; };
@@ -78,6 +77,7 @@
 		FDDB570A1D260599006E0008 /* BackgroundRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDB57081D260599006E0008 /* BackgroundRunner.m */; };
 		FDDB570C1D2617C1006E0008 /* ic_shop_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = FDDB570B1D2617C1006E0008 /* ic_shop_blue.png */; };
 		FDF4C6B01D2951FF0064B0D0 /* MonitorController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF4C6AF1D2951FF0064B0D0 /* MonitorController.m */; };
+		FDF4C6B31D29664D0064B0D0 /* MonitorContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF4C6B21D29664D0064B0D0 /* MonitorContentController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,8 +107,6 @@
 		FD28F8FB1D281AF90064D94F /* good.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = good.gif; sourceTree = "<group>"; };
 		FD28F8FC1D281AF90064D94F /* general.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = general.gif; sourceTree = "<group>"; };
 		FD28F8FD1D281AF90064D94F /* dontneed.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = dontneed.gif; sourceTree = "<group>"; };
-		FD28F9041D281DDF0064D94F /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
-		FD28F9051D281DDF0064D94F /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentViewController.m; sourceTree = "<group>"; };
 		FD4F2FC11CFDC2FF00F16054 /* HistoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryController.h; sourceTree = "<group>"; };
 		FD4F2FC21CFDC2FF00F16054 /* HistoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryController.m; sourceTree = "<group>"; };
 		FD4F2FC41CFDDC4000F16054 /* DeviceAddController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceAddController.h; sourceTree = "<group>"; };
@@ -211,6 +209,8 @@
 		FDDB570B1D2617C1006E0008 /* ic_shop_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_shop_blue.png; sourceTree = "<group>"; };
 		FDF4C6AE1D2951FF0064B0D0 /* MonitorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonitorController.h; sourceTree = "<group>"; };
 		FDF4C6AF1D2951FF0064B0D0 /* MonitorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonitorController.m; sourceTree = "<group>"; };
+		FDF4C6B11D29664D0064B0D0 /* MonitorContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonitorContentController.h; sourceTree = "<group>"; };
+		FDF4C6B21D29664D0064B0D0 /* MonitorContentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonitorContentController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,8 +286,8 @@
 				FDACDD451D24B8ED00526DA9 /* DeviceViewController.m */,
 				FDF4C6AE1D2951FF0064B0D0 /* MonitorController.h */,
 				FDF4C6AF1D2951FF0064B0D0 /* MonitorController.m */,
-				FD28F9041D281DDF0064D94F /* PageContentViewController.h */,
-				FD28F9051D281DDF0064D94F /* PageContentViewController.m */,
+				FDF4C6B11D29664D0064B0D0 /* MonitorContentController.h */,
+				FDF4C6B21D29664D0064B0D0 /* MonitorContentController.m */,
 				FD9A8ECD1CFB223E00D31032 /* ShopController.h */,
 				FD9A8ECE1CFB223E00D31032 /* ShopController.m */,
 				FD4F2FC11CFDC2FF00F16054 /* HistoryController.h */,
@@ -605,10 +605,10 @@
 			files = (
 				FD9A8ED21CFB34CE00D31032 /* PersonController.m in Sources */,
 				FD91C2111CFA79F900E00A71 /* ViewController.m in Sources */,
-				FD28F9061D281DDF0064D94F /* PageContentViewController.m in Sources */,
 				FD5A77BF1CFE7EE900442E3F /* RegisterController.m in Sources */,
 				FD4F2FC31CFDC2FF00F16054 /* HistoryController.m in Sources */,
 				FD9A8EDA1CFB4EB000D31032 /* DeviceManageController.m in Sources */,
+				FDF4C6B31D29664D0064B0D0 /* MonitorContentController.m in Sources */,
 				FDF4C6B01D2951FF0064B0D0 /* MonitorController.m in Sources */,
 				FD4F2FD11CFDEC4900F16054 /* PersonPasswordController.m in Sources */,
 				FD9A8ED51CFB3C1000D31032 /* Person.m in Sources */,
