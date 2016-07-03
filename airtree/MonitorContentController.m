@@ -1,22 +1,24 @@
 //
-//  MonitorController.m
+//  MonitorContentController.m
 //  airtree
 //
 //  Created by Bin Shen on 7/3/16.
 //  Copyright © 2016 Bin Shen. All rights reserved.
 //
 
-#import "MonitorController.h"
+#import "MonitorContentController.h"
 
-@interface MonitorController ()
+@interface MonitorContentController ()
 
 @end
 
-@implementation MonitorController
+@implementation MonitorContentController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.    
+    // Do any additional setup after loading the view.
+    
+    NSLog(@"111111111111111");
 }
 
 - (void)didReceiveMemoryWarning {

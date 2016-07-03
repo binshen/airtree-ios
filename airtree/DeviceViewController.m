@@ -41,26 +41,26 @@
 
 - (void)clickPm25Tap:(UITapGestureRecognizer *) recognizer {
     NSLog(@"1111");
-//    UINavigationController *nav = [self.storyboard instantiateViewControllerWithIdentifier:@"NavMonitorViewController"];
-//    [self presentViewController:nav animated:YES completion:nil];
-    //[self.view.window.rootViewController presentViewController:nav animated:YES completion:nil];
-    
-    NSLog(@"------------------------");
-    NSLog(@"%@",self.parentController);
-    UINavigationController *monitor = [self.storyboard instantiateViewControllerWithIdentifier:@"MonitorViewController"];
+    UIViewController *monitor = [self.storyboard instantiateViewControllerWithIdentifier:@"MonitorController"];
     [[self.parentController navigationController] pushViewController:monitor animated:YES];
 }
 
 - (void)clickTemperatureTap:(UITapGestureRecognizer *) recognizer {
     NSLog(@"2222");
+    UIViewController *monitor = [self.storyboard instantiateViewControllerWithIdentifier:@"MonitorController"];
+    [[self.parentController navigationController] pushViewController:monitor animated:YES];
 }
 
 - (void)clickHumidityTap:(UITapGestureRecognizer *) recognizer {
     NSLog(@"3333");
+    UIViewController *monitor = [self.storyboard instantiateViewControllerWithIdentifier:@"MonitorController"];
+    [[self.parentController navigationController] pushViewController:monitor animated:YES];
 }
 
 - (void)clickFormaldehydeTap:(UITapGestureRecognizer *) recognizer {
     NSLog(@"4444");
+    UIViewController *monitor = [self.storyboard instantiateViewControllerWithIdentifier:@"MonitorController"];
+    [[self.parentController navigationController] pushViewController:monitor animated:YES];
 }
 
 - (void) initViews:(NSDictionary *)device initController:(UIViewController *) controller {

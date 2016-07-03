@@ -27,7 +27,6 @@
 @property (weak, nonatomic) IBOutlet UIView *viewFormaldehyde;
 
 @property (retain) UIViewController *parentController;
-
 - (void) initViews:(NSDictionary *)device initController:(UIViewController *) controller;
 
 @end
