@@ -296,6 +296,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ci6-Mf-Zm7">
+                                <rect key="frame" x="0.0" y="630" width="375" height="37"/>
+                                <color key="pageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </pageControl>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Gb-u4-XQB">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </scrollView>
@@ -303,6 +308,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="pageControl" destination="ci6-Mf-Zm7" id="v9Z-i5-maJ"/>
+                        <outlet property="scrollView" destination="3Gb-u4-XQB" id="MPh-Tf-X6b"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1190.5" y="-361.5"/>
@@ -310,7 +319,7 @@
         <!--Monitor Content Controller-->
         <scene sceneID="N9i-dN-FaF">
             <objects>
-                <viewController storyboardIdentifier="PageContentViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="A2l-oH-NQm" customClass="MonitorContentController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MonitorContentController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="A2l-oH-NQm" customClass="MonitorContentController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5ob-kb-API"/>
                         <viewControllerLayoutGuide type="bottom" id="0Gs-e0-5FR"/>
