@@ -80,7 +80,7 @@
         frame.origin.y = 0;
         controller.view.frame = frame;
         
-        [controller initViews:[self.contentList objectAtIndex:page]];
+        //[controller initViews:[self.contentList objectAtIndex:page]];
         [self.scrollView addSubview:controller.view];
     }
 }
