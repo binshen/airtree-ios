@@ -158,15 +158,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9U9-6I-nA9">
-                                <rect key="frame" x="188" y="367" width="1" height="96"/>
+                                <rect key="frame" x="188" y="367" width="1" height="90"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BtW-hJ-n3l">
-                                <rect key="frame" x="277" y="367" width="1" height="96"/>
+                                <rect key="frame" x="277" y="367" width="1" height="90"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eaP-bU-Fb5">
-                                <rect key="frame" x="99" y="367" width="1" height="96"/>
+                                <rect key="frame" x="99" y="367" width="1" height="90"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_ele_5.png" translatesAutoresizingMaskIntoConstraints="NO" id="cId-kj-rr0">
@@ -200,7 +200,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PM2.5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7DU-Yc-aE2">
-                                        <rect key="frame" x="3" y="75" width="65" height="21"/>
+                                        <rect key="frame" x="3" y="65" width="65" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -211,7 +211,7 @@
                                 <rect key="frame" x="108" y="367" width="72" height="96"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="温度" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0q-H5-Flg">
-                                        <rect key="frame" x="4" y="75" width="65" height="21"/>
+                                        <rect key="frame" x="4" y="65" width="65" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -228,7 +228,7 @@
                                 <rect key="frame" x="197" y="367" width="72" height="96"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="湿度" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MzM-as-whv">
-                                        <rect key="frame" x="4" y="75" width="65" height="21"/>
+                                        <rect key="frame" x="4" y="65" width="65" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -245,7 +245,7 @@
                                 <rect key="frame" x="286" y="367" width="74" height="96"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="甲醛" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKT-eS-MKc">
-                                        <rect key="frame" x="5" y="75" width="64" height="21"/>
+                                        <rect key="frame" x="5" y="65" width="64" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -400,53 +400,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kj4-g5-oPh">
-                                <rect key="frame" x="0.0" y="595" width="375" height="72"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kj4-g5-oPh">
+                                <rect key="frame" x="0.0" y="575" width="375" height="92"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8d-nm-NGD">
-                                        <rect key="frame" x="31" y="16" width="131" height="42"/>
-                                        <state key="normal" title=" 设备管理" image="ic_device.png">
-                                            <color key="titleColor" red="0.1296322382" green="0.4020855518" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8d-nm-NGD">
+                                        <rect key="frame" x="33" y="20" width="131" height="42"/>
+                                        <state key="normal" title=" 设备管理" image="ic_device_30.png">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="clickDeviceButton:" destination="0jK-P3-5av" eventType="touchUpInside" id="ykb-TF-im2"/>
                                             <segue destination="a8p-BS-bSZ" kind="show" id="AXY-pJ-Sif"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="line_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZTz-Sg-bxV">
-                                        <rect key="frame" x="187" y="0.0" width="1" height="72"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ho0-kD-B95">
-                                        <rect key="frame" x="223" y="14" width="120" height="44"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ho0-kD-B95">
+                                        <rect key="frame" x="226" y="19" width="120" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="TdD-1E-VpK"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title=" 在线商城" image="ic_shop_blue.png">
-                                            <color key="titleColor" red="0.1296322382" green="0.4020855518" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title=" 在线商城" image="ic_shop_30.png">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="clickOnlineShopButton:" destination="0jK-P3-5av" eventType="touchUpInside" id="C1i-m1-V6T"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="line_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZTz-Sg-bxV">
+                                        <rect key="frame" x="187" y="10" width="1" height="72"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="Ho0-kD-B95" firstAttribute="bottom" secondItem="x8d-nm-NGD" secondAttribute="bottom" id="A7r-ns-Rsb"/>
-                                    <constraint firstAttribute="height" constant="72" id="MlH-JL-Xn0"/>
-                                    <constraint firstItem="Ho0-kD-B95" firstAttribute="top" secondItem="Kj4-g5-oPh" secondAttribute="top" constant="14" id="NGY-32-OdD"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ho0-kD-B95" secondAttribute="trailing" constant="32" id="aBU-VM-a2X"/>
-                                    <constraint firstItem="x8d-nm-NGD" firstAttribute="leading" secondItem="Kj4-g5-oPh" secondAttribute="leading" constant="31" id="db8-UY-W4L"/>
-                                    <constraint firstItem="Ho0-kD-B95" firstAttribute="leading" secondItem="x8d-nm-NGD" secondAttribute="trailing" constant="61" id="pW6-5S-y9J"/>
-                                    <constraint firstItem="Ho0-kD-B95" firstAttribute="centerY" secondItem="Kj4-g5-oPh" secondAttribute="centerY" id="v2m-ZN-xfJ"/>
-                                </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y5k-5G-jjc">
-                                <rect key="frame" x="0.0" y="64" width="375" height="531"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="510"/>
                                 <color key="backgroundColor" red="0.095261928649999994" green="0.67802096000000001" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
                             </scrollView>
                             <pageControl hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="JWD-qz-RDh">
-                                <rect key="frame" x="0.0" y="558" width="375" height="37"/>
+                                <rect key="frame" x="0.0" y="537" width="375" height="37"/>
                                 <color key="pageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </pageControl>
@@ -462,13 +453,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="房间" id="MZX-NO-Pec">
-                        <barButtonItem key="leftBarButtonItem" image="ic_person.png" id="Awn-Fo-VWu">
+                        <barButtonItem key="leftBarButtonItem" image="ic_person_w_25.png" id="Awn-Fo-VWu">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="pBU-G1-lgL" kind="show" id="bkW-Wp-BpA"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="ic_shop.png" id="mqP-AW-KEe">
+                        <barButtonItem key="rightBarButtonItem" image="ic_shop_w_25.png" id="mqP-AW-KEe">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="vfc-Fw-YnB" kind="show" id="JG9-lS-jxI"/>
@@ -1203,12 +1194,12 @@
     <resources>
         <image name="bg_pm.png" width="562" height="562"/>
         <image name="good.gif" width="200" height="200"/>
-        <image name="ic_device.png" width="40" height="40"/>
         <image name="ic_device_25.png" width="25" height="25"/>
+        <image name="ic_device_30.png" width="30" height="30"/>
         <image name="ic_ele_5.png" width="55" height="30"/>
-        <image name="ic_person.png" width="32" height="32"/>
-        <image name="ic_shop.png" width="32" height="32"/>
-        <image name="ic_shop_blue.png" width="40" height="40"/>
+        <image name="ic_person_w_25.png" width="25" height="25"/>
+        <image name="ic_shop_30.png" width="30" height="30"/>
+        <image name="ic_shop_w_25.png" width="25" height="25"/>
         <image name="line_icon.png" width="1" height="149"/>
         <image name="logo.png" width="200" height="78"/>
         <image name="lx_icon.png" width="27" height="30"/>
