@@ -25,24 +25,23 @@
     [dateFormatter setDateFormat:@"YYYY-MM-dd"];
     NSString *dateString = [dateFormatter stringFromDate:[NSDate date]];
     [self.DateSelect setTitle:dateString forState:UIControlStateNormal];
+    
     [self initView:[NSDate date]];
 }
 
 -(void)pickerChanged:(id)sender {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"YYYY-MM-dd";
-    NSLog(@"date: %@",[dateFormatter stringFromDate:[(UIDatePicker*)sender date]]);
     self.selectedDate = self.pickerView.picker.date;
 }
 
 -(void)donePressed {
     self.pickerView.hidden = YES;
     [self.pickerView removeFromSuperview];
-    [self initView:self.selectedDate];
+    
+    [self initView:self.pickerView.picker.date];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"YYYY-MM-dd"];
-    NSString *dateString = [dateFormatter stringFromDate:self.selectedDate];
+    NSString *dateString = [dateFormatter stringFromDate:self.pickerView.picker.date];
     [self.DateSelect setTitle:dateString forState:UIControlStateNormal];
 }
 
@@ -51,22 +50,20 @@
     [self.pickerView removeFromSuperview];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (IBAction)clickDateButton:(id)sender {
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = screenRect.size.width;
     CGFloat screenHeight = screenRect.size.height;
+    
     self.pickerView = [[DateTimePicker alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 240, screenWidth, screenHeight/2 + 35)];
     [self.pickerView addTargetForDoneButton:self action:@selector(donePressed)];
     [self.pickerView addTargetForCancelButton:self action:@selector(cancelPressed)];
-    [self.view addSubview:self.pickerView];
-    self.pickerView.hidden = NO;
+    
+    [self.pickerView setHidden:NO];
     [self.pickerView setMode:UIDatePickerModeDate];
-    [self.pickerView.picker addTarget:self action:@selector(pickerChanged:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:self.pickerView];
+
+    //[self.pickerView.picker addTarget:self action:@selector(pickerChanged:) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void) initView: (NSDate *) date {
@@ -113,6 +110,12 @@
     }];
     [host startRequest:request];
 }
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
 /*
 #pragma mark - Navigation
 
