@@ -376,9 +376,11 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="ImgChart" destination="b3y-ZY-0oq" id="ghE-DP-D2m"/>
+                        <outlet property="ImgStatus" destination="DjI-55-iOI" id="nRT-3I-GvL"/>
                         <outlet property="LabelBottom" destination="Dgd-Wd-zbz" id="TTu-5p-2Bv"/>
                         <outlet property="LabelCreatedTime" destination="szd-A1-zIC" id="OBQ-El-zII"/>
                         <outlet property="LabelMain" destination="unK-aR-dlc" id="dCP-LF-lpr"/>
+                        <outlet property="LabelStatus" destination="9FF-NY-b4s" id="8mf-54-Gfg"/>
                         <outlet property="LabelTop" destination="IsN-7V-MB1" id="REc-1c-6ar"/>
                     </connections>
                 </viewController>
