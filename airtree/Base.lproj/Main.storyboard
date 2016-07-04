@@ -1091,6 +1091,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gj-5P-bYE">
                                 <rect key="frame" x="66" y="102" width="242" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="2016-05-30"/>
                                 <connections>
                                     <action selector="clickDateButton:" destination="Pt2-rA-Np2" eventType="touchUpInside" id="YNp-gs-cGq"/>
@@ -1102,13 +1103,6 @@
                                 <color key="textColor" red="0.1296322382" green="0.4020855518" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Sd-Xh-u4x">
-                                <rect key="frame" x="110" y="266" width="154" height="30"/>
-                                <color key="backgroundColor" red="0.80998227334335882" green="0.87389728558861968" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="净化空气总量">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V40-JQ-9D8">
                                 <rect key="frame" x="0.0" y="551" width="375" height="116"/>
                                 <subviews>
@@ -1179,6 +1173,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="净化空气总量" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kiS-rp-7RW">
+                                <rect key="frame" x="110" y="266" width="154" height="36"/>
+                                <color key="backgroundColor" red="0.80998227330000006" green="0.87389728560000002" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1186,6 +1187,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="DateSelect" destination="6gj-5P-bYE" id="6y1-It-fvg"/>
+                        <outlet property="LabelDescription" destination="kiS-rp-7RW" id="XUc-c1-wiH"/>
                         <outlet property="formaldehydeValue" destination="N3U-BS-iYV" id="JYq-PZ-95P"/>
                         <outlet property="humidityValue" destination="EUE-P6-ctE" id="ud8-IQ-Io0"/>
                         <outlet property="mainValue" destination="naN-vq-4a7" id="97m-Ej-4Fp"/>
