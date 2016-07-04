@@ -29,6 +29,9 @@
     
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+
 }
 
 -(void) viewWillAppear:(BOOL)animated {
@@ -98,9 +101,12 @@
     
 //    UIImage *image = [UIImage imageNamed:@"ic_device"];
 //    cell.imageView.image = image;
-//    UIImage *highLighedImage = [UIImage imageNamed:@"ic_device"];
-//    cell.imageView.highlightedImage = highLighedImage;
+//    cell.imageView.highlightedImage = image;
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    [cell setSeparatorInset:UIEdgeInsetsZero];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -109,7 +115,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60;
+    return 65;
 }
 
 /*
