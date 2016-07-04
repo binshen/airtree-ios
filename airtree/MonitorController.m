@@ -49,13 +49,21 @@
     self.viewControllers = controllers;
     [self.pageControl setHidden:NO];
     
-    if(self.pageControl.currentPage > 0) {
-        [self loadScrollViewWithPage: self.pageControl.currentPage - 1];
-    } else {
+    [self loadScrollViewWithPage: 0];
+    [self loadScrollViewWithPage: 1];
+    [self loadScrollViewWithPage: 2];
+    [self loadScrollViewWithPage: 3];
+    
+    if(self.pageIndex == 0) {
         self.navigationItem.title = @"PM2.5";
+    } else if(self.pageIndex == 1) {
+        self.navigationItem.title = @"温度";
+    } else if(self.pageIndex == 2) {
+        self.navigationItem.title = @"湿度";
+    } else {
+        self.navigationItem.title = @"甲醛";
     }
-    [self loadScrollViewWithPage: self.pageControl.currentPage ];
-    [self loadScrollViewWithPage: self.pageControl.currentPage + 1];
+    self.scrollView.contentOffset = CGPointMake(CGRectGetWidth(self.scrollView.frame) * self.pageIndex, 0);
 }
 
 - (void)didReceiveMemoryWarning {
