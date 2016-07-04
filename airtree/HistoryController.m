@@ -27,6 +27,9 @@
     [self.DateSelect setTitle:dateString forState:UIControlStateNormal];
     
     [self initView:[NSDate date]];
+    
+    self.LabelDescription.layer.cornerRadius = 18;
+    self.LabelDescription.layer.masksToBounds = TRUE;
 }
 
 -(void)pickerChanged:(id)sender {

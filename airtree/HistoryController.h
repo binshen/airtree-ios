@@ -15,6 +15,7 @@
 @property (nonatomic, retain) NSDate *selectedDate;
 
 @property (weak, nonatomic) IBOutlet UIButton *DateSelect;
+@property (weak, nonatomic) IBOutlet UILabel *LabelDescription;
 
 @property (weak, nonatomic) IBOutlet UILabel *mainValue;
 @property (weak, nonatomic) IBOutlet UILabel *pm25Value;
