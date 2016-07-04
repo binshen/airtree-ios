@@ -76,6 +76,9 @@
 		FD9A8ED71CFB460700D31032 /* ic_history.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9A8ED61CFB460700D31032 /* ic_history.png */; };
 		FD9A8EDA1CFB4EB000D31032 /* DeviceManageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8ED91CFB4EB000D31032 /* DeviceManageController.m */; };
 		FDACDD461D24B8ED00526DA9 /* DeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDACDD451D24B8ED00526DA9 /* DeviceViewController.m */; };
+		FDB3C1E01D2A4BBB008E1D6B /* ic_shop_30.png in Resources */ = {isa = PBXBuildFile; fileRef = FDB3C1DD1D2A4BBB008E1D6B /* ic_shop_30.png */; };
+		FDB3C1E11D2A4BBB008E1D6B /* ic_shop_25.png in Resources */ = {isa = PBXBuildFile; fileRef = FDB3C1DE1D2A4BBB008E1D6B /* ic_shop_25.png */; };
+		FDB3C1E21D2A4BBB008E1D6B /* ic_device_30.png in Resources */ = {isa = PBXBuildFile; fileRef = FDB3C1DF1D2A4BBB008E1D6B /* ic_device_30.png */; };
 		FDDB570A1D260599006E0008 /* BackgroundRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDB57081D260599006E0008 /* BackgroundRunner.m */; };
 		FDDB570C1D2617C1006E0008 /* ic_shop_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = FDDB570B1D2617C1006E0008 /* ic_shop_blue.png */; };
 		FDF4C6B01D2951FF0064B0D0 /* MonitorController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF4C6AF1D2951FF0064B0D0 /* MonitorController.m */; };
@@ -208,6 +211,9 @@
 		FD9A8ED91CFB4EB000D31032 /* DeviceManageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceManageController.m; sourceTree = "<group>"; };
 		FDACDD441D24B8ED00526DA9 /* DeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceViewController.h; sourceTree = "<group>"; };
 		FDACDD451D24B8ED00526DA9 /* DeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceViewController.m; sourceTree = "<group>"; };
+		FDB3C1DD1D2A4BBB008E1D6B /* ic_shop_30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_shop_30.png; sourceTree = "<group>"; };
+		FDB3C1DE1D2A4BBB008E1D6B /* ic_shop_25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_shop_25.png; sourceTree = "<group>"; };
+		FDB3C1DF1D2A4BBB008E1D6B /* ic_device_30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_device_30.png; sourceTree = "<group>"; };
 		FDDB57081D260599006E0008 /* BackgroundRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundRunner.m; sourceTree = "<group>"; };
 		FDDB57091D260599006E0008 /* BackgroundRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundRunner.h; sourceTree = "<group>"; };
 		FDDB570B1D2617C1006E0008 /* ic_shop_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_shop_blue.png; sourceTree = "<group>"; };
@@ -349,6 +355,9 @@
 		FD91C23C1CFA7BD900E00A71 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				FDB3C1DD1D2A4BBB008E1D6B /* ic_shop_30.png */,
+				FDB3C1DE1D2A4BBB008E1D6B /* ic_shop_25.png */,
+				FDB3C1DF1D2A4BBB008E1D6B /* ic_device_30.png */,
 				FD28F8F81D281AF90064D94F /* very.gif */,
 				FD28F8F91D281AF90064D94F /* poor.gif */,
 				FD28F8FA1D281AF90064D94F /* need.gif */,
@@ -554,6 +563,7 @@
 				FD15DF751D27BC9300EF8100 /* lx_icon.png in Resources */,
 				FD7F0D881D263F02008A3412 /* ic_ele_2.png in Resources */,
 				FD7F0D8C1D263F02008A3412 /* bg_jiaquan.png in Resources */,
+				FDB3C1E01D2A4BBB008E1D6B /* ic_shop_30.png in Resources */,
 				FDDB570C1D2617C1006E0008 /* ic_shop_blue.png in Resources */,
 				FD9A8E2E1CFA872100D31032 /* ic_launcher_180x180.png in Resources */,
 				FD28F9031D281AFA0064D94F /* dontneed.gif in Resources */,
@@ -581,6 +591,8 @@
 				FD9A8ED71CFB460700D31032 /* ic_history.png in Resources */,
 				FD69C01F1D2A11F4005EA859 /* bg_shidu.png in Resources */,
 				FD7F0D841D263F02008A3412 /* line_icon.png in Resources */,
+				FDB3C1E21D2A4BBB008E1D6B /* ic_device_30.png in Resources */,
+				FDB3C1E11D2A4BBB008E1D6B /* ic_shop_25.png in Resources */,
 				FD9A8E2A1CFA872100D31032 /* ic_launcher_58x58.png in Resources */,
 				FD28F9021D281AF90064D94F /* general.gif in Resources */,
 				FD9A8ECB1CFB1F1E00D31032 /* ic_person.png in Resources */,
