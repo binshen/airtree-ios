@@ -38,6 +38,9 @@
 }
 
 - (void)clickPm25Tap:(UITapGestureRecognizer *) recognizer {
+    if (self.checkDeviceStatus) {
+        return;
+    }
     MonitorController *monitor = [self.storyboard instantiateViewControllerWithIdentifier:@"MonitorController"];
     monitor.pageIndex = 0;
     monitor.pageDevice = self.pageDevice;
@@ -45,6 +48,9 @@
 }
 
 - (void)clickTemperatureTap:(UITapGestureRecognizer *) recognizer {
+    if (self.checkDeviceStatus) {
+        return;
+    }
     MonitorController *monitor = [self.storyboard instantiateViewControllerWithIdentifier:@"MonitorController"];
     monitor.pageIndex = 1;
     monitor.pageDevice = self.pageDevice;
@@ -52,6 +58,9 @@
 }
 
 - (void)clickHumidityTap:(UITapGestureRecognizer *) recognizer {
+    if (self.checkDeviceStatus) {
+        return;
+    }
     MonitorController *monitor = [self.storyboard instantiateViewControllerWithIdentifier:@"MonitorController"];
     monitor.pageIndex = 2;
     monitor.pageDevice = self.pageDevice;
@@ -59,10 +68,23 @@
 }
 
 - (void)clickFormaldehydeTap:(UITapGestureRecognizer *) recognizer {
+    if (self.checkDeviceStatus) {
+        return;
+    }
     MonitorController *monitor = [self.storyboard instantiateViewControllerWithIdentifier:@"MonitorController"];
     monitor.pageIndex = 3;
     monitor.pageDevice = self.pageDevice;
     [[self.parentController navigationController] pushViewController:monitor animated:YES];
+}
+
+- (BOOL) checkDeviceStatus {
+    if ([self.pageDevice[@"status"] integerValue] != 1) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:@"请启动空气树设备" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return TRUE;
+    } else {
+        return FALSE;
+    }
 }
 
 - (void) initViews:(NSDictionary *)device initController:(UIViewController *) controller {
