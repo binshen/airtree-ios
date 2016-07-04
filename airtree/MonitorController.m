@@ -32,7 +32,7 @@
     
     self.pageControl.hidesForSinglePage = YES;
     self.pageControl.userInteractionEnabled =YES;
-    self.pageControl.currentPage = 0;
+    self.pageControl.currentPage = self.pageIndex;
     self.pageControl.numberOfPages = 4;
     
     // 初始化page control的内容
@@ -83,7 +83,7 @@
         frame.origin.y = 0;
         controller.view.frame = frame;
         
-        [controller initViews: &page];
+        [controller initViews: page withDevice:self.pageDevice];
         [self.scrollView addSubview:controller.view];
     }
 }

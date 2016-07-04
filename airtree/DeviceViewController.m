@@ -15,8 +15,6 @@
 
 @implementation DeviceViewController
 
-@synthesize parentController;
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -41,31 +39,36 @@
 
 - (void)clickPm25Tap:(UITapGestureRecognizer *) recognizer {
     MonitorController *monitor = [self.storyboard instantiateViewControllerWithIdentifier:@"MonitorController"];
-    monitor.pageIndex = 1;
+    monitor.pageIndex = 0;
+    monitor.pageDevice = self.pageDevice;
     [[self.parentController navigationController] pushViewController:monitor animated:YES];
 }
 
 - (void)clickTemperatureTap:(UITapGestureRecognizer *) recognizer {
     MonitorController *monitor = [self.storyboard instantiateViewControllerWithIdentifier:@"MonitorController"];
-    monitor.pageIndex = 2;
+    monitor.pageIndex = 1;
+    monitor.pageDevice = self.pageDevice;
     [[self.parentController navigationController] pushViewController:monitor animated:YES];
 }
 
 - (void)clickHumidityTap:(UITapGestureRecognizer *) recognizer {
     MonitorController *monitor = [self.storyboard instantiateViewControllerWithIdentifier:@"MonitorController"];
-    monitor.pageIndex = 3;
+    monitor.pageIndex = 2;
+    monitor.pageDevice = self.pageDevice;
     [[self.parentController navigationController] pushViewController:monitor animated:YES];
 }
 
 - (void)clickFormaldehydeTap:(UITapGestureRecognizer *) recognizer {
     MonitorController *monitor = [self.storyboard instantiateViewControllerWithIdentifier:@"MonitorController"];
-    monitor.pageIndex = 4;
+    monitor.pageIndex = 3;
+    monitor.pageDevice = self.pageDevice;
     [[self.parentController navigationController] pushViewController:monitor animated:YES];
 }
 
 - (void) initViews:(NSDictionary *)device initController:(UIViewController *) controller {
     //NSLog(@"%@", device);
     
+    self.pageDevice = device;
     self.parentController = controller;
     
     NSString *status = device[@"status"];

@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIView *viewHumidity;
 @property (weak, nonatomic) IBOutlet UIView *viewFormaldehyde;
 
+@property (retain) NSDictionary *pageDevice;
 @property (retain) UIViewController *parentController;
 - (void) initViews:(NSDictionary *)device initController:(UIViewController *) controller;
 
