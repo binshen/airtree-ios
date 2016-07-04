@@ -24,10 +24,11 @@
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
     self.scrollView.bounces = YES;
-    self.scrollView.scrollsToTop = NO;
-    self.scrollView.autoresizingMask = YES;
+    self.scrollView.scrollsToTop = YES;
+    self.scrollView.autoresizingMask = NO;
     self.scrollView.delegate = self;
-    self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.scrollView.frame) * 4, CGRectGetHeight(self.scrollView.frame));
+    //self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.scrollView.frame) * 4, CGRectGetHeight(self.scrollView.frame));
+    self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.scrollView.frame) * 4, 0);
     
     self.pageControl.hidesForSinglePage = YES;
     self.pageControl.userInteractionEnabled =YES;
@@ -36,6 +37,8 @@
     
     // 初始化page control的内容
     self.contentList = [[NSArray alloc] init];
+    
+    [self.view bringSubviewToFront:self.pageControl];
     
     // 存储所有的controller
     NSMutableArray *controllers = [[NSMutableArray alloc] init];
@@ -99,9 +102,9 @@
 
     if (page == 0) {
         self.navigationItem.title = @"PM2.5";
-    } else if (page == 0) {
+    } else if (page == 1) {
         self.navigationItem.title = @"温度";
-    } else if (page == 0) {
+    } else if (page == 2) {
         self.navigationItem.title = @"湿度";
     } else {
         self.navigationItem.title = @"甲醛";
