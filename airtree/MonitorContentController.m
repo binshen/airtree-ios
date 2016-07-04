@@ -44,22 +44,22 @@
             self.LabelTop.text = @"PM2.5";
             self.LabelMain.text = [NSString stringWithFormat:@"%@", data[@"x1"]];
             self.LabelBottom.text = @"ug/m³";
-            [self.ImgChart setImage:[UIImage imageNamed:@"bg_pm"]];
+            [self.ImgChart setImage:[UIImage imageNamed:@"bg_pm.png"]];
         } else if(pageIndex == 1) {
             self.LabelTop.text = @"温度";
             self.LabelMain.text = [NSString stringWithFormat:@"%@", data[@"x11"]];
             self.LabelBottom.text = @"当前温度";
-            [self.ImgChart setImage:[UIImage imageNamed:@"bg_wendu"]];
+            [self.ImgChart setImage:[UIImage imageNamed:@"bg_wendu.png"]];
         } else if(pageIndex == 2) {
             self.LabelTop.text = @"湿度";
             self.LabelMain.text = [NSString stringWithFormat:@"%@", data[@"x10"]];
             self.LabelBottom.text = @"";
-            [self.ImgChart setImage:[UIImage imageNamed:@"bg_pm"]];
+            [self.ImgChart setImage:[UIImage imageNamed:@"bg_shidu.png"]];
         } else {
             self.LabelTop.text = @"甲醛";
             self.LabelMain.text = [NSString stringWithFormat:@"%@", data[@"x9"]];
             self.LabelBottom.text = @"mg/m³";
-            [self.ImgChart setImage:[UIImage imageNamed:@"bg_jiaquan"]];
+            [self.ImgChart setImage:[UIImage imageNamed:@"bg_jiaquan.png"]];
         }
         
         NSInteger pmData = [data[@"x1"] integerValue];
