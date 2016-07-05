@@ -10,4 +10,11 @@
 
 @interface RegisterController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *BtnValidate;
+@property (weak, nonatomic) IBOutlet UIButton *BtnRegister;
+
+@property (weak, nonatomic) IBOutlet UITextField *TextTel;
+@property (weak, nonatomic) IBOutlet UITextField *TextCode;
+@property (weak, nonatomic) IBOutlet UITextField *TextPwd;
+
 @end

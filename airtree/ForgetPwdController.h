@@ -10,4 +10,11 @@
 
 @interface ForgetPwdController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *BtnValidate;
+@property (weak, nonatomic) IBOutlet UIButton *BtnResetPwd;
+
+@property (weak, nonatomic) IBOutlet UITextField *TextTel;
+@property (weak, nonatomic) IBOutlet UITextField *TextCode;
+@property (weak, nonatomic) IBOutlet UITextField *TextPwd;
+
 @end
