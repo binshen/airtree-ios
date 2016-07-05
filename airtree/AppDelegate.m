@@ -58,7 +58,7 @@
 
 - (void)runningInBackground
 {
-    while (1) {
+    while (TRUE) {
         [NSThread sleepForTimeInterval:10];
         _backgroundRunningTimeInterval++;
         NSLog(@"Heartbeat: %d",(int)_backgroundRunningTimeInterval);
@@ -69,7 +69,6 @@
 - (void) runHeartbeatService
 {
     if (self.loginUser[@"_id"] == nil) {
-        NSLog(@"Heartbeat - loginUser is NULL");
         return;
     }
     NSString *path = [[NSString alloc] initWithFormat:[NSString stringWithFormat:@"/user/%@/online", self.loginUser[@"_id"]]];

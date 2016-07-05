@@ -11,6 +11,9 @@
 
 @interface RegisterController ()
 
+@property NSTimer *timer;
+@property NSInteger count;
+
 @end
 
 @implementation RegisterController
@@ -20,6 +23,12 @@
     // Do any additional setup after loading the view.
     
     [self.navigationController setNavigationBarHidden:FALSE animated:NO];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    if(self.timer != nil) {
+        [self.timer invalidate];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,7 +57,10 @@
             NSString *success = [json objectForKey:@"success"];
             NSLog(@"Success: %@", success);
             if([success boolValue]) {
-                //[self.navigationController popViewControllerAnimated:YES];
+                self.count = 60;
+                [self.BtnValidate setTitle:@"剩余60秒" forState:UIControlStateNormal];
+                [self.BtnValidate setEnabled:NO];
+                self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(autoRefreshData) userInfo:nil repeats:YES];
             } else {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:[json objectForKey:@"error"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 [alert show];
@@ -95,6 +107,16 @@
             }
         }];
         [host startRequest:request];
+    }
+}
+
+- (void) autoRefreshData {
+    self.count--;
+    if(self.count < 1) {
+        [self.BtnValidate setTitle:@"获取验证码" forState:UIControlStateNormal];
+        [self.BtnValidate setEnabled:YES];
+    } else {
+        [self.BtnValidate setTitle:[NSString stringWithFormat:@"剩余%ld秒", (long)self.count] forState:UIControlStateNormal];
     }
 }
 
