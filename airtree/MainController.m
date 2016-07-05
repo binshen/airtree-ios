@@ -111,14 +111,22 @@
             self.pageControl.numberOfPages = self.numberPages;
             [self.pageControl setHidden:NO];
              
-            if(self.pageControl.currentPage > 0) {
-                [self loadScrollViewWithPage: self.pageControl.currentPage - 1];
-            } else {
+//            if(self.pageControl.currentPage > 0) {
+//                [self loadScrollViewWithPage: self.pageControl.currentPage - 1];
+//            } else {
+//                NSDictionary *device = [self.contentList objectAtIndex:0];
+//                self.navigationItem.title = device[@"name"];
+//            }
+//            [self loadScrollViewWithPage: self.pageControl.currentPage ];
+//            [self loadScrollViewWithPage: self.pageControl.currentPage + 1];
+            
+            if(self.pageControl.currentPage < 1) {
                 NSDictionary *device = [self.contentList objectAtIndex:0];
                 self.navigationItem.title = device[@"name"];
             }
-            [self loadScrollViewWithPage: self.pageControl.currentPage ];
-            [self loadScrollViewWithPage: self.pageControl.currentPage + 1];
+            for (NSUInteger i = 0; i < self.numberPages; i++) {
+                [self loadScrollViewWithPage: i ];
+            }
         }
         [self.spinner stopAnimating];
     }];
@@ -181,9 +189,9 @@
         self.navigationItem.title = @"房间";
     }
     
-    [self loadScrollViewWithPage:page - 1];
-    [self loadScrollViewWithPage:page];
-    [self loadScrollViewWithPage:page + 1];
+//    [self loadScrollViewWithPage:page - 1];
+//    [self loadScrollViewWithPage:page];
+//    [self loadScrollViewWithPage:page + 1];
 }
 
 - (void) doDoubleTap:(UITapGestureRecognizer *)sender {
