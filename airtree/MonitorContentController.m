@@ -28,7 +28,7 @@
 - (void) initViews:(NSUInteger) pageIndex withDevice:(NSDictionary *) device {
     //NSLog(@"%@", device);
     
-    if(device[@"data"] == nil) {
+    if((NSNull *) device[@"data"] == [NSNull null] || device[@"data"] == nil) {
         self.LabelCreatedTime.text = @"0000-00-00 00:00:00";
         self.LabelTop.text = @"";
         self.LabelMain.text = @"0";

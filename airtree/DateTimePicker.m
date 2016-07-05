@@ -8,7 +8,7 @@
 
 #import "DateTimePicker.h"
 
-#define MyDateTimePickerToolbarHeight 40
+#define MyDateTimePickerToolbarHeight 45
 
 @interface DateTimePicker()
 
@@ -38,13 +38,13 @@
         //self.backgroundColor = [UIColor clearColor];
         self.backgroundColor = [UIColor whiteColor];
         
-        UIDatePicker *picker = [[UIDatePicker alloc] initWithFrame: CGRectMake(0, MyDateTimePickerToolbarHeight, frame.size.width, frame.size.height - MyDateTimePickerToolbarHeight)];
+        UIDatePicker *picker = [[UIDatePicker alloc] initWithFrame: CGRectMake(0, MyDateTimePickerToolbarHeight - 15, frame.size.width, frame.size.height - MyDateTimePickerToolbarHeight)];
         [self addSubview: picker];
         
         UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame: CGRectMake(0, 0, frame.size.width, MyDateTimePickerToolbarHeight)];
-        toolbar.barStyle = UIBarStyleBlackOpaque;
+        //toolbar.barStyle = UIBarStyleBlackOpaque;
         toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        //toolbar.backgroundColor = [UIColor grayColor];
+        toolbar.tintColor = [UIColor grayColor];
         
         UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle: @"确 定" style: UIBarButtonItemStyleBordered target: self action: @selector(donePressed)];
         UIBarButtonItem* flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
