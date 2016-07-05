@@ -30,7 +30,12 @@
     
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:20/255.0 green:155/255.0 blue:213/255.0 alpha:1.0]];
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,nil]];
-    
+    //[self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigation_bar.png"] forBarPosition:UIBarPositionTopAttached barMetrics:UIBarMetricsDefault];
+    //[self.navigationController.navigationBar setBarTintColor:[UIColor clearColor]];
+    //[self.navigationController.navigationBar setTintColor:[UIColor clearColor]];
+    //[self.navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
+
+
     [self.BtnDevice setUserInteractionEnabled:YES];
     [self.BtnDevice addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickDeviceButton:)]];
     
