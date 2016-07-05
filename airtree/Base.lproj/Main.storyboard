@@ -570,14 +570,12 @@
                                 <color key="backgroundColor" red="0.095261928649999994" green="0.67802096000000001" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="获取验证码"/>
+                                <connections>
+                                    <action selector="ClickBtnValidate:" destination="hdY-bI-T1f" eventType="touchUpInside" id="75r-7n-sv4"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="844-Fg-h9L">
                                 <rect key="frame" x="20" y="148" width="335" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PzH-So-1IQ">
-                                <rect key="frame" x="20" y="199" width="335" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -586,9 +584,17 @@
                                 <color key="backgroundColor" red="0.095261928649999994" green="0.67802096000000001" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="注  册"/>
+                                <connections>
+                                    <action selector="ClickBtnRegister:" destination="hdY-bI-T1f" eventType="touchUpInside" id="6Gr-Fl-thj"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入注册手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wb9-Ky-Oma">
                                 <rect key="frame" x="20" y="99" width="212" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PzH-So-1IQ">
+                                <rect key="frame" x="20" y="199" width="335" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -597,6 +603,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="用户注册" id="Zr8-1w-K3R"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="BtnRegister" destination="48Q-xu-Cc5" id="z6u-zX-PeJ"/>
+                        <outlet property="BtnValidate" destination="XoH-6T-Lt0" id="gYn-xj-5CW"/>
+                        <outlet property="TextCode" destination="844-Fg-h9L" id="QWk-qT-ggg"/>
+                        <outlet property="TextPwd" destination="PzH-So-1IQ" id="T3K-fw-mID"/>
+                        <outlet property="TextTel" destination="Wb9-Ky-Oma" id="FS9-k9-4xF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1bs-iK-QgN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -624,6 +637,9 @@
                                 <color key="backgroundColor" red="0.095261928649999994" green="0.67802096000000001" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="获取验证码"/>
+                                <connections>
+                                    <action selector="ClickBtnValidate:" destination="h7c-ie-hUt" eventType="touchUpInside" id="dkJ-H8-Pow"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="97D-vA-PJQ">
                                 <rect key="frame" x="20" y="148" width="335" height="30"/>
@@ -640,12 +656,22 @@
                                 <color key="backgroundColor" red="0.095261928649999994" green="0.67802096000000001" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="重置密码"/>
+                                <connections>
+                                    <action selector="ClickBtnResetPwd:" destination="h7c-ie-hUt" eventType="touchUpInside" id="CqI-D5-qk4"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="忘记密码" id="SdJ-cg-Cf1"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="BtnResetPwd" destination="9yy-IE-AKN" id="6hp-nP-9JZ"/>
+                        <outlet property="BtnValidate" destination="9Dq-li-117" id="6sq-De-3pH"/>
+                        <outlet property="TextCode" destination="97D-vA-PJQ" id="Fhd-cK-14I"/>
+                        <outlet property="TextPwd" destination="mST-ay-QFY" id="ICt-rG-AT9"/>
+                        <outlet property="TextTel" destination="eXd-0V-jAI" id="1Au-Jg-vFH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZgU-de-gUm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
