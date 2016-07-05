@@ -1070,6 +1070,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9i2-z9-6aV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.095261928649999994" green="0.67802096000000001" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="0QA-Yp-9Cj">
                         <rect key="frame" x="0.0" y="623" width="375" height="44"/>
