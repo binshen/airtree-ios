@@ -25,25 +25,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-    
     
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:20/255.0 green:155/255.0 blue:213/255.0 alpha:1.0]];
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,nil]];
     
-    [_BtnDevice setUserInteractionEnabled:YES];
-    [_BtnDevice addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickDeviceButton:)]];
+    [self.BtnDevice setUserInteractionEnabled:YES];
+    [self.BtnDevice addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickDeviceButton:)]];
     
-    [_BtnOnlineShop setUserInteractionEnabled:YES];
-    [_BtnOnlineShop addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickOnlineShopButton:)]];
-    
+    [self.BtnOnlineShop setUserInteractionEnabled:YES];
+    [self.BtnOnlineShop addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickOnlineShopButton:)]];
     
     // 一个页面的宽度就是scrollview的宽度
     self.scrollView.pagingEnabled = YES;  // 自动滚动到subview的边界
@@ -177,7 +169,7 @@
     CGFloat pageWidth = CGRectGetWidth(self.scrollView.frame);
     NSUInteger page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     self.pageControl.currentPage = page;
-    NSLog(@"最后页面 = %lu", (unsigned long)page);
+//    NSLog(@"最后页面 = %lu", (unsigned long)page);
     
     NSDictionary *device = [self.contentList objectAtIndex:page];
     if([device objectForKey:@"name"])
