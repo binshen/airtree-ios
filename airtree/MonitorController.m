@@ -23,7 +23,7 @@
     self.scrollView.pagingEnabled = YES;  // 自动滚动到subview的边界
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
-    self.scrollView.bounces = YES;
+    self.scrollView.bounces = NO;
     self.scrollView.scrollsToTop = YES;
     self.scrollView.autoresizingMask = NO;
     self.scrollView.delegate = self;
