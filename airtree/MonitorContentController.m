@@ -48,12 +48,12 @@
         } else if(pageIndex == 1) {
             self.LabelTop.text = @"温度";
             self.LabelMain.text = [NSString stringWithFormat:@"%@", data[@"x11"]];
-            self.LabelBottom.text = @"当前温度";
+            self.LabelBottom.text = @"℃";
             [self.ImgChart setImage:[UIImage imageNamed:@"bg_wendu.png"]];
         } else if(pageIndex == 2) {
             self.LabelTop.text = @"湿度";
             self.LabelMain.text = [NSString stringWithFormat:@"%@", data[@"x10"]];
-            self.LabelBottom.text = @"";
+            self.LabelBottom.text = @"%";
             [self.ImgChart setImage:[UIImage imageNamed:@"bg_shidu.png"]];
         } else {
             self.LabelTop.text = @"甲醛";
