@@ -685,11 +685,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="Q4U-UD-DHh">
-                            <rect key="frame" x="0.0" y="142" width="375" height="65"/>
+                            <rect key="frame" x="0.0" y="142" width="375" height="120"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fud-uH-2MU">
-                                    <rect key="frame" x="16" y="18" width="342" height="30"/>
+                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fud-uH-2MU">
+                                    <rect key="frame" x="16" y="45" width="342" height="30"/>
                                     <color key="backgroundColor" red="0.095261928649999994" green="0.67802096000000001" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <state key="normal" title="退出当前账号"/>
@@ -701,7 +701,6 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="Fud-uH-2MU" firstAttribute="leading" secondItem="Q4U-UD-DHh" secondAttribute="leading" constant="16" id="OIE-xd-eqV"/>
-                                <constraint firstItem="Fud-uH-2MU" firstAttribute="top" secondItem="Q4U-UD-DHh" secondAttribute="top" constant="18" id="oKL-Ij-PD7"/>
                                 <constraint firstAttribute="trailing" secondItem="Fud-uH-2MU" secondAttribute="trailing" constant="17" id="u99-jV-RsF"/>
                             </constraints>
                         </view>
@@ -901,11 +900,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="De5-IO-We3">
-                            <rect key="frame" x="0.0" y="136" width="375" height="65"/>
+                            <rect key="frame" x="0.0" y="136" width="375" height="120"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QtM-so-xXh">
-                                    <rect key="frame" x="16" y="18" width="342" height="30"/>
+                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QtM-so-xXh">
+                                    <rect key="frame" x="16" y="45" width="342" height="30"/>
                                     <color key="backgroundColor" red="0.095261928649999994" green="0.67802096000000001" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <state key="normal" title="解绑该设备"/>
@@ -918,7 +917,6 @@
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="QtM-so-xXh" secondAttribute="trailing" constant="17" id="DlO-ZV-Mc2"/>
                                 <constraint firstItem="QtM-so-xXh" firstAttribute="leading" secondItem="De5-IO-We3" secondAttribute="leading" constant="16" id="atH-9T-wOy"/>
-                                <constraint firstItem="QtM-so-xXh" firstAttribute="top" secondItem="De5-IO-We3" secondAttribute="top" constant="18" id="iRt-vs-WHU"/>
                             </constraints>
                         </view>
                         <prototypes>
