@@ -67,6 +67,8 @@
     [self initHomePage];
     self.timer = [NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(autoRefreshData) userInfo:nil repeats:YES];
     //[[UIApplication sharedApplication] setKeepAliveTimeout:600 handler:^{[self heartbeat];}];
+    
+    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
 }
 
 - (void)viewDidDisappear:(BOOL)animated {

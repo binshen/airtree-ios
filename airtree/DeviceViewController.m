@@ -41,6 +41,8 @@
     if (self.checkDeviceStatus) {
         return;
     }
+    self.parentController.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    
     MonitorController *monitor = [self.storyboard instantiateViewControllerWithIdentifier:@"MonitorController"];
     monitor.pageIndex = 0;
     monitor.pageDevice = self.pageDevice;
@@ -51,6 +53,8 @@
     if (self.checkDeviceStatus) {
         return;
     }
+    self.parentController.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    
     MonitorController *monitor = [self.storyboard instantiateViewControllerWithIdentifier:@"MonitorController"];
     monitor.pageIndex = 1;
     monitor.pageDevice = self.pageDevice;
@@ -61,6 +65,8 @@
     if (self.checkDeviceStatus) {
         return;
     }
+    self.parentController.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    
     MonitorController *monitor = [self.storyboard instantiateViewControllerWithIdentifier:@"MonitorController"];
     monitor.pageIndex = 2;
     monitor.pageDevice = self.pageDevice;
@@ -71,6 +77,8 @@
     if (self.checkDeviceStatus) {
         return;
     }
+    self.parentController.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    
     MonitorController *monitor = [self.storyboard instantiateViewControllerWithIdentifier:@"MonitorController"];
     monitor.pageIndex = 3;
     monitor.pageDevice = self.pageDevice;
