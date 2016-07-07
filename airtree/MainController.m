@@ -121,7 +121,7 @@
             
             if(self.pageControl.currentPage < 1) {
                 NSDictionary *device = [self.contentList objectAtIndex:0];
-                self.navigationItem.title = device[@"name"];
+                self.navigationItem.title = [device objectForKey:@"name"] ? device[@"name"] : device[@"mac"];
             }
             for (NSUInteger i = 0; i < self.numberPages; i++) {
                 [self loadScrollViewWithPage: i ];
@@ -182,6 +182,10 @@
     if([device objectForKey:@"name"])
     {
         self.navigationItem.title = device[@"name"];
+    }
+    else if([device objectForKey:@"mac"])
+    {
+        self.navigationItem.title = device[@"mac"];
     }
     else
     {
