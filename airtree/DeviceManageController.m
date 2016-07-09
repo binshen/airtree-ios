@@ -9,6 +9,7 @@
 #import "DeviceManageController.h"
 #import "AppDelegate.h"
 #import "MKNetworkKit.h"
+#import "Reachability.h"
 
 @interface DeviceManageController ()
 
@@ -72,6 +73,20 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if ([identifier isEqualToString:@"addNewDevice" ]) {
+        Reachability *reachability = [Reachability reachabilityForInternetConnection];
+        [reachability startNotifier];
+        NetworkStatus status = [reachability currentReachabilityStatus];
+        if(status != ReachableViaWiFi) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:@"请先连接WIFI网络." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            return NO;
+        }
+    }
+    return YES;
 }
 
 #pragma mark - Table view data source
