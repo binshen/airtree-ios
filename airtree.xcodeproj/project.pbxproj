@@ -83,6 +83,7 @@
 		FDB3C1E21D2A4BBB008E1D6B /* ic_device_30.png in Resources */ = {isa = PBXBuildFile; fileRef = FDB3C1DF1D2A4BBB008E1D6B /* ic_device_30.png */; };
 		FDB3C1E91D2A525D008E1D6B /* ic_shop_w_25.png in Resources */ = {isa = PBXBuildFile; fileRef = FDB3C1E71D2A525D008E1D6B /* ic_shop_w_25.png */; };
 		FDB3C1EA1D2A525D008E1D6B /* ic_person_w_25.png in Resources */ = {isa = PBXBuildFile; fileRef = FDB3C1E81D2A525D008E1D6B /* ic_person_w_25.png */; };
+		FDC4F1F31D3153330089C7A2 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC4F1F11D3153330089C7A2 /* Reachability.m */; };
 		FDDB570A1D260599006E0008 /* BackgroundRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDB57081D260599006E0008 /* BackgroundRunner.m */; };
 		FDDB570C1D2617C1006E0008 /* ic_shop_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = FDDB570B1D2617C1006E0008 /* ic_shop_blue.png */; };
 		FDF4C6B01D2951FF0064B0D0 /* MonitorController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF4C6AF1D2951FF0064B0D0 /* MonitorController.m */; };
@@ -223,6 +224,8 @@
 		FDB3C1DF1D2A4BBB008E1D6B /* ic_device_30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_device_30.png; sourceTree = "<group>"; };
 		FDB3C1E71D2A525D008E1D6B /* ic_shop_w_25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_shop_w_25.png; sourceTree = "<group>"; };
 		FDB3C1E81D2A525D008E1D6B /* ic_person_w_25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_person_w_25.png; sourceTree = "<group>"; };
+		FDC4F1F11D3153330089C7A2 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		FDC4F1F21D3153330089C7A2 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		FDDB57081D260599006E0008 /* BackgroundRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundRunner.m; sourceTree = "<group>"; };
 		FDDB57091D260599006E0008 /* BackgroundRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundRunner.h; sourceTree = "<group>"; };
 		FDDB570B1D2617C1006E0008 /* ic_shop_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_shop_blue.png; sourceTree = "<group>"; };
@@ -282,6 +285,8 @@
 		FD91C2081CFA79F900E00A71 /* airtree */ = {
 			isa = PBXGroup;
 			children = (
+				FDC4F1F11D3153330089C7A2 /* Reachability.m */,
+				FDC4F1F21D3153330089C7A2 /* Reachability.h */,
 				FD4F2FCB1CFDE0AF00F16054 /* smartlinklib_7x.h */,
 				FD4F2FC91CFDE0AF00F16054 /* HFSmartLink.h */,
 				FD4F2FCA1CFDE0AF00F16054 /* HFSmartLinkDeviceInfo.h */,
@@ -664,6 +669,7 @@
 				FD9A8E561CFAAF0900D31032 /* UIAlertView+MKNKAdditions.m in Sources */,
 				FD9A8E541CFAAF0900D31032 /* NSMutableDictionary+MKNKAdditions.m in Sources */,
 				FD9A8E531CFAAF0900D31032 /* NSHTTPURLResponse+MKNKAdditions.m in Sources */,
+				FDC4F1F31D3153330089C7A2 /* Reachability.m in Sources */,
 				FD15DF781D27F32E00EF8100 /* DateTimePicker.m in Sources */,
 				FD9A8E571CFAAF0900D31032 /* UIImageView+MKNKAdditions.m in Sources */,
 				FD5A77BC1CFE74BA00442E3F /* DeviceDetailReviseController.m in Sources */,
@@ -808,13 +814,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = airtree/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.moral.airtree2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.moral.airtree3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -828,13 +834,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = airtree/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.moral.airtree2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.moral.airtree3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
