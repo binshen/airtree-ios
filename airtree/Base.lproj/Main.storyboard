@@ -791,7 +791,7 @@
                     <navigationItem key="navigationItem" title="设备管理" id="jhV-0H-v4T">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Y4O-cm-hrS">
                             <connections>
-                                <segue destination="ERZ-2C-D0u" kind="show" id="KPT-Zp-f5Q"/>
+                                <segue destination="ERZ-2C-D0u" kind="show" identifier="addNewDevice" id="KPT-Zp-f5Q"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
