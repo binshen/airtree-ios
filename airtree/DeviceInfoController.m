@@ -35,7 +35,10 @@
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     
     self.appDelegate = [[UIApplication sharedApplication] delegate];
-}
+    NSDictionary *device = self.appDelegate.selectedDevice;
+    if([device[@"type"] integerValue] == 1) {
+        [self autoRefreshData];
+    }}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -55,8 +58,6 @@
     cell.detailTextLabel.text = deviceName;
     
     if([device[@"type"] integerValue] == 1) {
-        //[self autoRefreshData];
-        //[self autoRefreshData];
         self.timer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(autoRefreshData) userInfo:nil repeats:YES];
     }
 }
@@ -89,7 +90,10 @@
         } else {
             self.checkStatus = @"";
         }
-        [self.tableView reloadData];
+        //[self.tableView reloadData];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:5 inSection:0];
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        cell.detailTextLabel.text = self.checkStatus;
     }];
     [host startRequest:request];
 
@@ -178,7 +182,7 @@
         case 5:
             if(type == 1) {
                 cell.textLabel.text = @"滤网检测";
-                cell.detailTextLabel.text = self.checkStatus;
+                //cell.detailTextLabel.text = self.checkStatus;
             } else {
                 cell.textLabel.text = @"";
                 cell.detailTextLabel.text = @"";
