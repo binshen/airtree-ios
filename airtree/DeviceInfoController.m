@@ -16,6 +16,7 @@
 
 @property NSTimer *timer;
 @property NSString *checkStatus;
+@property AppDelegate *appDelegate;
 
 @end
 
@@ -32,6 +33,8 @@
     
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    self.appDelegate = [[UIApplication sharedApplication] delegate];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,8 +55,9 @@
     cell.detailTextLabel.text = deviceName;
     
     if([device[@"type"] integerValue] == 1) {
-        [self autoRefreshData];
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(autoRefreshData) userInfo:nil repeats:YES];
+        //[self autoRefreshData];
+        //[self autoRefreshData];
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(autoRefreshData) userInfo:nil repeats:YES];
     }
 }
 
@@ -62,8 +66,7 @@
 }
 
 - (void) autoRefreshData {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSDictionary *device = appDelegate.selectedDevice;
+    NSDictionary *device = self.appDelegate.selectedDevice;
     
     NSString *path = [[NSString alloc] initWithFormat:[NSString stringWithFormat:@"/device/mac/%@/get_test", device[@"mac"]]];
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
@@ -93,9 +96,8 @@
 }
 
 - (IBAction)unBindDevice:(id)sender {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSDictionary  *loginUser = appDelegate.loginUser;
-    NSDictionary *device = appDelegate.selectedDevice;
+    NSDictionary  *loginUser = self.appDelegate.loginUser;
+    NSDictionary *device = self.appDelegate.selectedDevice;
     
     NSString *path = [[NSString alloc] initWithFormat:[NSString stringWithFormat:@"/user/%@/device/%@/unbind", loginUser[@"_id"], device[@"_id"]]];
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
@@ -130,8 +132,7 @@
 //}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSDictionary *device = appDelegate.selectedDevice;
+    NSDictionary *device = self.appDelegate.selectedDevice;
     if([device[@"type"] integerValue] == 1) {
         return 7;
     } else {
@@ -145,8 +146,7 @@
     cell.userInteractionEnabled = NO;
     cell.accessoryType = UITableViewCellAccessoryNone;
     
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSDictionary *device = appDelegate.selectedDevice;
+    NSDictionary *device = self.appDelegate.selectedDevice;
     NSInteger type = [device[@"type"] integerValue];
     
     NSInteger index = [indexPath row];
@@ -206,8 +206,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSDictionary *device = appDelegate.selectedDevice;
+    NSDictionary *device = self.appDelegate.selectedDevice;
     NSInteger type = [device[@"type"] integerValue];
     if(type == 1) {
         if([indexPath row] == 6) {
