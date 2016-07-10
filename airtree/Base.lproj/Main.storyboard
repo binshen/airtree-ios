@@ -172,14 +172,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_ele_5.png" translatesAutoresizingMaskIntoConstraints="NO" id="cId-kj-rr0">
                                 <rect key="frame" x="172" y="43" width="32" height="14"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="上次时间检测时间:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Un-8m-Tav">
-                                <rect key="frame" x="99" y="286" width="179" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2016-07-01 13:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sky-Ur-eGn">
-                                <rect key="frame" x="104" y="306" width="179" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="上次检测时间:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Un-8m-Tav">
+                                <rect key="frame" x="99" y="286" width="179" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -271,7 +265,6 @@
                         <outlet property="mainLable" destination="eBW-G8-P9Z" id="Rkc-60-Rb1"/>
                         <outlet property="pm25Value" destination="ygT-0S-Txr" id="74t-S9-Ua6"/>
                         <outlet property="suggest" destination="5Un-8m-Tav" id="hEG-BC-7Xp"/>
-                        <outlet property="suggestTime" destination="sky-Ur-eGn" id="SvH-gW-WYX"/>
                         <outlet property="temperatureValue" destination="zrT-6D-ePD" id="MPq-ZG-woQ"/>
                         <outlet property="viewFormaldehyde" destination="mC2-7x-Kxg" id="dmv-Om-z1P"/>
                         <outlet property="viewHumidity" destination="ZUu-4o-58c" id="hky-Rg-Jbh"/>
