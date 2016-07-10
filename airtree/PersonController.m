@@ -58,18 +58,12 @@
     
     person = [[Person alloc] init];
     person.index = 4;
-    person.title = @"滤网检查";
-    person.detail = @"";
-    [itemList addObject:person];
-    
-    person = [[Person alloc] init];
-    person.index = 5;
     person.title = @"用户反馈";
     person.detail = @"";
     [itemList addObject:person];
     
     person = [[Person alloc] init];
-    person.index = 6;
+    person.index = 5;
     person.title = @"";
     person.detail = @"";
     [itemList addObject:person];
@@ -136,7 +130,7 @@
     cell.textLabel.text = [person title];
     cell.detailTextLabel.text = [person detail];
     
-    if (row == 2 || row == 5) {
+    if (row == 2 || row == 4) {
         cell.userInteractionEnabled = NO;
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
@@ -144,7 +138,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if([indexPath row] == 5) {
+    if([indexPath row] == 4) {
         return 0;
     }
     return 50;
@@ -162,8 +156,6 @@
         PersonPasswordController *personNickname = [self.storyboard instantiateViewControllerWithIdentifier:@"PersonPasswordController"];
         [[self navigationController] pushViewController:personNickname animated:YES];
     } else if(index == 4) {
-        //TODO
-    } else if(index == 5) {
         PersonFeedbackController *personNickname = [self.storyboard instantiateViewControllerWithIdentifier:@"PersonFeedbackController"];
         [[self navigationController] pushViewController:personNickname animated:YES];
     } else {
