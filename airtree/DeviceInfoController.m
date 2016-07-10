@@ -14,6 +14,9 @@
 
 @interface DeviceInfoController ()
 
+@property NSTimer *timer;
+@property NSString *checkStatus;
+
 @end
 
 @implementation DeviceInfoController
@@ -47,6 +50,46 @@
     NSLog(@"DeviceName: %@", deviceName);
     
     cell.detailTextLabel.text = deviceName;
+    
+    if([device[@"type"] integerValue] == 1) {
+        [self autoRefreshData];
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(autoRefreshData) userInfo:nil repeats:YES];
+    }
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [self.timer invalidate];
+}
+
+- (void) autoRefreshData {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSDictionary *device = appDelegate.selectedDevice;
+    
+    NSString *path = [[NSString alloc] initWithFormat:[NSString stringWithFormat:@"/device/mac/%@/get_test", device[@"mac"]]];
+    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+    MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
+    MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"GET"];
+    [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
+        NSString *response = [completedRequest responseAsString];
+        NSLog(@"Response: %@", response);
+        
+        NSError *error = [completedRequest error];
+        NSData *data = [completedRequest responseData];
+        
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        NSString *test = [json objectForKey:@"test"];
+        if(test != nil) {
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+            NSString *dateString = [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:([[json objectForKey:@"created"] longLongValue] / 1000)]];
+            self.checkStatus = [NSString stringWithFormat:@"%@(%@)", [test integerValue] == 1 ? @"需要更换" : @"无需更换", dateString];
+        } else {
+            self.checkStatus = @"";
+        }
+        [self.tableView reloadData];
+    }];
+    [host startRequest:request];
+
 }
 
 - (IBAction)unBindDevice:(id)sender {
@@ -135,7 +178,7 @@
         case 5:
             if(type == 1) {
                 cell.textLabel.text = @"滤网检测";
-                cell.detailTextLabel.text = @"无需更换(2016-01-01 12:12:12)";
+                cell.detailTextLabel.text = self.checkStatus;
             } else {
                 cell.textLabel.text = @"";
                 cell.detailTextLabel.text = @"";
