@@ -101,67 +101,98 @@
     self.pageDevice = device;
     self.parentController = controller;
     
+    self.suggest.numberOfLines = 2;
+    
     NSString *status = device[@"status"];
+    NSDictionary *data = device[@"data"];
     if ([status longLongValue] == 1) {
-        [self.mainLable setText:@"云端在线"];
-        [self.suggest setHidden:YES];
-        [self.suggestTime setHidden:YES];
+        [self.suggest setText:@"云端在线"];
     } else {
-        [self.mainLable setText:@"不在线"];
-        [self.suggest setHidden:NO];
-        [self.suggestTime setHidden:NO];
+        if ((NSNull *) data == [NSNull null]) {
+            [self.suggest setText:@"无法获取最新数据"];
+        } else {
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+            NSString *dateString = [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:([data[@"created"] longLongValue] / 1000)]];
+            [self.suggest setText:[NSString stringWithFormat:@"上次检测时间:\n%@", dateString]];
+        }
     }
     
-    NSDictionary *data = device[@"data"];
-    if ((NSNull *) data == [NSNull null])
-    {
-        [self.main setText:@"0"];
+    if ((NSNull *) data == [NSNull null]) {
         [self.pm25Value setText:@"0ug/m³"];
         [self.temperatureValue setText:@"0℃"];
         [self.humidityValue setText:@"0%%"];
         [self.formaldehydeValue setText:@"0mg/m³"];
-        [self.suggestTime setText:@"0000-00-00 00:00:00"];
+        [self.suggest setText:@""];
         [self.airQuality setText:@"未知"];
-    }
-    else
-    {
+    } else {
+        NSInteger p1 = [data[@"p1"] integerValue];
+        if(p1 == 3) {
+            if([data objectForKey:@"x9"]) {
+                [self.main setText:[NSString stringWithFormat:@"%@", data[@"x9"]]];
+                [self.mainLable setText:@"当前甲醛浓度mg/m³"];
+            } else {
+                [self.main setText:@"未知"];
+                [self.mainLable setHidden:YES];
+            }
+        } else if(p1 == 4) {
+            if([data objectForKey:@"x11"]) {
+                [self.main setText:[NSString stringWithFormat:@"%@", data[@"x11"]]];
+                [self.mainLable setText:@"当前温度℃"];
+            } else {
+                [self.main setText:@"未知"];
+                [self.mainLable setHidden:YES];
+            }
+        } else {
+            if([data objectForKey:@"x1"]) {
+                [self.main setText:[NSString stringWithFormat:@"%@", data[@"x3"]]];
+                [self.mainLable setText:@"0.3um颗粒物个数"];
+            } else {
+                [self.main setText:@"未知"];
+                [self.mainLable setHidden:YES];
+            }
+        }
+        
         NSString *pm25 = data[@"x1"];
-        [self.main setText:[NSString stringWithFormat:@"%@", data[@"x3"]]];
-        [self.pm25Value setText:[NSString stringWithFormat:@"%@ug/m³", pm25]];
+        [self.pm25Value setText:[NSString stringWithFormat:@"%@ug/m³", data[@"x1"]]];
         [self.temperatureValue setText:[NSString stringWithFormat:@"%@℃", data[@"x11"]]];
         [self.humidityValue setText:[NSString stringWithFormat:@"%@%%", data[@"x10"]]];
         [self.formaldehydeValue setText:[NSString stringWithFormat:@"%@mg/m³", data[@"x9"]]];
         
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-        NSString *dateString = [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:([data[@"created"] longLongValue] / 1000)]];
-        [self.suggestTime setText:dateString];
-        
-        if([pm25 longLongValue] <= 35) {
-            [self.airQuality setText:@"优"];
-        } else if([pm25 longLongValue] <= 75) {
-            [self.airQuality setText:@"良"];
-        } else if([pm25 longLongValue] <= 75) {
-            [self.airQuality setText:@"一般"];
+        if(p1 > 0) {
+            NSInteger feiLevel = [data[@"fei"] integerValue];
+            if(feiLevel == 1) {
+                [self.airQuality setText:@"优"];
+            } else if(feiLevel == 2) {
+                [self.airQuality setText:@"中"];
+            } else if(feiLevel == 3) {
+                [self.airQuality setText:@"优"];
+            } else if(feiLevel == 4) {
+                [self.airQuality setText:@"差"];
+            } else {
+                [self.airQuality setText:@"未知"];
+            }
         } else {
-            [self.airQuality setText:@"差"];
+            if([pm25 longLongValue] <= 35) {
+                [self.airQuality setText:@"优"];
+            } else if([pm25 longLongValue] <= 75) {
+                [self.airQuality setText:@"良"];
+            } else if([pm25 longLongValue] <= 150) {
+                [self.airQuality setText:@"中"];
+            } else {
+                [self.airQuality setText:@"差"];
+            }
         }
     }
-    
+
     NSString *type = device[@"type"];
-    if ([type longLongValue] == 1)
-    {
-        if ((NSNull *) data == [NSNull null] || ![data objectForKey:@"x13"])
-        {
+    if ([type longLongValue] == 1) {
+        if ((NSNull *) data == [NSNull null] || ![data objectForKey:@"x13"]) {
             [self.electric setImage:[UIImage imageNamed:@"ic_ele_1.png"]];
-        }
-        else
-        {
+        } else {
             [self.electric setImage:[UIImage imageNamed:[NSString stringWithFormat:@"ic_ele_%@.png", data[@"x13"]]]];
         }
-    }
-    else
-    {
+    } else {
         [self.electric setImage:[UIImage imageNamed:@"ic_ele_5.png"]];
     }
 }
