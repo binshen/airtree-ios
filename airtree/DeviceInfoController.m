@@ -87,7 +87,13 @@
 //}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 6;
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSDictionary *device = appDelegate.selectedDevice;
+    if([device[@"type"] integerValue] == 1) {
+        return 7;
+    } else {
+        return 6;
+    }
 }
 
 
@@ -98,6 +104,7 @@
     
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSDictionary *device = appDelegate.selectedDevice;
+    NSInteger type = [device[@"type"] integerValue];
     
     NSInteger index = [indexPath row];
     switch (index) {
@@ -113,7 +120,7 @@
             break;
         case 2:
             cell.textLabel.text = @"类型";
-            cell.detailTextLabel.text = [device[@"type"] integerValue] == 1 ? @"主机" : @"从机";
+            cell.detailTextLabel.text = type == 1 ? @"主机" : @"从机";
             break;
         case 3:
             cell.textLabel.text = @"MAC";
@@ -126,6 +133,15 @@
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             break;
         case 5:
+            if(type == 1) {
+                cell.textLabel.text = @"滤网检测";
+                cell.detailTextLabel.text = @"无需更换(2016-01-01 12:12:12)";
+            } else {
+                cell.textLabel.text = @"";
+                cell.detailTextLabel.text = @"";
+            }
+            break;
+        case 6:
             cell.textLabel.text = @"";
             cell.detailTextLabel.text = @"";
             break;
@@ -147,8 +163,17 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if([indexPath row] == 5) {
-        return 0;
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSDictionary *device = appDelegate.selectedDevice;
+    NSInteger type = [device[@"type"] integerValue];
+    if(type == 1) {
+        if([indexPath row] == 6) {
+            return 0;
+        }
+    } else {
+        if([indexPath row] == 5) {
+            return 0;
+        }
     }
     return 60;
 }
