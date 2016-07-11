@@ -109,7 +109,7 @@
         [self.suggest setText:@"云端在线"];
     } else {
         if ((NSNull *) data == [NSNull null]) {
-            [self.suggest setText:@"无法获取最新数据"];
+            [self.suggest setText:@""];
         } else {
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
             [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
