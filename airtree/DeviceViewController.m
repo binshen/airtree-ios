@@ -164,9 +164,9 @@
             if(feiLevel == 1) {
                 [self.airQuality setText:@"优"];
             } else if(feiLevel == 2) {
-                [self.airQuality setText:@"中"];
+                [self.airQuality setText:@"良"];
             } else if(feiLevel == 3) {
-                [self.airQuality setText:@"优"];
+                [self.airQuality setText:@"中"];
             } else if(feiLevel == 4) {
                 [self.airQuality setText:@"差"];
             } else {
