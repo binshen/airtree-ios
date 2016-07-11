@@ -37,8 +37,15 @@
     
     [self showWifiSsid];
     self.txtPwd.text = [self getspwdByssid:self.txtSSID.text];
-    _txtPwd.delegate=self;
-    _txtSSID.delegate=self;
+    self.txtPwd.delegate = self;
+    self.txtSSID.delegate = self;
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [smtlk stopWithBlock:^(NSString *stopMsg, BOOL isOk) {
+        isconnecting  = false;
+       [self setButTitle:@"开始连接"];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,8 +65,6 @@
                 processblock: ^(NSInteger pro) {
                     self.progress.progress = (float)(pro)/100.0;
                 } successBlock:^(HFSmartLinkDeviceInfo *dev) {
-                    //[self  showAlertWithMsg:[NSString stringWithFormat:@"%@:%@",dev.mac,dev.ip] title:@"OK"];
-                    
                     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
                     NSDictionary *loginUser = appDelegate.loginUser;
                     
@@ -82,33 +87,35 @@
                         NSLog(@"Success: %@", success);
                         
                         if ([success boolValue]) {
-                            [self.navigationController popViewControllerAnimated:YES];
+                            if([[json objectForKey:@"status"] integerValue] == 4) {
+                                [self showAlertWithMsg:@"该设备已被其他人绑定过" title:@"错误信息"];
+                            } else {
+                                [self.navigationController popViewControllerAnimated:YES];
+                            }
                         } else {
-                            UIAlertView *alert = [[UIAlertView alloc]
-                                                      initWithTitle:@"登录失败"
-                                                      message:@"输入的用户名或密码错误."
-                                                      delegate:self
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil];
-                            [alert show];
+                            [self showAlertWithMsg:@"输入的用户名或密码错误." title:@"错误信息"];
                         }
                     }];
                     [host startRequest:request];
                 } failBlock:^(NSString *failmsg) {
-                    [self  showAlertWithMsg:failmsg title:@"error"];
+                    [self setButTitle:@"开始连接"];
+                    [self showAlertWithMsg:@"绑定时发生异常，请稍候再试" title:@"错误信息"];
                 } endBlock:^(NSDictionary *deviceDic) {
                     isconnecting  = false;
-                    [self.butConnect setTitle:@"正在连接..." forState:UIControlStateNormal];
+                    
+                    [self setButTitle:@"开始连接"];
                 }];
-        [self.butConnect setTitle:@"正在连接..." forState:UIControlStateNormal];
-    }else{
+        
+        [self setButTitle:@"正在连接..."];
+
+    } else {
         [smtlk stopWithBlock:^(NSString *stopMsg, BOOL isOk) {
             if(isOk){
-                isconnecting  = false;
-                [self.butConnect setTitle:@"1connect" forState:UIControlStateNormal];
-                [self showAlertWithMsg:stopMsg title:@"OK"];
-            }else{
-                [self showAlertWithMsg:stopMsg title:@"error"];
+                isconnecting = false;
+                [self setButTitle:@"开始连接"];
+                [self showAlertWithMsg:@"配网模式已被终止" title:@"确认信息"];
+            } else {
+                [self showAlertWithMsg:@"配网模式未能终止，请稍候再试" title:@"错误信息"];
             }
         }];
     }
@@ -122,8 +129,16 @@
     }
 }
 
+- (void) setButTitle:(NSString *) title {
+    NSAttributedString *attributedTitle = [self.butConnect attributedTitleForState:UIControlStateNormal];
+    NSMutableAttributedString *butTitle = [[NSMutableAttributedString alloc] initWithAttributedString:attributedTitle];
+    [butTitle.mutableString setString:title];
+    [self.butConnect setAttributedTitle:butTitle forState:UIControlStateNormal];
+
+}
+
 -(void)showAlertWithMsg:(NSString *)msg title:(NSString*)title {
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:title message:msg delegate:nil cancelButtonTitle:@"cancel" otherButtonTitles:@"ok", nil];
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:title message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alert show];
 }
 
