@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DeviceInfoController : UITableViewController
+@interface DeviceInfoController : UITableViewController <UIAlertViewDelegate>
 
 @end

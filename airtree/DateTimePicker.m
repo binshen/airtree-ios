@@ -38,7 +38,8 @@
         //self.backgroundColor = [UIColor clearColor];
         self.backgroundColor = [UIColor whiteColor];
         
-        UIDatePicker *picker = [[UIDatePicker alloc] initWithFrame: CGRectMake(0, MyDateTimePickerToolbarHeight - 15, frame.size.width, frame.size.height - MyDateTimePickerToolbarHeight)];
+        //UIDatePicker *picker = [[UIDatePicker alloc] initWithFrame: CGRectMake(0, MyDateTimePickerToolbarHeight - 15, frame.size.width, frame.size.height - MyDateTimePickerToolbarHeight)];
+        UIDatePicker *picker = [[UIDatePicker alloc] initWithFrame: CGRectMake(0, MyDateTimePickerToolbarHeight, frame.size.width, frame.size.height - MyDateTimePickerToolbarHeight)];
         [self addSubview: picker];
         
         UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame: CGRectMake(0, 0, frame.size.width, MyDateTimePickerToolbarHeight)];

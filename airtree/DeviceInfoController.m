@@ -100,33 +100,44 @@
 }
 
 - (IBAction)unBindDevice:(id)sender {
-    NSDictionary  *loginUser = self.appDelegate.loginUser;
-    NSDictionary *device = self.appDelegate.selectedDevice;
-    
-    NSString *path = [[NSString alloc] initWithFormat:[NSString stringWithFormat:@"/user/%@/device/%@/unbind", loginUser[@"_id"], device[@"_id"]]];
-    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
-    MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
-    MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"POST"];
-    [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
-        // NSString *response = [completedRequest responseAsString];
-        // NSLog(@"Response: %@", response);
-        
-        NSError *error = [completedRequest error];
-        NSData *data = [completedRequest responseData];
-
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-        NSString *success = [json objectForKey:@"success"];
-        NSLog(@"Success: %@", success);
-        if([success boolValue]) {
-            [self.navigationController popViewControllerAnimated:YES];
-        } else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:[json objectForKey:@"error"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alert show];
-        }
-    }];
-    [host startRequest:request];
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"提示信息" message:@"确定要解除绑定吗" delegate:self cancelButtonTitle:@"确认" otherButtonTitles:@"取消", nil];
+    alertView.delegate = self; //设置代理
+    [alertView show];
 }
 
+- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if(buttonIndex == 0) {
+        NSDictionary  *loginUser = self.appDelegate.loginUser;
+        NSDictionary *device = self.appDelegate.selectedDevice;
+        
+        NSString *path = [[NSString alloc] initWithFormat:[NSString stringWithFormat:@"/user/%@/device/%@/unbind", loginUser[@"_id"], device[@"_id"]]];
+        NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+        MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
+        MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"POST"];
+        [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
+            // NSString *response = [completedRequest responseAsString];
+            // NSLog(@"Response: %@", response);
+            
+            NSError *error = [completedRequest error];
+            NSData *data = [completedRequest responseData];
+            
+            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+            NSString *success = [json objectForKey:@"success"];
+            NSLog(@"Success: %@", success);
+            if([success boolValue]) {
+                [self.navigationController popViewControllerAnimated:YES];
+            } else {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:[json objectForKey:@"error"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+            }
+        }];
+        [host startRequest:request];
+    }
+}
+
+//- (BOOL)alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView {
+//    return YES;
+//}
 
 #pragma mark - Table view data source
 
