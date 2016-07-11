@@ -130,7 +130,7 @@
         if(p1 == 3) {
             if([data objectForKey:@"x9"]) {
                 [self.main setText:[NSString stringWithFormat:@"%@", data[@"x9"]]];
-                [self.mainLable setText:@"当前甲醛浓度mg/m³"];
+                [self.mainLable setText:@"当前甲醛浓度（mg/m³）"];
             } else {
                 [self.main setText:@"未知"];
                 [self.mainLable setHidden:YES];
@@ -138,7 +138,7 @@
         } else if(p1 == 4) {
             if([data objectForKey:@"x11"]) {
                 [self.main setText:[NSString stringWithFormat:@"%@", data[@"x11"]]];
-                [self.mainLable setText:@"当前温度℃"];
+                [self.mainLable setText:@"当前温度（℃）"];
             } else {
                 [self.main setText:@"未知"];
                 [self.mainLable setHidden:YES];
