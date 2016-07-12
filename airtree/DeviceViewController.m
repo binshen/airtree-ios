@@ -107,6 +107,18 @@
     NSDictionary *data = device[@"data"];
     if ([status longLongValue] == 1) {
         [self.suggest setText:@"云端在线"];
+        
+        NSString *type = device[@"type"];
+        if ([type longLongValue] == 1) {
+            if ((NSNull *) data == [NSNull null] || ![data objectForKey:@"x13"]) {
+                [self.electric setImage:[UIImage imageNamed:@"ic_ele_1.png"]];
+            } else {
+                [self.electric setImage:[UIImage imageNamed:[NSString stringWithFormat:@"ic_ele_%@.png", data[@"x13"]]]];
+            }
+        } else {
+            [self.electric setImage:[UIImage imageNamed:@"ic_ele_5.png"]];
+        }
+        [self.electric setHidden:NO];
     } else {
         if ((NSNull *) data == [NSNull null]) {
             [self.suggest setText:@""];
@@ -116,6 +128,8 @@
             NSString *dateString = [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:([data[@"created"] longLongValue] / 1000)]];
             [self.suggest setText:[NSString stringWithFormat:@"上次检测时间:\n%@", dateString]];
         }
+        
+        [self.electric setHidden:YES];
     }
     
     if ((NSNull *) data == [NSNull null]) {
@@ -183,17 +197,6 @@
                 [self.airQuality setText:@"差"];
             }
         }
-    }
-
-    NSString *type = device[@"type"];
-    if ([type longLongValue] == 1) {
-        if ((NSNull *) data == [NSNull null] || ![data objectForKey:@"x13"]) {
-            [self.electric setImage:[UIImage imageNamed:@"ic_ele_1.png"]];
-        } else {
-            [self.electric setImage:[UIImage imageNamed:[NSString stringWithFormat:@"ic_ele_%@.png", data[@"x13"]]]];
-        }
-    } else {
-        [self.electric setImage:[UIImage imageNamed:@"ic_ele_5.png"]];
     }
 }
 
