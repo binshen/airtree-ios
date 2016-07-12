@@ -34,6 +34,9 @@
         self.loginUser = [loginUser mutableCopy];
         
         UINavigationController *nav = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"NavMainViewController"];
+        nav.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+        [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+        
         self.window.rootViewController = nav;
         [self.window makeKeyAndVisible];
     }
