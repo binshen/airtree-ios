@@ -44,11 +44,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入用户名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fdv-AS-0kf">
-                                <rect key="frame" x="23" y="222" width="330" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gcr-ra-RZy">
                                 <rect key="frame" x="23" y="278" width="330" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -85,6 +80,11 @@
                                     <segue destination="hdY-bI-T1f" kind="show" id="uMN-IN-CVi"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入用户名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fdv-AS-0kf">
+                                <rect key="frame" x="23" y="222" width="330" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -561,21 +561,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XoH-6T-Lt0">
-                                <rect key="frame" x="240" y="98" width="115" height="30"/>
-                                <color key="backgroundColor" red="0.095261928649999994" green="0.67802096000000001" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="获取验证码"/>
-                                <connections>
-                                    <action selector="ClickBtnValidate:" destination="hdY-bI-T1f" eventType="touchUpInside" id="75r-7n-sv4"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="844-Fg-h9L">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="844-Fg-h9L">
                                 <rect key="frame" x="20" y="148" width="335" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="48Q-xu-Cc5">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="48Q-xu-Cc5">
                                 <rect key="frame" x="20" y="251" width="335" height="30"/>
                                 <color key="backgroundColor" red="0.095261928649999994" green="0.67802096000000001" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -584,18 +575,38 @@
                                     <action selector="ClickBtnRegister:" destination="hdY-bI-T1f" eventType="touchUpInside" id="6Gr-Fl-thj"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入注册手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wb9-Ky-Oma">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入注册手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wb9-Ky-Oma">
                                 <rect key="frame" x="20" y="99" width="212" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PzH-So-1IQ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PzH-So-1IQ">
                                 <rect key="frame" x="20" y="199" width="335" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XoH-6T-Lt0">
+                                <rect key="frame" x="240" y="98" width="115" height="30"/>
+                                <color key="backgroundColor" red="0.095261928649999994" green="0.67802096000000001" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="获取验证码"/>
+                                <connections>
+                                    <action selector="ClickBtnValidate:" destination="hdY-bI-T1f" eventType="touchUpInside" id="75r-7n-sv4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="Wb9-Ky-Oma" secondAttribute="leading" id="156-ch-6UY"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="48Q-xu-Cc5" secondAttribute="leading" id="DDT-mG-jd3"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="844-Fg-h9L" secondAttribute="leading" id="ER3-eP-B8L"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="844-Fg-h9L" secondAttribute="trailing" id="Ecz-g9-Vpz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="48Q-xu-Cc5" secondAttribute="trailing" id="KMW-0I-cwb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PzH-So-1IQ" secondAttribute="trailing" id="UrH-rr-Tqa"/>
+                            <constraint firstItem="XoH-6T-Lt0" firstAttribute="leading" secondItem="Wb9-Ky-Oma" secondAttribute="trailing" constant="8" id="ar0-HY-ieO"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="PzH-So-1IQ" secondAttribute="leading" id="gKi-eN-Y7h"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XoH-6T-Lt0" secondAttribute="trailing" id="pzZ-ix-mfH"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="用户注册" id="Zr8-1w-K3R"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -623,12 +634,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入注册手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eXd-0V-jAI">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入注册手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eXd-0V-jAI">
                                 <rect key="frame" x="20" y="100" width="212" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Dq-li-117">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Dq-li-117">
                                 <rect key="frame" x="240" y="99" width="115" height="30"/>
                                 <color key="backgroundColor" red="0.095261928649999994" green="0.67802096000000001" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -637,17 +648,12 @@
                                     <action selector="ClickBtnValidate:" destination="h7c-ie-hUt" eventType="touchUpInside" id="dkJ-H8-Pow"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="97D-vA-PJQ">
-                                <rect key="frame" x="20" y="148" width="335" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mST-ay-QFY">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mST-ay-QFY">
                                 <rect key="frame" x="20" y="201" width="335" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yy-IE-AKN">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yy-IE-AKN">
                                 <rect key="frame" x="20" y="253" width="335" height="30"/>
                                 <color key="backgroundColor" red="0.095261928649999994" green="0.67802096000000001" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -656,8 +662,24 @@
                                     <action selector="ClickBtnResetPwd:" destination="h7c-ie-hUt" eventType="touchUpInside" id="CqI-D5-qk4"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="97D-vA-PJQ">
+                                <rect key="frame" x="20" y="148" width="335" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="9yy-IE-AKN" secondAttribute="leading" id="2WU-xD-ZEc"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="97D-vA-PJQ" secondAttribute="leading" id="46z-Yg-3UU"/>
+                            <constraint firstItem="9Dq-li-117" firstAttribute="leading" secondItem="eXd-0V-jAI" secondAttribute="trailing" constant="8" id="DWi-S5-paU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9yy-IE-AKN" secondAttribute="trailing" id="H86-od-1Qs"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="eXd-0V-jAI" secondAttribute="leading" id="PIt-5B-EaR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mST-ay-QFY" secondAttribute="trailing" id="T7F-An-iu8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="97D-vA-PJQ" secondAttribute="trailing" id="h0y-4f-I60"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="mST-ay-QFY" secondAttribute="leading" id="woc-sX-pvW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9Dq-li-117" secondAttribute="trailing" id="zeu-Vy-DCN"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="忘记密码" id="SdJ-cg-Cf1"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
