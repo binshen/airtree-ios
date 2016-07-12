@@ -424,11 +424,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y5k-5G-jjc">
-                                <rect key="frame" x="0.0" y="64" width="375" height="510"/>
-                                <color key="backgroundColor" red="0.095261928649999994" green="0.67802096000000001" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
-                            </scrollView>
-                            <pageControl hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="JWD-qz-RDh">
+                            <pageControl hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="JWD-qz-RDh">
                                 <rect key="frame" x="0.0" y="537" width="375" height="37"/>
                                 <color key="pageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -436,12 +432,20 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="dju-Ez-J9l">
                                 <rect key="frame" x="177" y="334" width="20" height="20"/>
                             </activityIndicatorView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y5k-5G-jjc">
+                                <rect key="frame" x="0.0" y="64" width="375" height="510"/>
+                                <color key="backgroundColor" red="0.095261928649999994" green="0.67802096000000001" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="jNb-Ei-PLg" firstAttribute="top" secondItem="Kj4-g5-oPh" secondAttribute="bottom" id="NQH-hw-8X5"/>
-                            <constraint firstAttribute="trailing" secondItem="Kj4-g5-oPh" secondAttribute="trailing" id="XzQ-nF-R3o"/>
-                            <constraint firstItem="Kj4-g5-oPh" firstAttribute="leading" secondItem="bPD-ne-vxD" secondAttribute="leading" id="a92-Fo-fX9"/>
+                            <constraint firstItem="Kj4-g5-oPh" firstAttribute="leading" secondItem="bPD-ne-vxD" secondAttribute="leadingMargin" constant="-20" id="5Hh-n4-8BV"/>
+                            <constraint firstItem="y5k-5G-jjc" firstAttribute="leading" secondItem="bPD-ne-vxD" secondAttribute="leadingMargin" constant="-20" id="KQQ-Xm-HyC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JWD-qz-RDh" secondAttribute="trailing" constant="-20" id="XHR-NS-Ugt"/>
+                            <constraint firstItem="jNb-Ei-PLg" firstAttribute="top" secondItem="Kj4-g5-oPh" secondAttribute="bottom" id="ebw-hd-QkX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Kj4-g5-oPh" secondAttribute="trailing" constant="-20" id="q1h-mN-nCO"/>
+                            <constraint firstItem="JWD-qz-RDh" firstAttribute="leading" secondItem="bPD-ne-vxD" secondAttribute="leadingMargin" constant="-20" id="tlh-JK-LDx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="y5k-5G-jjc" secondAttribute="trailing" constant="-20" id="uYz-CE-lWf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="房间" id="MZX-NO-Pec">
