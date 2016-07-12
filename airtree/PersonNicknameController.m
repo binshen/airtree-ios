@@ -58,6 +58,10 @@
             if([success boolValue]) {
                 [loginUser setObject:self.TextNickname.text forKey:@"nickname"];
                 //[self.navigationController popToRootViewControllerAnimated:YES];
+                
+                NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+                [userDefaults setObject:self.TextNickname.text forKey:@"nickname"];
+                
                 [self.navigationController popViewControllerAnimated:YES];
             } else {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:[json objectForKey:@"error"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];

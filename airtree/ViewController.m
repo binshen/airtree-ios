@@ -20,20 +20,46 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [_TxtUsername setText:@"13999999999"];
-    [_TxtPassword setText:@"888888"];
-    
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:20/255.0 green:155/255.0 blue:213/255.0 alpha:1.0]];
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,nil]];
+    
+    [self.TxtUsername setText:@"13999999999"];
+    [self.TxtPassword setText:@"888888"];
+    
+    if([[NSUserDefaults standardUserDefaults] stringForKey:@"user_id"] != nil){
+        NSMutableDictionary *loginUser = [[NSMutableDictionary alloc] init];
+        [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"user_id"] forKey:@"_id"];
+        [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"username"] forKey:@"username"];
+        [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"password"] forKey:@"password"];
+        [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"nickname"] forKey:@"nickname"];
+        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        appDelegate.loginUser = [loginUser mutableCopy];
+        
+        UINavigationController *nav = [self.storyboard instantiateViewControllerWithIdentifier:@"NavMainViewController"];
+        [self presentViewController:nav animated:YES completion:nil];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     
     [self.navigationItem setHidesBackButton:TRUE animated:NO];
     [self.navigationController setNavigationBarHidden:TRUE animated:NO];
+    
+//    if([[NSUserDefaults standardUserDefaults] stringForKey:@"user_id"] != nil){
+//        NSMutableDictionary *loginUser = [[NSMutableDictionary alloc] init];
+//        [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"user_id"] forKey:@"_id"];
+//        [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"username"] forKey:@"username"];
+//        [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"password"] forKey:@"password"];
+//        [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"nickname"] forKey:@"nickname"];
+//        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+//        appDelegate.loginUser = [loginUser mutableCopy];
+//
+//        UINavigationController *nav = [self.storyboard instantiateViewControllerWithIdentifier:@"NavMainViewController"];
+//        [self presentViewController:nav animated:YES completion:nil];
+//    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,8 +70,8 @@
 - (IBAction)clickLoginButton:(id)sender {
     NSString *path = [[NSString alloc] initWithFormat:@"/user/login"];
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
-    [param setValue:_TxtUsername.text forKey:@"username"];
-    [param setValue:_TxtPassword.text forKey:@"password"];
+    [param setValue:self.TxtUsername.text forKey:@"username"];
+    [param setValue:self.TxtPassword.text forKey:@"password"];
     
     MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
     MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"POST"];
@@ -57,12 +83,7 @@
         
         NSData *data = [completedRequest responseData];
         if (data == nil) {
-            UIAlertView *alert = [[UIAlertView alloc]
-                                  initWithTitle:@"登录失败"
-                                  message:@"请检查网络."
-                                  delegate:self
-                                  cancelButtonTitle:@"OK"
-                                  otherButtonTitles:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登录失败" message:@"请检查网络." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
         } else {
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
@@ -75,15 +96,20 @@
                 AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
                 appDelegate.loginUser = [user mutableCopy];
                 
+                NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+                [userDefaults setObject:user[@"_id"] forKey:@"user_id"];
+                [userDefaults setObject:user[@"username"] forKey:@"username"];
+                [userDefaults setObject:user[@"password"] forKey:@"password"];
+                [userDefaults setObject:user[@"nickname"] forKey:@"nickname"];
+                [userDefaults synchronize];
+                
                 UINavigationController *nav = [self.storyboard instantiateViewControllerWithIdentifier:@"NavMainViewController"];
                 [self presentViewController:nav animated:YES completion:nil];
             } else {
-                UIAlertView *alert = [[UIAlertView alloc]
-                                      initWithTitle:@"登录失败"
-                                      message:@"输入的用户名或密码错误."
-                                      delegate:self
-                                      cancelButtonTitle:@"OK"
-                                      otherButtonTitles:nil];
+                NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+                [userDefaults setObject:nil forKey:@"user_id"];
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登录失败" message:@"输入的用户名或密码错误." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 [alert show];
             }
         }
