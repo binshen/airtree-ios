@@ -29,25 +29,6 @@
     [self.TxtUsername setText:@"13999999999"];
     [self.TxtPassword setText:@"888888"];
     
-    if([[NSUserDefaults standardUserDefaults] stringForKey:@"user_id"] != nil){
-        NSMutableDictionary *loginUser = [[NSMutableDictionary alloc] init];
-        [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"user_id"] forKey:@"_id"];
-        [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"username"] forKey:@"username"];
-        [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"password"] forKey:@"password"];
-        [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"nickname"] forKey:@"nickname"];
-        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        appDelegate.loginUser = [loginUser mutableCopy];
-        
-        UINavigationController *nav = [self.storyboard instantiateViewControllerWithIdentifier:@"NavMainViewController"];
-        [self presentViewController:nav animated:YES completion:nil];
-    }
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    
-    [self.navigationItem setHidesBackButton:TRUE animated:NO];
-    [self.navigationController setNavigationBarHidden:TRUE animated:NO];
-    
 //    if([[NSUserDefaults standardUserDefaults] stringForKey:@"user_id"] != nil){
 //        NSMutableDictionary *loginUser = [[NSMutableDictionary alloc] init];
 //        [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"user_id"] forKey:@"_id"];
@@ -56,10 +37,16 @@
 //        [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"nickname"] forKey:@"nickname"];
 //        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 //        appDelegate.loginUser = [loginUser mutableCopy];
-//
+//        
 //        UINavigationController *nav = [self.storyboard instantiateViewControllerWithIdentifier:@"NavMainViewController"];
 //        [self presentViewController:nav animated:YES completion:nil];
 //    }
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [self.navigationItem setHidesBackButton:TRUE animated:NO];
+    [self.navigationController setNavigationBarHidden:TRUE animated:NO];
 }
 
 - (void)didReceiveMemoryWarning {

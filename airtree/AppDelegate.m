@@ -24,6 +24,20 @@
     _backgroundRunningTimeInterval = 0;
     [self performSelectorInBackground:@selector(runningInBackground) withObject:nil];
     
+    
+    if([[NSUserDefaults standardUserDefaults] stringForKey:@"user_id"] != nil){
+        NSMutableDictionary *loginUser = [[NSMutableDictionary alloc] init];
+        [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"user_id"] forKey:@"_id"];
+        [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"username"] forKey:@"username"];
+        [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"password"] forKey:@"password"];
+        [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"nickname"] forKey:@"nickname"];
+        self.loginUser = [loginUser mutableCopy];
+        
+        UINavigationController *nav = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"NavMainViewController"];
+        self.window.rootViewController = nav;
+        [self.window makeKeyAndVisible];
+    }
+    
     return YES;
 }
 
