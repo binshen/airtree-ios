@@ -458,13 +458,15 @@
                                 <color key="pageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </pageControl>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="dju-Ez-J9l">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="dju-Ez-J9l">
                                 <rect key="frame" x="177" y="334" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="dju-Ez-J9l" secondAttribute="trailing" constant="158" id="1Rc-HR-FQm"/>
                             <constraint firstItem="Kj4-g5-oPh" firstAttribute="leading" secondItem="bPD-ne-vxD" secondAttribute="leadingMargin" constant="-20" id="5Hh-n4-8BV"/>
+                            <constraint firstItem="dju-Ez-J9l" firstAttribute="leading" secondItem="bPD-ne-vxD" secondAttribute="leadingMargin" constant="157" id="GLB-2R-grG"/>
                             <constraint firstItem="y5k-5G-jjc" firstAttribute="leading" secondItem="bPD-ne-vxD" secondAttribute="leadingMargin" constant="-20" id="KQQ-Xm-HyC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JWD-qz-RDh" secondAttribute="trailing" constant="-20" id="XHR-NS-Ugt"/>
                             <constraint firstItem="jNb-Ei-PLg" firstAttribute="top" secondItem="Kj4-g5-oPh" secondAttribute="bottom" id="ebw-hd-QkX"/>
