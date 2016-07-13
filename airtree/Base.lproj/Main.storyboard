@@ -300,6 +300,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Gb-u4-XQB">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="492"/>
+                            </scrollView>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2cf-3n-flM">
                                 <rect key="frame" x="0.0" y="491" width="375" height="176"/>
                                 <subviews>
@@ -320,20 +323,19 @@
                                 <color key="pageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </pageControl>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Gb-u4-XQB">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="492"/>
-                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2cf-3n-flM" firstAttribute="top" secondItem="3Gb-u4-XQB" secondAttribute="bottom" id="7v3-wD-JYc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ci6-Mf-Zm7" secondAttribute="trailing" constant="-20" id="8XT-pq-KVE"/>
                             <constraint firstItem="oqN-Ky-Byg" firstAttribute="top" secondItem="2cf-3n-flM" secondAttribute="bottom" id="9pL-hP-KDD"/>
+                            <constraint firstItem="3Gb-u4-XQB" firstAttribute="leading" secondItem="s0H-pK-Xzm" secondAttribute="leadingMargin" constant="-20" id="C4K-RI-Fgf"/>
                             <constraint firstItem="oqN-Ky-Byg" firstAttribute="top" secondItem="ci6-Mf-Zm7" secondAttribute="bottom" id="Ho0-Pw-5yd"/>
                             <constraint firstItem="ci6-Mf-Zm7" firstAttribute="leading" secondItem="s0H-pK-Xzm" secondAttribute="leadingMargin" constant="-20" id="NQr-xo-QLf"/>
                             <constraint firstItem="3Gb-u4-XQB" firstAttribute="top" secondItem="mUN-FG-jLp" secondAttribute="bottom" constant="-20" id="U0p-ka-4NI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2cf-3n-flM" secondAttribute="trailing" constant="-20" id="ako-ub-s1z"/>
                             <constraint firstItem="2cf-3n-flM" firstAttribute="leading" secondItem="s0H-pK-Xzm" secondAttribute="leadingMargin" constant="-20" id="nrd-JI-MBd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3Gb-u4-XQB" secondAttribute="trailing" constant="-20" id="tyG-K4-euP"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
