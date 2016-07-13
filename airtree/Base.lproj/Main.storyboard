@@ -326,14 +326,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="3Gb-u4-XQB" firstAttribute="leading" secondItem="s0H-pK-Xzm" secondAttribute="leadingMargin" constant="-20" id="3gy-5i-nJJ"/>
                             <constraint firstItem="2cf-3n-flM" firstAttribute="top" secondItem="3Gb-u4-XQB" secondAttribute="bottom" id="7v3-wD-JYc"/>
-                            <constraint firstItem="3Gb-u4-XQB" firstAttribute="top" secondItem="mUN-FG-jLp" secondAttribute="bottom" constant="-20" id="8EW-Uu-y0f"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ci6-Mf-Zm7" secondAttribute="trailing" constant="-20" id="8XT-pq-KVE"/>
                             <constraint firstItem="oqN-Ky-Byg" firstAttribute="top" secondItem="2cf-3n-flM" secondAttribute="bottom" id="9pL-hP-KDD"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="3Gb-u4-XQB" secondAttribute="trailing" constant="-20" id="Dkd-S7-BwH"/>
                             <constraint firstItem="oqN-Ky-Byg" firstAttribute="top" secondItem="ci6-Mf-Zm7" secondAttribute="bottom" id="Ho0-Pw-5yd"/>
                             <constraint firstItem="ci6-Mf-Zm7" firstAttribute="leading" secondItem="s0H-pK-Xzm" secondAttribute="leadingMargin" constant="-20" id="NQr-xo-QLf"/>
+                            <constraint firstItem="3Gb-u4-XQB" firstAttribute="top" secondItem="mUN-FG-jLp" secondAttribute="bottom" constant="-20" id="U0p-ka-4NI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2cf-3n-flM" secondAttribute="trailing" constant="-20" id="ako-ub-s1z"/>
                             <constraint firstItem="2cf-3n-flM" firstAttribute="leading" secondItem="s0H-pK-Xzm" secondAttribute="leadingMargin" constant="-20" id="nrd-JI-MBd"/>
                         </constraints>
