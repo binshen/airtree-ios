@@ -362,37 +362,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_pm.png" translatesAutoresizingMaskIntoConstraints="NO" id="b3y-ZY-0oq">
-                                <rect key="frame" x="51" y="110" width="272" height="272"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="bg_pm_s.png" translatesAutoresizingMaskIntoConstraints="NO" id="b3y-ZY-0oq">
+                                <rect key="frame" x="51" y="59" width="272" height="272"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="25" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="unK-aR-dlc">
-                                <rect key="frame" x="111" y="212" width="153" height="69"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="25" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="unK-aR-dlc">
+                                <rect key="frame" x="111" y="160" width="153" height="69"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                 <color key="textColor" red="0.1296322382" green="0.4020855518" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="0000-00-00 00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szd-A1-zIC">
-                                <rect key="frame" x="94" y="52" width="186" height="21"/>
+                                <rect key="frame" x="94" y="20" width="186" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ug/m³" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dgd-Wd-zbz">
-                                <rect key="frame" x="157" y="296" width="60" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PM2.5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IsN-7V-MB1">
-                                <rect key="frame" x="148" y="169" width="79" height="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="PM2.5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IsN-7V-MB1">
+                                <rect key="frame" x="148" y="127" width="79" height="25"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="ug/m³" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dgd-Wd-zbz">
+                                <rect key="frame" x="157" y="249" width="60" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="b3y-ZY-0oq" secondAttribute="trailing" constant="32" id="02i-yM-JVB"/>
+                            <constraint firstItem="unK-aR-dlc" firstAttribute="leading" secondItem="o5A-Tl-feq" secondAttribute="leadingMargin" constant="91" id="33A-jC-Lx8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="szd-A1-zIC" secondAttribute="trailing" constant="75" id="6WJ-hC-AA3"/>
+                            <constraint firstItem="Dgd-Wd-zbz" firstAttribute="leading" secondItem="o5A-Tl-feq" secondAttribute="leadingMargin" constant="137" id="LH7-eS-ojy"/>
                             <constraint firstItem="szd-A1-zIC" firstAttribute="leading" secondItem="o5A-Tl-feq" secondAttribute="leadingMargin" constant="74" id="dLV-Hz-Fdk"/>
+                            <constraint firstItem="unK-aR-dlc" firstAttribute="centerY" secondItem="b3y-ZY-0oq" secondAttribute="centerY" id="ms1-iz-BMw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="unK-aR-dlc" secondAttribute="trailing" constant="91" id="rzA-Rn-exD"/>
+                            <constraint firstItem="IsN-7V-MB1" firstAttribute="leading" secondItem="o5A-Tl-feq" secondAttribute="leadingMargin" constant="128" id="sSr-FI-aJL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Dgd-Wd-zbz" secondAttribute="trailing" constant="138" id="wKz-BG-Wtc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IsN-7V-MB1" secondAttribute="trailing" constant="128" id="wZH-Dd-4FC"/>
+                            <constraint firstItem="b3y-ZY-0oq" firstAttribute="leading" secondItem="o5A-Tl-feq" secondAttribute="leadingMargin" constant="31" id="yP1-FJ-C8n"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -1314,7 +1323,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bg_pm.png" width="562" height="562"/>
+        <image name="bg_pm_s.png" width="272" height="272"/>
         <image name="good.gif" width="200" height="200"/>
         <image name="ic_device_25.png" width="25" height="25"/>
         <image name="ic_device_30.png" width="30" height="30"/>
