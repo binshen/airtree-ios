@@ -30,6 +30,14 @@
 
     UITapGestureRecognizer *formaldehydeTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickFormaldehydeTap:)];
     [self.viewFormaldehyde addGestureRecognizer:formaldehydeTap];
+    
+    //self.electric.contentMode = UIViewContentModeScaleAspectFit;
+    //CGRect rect = CGRectMake(0, 0, self.electric.frame.size.width/1.5, self.electric.frame.size.height/1.5);
+//    CGRect rect = CGRectMake(0, 0, 32, 14);
+//    UIGraphicsBeginImageContextWithOptions(rect.size, NO, [[UIScreen mainScreen] scale]);
+//    [self.electric.image drawInRect:rect];
+//    [self.electric setImage:UIGraphicsGetImageFromCurrentImageContext()];
+//    UIGraphicsEndImageContext();
 }
 
 - (void)didReceiveMemoryWarning {
@@ -111,12 +119,12 @@
         NSString *type = device[@"type"];
         if ([type longLongValue] == 1) {
             if ((NSNull *) data == [NSNull null] || ![data objectForKey:@"x13"]) {
-                [self.electric setImage:[UIImage imageNamed:@"ic_ele_1.png"]];
+                [self.electric setImage:[UIImage imageNamed:@"ic_ele_1s.png"]];
             } else {
-                [self.electric setImage:[UIImage imageNamed:[NSString stringWithFormat:@"ic_ele_%@.png", data[@"x13"]]]];
+                [self.electric setImage:[UIImage imageNamed:[NSString stringWithFormat:@"ic_ele_%@s.png", data[@"x13"]]]];
             }
         } else {
-            [self.electric setImage:[UIImage imageNamed:@"ic_ele_5.png"]];
+            [self.electric setImage:[UIImage imageNamed:@"ic_ele_5s.png"]];
         }
         [self.electric setHidden:NO];
     } else {
