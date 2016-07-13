@@ -16,9 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *LabelMain;
 @property (weak, nonatomic) IBOutlet UILabel *LabelBottom;
 
-@property (weak, nonatomic) IBOutlet UIImageView *ImgStatus;
-@property (weak, nonatomic) IBOutlet UILabel *LabelStatus;
-
 - (void) initViews:(NSUInteger) pageIndex withDevice:(NSDictionary *) device;
 
 @end

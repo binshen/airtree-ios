@@ -91,6 +91,42 @@
         frame.origin.y = 0;
         controller.view.frame = frame;
         
+        if((NSNull *) self.pageDevice[@"data"] != [NSNull null] && self.pageDevice[@"data"] != nil) {
+            NSDictionary *data = self.pageDevice[@"data"];
+            NSInteger p1 = [data[@"p1"] integerValue];
+            if(p1 > 0) {
+                NSInteger feiLevel = [data[@"fei"] integerValue];
+                if(feiLevel == 1) {
+                    self.LabelStatus.text = @"咱家空气棒棒哒，连呼吸都是甜的呢~";
+                    [self.ImgStatus setImage:[UIImage imageNamed:@"good.gif"]];
+                } else if(feiLevel == 2) {
+                    self.LabelStatus.text = @"空气不错哦~只要再一丢丢的努力就完美啦~";
+                    [self.ImgStatus setImage:[UIImage imageNamed:@"very.gif"]];
+                } else if(feiLevel == 3) {
+                    self.LabelStatus.text = @"加把劲吧，咱家空气需要大大的改善~";
+                    [self.ImgStatus setImage:[UIImage imageNamed:@"general.gif"]];
+                } else {
+                    self.LabelStatus.text = @"你家的空气太糟糕啦，我要离家出走了~";
+                    [self.ImgStatus setImage:[UIImage imageNamed:@"poor.gif"]];
+                }
+            } else {
+                NSInteger pmData = [data[@"x1"] integerValue];
+                if(pmData <= 35) {
+                    self.LabelStatus.text = @"咱家空气棒棒哒，连呼吸都是甜的呢~";
+                    [self.ImgStatus setImage:[UIImage imageNamed:@"good.gif"]];
+                } else if(pmData <= 75) {
+                    self.LabelStatus.text = @"空气不错哦~只要再一丢丢的努力就完美啦~";
+                    [self.ImgStatus setImage:[UIImage imageNamed:@"very.gif"]];
+                } else if(pmData <= 150) {
+                    self.LabelStatus.text = @"加把劲吧，咱家空气需要大大的改善~";
+                    [self.ImgStatus setImage:[UIImage imageNamed:@"general.gif"]];
+                } else {
+                    self.LabelStatus.text = @"你家的空气太糟糕啦，我要离家出走了~";
+                    [self.ImgStatus setImage:[UIImage imageNamed:@"poor.gif"]];
+                }
+            }
+        }
+        
         [controller initViews: page withDevice:self.pageDevice];
         [self.scrollView addSubview:controller.view];
     }
