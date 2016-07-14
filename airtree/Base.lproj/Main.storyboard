@@ -454,10 +454,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleAspectFit" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kj4-g5-oPh">
+                            <view contentMode="scaleAspectFit" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kj4-g5-oPh">
                                 <rect key="frame" x="0.0" y="575" width="375" height="92"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="line_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZTz-Sg-bxV">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="line_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZTz-Sg-bxV">
                                         <rect key="frame" x="187" y="10" width="1" height="72"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8d-nm-NGD">
@@ -487,13 +487,14 @@
                                     <constraint firstItem="Ho0-kD-B95" firstAttribute="centerY" secondItem="Kj4-g5-oPh" secondAttribute="centerY" id="GsT-fh-H9L"/>
                                     <constraint firstItem="x8d-nm-NGD" firstAttribute="centerY" secondItem="Kj4-g5-oPh" secondAttribute="centerY" id="KKU-jO-TFF"/>
                                     <constraint firstItem="ZTz-Sg-bxV" firstAttribute="centerX" secondItem="Kj4-g5-oPh" secondAttribute="centerX" id="dx3-1n-ptV"/>
+                                    <constraint firstAttribute="height" constant="92" id="f4W-dD-Onm"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y5k-5G-jjc">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y5k-5G-jjc">
                                 <rect key="frame" x="0.0" y="64" width="375" height="510"/>
                                 <color key="backgroundColor" red="0.095261928649999994" green="0.67802096000000001" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
                             </scrollView>
-                            <pageControl hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="JWD-qz-RDh">
+                            <pageControl hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="JWD-qz-RDh">
                                 <rect key="frame" x="0.0" y="537" width="375" height="37"/>
                                 <color key="pageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -505,6 +506,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="dju-Ez-J9l" secondAttribute="trailing" constant="158" id="1Rc-HR-FQm"/>
+                            <constraint firstItem="Kj4-g5-oPh" firstAttribute="top" secondItem="JWD-qz-RDh" secondAttribute="bottom" constant="1" id="55r-eF-e3q"/>
                             <constraint firstItem="Kj4-g5-oPh" firstAttribute="leading" secondItem="bPD-ne-vxD" secondAttribute="leadingMargin" constant="-20" id="5Hh-n4-8BV"/>
                             <constraint firstItem="y5k-5G-jjc" firstAttribute="top" secondItem="zCZ-Xm-qgU" secondAttribute="bottom" id="A76-mw-cS5"/>
                             <constraint firstItem="dju-Ez-J9l" firstAttribute="leading" secondItem="bPD-ne-vxD" secondAttribute="leadingMargin" constant="157" id="GLB-2R-grG"/>
