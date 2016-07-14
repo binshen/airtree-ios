@@ -12,19 +12,19 @@
 
 @interface MonitorController ()
 
-//#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-//#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-//#define IS_RETINA ([[UIScreen mainScreen] scale] >= 2.0)
-//
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define IS_RETINA ([[UIScreen mainScreen] scale] >= 2.0)
+
 #define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
-//#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
-//#define SCREEN_MAX_LENGTH (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
-//#define SCREEN_MIN_LENGTH (MIN(SCREEN_WIDTH, SCREEN_HEIGHT))
-//
-//#define IS_IPHONE_4_OR_LESS (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
-//#define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
-//#define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
-//#define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+#define SCREEN_MAX_LENGTH (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
+#define SCREEN_MIN_LENGTH (MIN(SCREEN_WIDTH, SCREEN_HEIGHT))
+
+#define IS_IPHONE_4_OR_LESS (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
+#define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
+#define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
+#define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
 
 @end
 
@@ -46,14 +46,18 @@
     //self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.scrollView.frame) * 4, 0);
     
     CGRect rect = self.scrollView.frame;
-    self.scrollView.frame = CGRectMake(rect.origin.x, rect.origin.y, SCREEN_WIDTH, rect.size.height);
-    self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH * 4, 0);
+    
+    CGFloat width = SCREEN_WIDTH;
+    if(IS_IPHONE_6) {
+        width = SCREEN_WIDTH + 8;
+    }
+    
+    self.scrollView.frame = CGRectMake(rect.origin.x, rect.origin.y, width, rect.size.height);
+    self.scrollView.contentSize = CGSizeMake(width * 4, 0);
     
     self.pageControl.hidesForSinglePage = YES;
     self.pageControl.userInteractionEnabled =YES;
-    self.pageControl.currentPage = self.pageIndex;
     self.pageControl.transform = CGAffineTransformMakeScale(1.2, 1.2);
-    
     self.pageControl.numberOfPages = 4;
     
     // 初始化page control的内容
@@ -84,6 +88,7 @@
         self.navigationItem.title = @"甲醛";
     }
     self.scrollView.contentOffset = CGPointMake(CGRectGetWidth(self.scrollView.frame) * self.pageIndex, 0);
+    self.pageControl.currentPage = self.pageIndex;
 }
 
 - (void)didReceiveMemoryWarning {
