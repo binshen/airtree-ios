@@ -74,8 +74,7 @@
     
     // 存储所有的controller
     NSMutableArray *controllers = [[NSMutableArray alloc] init];
-    for (NSUInteger i = 0; i < 4; i++)
-    {
+    for (NSUInteger i = 0; i < 4; i++) {
         [controllers addObject:[NSNull null]];
     }
     self.viewControllers = controllers;
@@ -95,7 +94,7 @@
     } else {
         self.navigationItem.title = @"甲醛";
     }
-    //self.scrollView.contentOffset = CGPointMake(CGRectGetWidth(self.scrollView.frame) * self.pageIndex, 0);
+    self.scrollView.contentOffset = CGPointMake(CGRectGetWidth(self.scrollView.frame) * self.pageIndex, 0);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -109,15 +108,13 @@
     if (page >= 4) return;
     
     MonitorContentController *controller = [self.viewControllers objectAtIndex:page];
-    if ((NSNull *)controller == [NSNull null])
-    {
+    if ((NSNull *)controller == [NSNull null]) {
         controller = [self.storyboard instantiateViewControllerWithIdentifier:@"MonitorContentController"];
         [self.viewControllers replaceObjectAtIndex:page withObject:controller];
     }
     
     // add the controller's view to the scroll view
-    if (controller.view.superview == nil)
-    {
+    if (controller.view.superview == nil) {
         CGRect frame = self.scrollView.frame;
         frame.origin.x = CGRectGetWidth(frame) * page;
         frame.origin.y = 0;

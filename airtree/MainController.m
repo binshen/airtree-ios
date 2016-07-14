@@ -90,17 +90,14 @@
         NSError *error = [completedRequest error];
         
         NSData *data = [completedRequest responseData];
-        if (data == nil) {
-            
-        } else {
+        if (data != nil) {
             // 初始化page control的内容
             self.contentList = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
             // 一共有多少页
             self.numberPages = self.contentList.count;
             // 存储所有的controller
             NSMutableArray *controllers = [[NSMutableArray alloc] init];
-            for (NSUInteger i = 0; i < self.numberPages; i++)
-            {
+            for (NSUInteger i = 0; i < self.numberPages; i++) {
                 [controllers addObject:[NSNull null]];
             }
             self.viewControllers = controllers;
@@ -109,15 +106,6 @@
             
             self.pageControl.numberOfPages = self.numberPages;
             [self.pageControl setHidden:NO];
-             
-//            if(self.pageControl.currentPage > 0) {
-//                [self loadScrollViewWithPage: self.pageControl.currentPage - 1];
-//            } else {
-//                NSDictionary *device = [self.contentList objectAtIndex:0];
-//                self.navigationItem.title = device[@"name"];
-//            }
-//            [self loadScrollViewWithPage: self.pageControl.currentPage ];
-//            [self loadScrollViewWithPage: self.pageControl.currentPage + 1];
             
             if(self.pageControl.currentPage < 1) {
                 NSDictionary *device = [self.contentList objectAtIndex:0];
@@ -139,20 +127,17 @@
 }
 
 // 加载ScrollView中的不同SubViewController
-- (void)loadScrollViewWithPage:(NSUInteger)page
-{
+- (void)loadScrollViewWithPage:(NSUInteger)page {
     if (page >= self.contentList.count) return;
     
     DeviceViewController *controller = [self.viewControllers objectAtIndex:page];
-    if ((NSNull *)controller == [NSNull null])
-    {
+    if ((NSNull *)controller == [NSNull null]) {
         controller = [self.storyboard instantiateViewControllerWithIdentifier:@"DeviceViewController"];
         [self.viewControllers replaceObjectAtIndex:page withObject:controller];
     }
     
     // add the controller's view to the scroll view
-    if (controller.view.superview == nil)
-    {
+    if (controller.view.superview == nil) {
         CGRect frame = self.scrollView.frame;
         frame.origin.x = CGRectGetWidth(frame) * page;
         frame.origin.y = 0;
@@ -163,8 +148,7 @@
     }
 }
 
--(void) viewDidAppear:(BOOL)animated
-{
+-(void) viewDidAppear:(BOOL)animated {
     self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.scrollView.frame) * self.numberPages, CGRectGetHeight(self.scrollView.frame));
     [super viewDidAppear:animated];
 }
@@ -179,22 +163,13 @@
 //    NSLog(@"最后页面 = %lu", (unsigned long)page);
     
     NSDictionary *device = [self.contentList objectAtIndex:page];
-    if([device objectForKey:@"name"])
-    {
+    if([device objectForKey:@"name"]) {
         self.navigationItem.title = device[@"name"];
-    }
-    else if([device objectForKey:@"mac"])
-    {
+    } else if([device objectForKey:@"mac"]) {
         self.navigationItem.title = device[@"mac"];
-    }
-    else
-    {
+    } else {
         self.navigationItem.title = @"房间";
     }
-    
-//    [self loadScrollViewWithPage:page - 1];
-//    [self loadScrollViewWithPage:page];
-//    [self loadScrollViewWithPage:page + 1];
 }
 
 - (void) doDoubleTap:(UITapGestureRecognizer *)sender {
