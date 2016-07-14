@@ -15,6 +15,8 @@
 		FD28F9011D281AF90064D94F /* good.gif in Resources */ = {isa = PBXBuildFile; fileRef = FD28F8FB1D281AF90064D94F /* good.gif */; };
 		FD28F9021D281AF90064D94F /* general.gif in Resources */ = {isa = PBXBuildFile; fileRef = FD28F8FC1D281AF90064D94F /* general.gif */; };
 		FD28F9031D281AFA0064D94F /* dontneed.gif in Resources */ = {isa = PBXBuildFile; fileRef = FD28F8FD1D281AF90064D94F /* dontneed.gif */; };
+		FD2D0BDA1D37F66E008DDD58 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2D0BD81D37F66E008DDD58 /* UIImage+animatedGIF.m */; };
+		FD2D0BDC1D37F74C008DDD58 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2D0BDB1D37F74C008DDD58 /* ImageIO.framework */; };
 		FD4F2FC31CFDC2FF00F16054 /* HistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4F2FC21CFDC2FF00F16054 /* HistoryController.m */; };
 		FD4F2FC61CFDDC4000F16054 /* DeviceAddController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4F2FC51CFDDC4000F16054 /* DeviceAddController.m */; };
 		FD4F2FC81CFDE09500F16054 /* libsmartlinklib_7x.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD4F2FC71CFDE09500F16054 /* libsmartlinklib_7x.a */; };
@@ -126,6 +128,9 @@
 		FD28F8FB1D281AF90064D94F /* good.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = good.gif; sourceTree = "<group>"; };
 		FD28F8FC1D281AF90064D94F /* general.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = general.gif; sourceTree = "<group>"; };
 		FD28F8FD1D281AF90064D94F /* dontneed.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = dontneed.gif; sourceTree = "<group>"; };
+		FD2D0BD81D37F66E008DDD58 /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
+		FD2D0BD91D37F66E008DDD58 /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
+		FD2D0BDB1D37F74C008DDD58 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		FD4F2FC11CFDC2FF00F16054 /* HistoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryController.h; sourceTree = "<group>"; };
 		FD4F2FC21CFDC2FF00F16054 /* HistoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryController.m; sourceTree = "<group>"; };
 		FD4F2FC41CFDDC4000F16054 /* DeviceAddController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceAddController.h; sourceTree = "<group>"; };
@@ -258,6 +263,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD2D0BDC1D37F74C008DDD58 /* ImageIO.framework in Frameworks */,
 				FD4F2FC81CFDE09500F16054 /* libsmartlinklib_7x.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,6 +320,8 @@
 				FDDB57081D260599006E0008 /* BackgroundRunner.m */,
 				FD8821251D2B9C5D0026C85E /* CustomNavigationBar.h */,
 				FD8821261D2B9C5D0026C85E /* CustomNavigationBar.m */,
+				FD2D0BD81D37F66E008DDD58 /* UIImage+animatedGIF.m */,
+				FD2D0BD91D37F66E008DDD58 /* UIImage+animatedGIF.h */,
 				FD91C23C1CFA7BD900E00A71 /* images */,
 				FD9A8EC31CFB1A1300D31032 /* models */,
 				FD91C2091CFA79F900E00A71 /* Supporting Files */,
@@ -446,6 +454,7 @@
 		FD9A8E311CFAAE3200D31032 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD2D0BDB1D37F74C008DDD58 /* ImageIO.framework */,
 				FD4F2FC71CFDE09500F16054 /* libsmartlinklib_7x.a */,
 				FD9A8E351CFAAF0900D31032 /* MKNetworkKit */,
 			);
@@ -694,6 +703,7 @@
 				FD9A8E591CFAAF0900D31032 /* MKNetworkHost.m in Sources */,
 				FD4F2FD41CFDEC5D00F16054 /* PersonFeedbackController.m in Sources */,
 				FD91C20E1CFA79F900E00A71 /* AppDelegate.m in Sources */,
+				FD2D0BDA1D37F66E008DDD58 /* UIImage+animatedGIF.m in Sources */,
 				FD9A8EBF1CFB193B00D31032 /* MainController.m in Sources */,
 				FD9A8ECF1CFB223E00D31032 /* ShopController.m in Sources */,
 				FD9A8E5B1CFAAF0900D31032 /* MKObject.m in Sources */,
