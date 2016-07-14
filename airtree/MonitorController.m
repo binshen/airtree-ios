@@ -44,20 +44,6 @@
     //self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.scrollView.frame) * 4, CGRectGetHeight(self.scrollView.frame));
     //self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.scrollView.frame) * 4, 0);
     
-//    if(IS_IPHONE_6P) {
-//        NSLog(@"IS_IPHONE_6P");
-//        CGRect rect = self.scrollView.frame;
-//        self.scrollView.frame = CGRectMake(rect.origin.x, rect.origin.y, SCREEN_WIDTH, rect.size.height);
-//        self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH * 4, 0);
-//    } else if(IS_IPHONE_6) {
-//        NSLog(@"IS_IPHONE_6");
-//        CGRect rect = self.scrollView.frame;
-//        self.scrollView.frame = CGRectMake(rect.origin.x, rect.origin.y, SCREEN_WIDTH, rect.size.height);
-//        self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH * 4, 0);
-//    } else {
-//        self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.scrollView.frame) * 4, 0);
-//    }
-
     CGRect rect = self.scrollView.frame;
     self.scrollView.frame = CGRectMake(rect.origin.x, rect.origin.y, SCREEN_WIDTH, rect.size.height);
     self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH * 4, 0);
@@ -65,6 +51,8 @@
     self.pageControl.hidesForSinglePage = YES;
     self.pageControl.userInteractionEnabled =YES;
     self.pageControl.currentPage = self.pageIndex;
+    self.pageControl.transform = CGAffineTransformMakeScale(1.2, 1.2);
+    
     self.pageControl.numberOfPages = 4;
     
     // 初始化page control的内容
@@ -168,10 +156,6 @@
     CGFloat pageWidth = CGRectGetWidth(self.scrollView.frame);
     NSUInteger page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     self.pageControl.currentPage = page;
-    
-//    [self loadScrollViewWithPage:page - 1];
-//    [self loadScrollViewWithPage:page];
-//    [self loadScrollViewWithPage:page + 1];
 
     if (page == 0) {
         self.navigationItem.title = @"PM2.5";
