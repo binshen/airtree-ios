@@ -488,6 +488,8 @@
                                     <constraint firstItem="x8d-nm-NGD" firstAttribute="centerY" secondItem="Kj4-g5-oPh" secondAttribute="centerY" id="KKU-jO-TFF"/>
                                     <constraint firstItem="ZTz-Sg-bxV" firstAttribute="centerX" secondItem="Kj4-g5-oPh" secondAttribute="centerX" id="dx3-1n-ptV"/>
                                     <constraint firstAttribute="height" constant="92" id="f4W-dD-Onm"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZTz-Sg-bxV" secondAttribute="bottom" constant="10" id="lU1-mf-QYJ"/>
+                                    <constraint firstItem="ZTz-Sg-bxV" firstAttribute="top" secondItem="Kj4-g5-oPh" secondAttribute="top" constant="10" id="vUa-sp-LGG"/>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y5k-5G-jjc">
