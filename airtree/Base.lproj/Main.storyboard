@@ -431,13 +431,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kj4-g5-oPh">
+                            <view contentMode="scaleAspectFit" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kj4-g5-oPh">
                                 <rect key="frame" x="0.0" y="575" width="375" height="92"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="line_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZTz-Sg-bxV">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="line_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZTz-Sg-bxV">
                                         <rect key="frame" x="187" y="10" width="1" height="72"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8d-nm-NGD">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8d-nm-NGD">
                                         <rect key="frame" x="33" y="25" width="130" height="42"/>
                                         <state key="normal" title=" 设备管理" image="ic_device_30.png">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -447,7 +447,7 @@
                                             <segue destination="a8p-BS-bSZ" kind="show" id="AXY-pJ-Sif"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ho0-kD-B95">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ho0-kD-B95">
                                         <rect key="frame" x="226" y="24" width="130" height="44"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title=" 在线商城" image="ic_shop_30.png">
@@ -459,6 +459,12 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="ZTz-Sg-bxV" firstAttribute="centerY" secondItem="Kj4-g5-oPh" secondAttribute="centerY" id="2kZ-nM-wrU"/>
+                                    <constraint firstItem="Ho0-kD-B95" firstAttribute="centerY" secondItem="Kj4-g5-oPh" secondAttribute="centerY" id="GsT-fh-H9L"/>
+                                    <constraint firstItem="x8d-nm-NGD" firstAttribute="centerY" secondItem="Kj4-g5-oPh" secondAttribute="centerY" id="KKU-jO-TFF"/>
+                                    <constraint firstItem="ZTz-Sg-bxV" firstAttribute="centerX" secondItem="Kj4-g5-oPh" secondAttribute="centerX" id="dx3-1n-ptV"/>
+                                </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y5k-5G-jjc">
                                 <rect key="frame" x="0.0" y="64" width="375" height="510"/>
@@ -477,8 +483,10 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="dju-Ez-J9l" secondAttribute="trailing" constant="158" id="1Rc-HR-FQm"/>
                             <constraint firstItem="Kj4-g5-oPh" firstAttribute="leading" secondItem="bPD-ne-vxD" secondAttribute="leadingMargin" constant="-20" id="5Hh-n4-8BV"/>
+                            <constraint firstItem="y5k-5G-jjc" firstAttribute="top" secondItem="zCZ-Xm-qgU" secondAttribute="bottom" id="A76-mw-cS5"/>
                             <constraint firstItem="dju-Ez-J9l" firstAttribute="leading" secondItem="bPD-ne-vxD" secondAttribute="leadingMargin" constant="157" id="GLB-2R-grG"/>
                             <constraint firstItem="y5k-5G-jjc" firstAttribute="leading" secondItem="bPD-ne-vxD" secondAttribute="leadingMargin" constant="-20" id="KQQ-Xm-HyC"/>
+                            <constraint firstItem="Kj4-g5-oPh" firstAttribute="top" secondItem="y5k-5G-jjc" secondAttribute="bottom" constant="1" id="O5Q-3b-N5T"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JWD-qz-RDh" secondAttribute="trailing" constant="-20" id="XHR-NS-Ugt"/>
                             <constraint firstItem="jNb-Ei-PLg" firstAttribute="top" secondItem="Kj4-g5-oPh" secondAttribute="bottom" id="ebw-hd-QkX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Kj4-g5-oPh" secondAttribute="trailing" constant="-20" id="q1h-mN-nCO"/>
