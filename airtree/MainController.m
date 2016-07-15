@@ -35,6 +35,7 @@
     //[self.navigationController.navigationBar setTintColor:[UIColor clearColor]];
     //[self.navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
 
+    self.navigationItem.rightBarButtonItem = nil;
 
     [self.BtnDevice setUserInteractionEnabled:YES];
     [self.BtnDevice addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickDeviceButton:)]];
