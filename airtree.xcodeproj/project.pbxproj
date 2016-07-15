@@ -81,7 +81,6 @@
 		FD9A8ECC1CFB1F1E00D31032 /* ic_shop.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9A8ECA1CFB1F1E00D31032 /* ic_shop.png */; };
 		FD9A8ECF1CFB223E00D31032 /* ShopController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8ECE1CFB223E00D31032 /* ShopController.m */; };
 		FD9A8ED21CFB34CE00D31032 /* PersonController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8ED11CFB34CE00D31032 /* PersonController.m */; };
-		FD9A8ED51CFB3C1000D31032 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8ED41CFB3C1000D31032 /* Person.m */; };
 		FD9A8ED71CFB460700D31032 /* ic_history.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9A8ED61CFB460700D31032 /* ic_history.png */; };
 		FD9A8EDA1CFB4EB000D31032 /* DeviceManageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8ED91CFB4EB000D31032 /* DeviceManageController.m */; };
 		FDA5A1E71D36BB780013DAFF /* bg_wendu_s.png in Resources */ = {isa = PBXBuildFile; fileRef = FDA5A1E41D36BB780013DAFF /* bg_wendu_s.png */; };
@@ -231,8 +230,6 @@
 		FD9A8ECE1CFB223E00D31032 /* ShopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopController.m; sourceTree = "<group>"; };
 		FD9A8ED01CFB34CE00D31032 /* PersonController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonController.h; sourceTree = "<group>"; };
 		FD9A8ED11CFB34CE00D31032 /* PersonController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonController.m; sourceTree = "<group>"; };
-		FD9A8ED31CFB3C1000D31032 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
-		FD9A8ED41CFB3C1000D31032 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		FD9A8ED61CFB460700D31032 /* ic_history.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_history.png; sourceTree = "<group>"; };
 		FD9A8ED81CFB4EB000D31032 /* DeviceManageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceManageController.h; sourceTree = "<group>"; };
 		FD9A8ED91CFB4EB000D31032 /* DeviceManageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceManageController.m; sourceTree = "<group>"; };
@@ -323,7 +320,6 @@
 				FD2D0BD81D37F66E008DDD58 /* UIImage+animatedGIF.m */,
 				FD2D0BD91D37F66E008DDD58 /* UIImage+animatedGIF.h */,
 				FD91C23C1CFA7BD900E00A71 /* images */,
-				FD9A8EC31CFB1A1300D31032 /* models */,
 				FD91C2091CFA79F900E00A71 /* Supporting Files */,
 				FD91C2151CFA79F900E00A71 /* Assets.xcassets */,
 				FD4F2FD51CFDF3EC00F16054 /* Main.storyboard */,
@@ -497,15 +493,6 @@
 				FD9A8E461CFAAF0900D31032 /* UIImageView+MKNKAdditions.m */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		FD9A8EC31CFB1A1300D31032 /* models */ = {
-			isa = PBXGroup;
-			children = (
-				FD9A8ED31CFB3C1000D31032 /* Person.h */,
-				FD9A8ED41CFB3C1000D31032 /* Person.m */,
-			);
-			name = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -698,7 +685,6 @@
 				FDF4C6B31D29664D0064B0D0 /* MonitorContentController.m in Sources */,
 				FDF4C6B01D2951FF0064B0D0 /* MonitorController.m in Sources */,
 				FD4F2FD11CFDEC4900F16054 /* PersonPasswordController.m in Sources */,
-				FD9A8ED51CFB3C1000D31032 /* Person.m in Sources */,
 				FDDB570A1D260599006E0008 /* BackgroundRunner.m in Sources */,
 				FD9A8E591CFAAF0900D31032 /* MKNetworkHost.m in Sources */,
 				FD4F2FD41CFDEC5D00F16054 /* PersonFeedbackController.m in Sources */,
@@ -860,7 +846,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = airtree/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -880,7 +866,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = airtree/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
