@@ -44,7 +44,7 @@
         NSDictionary *loginUser = appDelegate.loginUser;
         NSMutableDictionary *device = appDelegate.selectedDevice;
         
-        NSString *path = [[NSString alloc] initWithFormat:[NSString stringWithFormat:@"/user/%@/device/%@/update_name", loginUser[@"_id"], device[@"_id"]]];
+        NSString *path = [NSString stringWithFormat:@"/user/%@/device/%@/update_name", loginUser[@"_id"], device[@"_id"]];
         NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
         [param setValue:self.TextDeviceName.text forKey:@"name"];
         MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];

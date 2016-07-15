@@ -80,7 +80,7 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSDictionary  *loginUser = appDelegate.loginUser;
     
-    NSString *path = [[NSString alloc] initWithFormat:[NSString stringWithFormat:@"/user/%@/get_device", loginUser[@"_id"]]];
+    NSString *path = [NSString stringWithFormat:@"/user/%@/get_device", loginUser[@"_id"]];
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
     MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
     MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"GET"];

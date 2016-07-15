@@ -40,7 +40,7 @@
         AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
         NSMutableDictionary *loginUser = appDelegate.loginUser;
         
-        NSString *path = [[NSString alloc] initWithFormat:[NSString stringWithFormat:@"/user/%@/update_name", loginUser[@"_id"]]];
+        NSString *path = [NSString stringWithFormat:@"/user/%@/update_name", loginUser[@"_id"]];
         NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
         [param setValue:self.TextNickname.text forKey:@"nickname"];
         MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];

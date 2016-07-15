@@ -69,7 +69,7 @@
 - (void) autoRefreshData {
     NSDictionary *device = self.appDelegate.selectedDevice;
     
-    NSString *path = [[NSString alloc] initWithFormat:[NSString stringWithFormat:@"/device/mac/%@/get_test", device[@"mac"]]];
+    NSString *path = [NSString stringWithFormat:@"/device/mac/%@/get_test", device[@"mac"]];
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
     MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
     MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"GET"];
@@ -110,7 +110,7 @@
         NSDictionary  *loginUser = self.appDelegate.loginUser;
         NSDictionary *device = self.appDelegate.selectedDevice;
         
-        NSString *path = [[NSString alloc] initWithFormat:[NSString stringWithFormat:@"/user/%@/device/%@/unbind", loginUser[@"_id"], device[@"_id"]]];
+        NSString *path = [NSString stringWithFormat:@"/user/%@/device/%@/unbind", loginUser[@"_id"], device[@"_id"]];
         NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
         MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
         MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"POST"];

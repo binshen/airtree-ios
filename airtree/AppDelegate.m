@@ -88,7 +88,7 @@
     if (self.loginUser[@"_id"] == nil) {
         return;
     }
-    NSString *path = [[NSString alloc] initWithFormat:[NSString stringWithFormat:@"/user/%@/online", self.loginUser[@"_id"]]];
+    NSString *path = [NSString stringWithFormat:@"/user/%@/online", self.loginUser[@"_id"]];
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
     MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
     MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"POST"];

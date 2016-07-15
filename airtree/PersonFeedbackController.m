@@ -37,7 +37,7 @@
         AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
         NSDictionary  *loginUser = appDelegate.loginUser;
         
-        NSString *path = [[NSString alloc] initWithFormat:[NSString stringWithFormat:@"/user/%@/feedback", loginUser[@"_id"]]];
+        NSString *path = [NSString stringWithFormat:@"/user/%@/feedback", loginUser[@"_id"]];
         NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
         [param setValue:self.TextFeedback.text forKey:@"feedback"];
         MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];

@@ -46,7 +46,7 @@
         AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
         NSDictionary  *loginUser = appDelegate.loginUser;
         
-        NSString *path = [[NSString alloc] initWithFormat:[NSString stringWithFormat:@"/user/%@/change_psw", loginUser[@"_id"]]];
+        NSString *path = [NSString stringWithFormat:@"/user/%@/change_psw", loginUser[@"_id"]];
         NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
         [param setValue:oldPwd forKey:@"password"];
         [param setValue:newPwd forKey:@"new_password"];

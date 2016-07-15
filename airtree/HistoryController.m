@@ -79,7 +79,7 @@
 
     self.navigationItem.title = device[@"name"] == nil ? device[@"mac"] : device[@"name"];
     
-    NSString *path = [[NSString alloc] initWithFormat:[NSString stringWithFormat:@"/device/mac/%@/get_history?day=%@", device[@"mac"], day]];
+    NSString *path = [NSString stringWithFormat:@"/device/mac/%@/get_history?day=%@", device[@"mac"], day];
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
     MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
     MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"GET"];
