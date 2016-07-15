@@ -10,6 +10,4 @@
 
 @interface PersonController : UITableViewController
 
-@property (nonatomic, strong) NSMutableArray *items;
-
 @end

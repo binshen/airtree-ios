@@ -10,7 +10,6 @@
 #import "PersonNicknameController.h"
 #import "PersonPasswordController.h"
 #import "PersonFeedbackController.h"
-#import "Person.h"
 #import "AppDelegate.h"
 #import "MKNetworkKit.h"
 
@@ -31,48 +30,9 @@
     
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-    
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSDictionary  *loginUser = appDelegate.loginUser;
-    NSString *nickname = loginUser[@"nickname"] == nil ? loginUser[@"username"] : loginUser[@"nickname"];
-    NSLog(@"Nickname: %@", nickname);
-    
-    NSMutableArray *itemList = [[NSMutableArray alloc] initWithCapacity:6];
-    Person *person = [[Person alloc] init];
-    person.index = 1;
-    person.title = @"昵称";
-    person.detail = nickname;
-    [itemList addObject:person];
-    
-    person = [[Person alloc] init];
-    person.index = 2;
-    person.title = @"修改密码";
-    person.detail = @"";
-    [itemList addObject:person];
-    
-    person = [[Person alloc] init];
-    person.index = 3;
-    person.title = @"";
-    person.detail = @"";
-    [itemList addObject:person];
-    
-    person = [[Person alloc] init];
-    person.index = 4;
-    person.title = @"用户反馈";
-    person.detail = @"";
-    [itemList addObject:person];
-    
-    person = [[Person alloc] init];
-    person.index = 5;
-    person.title = @"";
-    person.detail = @"";
-    [itemList addObject:person];
-    
-    self.items = itemList;
 }
 
--(void) viewWillAppear:(BOOL)animated
-{
+-(void) viewWillAppear:(BOOL)animated {
     NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
     
@@ -120,7 +80,7 @@
 //}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.items.count;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -130,14 +90,35 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    NSUInteger row = [indexPath row];
-    Person *person = [self.items objectAtIndex:row];
-    cell.textLabel.text = [person title];
-    cell.detailTextLabel.text = [person detail];
-    
-    if (row == 2 || row == 4) {
-        cell.userInteractionEnabled = NO;
-        cell.accessoryType = UITableViewCellAccessoryNone;
+    NSUInteger index = [indexPath row];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSDictionary  *loginUser = appDelegate.loginUser;
+    NSString *nickname = loginUser[@"nickname"] == nil ? loginUser[@"username"] : loginUser[@"nickname"];
+    switch (index) {
+        case 0:
+            cell.textLabel.text = @"昵称";
+            cell.detailTextLabel.text = nickname;
+            break;
+        case 1:
+            cell.textLabel.text = @"改密码";
+            cell.detailTextLabel.text = @"";
+            break;
+        case 2:
+            cell.textLabel.text = @"";
+            cell.detailTextLabel.text = @"";
+            cell.userInteractionEnabled = NO;
+            cell.accessoryType = UITableViewCellAccessoryNone;
+            break;
+        case 3:
+            cell.textLabel.text = @"用户反馈";
+            cell.detailTextLabel.text = @"";
+            break;
+        case 4:
+            cell.textLabel.text = @"";
+            cell.detailTextLabel.text = @"";
+            cell.userInteractionEnabled = NO;
+            cell.accessoryType = UITableViewCellAccessoryNone;
+            break;
     }
     return cell;
 }
@@ -150,17 +131,14 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    int index = [[self.items objectAtIndex:[indexPath row]] index];
-    //UIAlertView * alter = [[UIAlertView alloc] initWithTitle:@"选中的行信息" message:[NSString stringWithFormat:@"%d", index] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-    //[alter show];
-    
-    if(index == 1) {
+    NSInteger index = [indexPath row];
+    if(index == 0) {
         PersonNicknameController *personNickname = [self.storyboard instantiateViewControllerWithIdentifier:@"PersonNicknameController"];
         [[self navigationController] pushViewController:personNickname animated:YES];
-    } else if(index == 2) {
+    } else if(index == 1) {
         PersonPasswordController *personNickname = [self.storyboard instantiateViewControllerWithIdentifier:@"PersonPasswordController"];
         [[self navigationController] pushViewController:personNickname animated:YES];
-    } else if(index == 4) {
+    } else if(index == 3) {
         PersonFeedbackController *personNickname = [self.storyboard instantiateViewControllerWithIdentifier:@"PersonFeedbackController"];
         [[self navigationController] pushViewController:personNickname animated:YES];
     } else {
