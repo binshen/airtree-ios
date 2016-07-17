@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *airQuality;
 @property (weak, nonatomic) IBOutlet UILabel *main;
 @property (weak, nonatomic) IBOutlet UILabel *mainLable;
+@property (weak, nonatomic) IBOutlet UIImageView *mainImage;
 @property (weak, nonatomic) IBOutlet UILabel *suggest;
 @property (weak, nonatomic) IBOutlet UILabel *pm25Value;
 @property (weak, nonatomic) IBOutlet UILabel *temperatureValue;

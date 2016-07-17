@@ -8,6 +8,7 @@
 
 #import "DeviceViewController.h"
 #import "MonitorController.h"
+#import "UIImage+animatedGIF.h"
 
 @interface DeviceViewController ()
 
@@ -185,24 +186,32 @@
             NSInteger feiLevel = [data[@"fei"] integerValue];
             if(feiLevel == 1) {
                 [self.airQuality setText:@"优"];
+                [self.mainImage setImage:[UIImage animatedImageWithAnimatedGIFURL:[[NSBundle mainBundle] URLForResource:@"rank_1" withExtension:@"gif"]]];
             } else if(feiLevel == 2) {
                 [self.airQuality setText:@"良"];
+                [self.mainImage setImage:[UIImage animatedImageWithAnimatedGIFURL:[[NSBundle mainBundle] URLForResource:@"rank_2" withExtension:@"gif"]]];
             } else if(feiLevel == 3) {
                 [self.airQuality setText:@"中"];
+                [self.mainImage setImage:[UIImage animatedImageWithAnimatedGIFURL:[[NSBundle mainBundle] URLForResource:@"rank_3" withExtension:@"gif"]]];
             } else if(feiLevel == 4) {
                 [self.airQuality setText:@"差"];
+                [self.mainImage setImage:[UIImage animatedImageWithAnimatedGIFURL:[[NSBundle mainBundle] URLForResource:@"rank_4" withExtension:@"gif"]]];
             } else {
                 [self.airQuality setText:@"未知"];
             }
         } else {
             if([pm25 longLongValue] <= 35) {
                 [self.airQuality setText:@"优"];
+                [self.mainImage setImage:[UIImage animatedImageWithAnimatedGIFURL:[[NSBundle mainBundle] URLForResource:@"rank_1" withExtension:@"gif"]]];
             } else if([pm25 longLongValue] <= 75) {
                 [self.airQuality setText:@"良"];
+                [self.mainImage setImage:[UIImage animatedImageWithAnimatedGIFURL:[[NSBundle mainBundle] URLForResource:@"rank_2" withExtension:@"gif"]]];
             } else if([pm25 longLongValue] <= 150) {
                 [self.airQuality setText:@"中"];
+                [self.mainImage setImage:[UIImage animatedImageWithAnimatedGIFURL:[[NSBundle mainBundle] URLForResource:@"rank_3" withExtension:@"gif"]]];
             } else {
                 [self.airQuality setText:@"差"];
+                [self.mainImage setImage:[UIImage animatedImageWithAnimatedGIFURL:[[NSBundle mainBundle] URLForResource:@"rank_4" withExtension:@"gif"]]];
             }
         }
     }
