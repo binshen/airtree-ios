@@ -144,7 +144,7 @@
     if ((NSNull *) data == [NSNull null]) {
         [self.pm25Value setText:@"0ug/m³"];
         [self.temperatureValue setText:@"0℃"];
-        [self.humidityValue setText:@"0%%"];
+        [self.humidityValue setText:@"0%"];
         [self.formaldehydeValue setText:@"0mg/m³"];
         [self.suggest setText:@""];
         [self.airQuality setText:@"未知"];
