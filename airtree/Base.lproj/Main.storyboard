@@ -35,7 +35,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="LZg-bl-WMj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo2.png" translatesAutoresizingMaskIntoConstraints="NO" id="LZg-bl-WMj">
                                 <rect key="frame" x="80" y="93" width="217" height="49"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gcr-ra-RZy">
@@ -1375,7 +1375,7 @@
         <image name="ic_shop_30.png" width="30" height="30"/>
         <image name="ic_shop_w_25.png" width="25" height="25"/>
         <image name="line_icon.png" width="1" height="149"/>
-        <image name="logo2.jpg" width="850" height="374"/>
+        <image name="logo2.png" width="850" height="374"/>
         <image name="lx_icon.png" width="27" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
