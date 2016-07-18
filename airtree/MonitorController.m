@@ -56,7 +56,7 @@
     self.scrollView.contentSize = CGSizeMake(width * 4, 0);
     
     self.pageControl.hidesForSinglePage = YES;
-    self.pageControl.userInteractionEnabled =YES;
+    self.pageControl.userInteractionEnabled = NO;
     self.pageControl.transform = CGAffineTransformMakeScale(1.2, 1.2);
     self.pageControl.numberOfPages = 4;
     

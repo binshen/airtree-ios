@@ -58,7 +58,7 @@
     [self.scrollView addGestureRecognizer:doubleTap];
     
     self.pageControl.hidesForSinglePage = YES;
-    self.pageControl.userInteractionEnabled =YES;
+    self.pageControl.userInteractionEnabled = NO;
     self.pageControl.currentPage = 0;
     self.pageControl.transform = CGAffineTransformMakeScale(1.2, 1.2);
 }
