@@ -119,6 +119,10 @@
         [self.spinner stopAnimating];
     }];
     self.spinner.transform = CGAffineTransformMakeScale(1.5, 1.5);
+    self.spinner.center = self.view.center;
+    //self.spinner.center = CGPointMake(self.view.bounds.size.width / 2.0f, self.view.bounds.size.height / 2.0f);
+    //self.spinner.autoresizingMask = (UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin);
+    
     [self.spinner startAnimating];
     [host startRequest:request];
 }
