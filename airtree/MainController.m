@@ -112,6 +112,10 @@
                 NSDictionary *device = [self.contentList objectAtIndex:0];
                 self.navigationItem.title = [device objectForKey:@"name"] ? device[@"name"] : device[@"mac"];
             }
+            
+            // 解决OOM问题
+            [[self.scrollView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+            
             for (NSUInteger i = 0; i < self.numberPages; i++) {
                 [self loadScrollViewWithPage: i ];
             }
