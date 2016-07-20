@@ -85,6 +85,12 @@
         self.divider2.center = CGPointMake(self.divider2.center.x, self.divider2.center.y + 100);
         self.divider3.center = CGPointMake(self.divider3.center.x, self.divider3.center.y + 100);
         
+        self.mainImage.frame = CGRectMake(self.mainImage.frame.origin.x, self.mainImage.frame.origin.y, self.mainImage.frame.size.width*1.1, self.mainImage.frame.size.height*1.1);
+        self.airQuality.font = [UIFont systemFontOfSize: 70];
+        self.main.font = [UIFont systemFontOfSize: 90];
+        self.mainLable.font = [UIFont systemFontOfSize: 18];
+        self.suggest.font = [UIFont systemFontOfSize: 18];
+        
     } else if(IS_IPHONE_6) {
         //self.electric.center = CGPointMake(self.electric.center.x, self.electric.center.y);
         self.mainImage.center = CGPointMake(self.mainImage.center.x, self.mainImage.center.y + 10);
