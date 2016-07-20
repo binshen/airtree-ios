@@ -39,6 +39,21 @@
 //    [self.electric.image drawInRect:rect];
 //    [self.electric setImage:UIGraphicsGetImageFromCurrentImageContext()];
 //    UIGraphicsEndImageContext();
+    
+//    UIView *divider_1 = [[UIView alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width/4,303,1,88)];
+//    divider_1.backgroundColor = [UIColor whiteColor];
+//    [self.view addSubview:divider_1];
+//    
+//    UIView *divider_3 = [[UIView alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width/4*3,303,1,88)];
+//    divider_3.backgroundColor = [UIColor whiteColor];
+//    [self.view addSubview:divider_3];
+}
+
+- (void)viewDidLayoutSubviews {
+    
+    CGFloat width = [[UIScreen mainScreen] bounds].size.width;
+    self.divider1.frame = CGRectMake(width / 4, 303, 1, 88);
+    self.divider3.frame = CGRectMake(width / 4 * 3, 303, 1, 88);
 }
 
 - (void)didReceiveMemoryWarning {
