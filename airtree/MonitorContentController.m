@@ -11,6 +11,20 @@
 
 @interface MonitorContentController ()
 
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define IS_RETINA ([[UIScreen mainScreen] scale] >= 2.0)
+
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+#define SCREEN_MAX_LENGTH (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
+#define SCREEN_MIN_LENGTH (MIN(SCREEN_WIDTH, SCREEN_HEIGHT))
+
+#define IS_IPHONE_4_OR_LESS (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
+#define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
+#define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
+#define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
+
 @end
 
 @implementation MonitorContentController
@@ -18,6 +32,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+- (void)viewDidLayoutSubviews {
+    
+    if (IS_IPHONE_6P || IS_IPHONE_6) {
+        self.LabelCreatedTime.center = CGPointMake(self.LabelCreatedTime.center.x, self.LabelCreatedTime.center.y - 10);
+    } else {
+        self.LabelCreatedTime.center = CGPointMake(self.LabelCreatedTime.center.x, self.LabelCreatedTime.center.y - 30);
+        self.ImgChart.center = CGPointMake(self.ImgChart.center.x, self.ImgChart.center.y - 40);
+        self.LabelTop.center = CGPointMake(self.LabelTop.center.x, self.LabelTop.center.y - 40);
+        self.LabelMain.center = CGPointMake(self.LabelMain.center.x, self.LabelMain.center.y - 40);
+        self.LabelBottom.center = CGPointMake(self.LabelBottom.center.x, self.LabelBottom.center.y - 40);
+    }
 }
 
 - (void)didReceiveMemoryWarning {

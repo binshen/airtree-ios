@@ -69,7 +69,6 @@
     self.divider1.frame = CGRectMake(width / 4, 303, 1, 88);
     self.divider3.frame = CGRectMake(width / 4 * 3, 303, 1, 88);
     
-    CGFloat offset = 0;
     if(IS_IPHONE_6P) {
         self.electric.center = CGPointMake(self.electric.center.x, self.electric.center.y + 5);
         self.mainImage.center = CGPointMake(self.mainImage.center.x, self.mainImage.center.y + 15);
