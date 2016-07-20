@@ -12,6 +12,20 @@
 
 @interface DeviceViewController ()
 
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define IS_RETINA ([[UIScreen mainScreen] scale] >= 2.0)
+
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+#define SCREEN_MAX_LENGTH (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
+#define SCREEN_MIN_LENGTH (MIN(SCREEN_WIDTH, SCREEN_HEIGHT))
+
+#define IS_IPHONE_4_OR_LESS (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
+#define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
+#define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
+#define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
+
 @end
 
 @implementation DeviceViewController
@@ -54,6 +68,55 @@
     CGFloat width = [[UIScreen mainScreen] bounds].size.width;
     self.divider1.frame = CGRectMake(width / 4, 303, 1, 88);
     self.divider3.frame = CGRectMake(width / 4 * 3, 303, 1, 88);
+    
+    CGFloat offset = 0;
+    if(IS_IPHONE_6P) {
+        self.electric.center = CGPointMake(self.electric.center.x, self.electric.center.y + 5);
+        self.mainImage.center = CGPointMake(self.mainImage.center.x, self.mainImage.center.y + 15);
+        self.airQuality.center = CGPointMake(self.airQuality.center.x, self.airQuality.center.y + 15);
+        self.main.center = CGPointMake(self.main.center.x, self.main.center.y + 25);
+        self.mainLable.center = CGPointMake(self.mainLable.center.x, self.mainLable.center.y + 40);
+        self.suggest.center = CGPointMake(self.suggest.center.x, self.suggest.center.y + 60);
+        
+        self.viewPm25.center = CGPointMake(self.viewPm25.center.x, self.viewPm25.center.y + 100);
+        self.viewTemperature.center = CGPointMake(self.viewTemperature.center.x, self.viewTemperature.center.y + 100);
+        self.viewHumidity.center = CGPointMake(self.viewHumidity.center.x, self.viewHumidity.center.y + 100);
+        self.viewFormaldehyde.center = CGPointMake(self.viewFormaldehyde.center.x, self.viewFormaldehyde.center.y + 100);
+        self.divider1.center = CGPointMake(self.divider1.center.x, self.divider1.center.y + 100);
+        self.divider2.center = CGPointMake(self.divider2.center.x, self.divider2.center.y + 100);
+        self.divider3.center = CGPointMake(self.divider3.center.x, self.divider3.center.y + 100);
+        
+    } else if(IS_IPHONE_6) {
+        //self.electric.center = CGPointMake(self.electric.center.x, self.electric.center.y);
+        self.mainImage.center = CGPointMake(self.mainImage.center.x, self.mainImage.center.y + 10);
+        self.airQuality.center = CGPointMake(self.airQuality.center.x, self.airQuality.center.y + 10);
+        self.main.center = CGPointMake(self.main.center.x, self.main.center.y + 15);
+        self.mainLable.center = CGPointMake(self.mainLable.center.x, self.mainLable.center.y + 30);
+        self.suggest.center = CGPointMake(self.suggest.center.x, self.suggest.center.y + 40);
+
+        self.viewPm25.center = CGPointMake(self.viewPm25.center.x, self.viewPm25.center.y + 50);
+        self.viewTemperature.center = CGPointMake(self.viewTemperature.center.x, self.viewTemperature.center.y + 50);
+        self.viewHumidity.center = CGPointMake(self.viewHumidity.center.x, self.viewHumidity.center.y + 50);
+        self.viewFormaldehyde.center = CGPointMake(self.viewFormaldehyde.center.x, self.viewFormaldehyde.center.y + 50);
+        self.divider1.center = CGPointMake(self.divider1.center.x, self.divider1.center.y + 50);
+        self.divider2.center = CGPointMake(self.divider2.center.x, self.divider2.center.y + 50);
+        self.divider3.center = CGPointMake(self.divider3.center.x, self.divider3.center.y + 50);
+    } else {
+        self.electric.center = CGPointMake(self.electric.center.x, self.electric.center.y - 5);
+        self.mainImage.center = CGPointMake(self.mainImage.center.x, self.mainImage.center.y - 15);
+        self.airQuality.center = CGPointMake(self.airQuality.center.x, self.airQuality.center.y - 15);
+        self.main.center = CGPointMake(self.main.center.x, self.main.center.y - 20);
+        self.mainLable.center = CGPointMake(self.mainLable.center.x, self.mainLable.center.y - 15);
+        self.suggest.center = CGPointMake(self.suggest.center.x, self.suggest.center.y - 15);
+        
+        self.viewPm25.center = CGPointMake(self.viewPm25.center.x, self.viewPm25.center.y - 10);
+        self.viewTemperature.center = CGPointMake(self.viewTemperature.center.x, self.viewTemperature.center.y - 10);
+        self.viewHumidity.center = CGPointMake(self.viewHumidity.center.x, self.viewHumidity.center.y - 10);
+        self.viewFormaldehyde.center = CGPointMake(self.viewFormaldehyde.center.x, self.viewFormaldehyde.center.y - 10);
+        self.divider1.center = CGPointMake(self.divider1.center.x, self.divider1.center.y - 10);
+        self.divider2.center = CGPointMake(self.divider2.center.x, self.divider2.center.y - 10);
+        self.divider3.center = CGPointMake(self.divider3.center.x, self.divider3.center.y - 10);
+    }
 }
 
 - (void)didReceiveMemoryWarning {
