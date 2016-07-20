@@ -152,7 +152,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Nk-NJ-bhD">
-                                <rect key="frame" x="0.0" y="125" width="375" height="69"/>
+                                <rect key="frame" x="0.0" y="125" width="375" height="81"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="80"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -241,6 +241,18 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CJp-uf-zBr">
+                                <rect key="frame" x="99" y="303" width="1" height="88"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gW8-MV-W9q">
+                                <rect key="frame" x="187" y="303" width="1" height="88"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qtO-iF-nwA">
+                                <rect key="frame" x="277" y="303" width="1" height="88"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cW5-hc-MQF">
                                 <rect key="frame" x="20" y="303" width="72" height="96"/>
                                 <subviews>
@@ -262,18 +274,6 @@
                                     <constraint firstItem="ygT-0S-Txr" firstAttribute="centerX" secondItem="cW5-hc-MQF" secondAttribute="centerX" id="NZ2-hh-0ZY"/>
                                     <constraint firstAttribute="height" constant="96" id="YkY-lp-s9z"/>
                                 </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CJp-uf-zBr">
-                                <rect key="frame" x="99" y="303" width="1" height="88"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gW8-MV-W9q">
-                                <rect key="frame" x="187" y="303" width="1" height="88"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qtO-iF-nwA">
-                                <rect key="frame" x="277" y="303" width="1" height="88"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.095261928649999994" green="0.67802096000000001" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
