@@ -12,6 +12,7 @@
 #import "DeviceManageController.h"
 #import "AppDelegate.h"
 #import "MKNetworkKit.h"
+#import "Constants.h"
 
 @interface MainController ()
 
@@ -87,7 +88,7 @@
     
     NSString *path = [NSString stringWithFormat:@"/user/%@/get_device", loginUser[@"_id"]];
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
-    MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
+    MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
     MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"GET"];
     [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
         //NSString *response = [completedRequest responseAsString];
@@ -97,6 +98,9 @@
         
         NSData *data = [completedRequest responseData];
         if (data != nil) {
+            // 解决OOM问题
+            [[self.scrollView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+            
             // 初始化page control的内容
             self.contentList = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
             // 一共有多少页
@@ -117,9 +121,6 @@
                 NSDictionary *device = [self.contentList objectAtIndex:0];
                 self.navigationItem.title = [device objectForKey:@"name"] ? device[@"name"] : device[@"mac"];
             }
-            
-            // 解决OOM问题
-            [[self.scrollView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
             
             for (NSUInteger i = 0; i < self.numberPages; i++) {
                 [self loadScrollViewWithPage: i ];

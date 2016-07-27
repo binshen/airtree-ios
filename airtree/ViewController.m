@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "AppDelegate.h"
 #import "MKNetworkKit.h"
+#import "Constants.h"
 
 @interface ViewController ()
 
@@ -61,7 +62,7 @@
     [param setValue:self.TxtUsername.text forKey:@"username"];
     [param setValue:self.TxtPassword.text forKey:@"password"];
     
-    MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
+    MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
     MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"POST"];
     [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
         NSString *response = [completedRequest responseAsString];

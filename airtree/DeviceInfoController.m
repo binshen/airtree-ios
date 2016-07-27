@@ -11,6 +11,7 @@
 #import "DeviceDetailReviseController.h"
 #import "AppDelegate.h"
 #import "MKNetworkKit.h"
+#import "Constants.h"
 
 @interface DeviceInfoController ()
 
@@ -74,7 +75,7 @@
     
     NSString *path = [NSString stringWithFormat:@"/device/mac/%@/get_test", device[@"mac"]];
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
-    MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
+    MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
     MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"GET"];
     [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
         NSString *response = [completedRequest responseAsString];
@@ -115,7 +116,7 @@
         
         NSString *path = [NSString stringWithFormat:@"/user/%@/device/%@/unbind", loginUser[@"_id"], device[@"_id"]];
         NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
-        MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
+        MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
         MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"POST"];
         [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
             // NSString *response = [completedRequest responseAsString];

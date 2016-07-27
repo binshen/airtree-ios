@@ -9,6 +9,7 @@
 #import "PersonFeedbackController.h"
 #import "AppDelegate.h"
 #import "MKNetworkKit.h"
+#import "Constants.h"
 
 @interface PersonFeedbackController ()
 
@@ -40,7 +41,7 @@
         NSString *path = [NSString stringWithFormat:@"/user/%@/feedback", loginUser[@"_id"]];
         NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
         [param setValue:self.TextFeedback.text forKey:@"feedback"];
-        MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
+        MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
         MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"POST"];
         [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
 //            NSString *response = [completedRequest responseAsString];

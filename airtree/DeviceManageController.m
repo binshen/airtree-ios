@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "MKNetworkKit.h"
 #import "Reachability.h"
+#import "Constants.h"
 
 @interface DeviceManageController ()
 
@@ -54,7 +55,7 @@
     
     NSString *path = [NSString stringWithFormat:@"/user/%@/get_device_info", loginUser[@"_id"]];
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
-    MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
+    MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
     MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"GET"];
     [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
         //NSString *response = [completedRequest responseAsString];

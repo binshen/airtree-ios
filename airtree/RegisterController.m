@@ -8,6 +8,7 @@
 
 #import "RegisterController.h"
 #import "MKNetworkKit.h"
+#import "Constants.h"
 
 @interface RegisterController ()
 
@@ -46,7 +47,7 @@
         NSString *path = [[NSString alloc] initWithFormat:@"/user/request_code"];
         NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
         [param setValue:self.TextTel.text forKey:@"tel"];
-        MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
+        MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
         MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"POST"];
         [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
             // NSString *response = [completedRequest responseAsString];
@@ -89,7 +90,7 @@
         [param setValue:self.TextTel.text forKey:@"username"];
         [param setValue:self.TextPwd.text forKey:@"password"];
         [param setValue:self.TextCode.text forKey:@"code"];
-        MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
+        MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
         MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"POST"];
         [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
             // NSString *response = [completedRequest responseAsString];

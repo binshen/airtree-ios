@@ -9,6 +9,7 @@
 #import "DeviceDetailReviseController.h"
 #import "AppDelegate.h"
 #import "MKNetworkKit.h"
+#import "Constants.h"
 
 @interface DeviceDetailReviseController ()
 
@@ -47,7 +48,7 @@
         NSString *path = [NSString stringWithFormat:@"/user/%@/device/%@/update_name", loginUser[@"_id"], device[@"_id"]];
         NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
         [param setValue:self.TextDeviceName.text forKey:@"name"];
-        MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
+        MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
         MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"POST"];
         [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
             // NSString *response = [completedRequest responseAsString];

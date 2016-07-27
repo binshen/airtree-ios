@@ -9,6 +9,7 @@
 #import "HistoryController.h"
 #import "AppDelegate.h"
 #import "MKNetworkKit.h"
+#import "Constants.h"
 
 @interface HistoryController ()
 
@@ -81,7 +82,7 @@
     
     NSString *path = [NSString stringWithFormat:@"/device/mac/%@/get_history?day=%@", device[@"mac"], day];
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
-    MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
+    MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
     MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"GET"];
     [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
         NSString *response = [completedRequest responseAsString];
