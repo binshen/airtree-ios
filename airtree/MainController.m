@@ -63,8 +63,9 @@
     self.pageControl.transform = CGAffineTransformMakeScale(1.2, 1.2);
 }
 
--(void) viewWillAppear:(BOOL)animated
-{
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    
     [self initHomePage];
     self.timer = [NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(autoRefreshData) userInfo:nil repeats:YES];
     //[[UIApplication sharedApplication] setKeepAliveTimeout:600 handler:^{[self heartbeat];}];
@@ -73,6 +74,8 @@
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:YES];
+    
     [self.timer invalidate];
 }
 

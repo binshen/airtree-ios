@@ -26,6 +26,8 @@
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:YES];
+    
     if(self.timer != nil) {
         [self.timer invalidate];
     }

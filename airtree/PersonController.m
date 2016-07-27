@@ -33,6 +33,8 @@
 }
 
 -(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    
     NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
     

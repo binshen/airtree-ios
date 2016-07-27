@@ -36,12 +36,15 @@
 }
 
 -(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
     
     [self autoRefreshData];
     self.timer = [NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(autoRefreshData) userInfo:nil repeats:YES];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:YES];
+    
     [self.timer invalidate];
 }
 

@@ -45,8 +45,9 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void) viewWillAppear:(BOOL)animated
-{
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    
     NSIndexPath* indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
     UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
     
@@ -63,6 +64,8 @@
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:YES];
+    
     [self.timer invalidate];
 }
 
