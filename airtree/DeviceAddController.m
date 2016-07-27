@@ -13,6 +13,7 @@
 #import <SystemConfiguration/CaptiveNetwork.h>
 #import "AppDelegate.h"
 #import "MKNetworkKit.h"
+#import "Constants.h"
 
 @interface DeviceAddController ()
 {
@@ -42,6 +43,7 @@
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:YES];
     [smtlk stopWithBlock:^(NSString *stopMsg, BOOL isOk) {
         isconnecting  = false;
        [self setButTitle:@"开始连接"];
@@ -73,7 +75,7 @@
                     [param setValue:dev.mac forKey:@"mac"];
                     [param setValue:loginUser[@"_id"] forKey:@"userID"];
                     
-                    MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:@"121.40.92.176:3000"];
+                    MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
                     MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"POST"];
                     [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
                         NSString *response = [completedRequest responseAsString];
