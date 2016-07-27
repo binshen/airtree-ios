@@ -203,12 +203,12 @@
         NSString *type = device[@"type"];
         if ([type longLongValue] == 1) {
             if ((NSNull *) data == [NSNull null] || ![data objectForKey:@"x13"]) {
-                [self.electric setImage:[UIImage imageNamed:@"ic_ele_1s.png"]];
+                [self.electric setImage:[UIImage imageNamed:@"ic_ele_n0s.png"]];
             } else {
-                [self.electric setImage:[UIImage imageNamed:[NSString stringWithFormat:@"ic_ele_%@s.png", data[@"x13"]]]];
+                [self.electric setImage:[UIImage imageNamed:[NSString stringWithFormat:@"ic_ele_n%@s.png", data[@"x13"]]]];
             }
         } else {
-            [self.electric setImage:[UIImage imageNamed:@"ic_ele_5s.png"]];
+            [self.electric setImage:[UIImage imageNamed:@"ic_ele_n4s.png"]];
         }
         [self.electric setHidden:NO];
     } else {
