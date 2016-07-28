@@ -48,7 +48,7 @@
     CGRect rect = self.scrollView.frame;
     
     CGFloat width = SCREEN_WIDTH;
-    if(IS_IPHONE_6) {
+    if(IS_IPHONE_6 || IS_IPHONE_5) {
         width = SCREEN_WIDTH + 8;
     }
     
