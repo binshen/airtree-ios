@@ -275,6 +275,9 @@
                                     <constraint firstAttribute="height" constant="96" id="YkY-lp-s9z"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O4Q-Id-Tnc">
+                                <rect key="frame" x="267" y="38" width="88" height="88"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.095261928649999994" green="0.67802096000000001" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -310,6 +313,7 @@
                         <outlet property="formalehydeLabel" destination="qKT-eS-MKc" id="h6a-4u-d2m"/>
                         <outlet property="humidityLabel" destination="MzM-as-whv" id="5Fb-mq-NRh"/>
                         <outlet property="humidityValue" destination="ain-k1-fdK" id="oyS-EB-BQ4"/>
+                        <outlet property="lightImage" destination="O4Q-Id-Tnc" id="qs0-vP-4NW"/>
                         <outlet property="main" destination="1Nk-NJ-bhD" id="3Yb-Fh-zHE"/>
                         <outlet property="mainImage" destination="7g0-La-MA4" id="pYG-VQ-zeL"/>
                         <outlet property="mainLable" destination="eBW-G8-P9Z" id="Rkc-60-Rb1"/>
