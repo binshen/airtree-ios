@@ -128,7 +128,7 @@
         self.divider2.center = CGPointMake(self.divider2.center.x, self.divider2.center.y - 10);
         self.divider3.center = CGPointMake(self.divider3.center.x, self.divider3.center.y - 10);
         
-        self.electric.frame = CGRectMake(self.electric.frame.origin.x + 35, self.electric.frame.origin.y, self.electric.frame.size.width*0.8, self.electric.frame.size.height*0.8);
+        self.electric.frame = CGRectMake(self.electric.frame.origin.x + 34, self.electric.frame.origin.y, self.electric.frame.size.width*0.8, self.electric.frame.size.height*0.8);
         self.mainImage.frame = CGRectMake(self.mainImage.frame.origin.x, self.mainImage.frame.origin.y, self.mainImage.frame.size.width*0.8, self.mainImage.frame.size.height*0.8);
         [self.airQuality setFont:[UIFont fontWithName:self.airQuality.font.fontName size:self.airQuality.font.pointSize - 5]];
         [self.main setFont:[UIFont fontWithName:self.main.font.fontName size:self.main.font.pointSize - 10]];
