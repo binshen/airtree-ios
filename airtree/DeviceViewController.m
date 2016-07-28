@@ -70,7 +70,6 @@
     self.divider3.frame = CGRectMake(width / 4 * 3, 303, 1, 88);
     
     if(IS_IPHONE_6P) {
-        self.electric.center = CGPointMake(self.electric.center.x, self.electric.center.y + 5);
         self.mainImage.center = CGPointMake(self.mainImage.center.x, self.mainImage.center.y + 15);
         self.airQuality.center = CGPointMake(self.airQuality.center.x, self.airQuality.center.y + 15);
         self.main.center = CGPointMake(self.main.center.x, self.main.center.y + 25);
@@ -85,11 +84,21 @@
         self.divider2.center = CGPointMake(self.divider2.center.x, self.divider2.center.y + 120);
         self.divider3.center = CGPointMake(self.divider3.center.x, self.divider3.center.y + 120);
         
+        self.electric.frame = CGRectMake(self.electric.frame.origin.x - 20, self.electric.frame.origin.y + 10, self.electric.frame.size.width*1.1, self.electric.frame.size.height*1.1);
         self.mainImage.frame = CGRectMake(self.mainImage.frame.origin.x, self.mainImage.frame.origin.y, self.mainImage.frame.size.width*1.1, self.mainImage.frame.size.height*1.1);
         self.airQuality.font = [UIFont systemFontOfSize: 70];
         self.main.font = [UIFont systemFontOfSize: 90];
         self.mainLable.font = [UIFont systemFontOfSize: 18];
         self.suggest.font = [UIFont systemFontOfSize: 18];
+        
+        self.pm25Label.font = [UIFont systemFontOfSize: 18];
+        self.temperatureLabel.font = [UIFont systemFontOfSize: 18];
+        self.humidityLabel.font = [UIFont systemFontOfSize: 18];
+        self.formalehydeLabel.font = [UIFont systemFontOfSize: 18];
+        self.pm25Value.font = [UIFont systemFontOfSize: 17];
+        self.temperatureValue.font = [UIFont systemFontOfSize: 17];
+        self.humidityValue.font = [UIFont systemFontOfSize: 17];
+        self.formaldehydeValue.font = [UIFont systemFontOfSize: 17];
         
     } else if(IS_IPHONE_6) {
         self.mainImage.center = CGPointMake(self.mainImage.center.x, self.mainImage.center.y + 10);

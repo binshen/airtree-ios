@@ -30,6 +30,11 @@
 @property (weak, nonatomic) IBOutlet UIView *divider2;
 @property (weak, nonatomic) IBOutlet UIView *divider3;
 
+@property (weak, nonatomic) IBOutlet UILabel *pm25Label;
+@property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
+@property (weak, nonatomic) IBOutlet UILabel *humidityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *formalehydeLabel;
+
 @property (retain) NSDictionary *pageDevice;
 @property (retain) UIViewController *parentController;
 - (void) initViews:(NSDictionary *)device initController:(UIViewController *) controller;
