@@ -84,6 +84,9 @@
 		FD9A8ED71CFB460700D31032 /* ic_history.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9A8ED61CFB460700D31032 /* ic_history.png */; };
 		FD9A8EDA1CFB4EB000D31032 /* DeviceManageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8ED91CFB4EB000D31032 /* DeviceManageController.m */; };
 		FD9C49CE1D48A2D1003367EB /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9C49CD1D48A2D1003367EB /* Constants.m */; };
+		FDA088ED1D49DBF300327E77 /* light_03.png in Resources */ = {isa = PBXBuildFile; fileRef = FDA088EA1D49DBF300327E77 /* light_03.png */; };
+		FDA088EE1D49DBF300327E77 /* light_02.png in Resources */ = {isa = PBXBuildFile; fileRef = FDA088EB1D49DBF300327E77 /* light_02.png */; };
+		FDA088EF1D49DBF300327E77 /* light_01.png in Resources */ = {isa = PBXBuildFile; fileRef = FDA088EC1D49DBF300327E77 /* light_01.png */; };
 		FDA5A1E71D36BB780013DAFF /* bg_wendu_s.png in Resources */ = {isa = PBXBuildFile; fileRef = FDA5A1E41D36BB780013DAFF /* bg_wendu_s.png */; };
 		FDA5A1E81D36BB780013DAFF /* bg_shidu_s.png in Resources */ = {isa = PBXBuildFile; fileRef = FDA5A1E51D36BB780013DAFF /* bg_shidu_s.png */; };
 		FDA5A1E91D36BB780013DAFF /* bg_jiaquan_s.png in Resources */ = {isa = PBXBuildFile; fileRef = FDA5A1E61D36BB780013DAFF /* bg_jiaquan_s.png */; };
@@ -246,6 +249,9 @@
 		FD9A8ED91CFB4EB000D31032 /* DeviceManageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceManageController.m; sourceTree = "<group>"; };
 		FD9C49CC1D48A2D1003367EB /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		FD9C49CD1D48A2D1003367EB /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		FDA088EA1D49DBF300327E77 /* light_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = light_03.png; sourceTree = "<group>"; };
+		FDA088EB1D49DBF300327E77 /* light_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = light_02.png; sourceTree = "<group>"; };
+		FDA088EC1D49DBF300327E77 /* light_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = light_01.png; sourceTree = "<group>"; };
 		FDA5A1E41D36BB780013DAFF /* bg_wendu_s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_wendu_s.png; sourceTree = "<group>"; };
 		FDA5A1E51D36BB780013DAFF /* bg_shidu_s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_shidu_s.png; sourceTree = "<group>"; };
 		FDA5A1E61D36BB780013DAFF /* bg_jiaquan_s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_jiaquan_s.png; sourceTree = "<group>"; };
@@ -418,6 +424,9 @@
 		FD91C23C1CFA7BD900E00A71 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				FDA088EA1D49DBF300327E77 /* light_03.png */,
+				FDA088EB1D49DBF300327E77 /* light_02.png */,
+				FDA088EC1D49DBF300327E77 /* light_01.png */,
 				FDEDC1691D3BCFA40060CF61 /* rank_4.gif */,
 				FDEDC16A1D3BCFA40060CF61 /* rank_3.gif */,
 				FDEDC16B1D3BCFA40060CF61 /* rank_2.gif */,
@@ -638,6 +647,7 @@
 			files = (
 				FD9A8E301CFA895E00D31032 /* logo.png in Resources */,
 				FD15DF751D27BC9300EF8100 /* lx_icon.png in Resources */,
+				FDA088EF1D49DBF300327E77 /* light_01.png in Resources */,
 				FD7F0D881D263F02008A3412 /* ic_ele_2.png in Resources */,
 				FDE410D41D490D5A009641C7 /* ic_ele_n3s.png in Resources */,
 				FD8A74D41D35DFA700CF8643 /* ic_ele_2s.png in Resources */,
@@ -647,6 +657,7 @@
 				FDDB570C1D2617C1006E0008 /* ic_shop_blue.png in Resources */,
 				FD9A8E2E1CFA872100D31032 /* ic_launcher_180x180.png in Resources */,
 				FDED11CF1D3CC73000C06974 /* logo2.png in Resources */,
+				FDA088ED1D49DBF300327E77 /* light_03.png in Resources */,
 				FD28F9031D281AFA0064D94F /* dontneed.gif in Resources */,
 				FD28F8FF1D281AF90064D94F /* poor.gif in Resources */,
 				FDCB0AEB1D36B8BC005BD692 /* bg_pm_s.png in Resources */,
@@ -659,6 +670,7 @@
 				FD8A74D31D35DFA700CF8643 /* ic_ele_3s.png in Resources */,
 				FD7F0D831D263F02008A3412 /* room_bg.png in Resources */,
 				FD91C2411CFA7BD900E00A71 /* start_1242x2208.png in Resources */,
+				FDA088EE1D49DBF300327E77 /* light_02.png in Resources */,
 				FD7F0D8B1D263F02008A3412 /* bg_pm.png in Resources */,
 				FDE410D71D490D5A009641C7 /* ic_ele_n0s.png in Resources */,
 				FD7F0D851D263F02008A3412 /* ic_ele_5.png in Resources */,
