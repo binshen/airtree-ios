@@ -75,15 +75,15 @@
         self.airQuality.center = CGPointMake(self.airQuality.center.x, self.airQuality.center.y + 15);
         self.main.center = CGPointMake(self.main.center.x, self.main.center.y + 25);
         self.mainLable.center = CGPointMake(self.mainLable.center.x, self.mainLable.center.y + 40);
-        self.suggest.center = CGPointMake(self.suggest.center.x, self.suggest.center.y + 60);
+        self.suggest.center = CGPointMake(self.suggest.center.x, self.suggest.center.y + 80);
         
-        self.viewPm25.center = CGPointMake(self.viewPm25.center.x, self.viewPm25.center.y + 100);
-        self.viewTemperature.center = CGPointMake(self.viewTemperature.center.x, self.viewTemperature.center.y + 100);
-        self.viewHumidity.center = CGPointMake(self.viewHumidity.center.x, self.viewHumidity.center.y + 100);
-        self.viewFormaldehyde.center = CGPointMake(self.viewFormaldehyde.center.x, self.viewFormaldehyde.center.y + 100);
-        self.divider1.center = CGPointMake(self.divider1.center.x, self.divider1.center.y + 100);
-        self.divider2.center = CGPointMake(self.divider2.center.x, self.divider2.center.y + 100);
-        self.divider3.center = CGPointMake(self.divider3.center.x, self.divider3.center.y + 100);
+        self.viewPm25.center = CGPointMake(self.viewPm25.center.x, self.viewPm25.center.y + 120);
+        self.viewTemperature.center = CGPointMake(self.viewTemperature.center.x, self.viewTemperature.center.y + 120);
+        self.viewHumidity.center = CGPointMake(self.viewHumidity.center.x, self.viewHumidity.center.y + 120);
+        self.viewFormaldehyde.center = CGPointMake(self.viewFormaldehyde.center.x, self.viewFormaldehyde.center.y + 120);
+        self.divider1.center = CGPointMake(self.divider1.center.x, self.divider1.center.y + 120);
+        self.divider2.center = CGPointMake(self.divider2.center.x, self.divider2.center.y + 120);
+        self.divider3.center = CGPointMake(self.divider3.center.x, self.divider3.center.y + 120);
         
         self.mainImage.frame = CGRectMake(self.mainImage.frame.origin.x, self.mainImage.frame.origin.y, self.mainImage.frame.size.width*1.1, self.mainImage.frame.size.height*1.1);
         self.airQuality.font = [UIFont systemFontOfSize: 70];
@@ -92,7 +92,6 @@
         self.suggest.font = [UIFont systemFontOfSize: 18];
         
     } else if(IS_IPHONE_6) {
-        //self.electric.center = CGPointMake(self.electric.center.x, self.electric.center.y);
         self.mainImage.center = CGPointMake(self.mainImage.center.x, self.mainImage.center.y + 10);
         self.airQuality.center = CGPointMake(self.airQuality.center.x, self.airQuality.center.y + 10);
         self.main.center = CGPointMake(self.main.center.x, self.main.center.y + 15);
@@ -107,8 +106,6 @@
         self.divider2.center = CGPointMake(self.divider2.center.x, self.divider2.center.y + 50);
         self.divider3.center = CGPointMake(self.divider3.center.x, self.divider3.center.y + 50);
     } else {
-        self.electric.center = CGPointMake(self.electric.center.x, self.electric.center.y - 5);
-        self.mainImage.center = CGPointMake(self.mainImage.center.x, self.mainImage.center.y - 15);
         self.airQuality.center = CGPointMake(self.airQuality.center.x, self.airQuality.center.y - 15);
         self.main.center = CGPointMake(self.main.center.x, self.main.center.y - 20);
         self.mainLable.center = CGPointMake(self.mainLable.center.x, self.mainLable.center.y - 15);
@@ -121,6 +118,11 @@
         self.divider1.center = CGPointMake(self.divider1.center.x, self.divider1.center.y - 10);
         self.divider2.center = CGPointMake(self.divider2.center.x, self.divider2.center.y - 10);
         self.divider3.center = CGPointMake(self.divider3.center.x, self.divider3.center.y - 10);
+        
+        self.electric.frame = CGRectMake(self.electric.frame.origin.x + 35, self.electric.frame.origin.y, self.electric.frame.size.width*0.8, self.electric.frame.size.height*0.8);
+        self.mainImage.frame = CGRectMake(self.mainImage.frame.origin.x, self.mainImage.frame.origin.y, self.mainImage.frame.size.width*0.8, self.mainImage.frame.size.height*0.8);
+        [self.airQuality setFont:[UIFont fontWithName:self.airQuality.font.fontName size:self.airQuality.font.pointSize - 5]];
+        [self.main setFont:[UIFont fontWithName:self.main.font.fontName size:self.main.font.pointSize - 10]];
     }
 }
 
