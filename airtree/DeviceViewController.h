@@ -35,6 +35,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *humidityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *formalehydeLabel;
 
+@property (weak, nonatomic) IBOutlet UIImageView *lightImage;
+
 @property (retain) NSDictionary *pageDevice;
 @property (retain) UIViewController *parentController;
 - (void) initViews:(NSDictionary *)device initController:(UIViewController *) controller;

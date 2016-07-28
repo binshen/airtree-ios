@@ -71,6 +71,8 @@
     
     if(IS_IPHONE_6P) {
         self.mainImage.center = CGPointMake(self.mainImage.center.x, self.mainImage.center.y + 15);
+        self.lightImage.center = CGPointMake(self.lightImage.center.x + 30, self.lightImage.center.y + 15);
+        
         self.airQuality.center = CGPointMake(self.airQuality.center.x, self.airQuality.center.y + 15);
         self.main.center = CGPointMake(self.main.center.x, self.main.center.y + 25);
         self.mainLable.center = CGPointMake(self.mainLable.center.x, self.mainLable.center.y + 40);
@@ -86,6 +88,8 @@
         
         self.electric.frame = CGRectMake(self.electric.frame.origin.x - 20, self.electric.frame.origin.y + 10, self.electric.frame.size.width*1.1, self.electric.frame.size.height*1.1);
         self.mainImage.frame = CGRectMake(self.mainImage.frame.origin.x, self.mainImage.frame.origin.y, self.mainImage.frame.size.width*1.1, self.mainImage.frame.size.height*1.1);
+        self.lightImage.frame = CGRectMake(self.lightImage.frame.origin.x, self.lightImage.frame.origin.y, self.lightImage.frame.size.width*1.1, self.lightImage.frame.size.height*1.1);
+        
         self.airQuality.font = [UIFont systemFontOfSize: 70];
         self.main.font = [UIFont systemFontOfSize: 90];
         self.mainLable.font = [UIFont systemFontOfSize: 18];
@@ -102,6 +106,8 @@
         
     } else if(IS_IPHONE_6) {
         self.mainImage.center = CGPointMake(self.mainImage.center.x, self.mainImage.center.y + 10);
+        self.lightImage.center = CGPointMake(self.lightImage.center.x + 5, self.lightImage.center.y + 10);
+        
         self.airQuality.center = CGPointMake(self.airQuality.center.x, self.airQuality.center.y + 10);
         self.main.center = CGPointMake(self.main.center.x, self.main.center.y + 15);
         self.mainLable.center = CGPointMake(self.mainLable.center.x, self.mainLable.center.y + 30);
@@ -115,6 +121,8 @@
         self.divider2.center = CGPointMake(self.divider2.center.x, self.divider2.center.y + 50);
         self.divider3.center = CGPointMake(self.divider3.center.x, self.divider3.center.y + 50);
     } else {
+        self.lightImage.center = CGPointMake(self.lightImage.center.x - 25, self.lightImage.center.y);
+        
         self.airQuality.center = CGPointMake(self.airQuality.center.x, self.airQuality.center.y - 15);
         self.main.center = CGPointMake(self.main.center.x, self.main.center.y - 20);
         self.mainLable.center = CGPointMake(self.mainLable.center.x, self.mainLable.center.y - 15);
@@ -130,6 +138,7 @@
         
         self.electric.frame = CGRectMake(self.electric.frame.origin.x + 34, self.electric.frame.origin.y, self.electric.frame.size.width*0.8, self.electric.frame.size.height*0.8);
         self.mainImage.frame = CGRectMake(self.mainImage.frame.origin.x, self.mainImage.frame.origin.y, self.mainImage.frame.size.width*0.8, self.mainImage.frame.size.height*0.8);
+        self.lightImage.frame = CGRectMake(self.lightImage.frame.origin.x, self.lightImage.frame.origin.y, self.lightImage.frame.size.width*0.8, self.lightImage.frame.size.height*0.8);
         [self.airQuality setFont:[UIFont fontWithName:self.airQuality.font.fontName size:self.airQuality.font.pointSize - 5]];
         [self.main setFont:[UIFont fontWithName:self.main.font.fontName size:self.main.font.pointSize - 10]];
     }
@@ -307,6 +316,18 @@
                 [self.airQuality setText:@"差"];
                 [self.mainImage setImage:[UIImage animatedImageWithAnimatedGIFURL:[[NSBundle mainBundle] URLForResource:@"rank_4" withExtension:@"gif"]]];
             }
+        }
+        
+        NSInteger x14 = [data[@"x14"] integerValue];
+        if(x14 <= 0) {
+            return;
+        }
+        if(x14 > 500) {
+            [self.lightImage setImage:[UIImage imageNamed:@"light_01.png"]];
+        } else if(x14 < 100) {
+            [self.lightImage setImage:[UIImage imageNamed:@"light_03.png"]];
+        } else {
+            [self.lightImage setImage:[UIImage imageNamed:@"light_02.png"]];
         }
     }
 }
