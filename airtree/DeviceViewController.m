@@ -199,7 +199,7 @@
 
 - (BOOL) checkDeviceStatus {
     if ([self.pageDevice[@"status"] integerValue] != 1) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:@"请启动空气树设备" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:@"请启动空气数设备" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
         return TRUE;
     } else {
