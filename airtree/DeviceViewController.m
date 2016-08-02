@@ -324,7 +324,7 @@
         }
         if(x14 > 500) {
             [self.lightImage setImage:[UIImage imageNamed:@"light_01.png"]];
-        } else if(x14 < 100) {
+        } else if(x14 < 240) {
             [self.lightImage setImage:[UIImage imageNamed:@"light_03.png"]];
         } else {
             [self.lightImage setImage:[UIImage imageNamed:@"light_02.png"]];
