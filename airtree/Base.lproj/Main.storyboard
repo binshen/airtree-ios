@@ -21,7 +21,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pmy-oE-cRD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-650.5" y="348.5"/>
+            <point key="canvasLocation" x="-683.5" y="372.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -41,7 +41,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gcr-ra-RZy">
                                 <rect key="frame" x="23" y="278" width="330" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YkE-5b-DSQ">
                                 <rect key="frame" x="23" y="335" width="330" height="30"/>
@@ -1396,6 +1396,6 @@
         <image name="lx_icon.png" width="27" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rrx-3w-Sl8"/>
+        <segue reference="0Mm-Vd-xCQ"/>
     </inferredMetricsTieBreakers>
 </document>
