@@ -27,8 +27,10 @@
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:20/255.0 green:155/255.0 blue:213/255.0 alpha:1.0]];
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,nil]];
     
-    [self.TxtUsername setText:@"13999999999"];
-    [self.TxtPassword setText:@"888888"];
+    //[self.TxtUsername setText:@"13999999999"];
+    //[self.TxtPassword setText:@"888888"];
+    
+    self.TxtUsername.delegate = self;
     
 //    if([[NSUserDefaults standardUserDefaults] stringForKey:@"user_id"] != nil){
 //        NSMutableDictionary *loginUser = [[NSMutableDictionary alloc] init];
@@ -54,6 +56,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSUInteger newLength = [textField.text length] + [string length] - range.length;
+    return (newLength > 11) ? NO : YES;
 }
 
 - (IBAction)clickLoginButton:(id)sender {

@@ -24,6 +24,8 @@
     // Do any additional setup after loading the view.
     
     [self.navigationController setNavigationBarHidden:FALSE animated:NO];
+    
+    self.TextTel.delegate = self;
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -37,6 +39,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSUInteger newLength = [textField.text length] + [string length] - range.length;
+    return (newLength > 11) ? NO : YES;
 }
 
 - (IBAction)ClickBtnValidate:(id)sender {
@@ -71,7 +78,6 @@
         }];
         [host startRequest:request];
     }
-
 }
 
 - (IBAction)ClickBtnRegister:(id)sender {

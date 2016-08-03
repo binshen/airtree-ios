@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ForgetPwdController : UIViewController
+@interface ForgetPwdController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *BtnValidate;
 @property (weak, nonatomic) IBOutlet UIButton *BtnResetPwd;

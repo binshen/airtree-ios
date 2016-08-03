@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RegisterController : UIViewController
+@interface RegisterController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *BtnValidate;
 @property (weak, nonatomic) IBOutlet UIButton *BtnRegister;

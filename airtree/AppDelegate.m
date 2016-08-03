@@ -24,6 +24,7 @@
     _backgroundRunningTimeInterval = 0;
     [self performSelectorInBackground:@selector(runningInBackground) withObject:nil];
     
+    [[UITextField appearance] setTintColor:[UIColor blackColor]];
     
     if([[NSUserDefaults standardUserDefaults] stringForKey:@"user_id"] != nil){
         NSMutableDictionary *loginUser = [[NSMutableDictionary alloc] init];

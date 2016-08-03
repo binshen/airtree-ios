@@ -24,6 +24,8 @@
     // Do any additional setup after loading the view.
     
     [self.navigationController setNavigationBarHidden:FALSE animated:NO];
+    
+    self.TextTel.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,6 +39,11 @@
     if(self.timer != nil) {
         [self.timer invalidate];
     }
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSUInteger newLength = [textField.text length] + [string length] - range.length;
+    return (newLength > 11) ? NO : YES;
 }
 
 - (IBAction)ClickBtnValidate:(id)sender {
