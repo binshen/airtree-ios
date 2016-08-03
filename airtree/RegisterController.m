@@ -26,6 +26,7 @@
     [self.navigationController setNavigationBarHidden:FALSE animated:NO];
     
     self.TextTel.delegate = self;
+    self.TextTel.keyboardType = UIKeyboardTypeNumberPad;
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
