@@ -1266,29 +1266,6 @@
                                 <color key="textColor" red="0.1296322382" green="0.4020855518" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V40-JQ-9D8">
-                                <rect key="frame" x="0.0" y="551" width="375" height="116"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="lx_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="8zK-mS-7yS">
-                                        <rect key="frame" x="20" y="37" width="20" height="19"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="滤芯寿命" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNp-zA-VdG">
-                                        <rect key="frame" x="48" y="35" width="68" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" progress="0.20000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="Ijd-Am-3ef">
-                                        <rect key="frame" x="20" y="80" width="335" height="2"/>
-                                    </progressView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.095261928649999994" green="0.67802096000000001" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Ijd-Am-3ef" secondAttribute="trailing" constant="20" id="6cA-dh-MNo"/>
-                                    <constraint firstItem="Ijd-Am-3ef" firstAttribute="leading" secondItem="V40-JQ-9D8" secondAttribute="leading" constant="20" id="axd-fV-a9i"/>
-                                    <constraint firstItem="8zK-mS-7yS" firstAttribute="leading" secondItem="V40-JQ-9D8" secondAttribute="leading" constant="20" id="oPG-dN-dga"/>
-                                </constraints>
-                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RtQ-q2-tkC">
                                 <rect key="frame" x="0.0" y="349" width="375" height="1"/>
                                 <color key="backgroundColor" red="0.095261928649999994" green="0.67802096000000001" blue="0.92264441289999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1355,12 +1332,9 @@
                             <constraint firstItem="kiS-rp-7RW" firstAttribute="top" secondItem="naN-vq-4a7" secondAttribute="bottom" constant="35" id="Gxm-vs-UQC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RtQ-q2-tkC" secondAttribute="trailing" constant="-20" id="MxB-rm-ka5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="naN-vq-4a7" secondAttribute="trailing" constant="39" id="O7r-ql-X89"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="V40-JQ-9D8" secondAttribute="trailing" constant="-20" id="TvV-6C-yNX"/>
                             <constraint firstItem="kiS-rp-7RW" firstAttribute="leading" secondItem="H7s-zA-HoK" secondAttribute="leadingMargin" constant="90" id="UZb-te-uV7"/>
-                            <constraint firstItem="qg0-LQ-wLT" firstAttribute="top" secondItem="V40-JQ-9D8" secondAttribute="bottom" id="cJu-Qu-Oa3"/>
                             <constraint firstItem="6gj-5P-bYE" firstAttribute="leading" secondItem="H7s-zA-HoK" secondAttribute="leadingMargin" constant="46" id="jWn-Da-H7Q"/>
                             <constraint firstItem="naN-vq-4a7" firstAttribute="leading" secondItem="H7s-zA-HoK" secondAttribute="leadingMargin" constant="38" id="nPF-NT-gjQ"/>
-                            <constraint firstItem="V40-JQ-9D8" firstAttribute="leading" secondItem="H7s-zA-HoK" secondAttribute="leadingMargin" constant="-20" id="nQl-bH-Zup"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6gj-5P-bYE" secondAttribute="trailing" constant="47" id="pa0-LP-n7v"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kiS-rp-7RW" secondAttribute="trailing" constant="91" id="yYP-u6-5XR"/>
                         </constraints>
@@ -1369,11 +1343,16 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="DateSelect" destination="6gj-5P-bYE" id="6y1-It-fvg"/>
+                        <outlet property="DividerLine" destination="RtQ-q2-tkC" id="ceN-bG-FBO"/>
                         <outlet property="LabelDescription" destination="kiS-rp-7RW" id="XUc-c1-wiH"/>
+                        <outlet property="formaldehydeLabel" destination="Ohs-dl-a55" id="8iO-4B-ydz"/>
                         <outlet property="formaldehydeValue" destination="N3U-BS-iYV" id="JYq-PZ-95P"/>
+                        <outlet property="humidityLabel" destination="PJe-ny-amp" id="P15-6j-LGm"/>
                         <outlet property="humidityValue" destination="EUE-P6-ctE" id="ud8-IQ-Io0"/>
                         <outlet property="mainValue" destination="naN-vq-4a7" id="97m-Ej-4Fp"/>
+                        <outlet property="pm25Label" destination="Ld1-oA-R4A" id="thF-oz-91T"/>
                         <outlet property="pm25Value" destination="aAC-gJ-lVm" id="l3m-9l-oza"/>
+                        <outlet property="temperatureLabel" destination="e0m-vb-Ygm" id="Idc-tp-8ge"/>
                         <outlet property="temperatureValue" destination="9ZU-3S-eEU" id="gJn-NJ-iFP"/>
                     </connections>
                 </viewController>
@@ -1393,7 +1372,6 @@
         <image name="ic_shop_w_25.png" width="25" height="25"/>
         <image name="line_icon.png" width="1" height="149"/>
         <image name="logo2.png" width="850" height="374"/>
-        <image name="lx_icon.png" width="27" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0Mm-Vd-xCQ"/>
