@@ -23,4 +23,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *humidityValue;
 @property (weak, nonatomic) IBOutlet UILabel *formaldehydeValue;
 
+@property (weak, nonatomic) IBOutlet UILabel *pm25Label;
+@property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
+@property (weak, nonatomic) IBOutlet UILabel *humidityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *formaldehydeLabel;
+
+@property (weak, nonatomic) IBOutlet UIImageView *DividerLine;
+
 @end

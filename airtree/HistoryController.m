@@ -13,6 +13,19 @@
 
 @interface HistoryController ()
 
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define IS_RETINA ([[UIScreen mainScreen] scale] >= 2.0)
+
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+#define SCREEN_MAX_LENGTH (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
+#define SCREEN_MIN_LENGTH (MIN(SCREEN_WIDTH, SCREEN_HEIGHT))
+
+#define IS_IPHONE_4_OR_LESS (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
+#define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
+#define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
+#define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
 
 @end
 
@@ -31,6 +44,21 @@
     
     self.LabelDescription.layer.cornerRadius = 18;
     self.LabelDescription.layer.masksToBounds = TRUE;
+    
+    if(IS_IPHONE_5) {
+//        float unit = SCREEN_WIDTH / 8;
+//        self.pm25Value.center = CGPointMake(unit, self.pm25Value.center.y);
+//        self.pm25Label.center = CGPointMake(unit, self.pm25Label.center.y);
+//        
+//        self.temperatureValue.center = CGPointMake(3*unit, self.temperatureValue.center.y);
+//        self.temperatureLabel.center = CGPointMake(3*unit, self.temperatureLabel.center.y);
+//        
+//        self.humidityValue.center = CGPointMake(5*unit, self.humidityValue.center.y);
+//        self.humidityLabel.center = CGPointMake(5*unit, self.humidityLabel.center.y);
+//        
+//        self.formaldehydeValue.center = CGPointMake(7*unit - 60, self.formaldehydeValue.center.y);
+//        self.formaldehydeLabel.center = CGPointMake(7*unit, self.formaldehydeLabel.center.y);
+    }
 }
 
 -(void)pickerChanged:(id)sender {
@@ -93,7 +121,7 @@
             [self.mainValue setText:@"0"];
             [self.pm25Value setText:@"0ug/m³"];
             [self.temperatureValue setText:@"0℃"];
-            [self.humidityValue setText:@"0%%"];
+            [self.humidityValue setText:@"0%"];
             [self.formaldehydeValue setText:@"0mg/m³"];
         } else {
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
@@ -107,7 +135,7 @@
                 [self.mainValue setText:json[@"x3"] == nil || (NSNull *)json[@"x3"] == [NSNull null] ? @"0" : [NSString stringWithFormat:@"%.f", round([json[@"x3"] floatValue])]];
                 [self.pm25Value setText:json[@"x1"] == nil || (NSNull *)json[@"x1"] == [NSNull null] ? @"0ug/m³" : [NSString stringWithFormat:@"%.fug/m³", round([json[@"x1"] floatValue])]];
                 [self.temperatureValue setText:json[@"x11"] == nil || (NSNull *)json[@"x11"] == [NSNull null] ? @"0℃" : [NSString stringWithFormat:@"%.f℃", round([json[@"x11"] floatValue])]];
-                [self.humidityValue setText:json[@"x10"] == nil || (NSNull *)json[@"x10"] == [NSNull null] ? @"0%%" : [NSString stringWithFormat:@"%.f%%", round([json[@"x10"] floatValue])]];
+                [self.humidityValue setText:json[@"x10"] == nil || (NSNull *)json[@"x10"] == [NSNull null] ? @"0%" : [NSString stringWithFormat:@"%.f%%", round([json[@"x10"] floatValue])]];
                 [self.formaldehydeValue setText:json[@"x9"] == nil || (NSNull *)json[@"x9"] == [NSNull null] ? @"0mg/m³" : [NSString stringWithFormat:@"%.fmg/m³", round([json[@"x9"] floatValue])]];
             }
         }
