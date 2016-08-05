@@ -10,4 +10,6 @@
 
 @interface DeviceInfoController : UITableViewController <UIAlertViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
+
 @end

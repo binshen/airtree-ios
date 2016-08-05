@@ -38,6 +38,12 @@
     
     if (IS_IPHONE_6P || IS_IPHONE_6) {
         self.LabelCreatedTime.center = CGPointMake(self.LabelCreatedTime.center.x, self.LabelCreatedTime.center.y - 10);
+    } else if(IS_IPHONE_4_OR_LESS) {
+        self.LabelCreatedTime.center = CGPointMake(self.LabelCreatedTime.center.x, self.LabelCreatedTime.center.y - 40);
+        self.ImgChart.center = CGPointMake(self.ImgChart.center.x, self.ImgChart.center.y - 60);
+        self.LabelTop.center = CGPointMake(self.LabelTop.center.x, self.LabelTop.center.y - 60);
+        self.LabelMain.center = CGPointMake(self.LabelMain.center.x, self.LabelMain.center.y - 60);
+        self.LabelBottom.center = CGPointMake(self.LabelBottom.center.x, self.LabelBottom.center.y - 60);
     } else {
         self.LabelCreatedTime.center = CGPointMake(self.LabelCreatedTime.center.x, self.LabelCreatedTime.center.y - 30);
         self.ImgChart.center = CGPointMake(self.ImgChart.center.x, self.ImgChart.center.y - 40);

@@ -23,4 +23,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *ImgStatus;
 @property (weak, nonatomic) IBOutlet UILabel *LabelStatus;
 
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
+
 @end

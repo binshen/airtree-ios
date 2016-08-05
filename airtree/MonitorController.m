@@ -91,6 +91,25 @@
     self.pageControl.currentPage = self.pageIndex;
 }
 
+- (void)viewDidLayoutSubviews {
+    
+    if(IS_IPHONE_4_OR_LESS) {
+        self.ImgStatus.frame = CGRectMake(self.ImgStatus.frame.origin.x, self.ImgStatus.frame.origin.y, self.ImgStatus.frame.size.width*0.7, self.ImgStatus.frame.size.height*0.7);
+        
+        self.LabelStatus.center = CGPointMake(self.LabelStatus.center.x, self.LabelStatus.center.y - 20);
+        self.LabelStatus.font = [UIFont systemFontOfSize: 15];
+        
+        NSLayoutConstraint *heightConstraint;
+        for (NSLayoutConstraint *constraint in self.bottomView.constraints) {
+            if (constraint.firstAttribute == NSLayoutAttributeHeight) {
+                heightConstraint = constraint;
+                break;
+            }
+        }
+        heightConstraint.constant = 80;
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

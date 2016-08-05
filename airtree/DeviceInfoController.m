@@ -53,7 +53,14 @@
     NSDictionary *device = self.appDelegate.selectedDevice;
     if([device[@"type"] integerValue] == 1) {
         [self autoRefreshData];
-    }}
+    }
+    
+    if(IS_IPHONE_4_OR_LESS) {
+        CGRect frame = self.bottomView.frame;
+        frame.size.height = 60;
+        [self.bottomView setFrame:frame];
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -114,6 +121,8 @@
         cell.detailTextLabel.text = self.checkStatus;
         if(IS_IPHONE_5) {
             cell.detailTextLabel.font = [UIFont systemFontOfSize: 15];
+        } else if(IS_IPHONE_4_OR_LESS) {
+            cell.detailTextLabel.font = [UIFont systemFontOfSize: 14];
         }
     }];
     [host startRequest:request];
@@ -190,6 +199,9 @@
         case 0:
             cell.textLabel.text = @"设备编码";
             cell.detailTextLabel.text = device[@"_id"];
+            if(IS_IPHONE_4_OR_LESS) {
+                cell.detailTextLabel.font = [UIFont systemFontOfSize: 15];
+            }
             break;
         case 1:
             cell.textLabel.text = @"设备名称";
