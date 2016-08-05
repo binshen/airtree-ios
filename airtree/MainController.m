@@ -76,8 +76,6 @@
     self.pageControl.userInteractionEnabled = NO;
     self.pageControl.currentPage = 0;
     self.pageControl.transform = CGAffineTransformMakeScale(1.2, 1.2);
-    
-    self.spinner.center = self.view.center;
 }
 
 -(void) viewWillAppear:(BOOL)animated {
@@ -91,6 +89,7 @@
 }
 
 - (void)viewDidLayoutSubviews {
+    self.spinner.center = self.view.center;
     
     if(IS_IPHONE_5 || IS_IPHONE_4_OR_LESS) {
         NSLayoutConstraint *heightConstraint;
