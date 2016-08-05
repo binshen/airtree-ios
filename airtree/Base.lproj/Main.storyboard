@@ -389,6 +389,7 @@
                     <connections>
                         <outlet property="ImgStatus" destination="DjI-55-iOI" id="Chz-Rz-rHe"/>
                         <outlet property="LabelStatus" destination="9FF-NY-b4s" id="qGP-5e-jDJ"/>
+                        <outlet property="bottomView" destination="2cf-3n-flM" id="lXz-Ub-8eJ"/>
                         <outlet property="pageControl" destination="ci6-Mf-Zm7" id="v9Z-i5-maJ"/>
                         <outlet property="scrollView" destination="3Gb-u4-XQB" id="MPh-Tf-X6b"/>
                     </connections>
@@ -1094,6 +1095,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="设备详细" id="HdQ-C1-Txm"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="bottomView" destination="De5-IO-We3" id="4qp-wu-1Q5"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="chJ-PS-1Hn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
