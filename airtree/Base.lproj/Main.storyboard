@@ -564,6 +564,7 @@
                     <connections>
                         <outlet property="BtnDevice" destination="x8d-nm-NGD" id="jTE-id-zc9"/>
                         <outlet property="BtnOnlineShop" destination="Ho0-kD-B95" id="dgu-9M-7Jh"/>
+                        <outlet property="bottomView" destination="Kj4-g5-oPh" id="pig-r5-hCt"/>
                         <outlet property="pageControl" destination="JWD-qz-RDh" id="jcW-lU-0uU"/>
                         <outlet property="scrollView" destination="y5k-5G-jjc" id="yxc-70-bpR"/>
                         <outlet property="spinner" destination="dju-Ez-J9l" id="FRM-oG-89N"/>
