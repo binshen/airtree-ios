@@ -120,6 +120,32 @@
         self.divider1.center = CGPointMake(self.divider1.center.x, self.divider1.center.y + 50);
         self.divider2.center = CGPointMake(self.divider2.center.x, self.divider2.center.y + 50);
         self.divider3.center = CGPointMake(self.divider3.center.x, self.divider3.center.y + 50);
+        
+    } else if(IS_IPHONE_4_OR_LESS) {
+        self.electric.center = CGPointMake(self.electric.center.x + 40, self.electric.center.y - 8);
+        self.mainImage.center = CGPointMake(self.mainImage.center.x, self.mainImage.center.y - 10);
+        self.lightImage.center = CGPointMake(self.lightImage.center.x - 20, self.lightImage.center.y - 15);
+        
+        self.airQuality.center = CGPointMake(self.airQuality.center.x, self.airQuality.center.y - 35);
+        self.main.center = CGPointMake(self.main.center.x, self.main.center.y - 50);
+        self.mainLable.center = CGPointMake(self.mainLable.center.x, self.mainLable.center.y - 50);
+        self.suggest.center = CGPointMake(self.suggest.center.x, self.suggest.center.y - 50);
+        
+        self.viewPm25.center = CGPointMake(self.viewPm25.center.x, self.viewPm25.center.y - 60);
+        self.viewTemperature.center = CGPointMake(self.viewTemperature.center.x, self.viewTemperature.center.y - 60);
+        self.viewHumidity.center = CGPointMake(self.viewHumidity.center.x, self.viewHumidity.center.y - 60);
+        self.viewFormaldehyde.center = CGPointMake(self.viewFormaldehyde.center.x, self.viewFormaldehyde.center.y - 60);
+        self.divider1.center = CGPointMake(self.divider1.center.x, self.divider1.center.y - 60);
+        self.divider2.center = CGPointMake(self.divider2.center.x, self.divider2.center.y - 60);
+        self.divider3.center = CGPointMake(self.divider3.center.x, self.divider3.center.y - 60);
+        
+        self.electric.frame = CGRectMake(self.electric.frame.origin.x + 30, self.electric.frame.origin.y, self.electric.frame.size.width*0.6, self.electric.frame.size.height*0.6);
+        self.mainImage.frame = CGRectMake(self.mainImage.frame.origin.x, self.mainImage.frame.origin.y, self.mainImage.frame.size.width*0.7, self.mainImage.frame.size.height*0.7);
+        self.lightImage.frame = CGRectMake(self.lightImage.frame.origin.x, self.lightImage.frame.origin.y, self.lightImage.frame.size.width*0.7, self.lightImage.frame.size.height*0.7);
+
+        [self.airQuality setFont:[UIFont fontWithName:self.airQuality.font.fontName size:self.airQuality.font.pointSize - 10]];
+        [self.main setFont:[UIFont fontWithName:self.main.font.fontName size:self.main.font.pointSize - 15]];
+        
     } else {
         self.lightImage.center = CGPointMake(self.lightImage.center.x - 25, self.lightImage.center.y);
         
