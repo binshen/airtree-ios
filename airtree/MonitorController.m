@@ -48,7 +48,7 @@
     CGRect rect = self.scrollView.frame;
     
     CGFloat width = SCREEN_WIDTH;
-    if(IS_IPHONE_6 || IS_IPHONE_5) {
+    if(IS_IPHONE_6 || IS_IPHONE_5 || IS_IPHONE_4_OR_LESS) {
         width = SCREEN_WIDTH + 8;
     }
     
@@ -94,10 +94,14 @@
 - (void)viewDidLayoutSubviews {
     
     if(IS_IPHONE_4_OR_LESS) {
-        self.ImgStatus.frame = CGRectMake(self.ImgStatus.frame.origin.x, self.ImgStatus.frame.origin.y, self.ImgStatus.frame.size.width*0.7, self.ImgStatus.frame.size.height*0.7);
+        self.ImgStatus.frame = CGRectMake(self.ImgStatus.frame.origin.x, self.ImgStatus.frame.origin.y - 5, self.ImgStatus.frame.size.width*0.7, self.ImgStatus.frame.size.height*0.7);
         
-        self.LabelStatus.center = CGPointMake(self.LabelStatus.center.x, self.LabelStatus.center.y - 20);
+        self.LabelStatus.center = CGPointMake(self.LabelStatus.center.x, self.LabelStatus.center.y - 25);
         self.LabelStatus.font = [UIFont systemFontOfSize: 15];
+        
+        CGRect frame = self.LabelStatus.frame;
+        frame.size.width = 220;
+        [self.LabelStatus setFrame:frame];
         
         NSLayoutConstraint *heightConstraint;
         for (NSLayoutConstraint *constraint in self.bottomView.constraints) {
@@ -107,6 +111,11 @@
             }
         }
         heightConstraint.constant = 80;
+        
+    } else if (IS_IPHONE_5) {
+        CGRect frame = self.LabelStatus.frame;
+        frame.size.width = 220;
+        [self.LabelStatus setFrame:frame];
     }
 }
 
