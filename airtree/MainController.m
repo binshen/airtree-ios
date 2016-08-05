@@ -92,7 +92,7 @@
 
 - (void)viewDidLayoutSubviews {
     
-    if(IS_IPHONE_4_OR_LESS) {
+    if(IS_IPHONE_5 || IS_IPHONE_4_OR_LESS) {
         NSLayoutConstraint *heightConstraint;
         for (NSLayoutConstraint *constraint in self.bottomView.constraints) {
             if (constraint.firstAttribute == NSLayoutAttributeHeight) {
@@ -100,7 +100,11 @@
                 break;
             }
         }
-        heightConstraint.constant = 60;
+        if(IS_IPHONE_5) {
+            heightConstraint.constant = 80;
+        } else {
+            heightConstraint.constant = 60;
+        }
     }
 }
 
