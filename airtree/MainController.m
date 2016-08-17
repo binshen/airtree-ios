@@ -126,14 +126,12 @@
         //NSLog(@"Response: %@", response);
         
         NSError *error = [completedRequest error];
-        
         NSData *data = [completedRequest responseData];
-        if (data != nil) {
+        // 初始化page control的内容
+        self.contentList = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        if (data != nil && [self.contentList count] != 0) {
             // 解决OOM问题
             [[self.scrollView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-            
-            // 初始化page control的内容
-            self.contentList = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
             // 一共有多少页
             self.numberPages = self.contentList.count;
             // 存储所有的controller

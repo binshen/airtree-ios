@@ -26,7 +26,7 @@
     
     [[UITextField appearance] setTintColor:[UIColor blackColor]];
     
-    if([[NSUserDefaults standardUserDefaults] stringForKey:@"user_id"] != nil){
+    if([[NSUserDefaults standardUserDefaults] stringForKey:@"user_id"] != nil && [[NSUserDefaults standardUserDefaults] stringForKey:@"nickname"] != nil){
         NSMutableDictionary *loginUser = [[NSMutableDictionary alloc] init];
         [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"user_id"] forKey:@"_id"];
         [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"username"] forKey:@"username"];
