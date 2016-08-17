@@ -70,6 +70,8 @@
 }
 
 - (IBAction)clickDateButton:(id)sender {
+    [self.pickerView removeFromSuperview];
+    
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = screenRect.size.width;
     CGFloat screenHeight = screenRect.size.height;
@@ -80,6 +82,7 @@
     
     [self.pickerView setHidden:NO];
     [self.pickerView setMode:UIDatePickerModeDate];
+    
     [self.view addSubview:self.pickerView];
 
     //[self.pickerView.picker addTarget:self action:@selector(pickerChanged:) forControlEvents:UIControlEventValueChanged];
