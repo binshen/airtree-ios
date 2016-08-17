@@ -281,7 +281,7 @@
         NSInteger p1 = [data[@"p1"] integerValue];
         if(p1 == 3) {
             if([data objectForKey:@"x9"]) {
-                [self.main setText:[NSString stringWithFormat:@"%@", data[@"x9"]]];
+                [self.main setText:[NSString stringWithFormat:@"%.2f", [data[@"x9"] floatValue]]];
                 [self.mainLable setText:@"当前甲醛浓度（mg/m³）"];
             } else {
                 [self.main setText:@"未知"];
