@@ -27,6 +27,9 @@
     
     self.TextTel.delegate = self;
     self.TextTel.keyboardType = UIKeyboardTypeNumberPad;
+    self.TextCode.delegate = self;
+    self.TextCode.keyboardType = UIKeyboardTypeNumberPad;
+    self.TextPwd.keyboardType = UIKeyboardTypeAlphabet;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,7 +47,12 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     NSUInteger newLength = [textField.text length] + [string length] - range.length;
-    return (newLength > 11) ? NO : YES;
+    
+    NSUInteger length = 11;
+    if (textField == self.TextCode){
+        length = 6;
+    }
+    return (newLength > length) ? NO : YES;
 }
 
 - (IBAction)ClickBtnValidate:(id)sender {

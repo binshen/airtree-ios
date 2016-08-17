@@ -32,6 +32,7 @@
     
     self.TxtUsername.delegate = self;
     self.TxtUsername.keyboardType = UIKeyboardTypeNumberPad;
+    self.TxtPassword.keyboardType = UIKeyboardTypeAlphabet;
     
 //    if([[NSUserDefaults standardUserDefaults] stringForKey:@"user_id"] != nil){
 //        NSMutableDictionary *loginUser = [[NSMutableDictionary alloc] init];
