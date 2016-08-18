@@ -90,7 +90,12 @@
             [self.ImgChart setImage:[UIImage imageNamed:@"bg_shidu_s.png"]];
         } else {
             self.LabelTop.text = @"甲醛";
-            self.LabelMain.text = [NSString stringWithFormat:@"%.2f", [data[@"x9"] floatValue]];
+            float x9 = [data[@"x9"] floatValue];
+            if(x9 == 0) {
+                self.LabelMain.text = @"0";
+            } else {
+                self.LabelMain.text = [NSString stringWithFormat:@"%.2f", [data[@"x9"] floatValue]];
+            }
             self.LabelBottom.text = @"mg/m³";
             [self.ImgChart setImage:[UIImage imageNamed:@"bg_jiaquan_s.png"]];
         }

@@ -281,7 +281,12 @@
         NSInteger p1 = [data[@"p1"] integerValue];
         if(p1 == 3) {
             if([data objectForKey:@"x9"]) {
-                [self.main setText:[NSString stringWithFormat:@"%.2f", [data[@"x9"] floatValue]]];
+                float x9 = [data[@"x9"] floatValue];
+                if(x9 == 0) {
+                    [self.main setText:@"0"];
+                } else {
+                    [self.main setText:[NSString stringWithFormat:@"%.2f", [data[@"x9"] floatValue]]];
+                }
                 [self.mainLable setText:@"当前甲醛浓度（mg/m³）"];
             } else {
                 [self.main setText:@"未知"];
@@ -309,7 +314,12 @@
         [self.pm25Value setText:[NSString stringWithFormat:@"%@ug/m³", data[@"x1"]]];
         [self.temperatureValue setText:[NSString stringWithFormat:@"%@℃", data[@"x11"]]];
         [self.humidityValue setText:[NSString stringWithFormat:@"%@%%", data[@"x10"]]];
-        [self.formaldehydeValue setText:[NSString stringWithFormat:@"%@mg/m³", data[@"x9"]]];
+        float x9 = [data[@"x9"] floatValue];
+        if(x9 == 0) {
+            [self.formaldehydeValue setText:@"0mg/m³"];
+        } else {
+            [self.formaldehydeValue setText:[NSString stringWithFormat:@"%.2fmg/m³", [data[@"x9"] floatValue]]];
+        }
         
         if(p1 > 0) {
             NSInteger feiLevel = [data[@"fei"] integerValue];

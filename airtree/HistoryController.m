@@ -119,7 +119,7 @@
                 [self.mainValue setText:@"0"];
                 [self.pm25Value setText:@"0ug/m³"];
                 [self.temperatureValue setText:@"0℃"];
-                [self.humidityValue setText:@"0%%"];
+                [self.humidityValue setText:@"0%"];
                 [self.formaldehydeValue setText:@"0mg/m³"];
             } else {
                 [self.mainValue setText:json[@"x3"] == nil || (NSNull *)json[@"x3"] == [NSNull null] ? @"0" : [NSString stringWithFormat:@"%.f", round([json[@"x3"] floatValue])]];
