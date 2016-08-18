@@ -202,6 +202,15 @@
     }
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)sender {
+    // Update the page when more than 50% of the previous/next page is visible
+    CGFloat pageWidth = sender.frame.size.width;
+    int page = floor((sender.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    
+    // !!! but here is another problem. You should find reference to appropriate pageControl
+    self.pageControl.currentPage = page;
+}
+
 /*
 #pragma mark - Navigation
 
