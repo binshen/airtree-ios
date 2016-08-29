@@ -10,6 +10,6 @@
 
 @implementation Constants
 
-NSString * const MORAL_API_BASE_PATH = @"121.40.92.176:3000";
+NSString * const MORAL_API_BASE_PATH = @"api.7drlb.com";
 
 @end
