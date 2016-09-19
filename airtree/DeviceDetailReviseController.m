@@ -21,7 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
     NSDictionary *device = appDelegate.selectedDevice;
     if (device[@"name"] != nil) {
         [self.TextDeviceName setText:device[@"name"]];
@@ -41,7 +41,7 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:@"请输入设备名称." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     } else {
-        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
         NSDictionary *loginUser = appDelegate.loginUser;
         NSMutableDictionary *device = appDelegate.selectedDevice;
         

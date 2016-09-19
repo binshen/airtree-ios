@@ -39,7 +39,7 @@
     NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
     
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
     NSDictionary  *loginUser = appDelegate.loginUser;
     NSString *nickname = loginUser[@"nickname"] == nil ? loginUser[@"username"] : loginUser[@"nickname"];
     NSLog(@"Nickname: %@", nickname);
@@ -55,7 +55,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([[segue identifier] isEqualToString:@"SegueToLogout"]) {
         
-        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
         NSDictionary  *loginUser = appDelegate.loginUser;
         
         NSString *path = [NSString stringWithFormat:@"/user/%@/offline", loginUser[@"_id"]];
@@ -94,7 +94,7 @@
     }
     
     NSUInteger index = [indexPath row];
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
     NSDictionary  *loginUser = appDelegate.loginUser;
     NSString *nickname = loginUser[@"nickname"] == nil ? loginUser[@"username"] : loginUser[@"nickname"];
     switch (index) {

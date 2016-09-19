@@ -21,7 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
     NSDictionary  *loginUser = appDelegate.loginUser;
     if (loginUser[@"nickname"] != nil) {
         [self.TextNickname setText:loginUser[@"nickname"]];
@@ -38,7 +38,7 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:@"请输入昵称." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     } else {
-        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
         NSMutableDictionary *loginUser = appDelegate.loginUser;
         
         NSString *path = [NSString stringWithFormat:@"/user/%@/update_name", loginUser[@"_id"]];

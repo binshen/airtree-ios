@@ -35,7 +35,7 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:@"请输入反馈信息." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     } else {
-        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
         NSDictionary  *loginUser = appDelegate.loginUser;
         
         NSString *path = [NSString stringWithFormat:@"/user/%@/feedback", loginUser[@"_id"]];

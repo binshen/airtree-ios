@@ -49,7 +49,7 @@
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     
-    self.appDelegate = [[UIApplication sharedApplication] delegate];
+    self.appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
     NSDictionary *device = self.appDelegate.selectedDevice;
     if([device[@"type"] integerValue] == 1) {
         [self autoRefreshData];
@@ -73,7 +73,7 @@
     NSIndexPath* indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
     UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
     
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
     NSDictionary *device = appDelegate.selectedDevice;
     NSString *deviceName = device[@"name"] == nil ? device[@"mac"] : device[@"name"];
     NSLog(@"DeviceName: %@", deviceName);

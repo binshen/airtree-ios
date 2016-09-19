@@ -13,6 +13,19 @@
 
 @interface HistoryController ()
 
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define IS_RETINA ([[UIScreen mainScreen] scale] >= 2.0)
+
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+#define SCREEN_MAX_LENGTH (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
+#define SCREEN_MIN_LENGTH (MIN(SCREEN_WIDTH, SCREEN_HEIGHT))
+
+#define IS_IPHONE_4_OR_LESS (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
+#define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
+#define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
+#define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
 
 @end
 
@@ -34,6 +47,32 @@
 }
 
 - (void)viewDidLayoutSubviews {
+
+    if(IS_IPHONE_5) {
+        self.DateSelect.center = CGPointMake(self.DateSelect.center.x, self.DateSelect.center.y - 20);
+        self.mainValue.center = CGPointMake(self.mainValue.center.x, self.mainValue.center.y - 50);
+        self.LabelDescription.center = CGPointMake(self.LabelDescription.center.x, self.LabelDescription.center.y + 40);
+        self.DividerLine.center = CGPointMake(self.DividerLine.center.x, self.DividerLine.center.y + 20);
+
+        self.LabelDescription.font = [UIFont systemFontOfSize: 15];
+
+        self.pm25Value.font = [UIFont systemFontOfSize: 14];
+        self.pm25Label.font = [UIFont systemFontOfSize: 14];
+        self.temperatureValue.font = [UIFont systemFontOfSize: 14];
+        self.temperatureLabel.font = [UIFont systemFontOfSize: 14];
+        self.humidityValue.font = [UIFont systemFontOfSize: 14];
+        self.humidityLabel.font = [UIFont systemFontOfSize: 14];
+        self.formaldehydeValue.font = [UIFont systemFontOfSize: 14];
+        self.formaldehydeLabel.font = [UIFont systemFontOfSize: 14];
+
+    } else if(IS_IPHONE_6) {
+        self.mainValue.center = CGPointMake(self.mainValue.center.x, self.mainValue.center.y - 15);
+    } else if(IS_IPHONE_6P) {
+        self.DateSelect.center = CGPointMake(self.DateSelect.center.x, self.DateSelect.center.y + 25);
+        self.mainValue.center = CGPointMake(self.mainValue.center.x, self.mainValue.center.y + 30);
+        self.LabelDescription.font = [UIFont systemFontOfSize: 20];
+    }
+
     float unit = [[UIScreen mainScreen] bounds].size.width / 8;
     self.pm25Value.center = CGPointMake(unit, self.pm25Value.center.y);
     self.pm25Label.center = CGPointMake(unit, self.pm25Label.center.y);
@@ -76,7 +115,7 @@
     CGFloat screenWidth = screenRect.size.width;
     CGFloat screenHeight = screenRect.size.height;
     
-    self.pickerView = [[DateTimePicker alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 240, screenWidth, screenHeight/2 + 35)];
+    self.pickerView = [[DateTimePicker alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 300, screenWidth, screenHeight/2)];
     [self.pickerView addTargetForDoneButton:self action:@selector(donePressed)];
     [self.pickerView addTargetForCancelButton:self action:@selector(cancelPressed)];
     
@@ -93,7 +132,7 @@
     [dateFormat setDateFormat:@"YYYYMMdd"];
     NSString *day = [dateFormat stringFromDate:date];
     
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
     NSDictionary  *device = appDelegate.selectedDevice;
 
     self.navigationItem.title = device[@"name"] == nil ? device[@"mac"] : device[@"name"];

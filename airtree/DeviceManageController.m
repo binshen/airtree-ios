@@ -50,7 +50,7 @@
 }
 
 - (void) autoRefreshData {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
     NSDictionary  *loginUser = appDelegate.loginUser;
     
     NSString *path = [NSString stringWithFormat:@"/user/%@/get_device_info", loginUser[@"_id"]];
@@ -129,7 +129,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
     appDelegate.selectedDevice = [[self.devices objectAtIndex:[indexPath row]] mutableCopy];
 }
 

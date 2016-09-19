@@ -91,7 +91,7 @@
             NSDictionary *user = [json objectForKey:@"user"];
             BOOL boolValue = [success boolValue];
             if (boolValue && ![user isEqual:[NSNull null]]) {
-                AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+                AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
                 appDelegate.loginUser = [user mutableCopy];
                 
                 NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];

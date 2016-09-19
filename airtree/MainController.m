@@ -114,7 +114,7 @@
 }
 
 - (void) initHomePage {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
     NSDictionary  *loginUser = appDelegate.loginUser;
     
     NSString *path = [NSString stringWithFormat:@"/user/%@/get_device", loginUser[@"_id"]];
