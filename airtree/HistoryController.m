@@ -114,8 +114,12 @@
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = screenRect.size.width;
     CGFloat screenHeight = screenRect.size.height;
-    
-    self.pickerView = [[DateTimePicker alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 300, screenWidth, screenHeight/2)];
+
+    if(IS_IPHONE_5) {
+        self.pickerView = [[DateTimePicker alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 250, screenWidth, screenHeight/2)];
+    } else {
+        self.pickerView = [[DateTimePicker alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 300, screenWidth, screenHeight/2)];
+    }
     [self.pickerView addTargetForDoneButton:self action:@selector(donePressed)];
     [self.pickerView addTargetForCancelButton:self action:@selector(cancelPressed)];
     
