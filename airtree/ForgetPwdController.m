@@ -100,7 +100,7 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:@"请输入密码." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     } else {
-        NSString *path = [[NSString alloc] initWithFormat:@"/user/register"];
+        NSString *path = [[NSString alloc] initWithFormat:@"/user/forget_psw"];
         NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
         [param setValue:self.TextTel.text forKey:@"username"];
         [param setValue:self.TextPwd.text forKey:@"password"];
