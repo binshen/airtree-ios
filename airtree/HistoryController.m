@@ -121,19 +121,15 @@
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"YYYYMMdd"];
     NSString *day = [dateFormat stringFromDate:date];
-    
-    AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
-    NSDictionary  *device = appDelegate.selectedDevice;
 
-    self.navigationItem.title = device[@"name"] == nil ? device[@"mac"] : device[@"name"];
-    
-    NSString *path = [NSString stringWithFormat:@"/device/mac/%@/get_history?day=%@", device[@"mac"], day];
+    self.navigationItem.title = _selectedDevice[@"name"] == nil ? _selectedDevice[@"mac"] : _selectedDevice[@"name"];
+    NSString *path = [NSString stringWithFormat:@"/device/mac/%@/get_history?day=%@", _selectedDevice[@"mac"], day];
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
     MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
     MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"GET"];
     [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
         NSString *response = [completedRequest responseAsString];
-        NSLog(@"History - day: %@ - mac: %@ - data: %@", day, device[@"mac"], response);
+        NSLog(@"History - day: %@ - mac: %@ - data: %@", day, _selectedDevice[@"mac"], response);
         NSError *error = [completedRequest error];
         NSData *data = [completedRequest responseData];
         if(data == nil) {

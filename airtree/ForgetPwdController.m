@@ -66,9 +66,6 @@
         MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
         MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"POST"];
         [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
-            // NSString *response = [completedRequest responseAsString];
-            // NSLog(@"Response: %@", response);
-            
             NSError *error = [completedRequest error];
             NSData *data = [completedRequest responseData];
             
@@ -108,9 +105,6 @@
         MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
         MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"POST"];
         [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
-            // NSString *response = [completedRequest responseAsString];
-            // NSLog(@"Response: %@", response);
-            
             NSError *error = [completedRequest error];
             NSData *data = [completedRequest responseData];
             

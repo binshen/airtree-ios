@@ -67,13 +67,10 @@
                 processblock: ^(NSInteger pro) {
                     self.progress.progress = (float)(pro)/100.0;
                 } successBlock:^(HFSmartLinkDeviceInfo *dev) {
-                    AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
-                    NSDictionary *loginUser = appDelegate.loginUser;
-
                     NSString *path = [[NSString alloc] initWithFormat:@"/user/add_device"];
                     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
                     [param setValue:dev.mac forKey:@"mac"];
-                    [param setValue:loginUser[@"_id"] forKey:@"userID"];
+                    [param setValue:_loginUser[@"_id"] forKey:@"userID"];
 
                     MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
                     MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"POST"];

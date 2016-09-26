@@ -32,22 +32,6 @@
 
     UITapGestureRecognizer *formaldehydeTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickFormaldehydeTap:)];
     [self.viewFormaldehyde addGestureRecognizer:formaldehydeTap];
-    
-    //self.electric.contentMode = UIViewContentModeScaleAspectFit;
-    //CGRect rect = CGRectMake(0, 0, self.electric.frame.size.width/1.5, self.electric.frame.size.height/1.5);
-//    CGRect rect = CGRectMake(0, 0, 32, 14);
-//    UIGraphicsBeginImageContextWithOptions(rect.size, NO, [[UIScreen mainScreen] scale]);
-//    [self.electric.image drawInRect:rect];
-//    [self.electric setImage:UIGraphicsGetImageFromCurrentImageContext()];
-//    UIGraphicsEndImageContext();
-    
-//    UIView *divider_1 = [[UIView alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width/4,303,1,88)];
-//    divider_1.backgroundColor = [UIColor whiteColor];
-//    [self.view addSubview:divider_1];
-//    
-//    UIView *divider_3 = [[UIView alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width/4*3,303,1,88)];
-//    divider_3.backgroundColor = [UIColor whiteColor];
-//    [self.view addSubview:divider_3];
 }
 
 - (void)viewDidLayoutSubviews {

@@ -33,19 +33,6 @@
     self.TxtUsername.delegate = self;
     self.TxtUsername.keyboardType = UIKeyboardTypeNumberPad;
     self.TxtPassword.keyboardType = UIKeyboardTypeAlphabet;
-    
-//    if([[NSUserDefaults standardUserDefaults] stringForKey:@"user_id"] != nil){
-//        NSMutableDictionary *loginUser = [[NSMutableDictionary alloc] init];
-//        [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"user_id"] forKey:@"_id"];
-//        [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"username"] forKey:@"username"];
-//        [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"password"] forKey:@"password"];
-//        [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"nickname"] forKey:@"nickname"];
-//        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-//        appDelegate.loginUser = [loginUser mutableCopy];
-//        
-//        UINavigationController *nav = [self.storyboard instantiateViewControllerWithIdentifier:@"NavMainViewController"];
-//        [self presentViewController:nav animated:YES completion:nil];
-//    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -91,9 +78,8 @@
             NSDictionary *user = [json objectForKey:@"user"];
             BOOL boolValue = [success boolValue];
             if (boolValue && ![user isEqual:[NSNull null]]) {
-                AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
-                appDelegate.loginUser = [user mutableCopy];
-                
+                _loginUser = [user mutableCopy];
+
                 NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
                 [userDefaults setObject:user[@"_id"] forKey:@"user_id"];
                 [userDefaults setObject:user[@"username"] forKey:@"username"];

@@ -100,10 +100,7 @@
 }
 
 - (void) initHomePage {
-    AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
-    NSDictionary  *loginUser = appDelegate.loginUser;
-    
-    NSString *path = [NSString stringWithFormat:@"/user/%@/get_device", loginUser[@"_id"]];
+    NSString *path = [NSString stringWithFormat:@"/user/%@/get_device", _loginUser[@"_id"]];
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
     MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
     MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"GET"];

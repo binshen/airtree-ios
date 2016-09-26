@@ -33,8 +33,9 @@
         [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"username"] forKey:@"username"];
         [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"password"] forKey:@"password"];
         [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"nickname"] forKey:@"nickname"];
-        self.loginUser = [loginUser mutableCopy];
-        
+
+        _loginUser = [loginUser mutableCopy];
+
         UINavigationController *nav = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"NavMainViewController"];
         nav.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
         [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
@@ -87,10 +88,10 @@
 
 - (void) runHeartbeatService
 {
-    if (self.loginUser[@"_id"] == nil) {
+    if (_loginUser[@"_id"] == nil) {
         return;
     }
-    NSString *path = [NSString stringWithFormat:@"/user/%@/online", self.loginUser[@"_id"]];
+    NSString *path = [NSString stringWithFormat:@"/user/%@/online", _loginUser[@"_id"]];
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
     MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
     MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"POST"];

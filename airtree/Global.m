@@ -12,4 +12,7 @@
 
 NSString * const MORAL_API_BASE_PATH = @"api.7drlb.com";
 
+NSMutableDictionary * _loginUser;
+NSMutableDictionary * _selectedDevice;
+
 @end

@@ -50,10 +50,7 @@
 }
 
 - (void) autoRefreshData {
-    AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
-    NSDictionary  *loginUser = appDelegate.loginUser;
-    
-    NSString *path = [NSString stringWithFormat:@"/user/%@/get_device_info", loginUser[@"_id"]];
+    NSString *path = [NSString stringWithFormat:@"/user/%@/get_device_info", _loginUser[@"_id"]];
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
     MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
     MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"GET"];
@@ -129,8 +126,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
-    appDelegate.selectedDevice = [[self.devices objectAtIndex:[indexPath row]] mutableCopy];
+    _selectedDevice = [[self.devices objectAtIndex:[indexPath row]] mutableCopy];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

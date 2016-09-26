@@ -44,10 +44,7 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:@"两次输入的新密码不一致." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     } else {
-        AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
-        NSDictionary  *loginUser = appDelegate.loginUser;
-        
-        NSString *path = [NSString stringWithFormat:@"/user/%@/change_psw", loginUser[@"_id"]];
+        NSString *path = [NSString stringWithFormat:@"/user/%@/change_psw", _loginUser[@"_id"]];
         NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
         [param setValue:oldPwd forKey:@"password"];
         [param setValue:newPwd forKey:@"new_password"];
