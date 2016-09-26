@@ -95,7 +95,7 @@
                                 [self.navigationController popViewControllerAnimated:YES];
                             }
                         } else {
-                            [self showAlertWithMsg:@"输入的用户名或密码错误." title:@"错误信息"];
+                            [self showAlertWithMsg:[json objectForKey:@"error"] title:@"错误信息"];
                         }
                     }];
                     [host startRequest:request];

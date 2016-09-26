@@ -136,14 +136,14 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSInteger index = [indexPath row];
     if(index == 0) {
-        PersonNicknameController *personNickname = [self.storyboard instantiateViewControllerWithIdentifier:@"PersonNicknameController"];
-        [[self navigationController] pushViewController:personNickname animated:YES];
+        PersonNicknameController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"PersonNicknameController"];
+        [[self navigationController] pushViewController:controller animated:YES];
     } else if(index == 1) {
-        PersonPasswordController *personNickname = [self.storyboard instantiateViewControllerWithIdentifier:@"PersonPasswordController"];
-        [[self navigationController] pushViewController:personNickname animated:YES];
+        PersonPasswordController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"PersonPasswordController"];
+        [[self navigationController] pushViewController:controller animated:YES];
     } else if(index == 3) {
-        PersonFeedbackController *personNickname = [self.storyboard instantiateViewControllerWithIdentifier:@"PersonFeedbackController"];
-        [[self navigationController] pushViewController:personNickname animated:YES];
+        PersonFeedbackController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"PersonFeedbackController"];
+        [[self navigationController] pushViewController:controller animated:YES];
     } else {
         //TODO
     }
