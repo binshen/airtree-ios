@@ -54,9 +54,8 @@
             if([success boolValue]) {
                 [_loginUser setObject:self.TextNickname.text forKey:@"nickname"];
                 //[self.navigationController popToRootViewControllerAnimated:YES];
-                
-                NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-                [userDefaults setObject:self.TextNickname.text forKey:@"nickname"];
+
+                [MyUserDefault setObject:self.TextNickname.text forKey:@"nickname"];
                 
                 [self.navigationController popViewControllerAnimated:YES];
             } else {

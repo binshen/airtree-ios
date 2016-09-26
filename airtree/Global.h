@@ -26,6 +26,8 @@
 #define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
 
 
+#define MyUserDefault [NSUserDefaults standardUserDefaults]
+
 extern NSString * const MORAL_API_BASE_PATH;
 
 extern NSMutableDictionary * _loginUser;

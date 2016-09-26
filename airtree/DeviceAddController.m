@@ -142,13 +142,11 @@
 }
 
 -(void)savePswd {
-    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
-    [def setObject:self.txtPwd.text forKey:self.txtSSID.text];
+    [MyUserDefault setObject:self.txtPwd.text forKey:self.txtSSID.text];
 }
 
 -(NSString *)getspwdByssid:(NSString * )mssid {
-    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
-    return [def objectForKey:mssid];
+    return [MyUserDefault objectForKey:mssid];
 }
 
 - (void)showWifiSsid {

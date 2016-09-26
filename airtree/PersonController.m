@@ -65,9 +65,8 @@
             NSLog(@"SegueToLogout: %@", response);
         }];
         [host startRequest:request];
-        
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        [userDefaults setObject:nil forKey:@"user_id"];
+
+        [MyUserDefault setObject:nil forKey:@"user_id"];
 
         _loginUser = nil;
     }

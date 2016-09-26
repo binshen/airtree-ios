@@ -80,18 +80,16 @@
             if (boolValue && ![user isEqual:[NSNull null]]) {
                 _loginUser = [user mutableCopy];
 
-                NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-                [userDefaults setObject:user[@"_id"] forKey:@"user_id"];
-                [userDefaults setObject:user[@"username"] forKey:@"username"];
-                [userDefaults setObject:user[@"password"] forKey:@"password"];
-                [userDefaults setObject:user[@"nickname"] forKey:@"nickname"];
-                [userDefaults synchronize];
+                [MyUserDefault setObject:user[@"_id"] forKey:@"user_id"];
+                [MyUserDefault setObject:user[@"username"] forKey:@"username"];
+                [MyUserDefault setObject:user[@"password"] forKey:@"password"];
+                [MyUserDefault setObject:user[@"nickname"] forKey:@"nickname"];
+                [MyUserDefault synchronize];
                 
                 UINavigationController *nav = [self.storyboard instantiateViewControllerWithIdentifier:@"NavMainViewController"];
                 [self presentViewController:nav animated:YES completion:nil];
             } else {
-                NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-                [userDefaults setObject:nil forKey:@"user_id"];
+                [MyUserDefault setObject:nil forKey:@"user_id"];
                 
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登录失败" message:@"输入的用户名或密码错误." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 [alert show];

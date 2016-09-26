@@ -27,12 +27,12 @@
     
     [[UITextField appearance] setTintColor:[UIColor blackColor]];
     
-    if([[NSUserDefaults standardUserDefaults] stringForKey:@"user_id"] != nil && [[NSUserDefaults standardUserDefaults] stringForKey:@"nickname"] != nil){
+    if([MyUserDefault stringForKey:@"user_id"] != nil && [MyUserDefault stringForKey:@"nickname"] != nil){
         NSMutableDictionary *loginUser = [[NSMutableDictionary alloc] init];
-        [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"user_id"] forKey:@"_id"];
-        [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"username"] forKey:@"username"];
-        [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"password"] forKey:@"password"];
-        [loginUser setObject:[[NSUserDefaults standardUserDefaults] stringForKey:@"nickname"] forKey:@"nickname"];
+        [loginUser setObject:[MyUserDefault stringForKey:@"user_id"] forKey:@"_id"];
+        [loginUser setObject:[MyUserDefault stringForKey:@"username"] forKey:@"username"];
+        [loginUser setObject:[MyUserDefault stringForKey:@"password"] forKey:@"password"];
+        [loginUser setObject:[MyUserDefault stringForKey:@"nickname"] forKey:@"nickname"];
 
         _loginUser = [loginUser mutableCopy];
 
