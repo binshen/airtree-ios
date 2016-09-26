@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 #import "MKNetworkKit.h"
 #import "Reachability.h"
-#import "Constants.h"
+#import "Global.h"
 
 @interface DeviceManageController ()
 

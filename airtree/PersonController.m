@@ -12,7 +12,7 @@
 #import "PersonFeedbackController.h"
 #import "AppDelegate.h"
 #import "MKNetworkKit.h"
-#import "Constants.h"
+#import "Global.h"
 
 @interface PersonController ()
 

@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "MKNetworkKit.h"
 #import "BackgroundRunner.h"
-#import "Constants.h"
+#import "Global.h"
 
 @interface AppDelegate ()
 

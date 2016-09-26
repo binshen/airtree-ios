@@ -83,7 +83,7 @@
 		FD9A8ED21CFB34CE00D31032 /* PersonController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8ED11CFB34CE00D31032 /* PersonController.m */; };
 		FD9A8ED71CFB460700D31032 /* ic_history.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9A8ED61CFB460700D31032 /* ic_history.png */; };
 		FD9A8EDA1CFB4EB000D31032 /* DeviceManageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8ED91CFB4EB000D31032 /* DeviceManageController.m */; };
-		FD9C49CE1D48A2D1003367EB /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9C49CD1D48A2D1003367EB /* Constants.m */; };
+		FD9C49CE1D48A2D1003367EB /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9C49CD1D48A2D1003367EB /* Global.m */; };
 		FDA088ED1D49DBF300327E77 /* light_03.png in Resources */ = {isa = PBXBuildFile; fileRef = FDA088EA1D49DBF300327E77 /* light_03.png */; };
 		FDA088EE1D49DBF300327E77 /* light_02.png in Resources */ = {isa = PBXBuildFile; fileRef = FDA088EB1D49DBF300327E77 /* light_02.png */; };
 		FDA088EF1D49DBF300327E77 /* light_01.png in Resources */ = {isa = PBXBuildFile; fileRef = FDA088EC1D49DBF300327E77 /* light_01.png */; };
@@ -249,8 +249,8 @@
 		FD9A8ED61CFB460700D31032 /* ic_history.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_history.png; sourceTree = "<group>"; };
 		FD9A8ED81CFB4EB000D31032 /* DeviceManageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceManageController.h; sourceTree = "<group>"; };
 		FD9A8ED91CFB4EB000D31032 /* DeviceManageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceManageController.m; sourceTree = "<group>"; };
-		FD9C49CC1D48A2D1003367EB /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		FD9C49CD1D48A2D1003367EB /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		FD9C49CC1D48A2D1003367EB /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
+		FD9C49CD1D48A2D1003367EB /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
 		FDA088EA1D49DBF300327E77 /* light_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = light_03.png; sourceTree = "<group>"; };
 		FDA088EB1D49DBF300327E77 /* light_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = light_02.png; sourceTree = "<group>"; };
 		FDA088EC1D49DBF300327E77 /* light_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = light_01.png; sourceTree = "<group>"; };
@@ -339,8 +339,8 @@
 		FD91C2081CFA79F900E00A71 /* airtree */ = {
 			isa = PBXGroup;
 			children = (
-				FD9C49CC1D48A2D1003367EB /* Constants.h */,
-				FD9C49CD1D48A2D1003367EB /* Constants.m */,
+				FD9C49CC1D48A2D1003367EB /* Global.h */,
+				FD9C49CD1D48A2D1003367EB /* Global.m */,
 				FDC4F1F11D3153330089C7A2 /* Reachability.m */,
 				FDC4F1F21D3153330089C7A2 /* Reachability.h */,
 				FD4F2FCB1CFDE0AF00F16054 /* smartlinklib_7x.h */,
@@ -778,7 +778,7 @@
 				FDACDD461D24B8ED00526DA9 /* DeviceViewController.m in Sources */,
 				FD9A8E581CFAAF0900D31032 /* MKCache.m in Sources */,
 				FD4F2FC61CFDDC4000F16054 /* DeviceAddController.m in Sources */,
-				FD9C49CE1D48A2D1003367EB /* Constants.m in Sources */,
+				FD9C49CE1D48A2D1003367EB /* Global.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
