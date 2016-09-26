@@ -190,6 +190,15 @@
     CGFloat pageWidth = CGRectGetWidth(self.scrollView.frame);
     NSUInteger page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     self.pageControl.currentPage = page;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)sender {
+    // Update the page when more than 50% of the previous/next page is visible
+    CGFloat pageWidth = sender.frame.size.width;
+    int page = floor((sender.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    
+    // !!! but here is another problem. You should find reference to appropriate pageControl
+    self.pageControl.currentPage = page;
 
     if (page == 0) {
         self.navigationItem.title = @"PM2.5";
@@ -200,15 +209,6 @@
     } else {
         self.navigationItem.title = @"甲醛";
     }
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)sender {
-    // Update the page when more than 50% of the previous/next page is visible
-    CGFloat pageWidth = sender.frame.size.width;
-    int page = floor((sender.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-    
-    // !!! but here is another problem. You should find reference to appropriate pageControl
-    self.pageControl.currentPage = page;
 }
 
 /*

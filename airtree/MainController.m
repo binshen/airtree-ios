@@ -205,15 +205,6 @@
     NSUInteger page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     self.pageControl.currentPage = page;
 //    NSLog(@"最后页面 = %lu", (unsigned long)page);
-    
-    NSDictionary *device = [self.contentList objectAtIndex:page];
-    if([device objectForKey:@"name"]) {
-        self.navigationItem.title = device[@"name"];
-    } else if([device objectForKey:@"mac"]) {
-        self.navigationItem.title = device[@"mac"];
-    } else {
-        self.navigationItem.title = @"房间";
-    }
 }
 
 - (void) doDoubleTap:(UITapGestureRecognizer *)sender {
@@ -232,6 +223,15 @@
     
     // !!! but here is another problem. You should find reference to appropriate pageControl
     self.pageControl.currentPage = page;
+
+    NSDictionary *device = [self.contentList objectAtIndex:page];
+    if([device objectForKey:@"name"]) {
+        self.navigationItem.title = device[@"name"];
+    } else if([device objectForKey:@"mac"]) {
+        self.navigationItem.title = device[@"mac"];
+    } else {
+        self.navigationItem.title = @"房间";
+    }
 }
 
 //////////////////////////////////////////////////////////////////////////////
