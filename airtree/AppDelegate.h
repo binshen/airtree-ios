@@ -15,8 +15,5 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-//@property (nonatomic, retain) NSMutableDictionary *loginUser;
-//@property (nonatomic, retain) NSMutableDictionary *selectedDevice;
-
 @end
 
