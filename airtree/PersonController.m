@@ -16,6 +16,9 @@
 
 @interface PersonController ()
 
+@property NSTimer *timer;
+@property NSNumber *avg_number;
+
 @end
 
 @implementation PersonController
@@ -39,11 +42,18 @@
     NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
 
-    NSDictionary  *loginUser = _loginUser;
-    NSString *nickname = loginUser[@"nickname"] == nil ? loginUser[@"username"] : loginUser[@"nickname"];
-    NSLog(@"Nickname: %@", nickname);
+//    NSString *nickname = loginUser[@"nickname"] == nil ? _loginUser[@"username"] : _loginUser[@"nickname"];
+//    NSLog(@"Nickname: %@", nickname);
+//    cell.detailTextLabel.text = nickname;
 
-    cell.detailTextLabel.text = nickname;
+    [self autoRefreshData];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(autoRefreshData) userInfo:nil repeats:YES];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:YES];
+
+    [self.timer invalidate];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,12 +61,26 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) autoRefreshData {
+    NSString *path = [NSString stringWithFormat:@"/user/%@/get_avg_data", _loginUser[@"_id"]];
+    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+    MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
+    MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"GET"];
+    [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
+        NSError *error = [completedRequest error];
+        NSData *data = [completedRequest responseData];
+        if (data != nil) {
+            NSDictionary *avgData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+            self.avg_number = [avgData valueForKey:@"avg"];
+            [self.tableView reloadData];
+        }
+    }];
+    [host startRequest:request];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([[segue identifier] isEqualToString:@"SegueToLogout"]) {
-
-        NSDictionary  *loginUser = _loginUser;
-        
-        NSString *path = [NSString stringWithFormat:@"/user/%@/offline", loginUser[@"_id"]];
+        NSString *path = [NSString stringWithFormat:@"/user/%@/offline", _loginUser[@"_id"]];
         NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
         MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
         MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"POST"];
@@ -102,8 +126,8 @@
             cell.detailTextLabel.text = @"";
             break;
         case 2:
-            cell.textLabel.text = @"";
-            cell.detailTextLabel.text = @"";
+            cell.textLabel.text = @"综合指数";
+            cell.detailTextLabel.text = self.avg_number.stringValue;
             cell.userInteractionEnabled = NO;
             cell.accessoryType = UITableViewCellAccessoryNone;
             break;
