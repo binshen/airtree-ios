@@ -110,11 +110,13 @@
         
         NSError *error = [completedRequest error];
         NSData *data = [completedRequest responseData];
+        
+        // 解决OOM问题
+        [[self.scrollView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+        
         // 初始化page control的内容
         self.contentList = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
         if (data != nil && [self.contentList count] != 0) {
-            // 解决OOM问题
-            [[self.scrollView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
             // 一共有多少页
             self.numberPages = self.contentList.count;
             // 存储所有的controller
@@ -137,6 +139,9 @@
             for (NSUInteger i = 0; i < self.numberPages; i++) {
                 [self loadScrollViewWithPage: i ];
             }
+        } else {
+            self.navigationItem.title = @"房间";
+            self.pageControl.numberOfPages = 0;
         }
         [self.spinner stopAnimating];
     }];
