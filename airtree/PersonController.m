@@ -126,7 +126,7 @@
             cell.detailTextLabel.text = @"";
             break;
         case 2:
-            cell.textLabel.text = @"综合指数";
+            cell.textLabel.text = @"家庭综合指数";
             cell.detailTextLabel.text = self.avg_number.stringValue;
             cell.userInteractionEnabled = NO;
             cell.accessoryType = UITableViewCellAccessoryNone;
