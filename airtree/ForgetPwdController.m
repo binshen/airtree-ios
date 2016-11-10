@@ -8,7 +8,7 @@
 
 #import "ForgetPwdController.h"
 #import "MKNetworkKit.h"
-#import "Constants.h"
+#import "Global.h"
 
 @interface ForgetPwdController ()
 
@@ -66,9 +66,6 @@
         MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
         MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"POST"];
         [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
-            // NSString *response = [completedRequest responseAsString];
-            // NSLog(@"Response: %@", response);
-            
             NSError *error = [completedRequest error];
             NSData *data = [completedRequest responseData];
             
@@ -100,7 +97,7 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:@"请输入密码." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     } else {
-        NSString *path = [[NSString alloc] initWithFormat:@"/user/register"];
+        NSString *path = [[NSString alloc] initWithFormat:@"/user/forget_psw"];
         NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
         [param setValue:self.TextTel.text forKey:@"username"];
         [param setValue:self.TextPwd.text forKey:@"password"];
@@ -108,9 +105,6 @@
         MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
         MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"POST"];
         [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
-            // NSString *response = [completedRequest responseAsString];
-            // NSLog(@"Response: %@", response);
-            
             NSError *error = [completedRequest error];
             NSData *data = [completedRequest responseData];
             

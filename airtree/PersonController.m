@@ -12,9 +12,12 @@
 #import "PersonFeedbackController.h"
 #import "AppDelegate.h"
 #import "MKNetworkKit.h"
-#import "Constants.h"
+#import "Global.h"
 
 @interface PersonController ()
+
+@property NSTimer *timer;
+@property NSNumber *avg_number;
 
 @end
 
@@ -38,13 +41,19 @@
     
     NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSDictionary  *loginUser = appDelegate.loginUser;
-    NSString *nickname = loginUser[@"nickname"] == nil ? loginUser[@"username"] : loginUser[@"nickname"];
-    NSLog(@"Nickname: %@", nickname);
 
-    cell.detailTextLabel.text = nickname;
+//    NSString *nickname = loginUser[@"nickname"] == nil ? _loginUser[@"username"] : _loginUser[@"nickname"];
+//    NSLog(@"Nickname: %@", nickname);
+//    cell.detailTextLabel.text = nickname;
+
+    [self autoRefreshData];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(autoRefreshData) userInfo:nil repeats:YES];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:YES];
+
+    [self.timer invalidate];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,13 +61,26 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) autoRefreshData {
+    NSString *path = [NSString stringWithFormat:@"/user/%@/get_avg_data", _loginUser[@"_id"]];
+    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+    MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
+    MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"GET"];
+    [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
+        NSError *error = [completedRequest error];
+        NSData *data = [completedRequest responseData];
+        if (data != nil) {
+            NSDictionary *avgData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+            self.avg_number = [avgData valueForKey:@"avg"];
+            [self.tableView reloadData];
+        }
+    }];
+    [host startRequest:request];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([[segue identifier] isEqualToString:@"SegueToLogout"]) {
-        
-        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        NSDictionary  *loginUser = appDelegate.loginUser;
-        
-        NSString *path = [NSString stringWithFormat:@"/user/%@/offline", loginUser[@"_id"]];
+        NSString *path = [NSString stringWithFormat:@"/user/%@/offline", _loginUser[@"_id"]];
         NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
         MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
         MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"POST"];
@@ -67,11 +89,10 @@
             NSLog(@"SegueToLogout: %@", response);
         }];
         [host startRequest:request];
-        
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        [userDefaults setObject:nil forKey:@"user_id"];
 
-        appDelegate.loginUser = nil;
+        [MyUserDefault setObject:nil forKey:@"user_id"];
+
+        _loginUser = nil;
     }
 }
 
@@ -94,9 +115,7 @@
     }
     
     NSUInteger index = [indexPath row];
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSDictionary  *loginUser = appDelegate.loginUser;
-    NSString *nickname = loginUser[@"nickname"] == nil ? loginUser[@"username"] : loginUser[@"nickname"];
+    NSString *nickname = _loginUser[@"nickname"] == nil ? _loginUser[@"username"] : _loginUser[@"nickname"];
     switch (index) {
         case 0:
             cell.textLabel.text = @"昵称";
@@ -107,8 +126,8 @@
             cell.detailTextLabel.text = @"";
             break;
         case 2:
-            cell.textLabel.text = @"";
-            cell.detailTextLabel.text = @"";
+            cell.textLabel.text = @"家庭综合指数";
+            cell.detailTextLabel.text = self.avg_number.stringValue;
             cell.userInteractionEnabled = NO;
             cell.accessoryType = UITableViewCellAccessoryNone;
             break;
@@ -136,14 +155,14 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSInteger index = [indexPath row];
     if(index == 0) {
-        PersonNicknameController *personNickname = [self.storyboard instantiateViewControllerWithIdentifier:@"PersonNicknameController"];
-        [[self navigationController] pushViewController:personNickname animated:YES];
+        PersonNicknameController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"PersonNicknameController"];
+        [[self navigationController] pushViewController:controller animated:YES];
     } else if(index == 1) {
-        PersonPasswordController *personNickname = [self.storyboard instantiateViewControllerWithIdentifier:@"PersonPasswordController"];
-        [[self navigationController] pushViewController:personNickname animated:YES];
+        PersonPasswordController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"PersonPasswordController"];
+        [[self navigationController] pushViewController:controller animated:YES];
     } else if(index == 3) {
-        PersonFeedbackController *personNickname = [self.storyboard instantiateViewControllerWithIdentifier:@"PersonFeedbackController"];
-        [[self navigationController] pushViewController:personNickname animated:YES];
+        PersonFeedbackController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"PersonFeedbackController"];
+        [[self navigationController] pushViewController:controller animated:YES];
     } else {
         //TODO
     }

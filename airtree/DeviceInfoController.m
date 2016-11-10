@@ -11,27 +11,13 @@
 #import "DeviceDetailReviseController.h"
 #import "AppDelegate.h"
 #import "MKNetworkKit.h"
-#import "Constants.h"
+#import "Global.h"
 
 @interface DeviceInfoController ()
 
 @property NSTimer *timer;
 @property NSString *checkStatus;
 @property AppDelegate *appDelegate;
-
-#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-#define IS_RETINA ([[UIScreen mainScreen] scale] >= 2.0)
-
-#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
-#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
-#define SCREEN_MAX_LENGTH (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
-#define SCREEN_MIN_LENGTH (MIN(SCREEN_WIDTH, SCREEN_HEIGHT))
-
-#define IS_IPHONE_4_OR_LESS (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
-#define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
-#define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
-#define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
 
 @end
 
@@ -48,9 +34,8 @@
     
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-    
-    self.appDelegate = [[UIApplication sharedApplication] delegate];
-    NSDictionary *device = self.appDelegate.selectedDevice;
+
+    NSDictionary *device = _selectedDevice;
     if([device[@"type"] integerValue] == 1) {
         [self autoRefreshData];
     }
@@ -72,9 +57,8 @@
     
     NSIndexPath* indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
     UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSDictionary *device = appDelegate.selectedDevice;
+
+    NSDictionary *device = _selectedDevice;
     NSString *deviceName = device[@"name"] == nil ? device[@"mac"] : device[@"name"];
     NSLog(@"DeviceName: %@", deviceName);
     
@@ -92,8 +76,7 @@
 }
 
 - (void) autoRefreshData {
-    NSDictionary *device = self.appDelegate.selectedDevice;
-    
+    NSDictionary *device = _selectedDevice;
     NSString *path = [NSString stringWithFormat:@"/device/mac/%@/get_test", device[@"mac"]];
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
     MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
@@ -137,10 +120,7 @@
 
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
     if(buttonIndex == 0) {
-        NSDictionary  *loginUser = self.appDelegate.loginUser;
-        NSDictionary *device = self.appDelegate.selectedDevice;
-        
-        NSString *path = [NSString stringWithFormat:@"/user/%@/device/%@/unbind", loginUser[@"_id"], device[@"_id"]];
+        NSString *path = [NSString stringWithFormat:@"/user/%@/device/%@/unbind", _loginUser[@"_id"], _selectedDevice[@"_id"]];
         NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
         MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
         MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"POST"];
@@ -177,8 +157,7 @@
 //}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSDictionary *device = self.appDelegate.selectedDevice;
-    if([device[@"type"] integerValue] == 1) {
+    if([_selectedDevice[@"type"] integerValue] == 1) {
         return 7;
     } else {
         return 6;
@@ -190,22 +169,20 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DeviceInfoCell" forIndexPath:indexPath];
     cell.userInteractionEnabled = NO;
     cell.accessoryType = UITableViewCellAccessoryNone;
-    
-    NSDictionary *device = self.appDelegate.selectedDevice;
-    NSInteger type = [device[@"type"] integerValue];
-    
+
+    NSInteger type = [_selectedDevice[@"type"] integerValue];
     NSInteger index = [indexPath row];
     switch (index) {
         case 0:
             cell.textLabel.text = @"设备编码";
-            cell.detailTextLabel.text = device[@"_id"];
+            cell.detailTextLabel.text = _selectedDevice[@"_id"];
             if(IS_IPHONE_4_OR_LESS) {
                 cell.detailTextLabel.font = [UIFont systemFontOfSize: 15];
             }
             break;
         case 1:
             cell.textLabel.text = @"设备名称";
-            cell.detailTextLabel.text = [device valueForKey:@"name"] == nil ? device[@"mac"] : device[@"name"];;
+            cell.detailTextLabel.text = [_selectedDevice valueForKey:@"name"] == nil ? _selectedDevice[@"mac"] : _selectedDevice[@"name"];;
             cell.userInteractionEnabled = YES;
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             break;
@@ -215,7 +192,7 @@
             break;
         case 3:
             cell.textLabel.text = @"MAC";
-            cell.detailTextLabel.text = [device[@"mac"] uppercaseString];
+            cell.detailTextLabel.text = [_selectedDevice[@"mac"] uppercaseString];
             break;
         case 4:
             cell.textLabel.text = @"历史数据";
@@ -254,7 +231,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *device = self.appDelegate.selectedDevice;
+    NSDictionary *device = _selectedDevice;
     NSInteger type = [device[@"type"] integerValue];
     if(type == 1) {
         if([indexPath row] == 6) {

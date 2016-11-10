@@ -9,10 +9,9 @@
 #import "HistoryController.h"
 #import "AppDelegate.h"
 #import "MKNetworkKit.h"
-#import "Constants.h"
+#import "Global.h"
 
 @interface HistoryController ()
-
 
 @end
 
@@ -34,6 +33,32 @@
 }
 
 - (void)viewDidLayoutSubviews {
+
+    if(IS_IPHONE_5) {
+        self.DateSelect.center = CGPointMake(self.DateSelect.center.x, self.DateSelect.center.y - 20);
+        self.mainValue.center = CGPointMake(self.mainValue.center.x, self.mainValue.center.y - 50);
+        self.LabelDescription.center = CGPointMake(self.LabelDescription.center.x, self.LabelDescription.center.y + 40);
+        self.DividerLine.center = CGPointMake(self.DividerLine.center.x, self.DividerLine.center.y + 20);
+
+        self.LabelDescription.font = [UIFont systemFontOfSize: 15];
+
+        self.pm25Value.font = [UIFont systemFontOfSize: 14];
+        self.pm25Label.font = [UIFont systemFontOfSize: 14];
+        self.temperatureValue.font = [UIFont systemFontOfSize: 14];
+        self.temperatureLabel.font = [UIFont systemFontOfSize: 14];
+        self.humidityValue.font = [UIFont systemFontOfSize: 14];
+        self.humidityLabel.font = [UIFont systemFontOfSize: 14];
+        self.formaldehydeValue.font = [UIFont systemFontOfSize: 14];
+        self.formaldehydeLabel.font = [UIFont systemFontOfSize: 14];
+
+    } else if(IS_IPHONE_6) {
+        self.mainValue.center = CGPointMake(self.mainValue.center.x, self.mainValue.center.y - 15);
+    } else if(IS_IPHONE_6P) {
+        self.DateSelect.center = CGPointMake(self.DateSelect.center.x, self.DateSelect.center.y + 25);
+        self.mainValue.center = CGPointMake(self.mainValue.center.x, self.mainValue.center.y + 30);
+        self.LabelDescription.font = [UIFont systemFontOfSize: 20];
+    }
+
     float unit = [[UIScreen mainScreen] bounds].size.width / 8;
     self.pm25Value.center = CGPointMake(unit, self.pm25Value.center.y);
     self.pm25Label.center = CGPointMake(unit, self.pm25Label.center.y);
@@ -75,8 +100,12 @@
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = screenRect.size.width;
     CGFloat screenHeight = screenRect.size.height;
-    
-    self.pickerView = [[DateTimePicker alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 240, screenWidth, screenHeight/2 + 35)];
+
+    if(IS_IPHONE_5) {
+        self.pickerView = [[DateTimePicker alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 250, screenWidth, screenHeight/2)];
+    } else {
+        self.pickerView = [[DateTimePicker alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 300, screenWidth, screenHeight/2)];
+    }
     [self.pickerView addTargetForDoneButton:self action:@selector(donePressed)];
     [self.pickerView addTargetForCancelButton:self action:@selector(cancelPressed)];
     
@@ -92,19 +121,15 @@
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"YYYYMMdd"];
     NSString *day = [dateFormat stringFromDate:date];
-    
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSDictionary  *device = appDelegate.selectedDevice;
 
-    self.navigationItem.title = device[@"name"] == nil ? device[@"mac"] : device[@"name"];
-    
-    NSString *path = [NSString stringWithFormat:@"/device/mac/%@/get_history?day=%@", device[@"mac"], day];
+    self.navigationItem.title = _selectedDevice[@"name"] == nil ? _selectedDevice[@"mac"] : _selectedDevice[@"name"];
+    NSString *path = [NSString stringWithFormat:@"/device/mac/%@/get_history?day=%@", _selectedDevice[@"mac"], day];
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
     MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
     MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"GET"];
     [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
         NSString *response = [completedRequest responseAsString];
-        NSLog(@"History - day: %@ - mac: %@ - data: %@", day, device[@"mac"], response);
+        NSLog(@"History - day: %@ - mac: %@ - data: %@", day, _selectedDevice[@"mac"], response);
         NSError *error = [completedRequest error];
         NSData *data = [completedRequest responseData];
         if(data == nil) {

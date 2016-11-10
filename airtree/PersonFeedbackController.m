@@ -9,7 +9,7 @@
 #import "PersonFeedbackController.h"
 #import "AppDelegate.h"
 #import "MKNetworkKit.h"
-#import "Constants.h"
+#import "Global.h"
 
 @interface PersonFeedbackController ()
 
@@ -35,10 +35,7 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:@"请输入反馈信息." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     } else {
-        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        NSDictionary  *loginUser = appDelegate.loginUser;
-        
-        NSString *path = [NSString stringWithFormat:@"/user/%@/feedback", loginUser[@"_id"]];
+        NSString *path = [NSString stringWithFormat:@"/user/%@/feedback", _loginUser[@"_id"]];
         NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
         [param setValue:self.TextFeedback.text forKey:@"feedback"];
         MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];

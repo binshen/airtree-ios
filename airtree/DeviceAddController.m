@@ -13,7 +13,7 @@
 #import <SystemConfiguration/CaptiveNetwork.h>
 #import "AppDelegate.h"
 #import "MKNetworkKit.h"
-#import "Constants.h"
+#import "Global.h"
 
 @interface DeviceAddController ()
 {
@@ -27,15 +27,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+
     smtlk = [HFSmartLink shareInstence];
     smtlk.isConfigOneDevice = true;
     smtlk.waitTimers = 30;
     isconnecting=false;
-    
+
     self.progress.progress = 0.0;
     self.switcher.on = smtlk.isConfigOneDevice;
-    
+
     [self showWifiSsid];
     self.txtPwd.text = [self getspwdByssid:self.txtSSID.text];
     self.txtPwd.delegate = self;
@@ -58,7 +58,7 @@
 - (IBAction)butPressd:(id)sender {
     NSString * ssidStr = self.txtSSID.text;
     NSString * pswdStr = self.txtPwd.text;
-    
+
     [self savePswd];
     self.progress.progress = 0.0;
     if(!isconnecting){
@@ -67,27 +67,24 @@
                 processblock: ^(NSInteger pro) {
                     self.progress.progress = (float)(pro)/100.0;
                 } successBlock:^(HFSmartLinkDeviceInfo *dev) {
-                    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-                    NSDictionary *loginUser = appDelegate.loginUser;
-                    
                     NSString *path = [[NSString alloc] initWithFormat:@"/user/add_device"];
                     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
                     [param setValue:dev.mac forKey:@"mac"];
-                    [param setValue:loginUser[@"_id"] forKey:@"userID"];
-                    
+                    [param setValue:_loginUser[@"_id"] forKey:@"userID"];
+
                     MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
                     MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"POST"];
                     [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
                         NSString *response = [completedRequest responseAsString];
                         NSLog(@"Response: %@", response);
-                        
+
                         NSError *error = [completedRequest error];
                         NSData *data = [completedRequest responseData];
-                        
+
                         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
                         NSString *success = [json objectForKey:@"success"];
                         NSLog(@"Success: %@", success);
-                        
+
                         if ([success boolValue]) {
                             if([[json objectForKey:@"status"] integerValue] == 4) {
                                 [self showAlertWithMsg:@"该设备已被其他人绑定过" title:@"错误信息"];
@@ -95,7 +92,7 @@
                                 [self.navigationController popViewControllerAnimated:YES];
                             }
                         } else {
-                            [self showAlertWithMsg:@"输入的用户名或密码错误." title:@"错误信息"];
+                            [self showAlertWithMsg:[json objectForKey:@"error"] title:@"错误信息"];
                         }
                     }];
                     [host startRequest:request];
@@ -104,10 +101,10 @@
                     [self showAlertWithMsg:@"绑定时发生异常，请稍候再试" title:@"错误信息"];
                 } endBlock:^(NSDictionary *deviceDic) {
                     isconnecting  = false;
-                    
+
                     [self setButTitle:@"开始连接"];
                 }];
-        
+
         [self setButTitle:@"正在连接..."];
 
     } else {
@@ -145,13 +142,11 @@
 }
 
 -(void)savePswd {
-    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
-    [def setObject:self.txtPwd.text forKey:self.txtSSID.text];
+    [MyUserDefault setObject:self.txtPwd.text forKey:self.txtSSID.text];
 }
 
 -(NSString *)getspwdByssid:(NSString * )mssid {
-    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
-    return [def objectForKey:mssid];
+    return [MyUserDefault objectForKey:mssid];
 }
 
 - (void)showWifiSsid {

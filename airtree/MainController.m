@@ -12,26 +12,12 @@
 #import "DeviceManageController.h"
 #import "AppDelegate.h"
 #import "MKNetworkKit.h"
-#import "Constants.h"
+#import "Global.h"
 
 @interface MainController ()
 
 @property NSUInteger numberPages;
 @property NSTimer *timer;
-
-#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-#define IS_RETINA ([[UIScreen mainScreen] scale] >= 2.0)
-
-#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
-#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
-#define SCREEN_MAX_LENGTH (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
-#define SCREEN_MIN_LENGTH (MIN(SCREEN_WIDTH, SCREEN_HEIGHT))
-
-#define IS_IPHONE_4_OR_LESS (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
-#define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
-#define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
-#define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
 
 @end
 
@@ -114,10 +100,7 @@
 }
 
 - (void) initHomePage {
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSDictionary  *loginUser = appDelegate.loginUser;
-    
-    NSString *path = [NSString stringWithFormat:@"/user/%@/get_device", loginUser[@"_id"]];
+    NSString *path = [NSString stringWithFormat:@"/user/%@/get_device", _loginUser[@"_id"]];
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
     MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
     MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"GET"];
@@ -127,11 +110,13 @@
         
         NSError *error = [completedRequest error];
         NSData *data = [completedRequest responseData];
+        
+        // 解决OOM问题
+        [[self.scrollView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+        
         // 初始化page control的内容
         self.contentList = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
         if (data != nil && [self.contentList count] != 0) {
-            // 解决OOM问题
-            [[self.scrollView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
             // 一共有多少页
             self.numberPages = self.contentList.count;
             // 存储所有的controller
@@ -154,6 +139,9 @@
             for (NSUInteger i = 0; i < self.numberPages; i++) {
                 [self loadScrollViewWithPage: i ];
             }
+        } else {
+            self.navigationItem.title = @"房间";
+            self.pageControl.numberOfPages = 0;
         }
         [self.spinner stopAnimating];
     }];
@@ -205,15 +193,6 @@
     NSUInteger page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     self.pageControl.currentPage = page;
 //    NSLog(@"最后页面 = %lu", (unsigned long)page);
-    
-    NSDictionary *device = [self.contentList objectAtIndex:page];
-    if([device objectForKey:@"name"]) {
-        self.navigationItem.title = device[@"name"];
-    } else if([device objectForKey:@"mac"]) {
-        self.navigationItem.title = device[@"mac"];
-    } else {
-        self.navigationItem.title = @"房间";
-    }
 }
 
 - (void) doDoubleTap:(UITapGestureRecognizer *)sender {
@@ -232,6 +211,15 @@
     
     // !!! but here is another problem. You should find reference to appropriate pageControl
     self.pageControl.currentPage = page;
+
+    NSDictionary *device = [self.contentList objectAtIndex:page];
+    if([device objectForKey:@"name"]) {
+        self.navigationItem.title = device[@"name"];
+    } else if([device objectForKey:@"mac"]) {
+        self.navigationItem.title = device[@"mac"];
+    } else {
+        self.navigationItem.title = @"房间";
+    }
 }
 
 //////////////////////////////////////////////////////////////////////////////

@@ -9,7 +9,7 @@
 #import "PersonNicknameController.h"
 #import "AppDelegate.h"
 #import "MKNetworkKit.h"
-#import "Constants.h"
+#import "Global.h"
 
 @interface PersonNicknameController ()
 
@@ -20,11 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSDictionary  *loginUser = appDelegate.loginUser;
-    if (loginUser[@"nickname"] != nil) {
-        [self.TextNickname setText:loginUser[@"nickname"]];
+
+    if (_loginUser[@"nickname"] != nil) {
+        [self.TextNickname setText:_loginUser[@"nickname"]];
     }
 }
 
@@ -38,10 +36,7 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:@"请输入昵称." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     } else {
-        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        NSMutableDictionary *loginUser = appDelegate.loginUser;
-        
-        NSString *path = [NSString stringWithFormat:@"/user/%@/update_name", loginUser[@"_id"]];
+        NSString *path = [NSString stringWithFormat:@"/user/%@/update_name", _loginUser[@"_id"]];
         NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
         [param setValue:self.TextNickname.text forKey:@"nickname"];
         MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
@@ -57,11 +52,10 @@
             NSString *success = [json objectForKey:@"success"];
             NSLog(@"Success: %@", success);
             if([success boolValue]) {
-                [loginUser setObject:self.TextNickname.text forKey:@"nickname"];
+                [_loginUser setObject:self.TextNickname.text forKey:@"nickname"];
                 //[self.navigationController popToRootViewControllerAnimated:YES];
-                
-                NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-                [userDefaults setObject:self.TextNickname.text forKey:@"nickname"];
+
+                [MyUserDefault setObject:self.TextNickname.text forKey:@"nickname"];
                 
                 [self.navigationController popViewControllerAnimated:YES];
             } else {

@@ -9,22 +9,9 @@
 #import "MonitorController.h"
 #import "MonitorContentController.h"
 #import "UIImage+animatedGIF.h"
+#import "Global.h"
 
 @interface MonitorController ()
-
-#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-#define IS_RETINA ([[UIScreen mainScreen] scale] >= 2.0)
-
-#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
-#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
-#define SCREEN_MAX_LENGTH (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
-#define SCREEN_MIN_LENGTH (MIN(SCREEN_WIDTH, SCREEN_HEIGHT))
-
-#define IS_IPHONE_4_OR_LESS (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
-#define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
-#define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
-#define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
 
 @end
 
@@ -190,6 +177,15 @@
     CGFloat pageWidth = CGRectGetWidth(self.scrollView.frame);
     NSUInteger page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     self.pageControl.currentPage = page;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)sender {
+    // Update the page when more than 50% of the previous/next page is visible
+    CGFloat pageWidth = sender.frame.size.width;
+    int page = floor((sender.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    
+    // !!! but here is another problem. You should find reference to appropriate pageControl
+    self.pageControl.currentPage = page;
 
     if (page == 0) {
         self.navigationItem.title = @"PM2.5";
@@ -200,15 +196,6 @@
     } else {
         self.navigationItem.title = @"甲醛";
     }
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)sender {
-    // Update the page when more than 50% of the previous/next page is visible
-    CGFloat pageWidth = sender.frame.size.width;
-    int page = floor((sender.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-    
-    // !!! but here is another problem. You should find reference to appropriate pageControl
-    self.pageControl.currentPage = page;
 }
 
 /*

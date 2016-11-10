@@ -9,7 +9,7 @@
 #import "DeviceDetailReviseController.h"
 #import "AppDelegate.h"
 #import "MKNetworkKit.h"
-#import "Constants.h"
+#import "Global.h"
 
 @interface DeviceDetailReviseController ()
 
@@ -20,9 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSDictionary *device = appDelegate.selectedDevice;
+
+    NSDictionary *device = _selectedDevice;
     if (device[@"name"] != nil) {
         [self.TextDeviceName setText:device[@"name"]];
     } else {
@@ -41,19 +40,12 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:@"请输入设备名称." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     } else {
-        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        NSDictionary *loginUser = appDelegate.loginUser;
-        NSMutableDictionary *device = appDelegate.selectedDevice;
-        
-        NSString *path = [NSString stringWithFormat:@"/user/%@/device/%@/update_name", loginUser[@"_id"], device[@"_id"]];
+        NSString *path = [NSString stringWithFormat:@"/user/%@/device/%@/update_name", _loginUser[@"_id"], _selectedDevice[@"_id"]];
         NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
         [param setValue:self.TextDeviceName.text forKey:@"name"];
         MKNetworkHost *host = [[MKNetworkHost alloc] initWithHostName:MORAL_API_BASE_PATH];
         MKNetworkRequest *request = [host requestWithPath:path params:param httpMethod:@"POST"];
         [request addCompletionHandler: ^(MKNetworkRequest *completedRequest) {
-            // NSString *response = [completedRequest responseAsString];
-            // NSLog(@"Response: %@", response);
-            
             NSError *error = [completedRequest error];
             NSData *data = [completedRequest responseData];
     
@@ -61,7 +53,7 @@
             NSString *success = [json objectForKey:@"success"];
             NSLog(@"Success: %@", success);
             if([success boolValue]) {
-                [device setObject:self.TextDeviceName.text forKey:@"name"];
+                [_selectedDevice setObject:self.TextDeviceName.text forKey:@"name"];
                 [self.navigationController popViewControllerAnimated:YES];
             } else {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误信息" message:[json objectForKey:@"error"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
